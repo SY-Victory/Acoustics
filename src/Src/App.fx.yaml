@@ -275,7 +275,8 @@ App As appinfo:
                     Filter(
                         BESA_Shifts,
                         'User GUID' = varStaffViewBESAID,
-                        'Shift Date' = dateEngineerSelectedView_1.SelectedDate,
+                        'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
+                        'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                         'Shift Type' = "Booking"
                     ),
                     'Shift Type', 'Booking LookUp', 'Shift Date', 'User GUID', 'Shift ID', 'Site LookUp', 'Generate RAMs'
@@ -451,7 +452,8 @@ App As appinfo:
                         Filter(
                             BESA_Shifts,
                             'User GUID' = varStaffViewBESAID,
-                            'Shift Date' = dateEngineerSelectedView_1.SelectedDate,
+                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
+                            'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                             'Shift Type' <> "Booking",
                             'Shift Type' <> "Activity"
                         ),
@@ -483,7 +485,8 @@ App As appinfo:
                 Filter(
                     BESA_Shifts,
                     'User GUID' = varStaffViewBESAID,
-                    'Shift Date' = dateEngineerSelectedView_1.SelectedDate,
+                    'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
+                    'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                     'Shift Type' = "Activity"
                 )
             );
@@ -522,7 +525,8 @@ App As appinfo:
                 Filter(
                     BESA_Shifts,
                     'User GUID' = varStaffViewBESAID,
-                    'Shift Date' = dateEngineerSelectedView_1.SelectedDate,
+                    'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
+                    'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                     'Shift Type' <> "Activity"
                 )
             );

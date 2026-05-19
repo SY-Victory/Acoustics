@@ -24,8 +24,8 @@ This is an unpacked Power Apps Canvas App source (**BESA_OS Engineer V01 - Victo
 |--------|---------|
 | `Screen_EngineerHome` | Main screen — shift timeline, action list, navigation to all workflows |
 | `Screen_EngineerAcoustic` / `_1` | Acoustic testing data entry (two related screens) |
-| `Screen_EngineerHome_Zzz` | Legacy/dev screen |
-| `Screen_StartUpCollections` | Startup collection builder (may be unused — logic moved to `App.OnStart`) |
+| `Screen_EngineerHome_Zzz` | Legacy/dev screen — **IGNORE, do not read or modify** |
+| `Screen_StartUpCollections` | Startup collection builder (unused) — **IGNORE, do not read or modify** |
 | `Screen_EngineerRiskAssessment` | Risk assessment form |
 | `scrRAMSSignOff` | RAMs sign-off workflow |
 | `Screen_EngineerPermTest_V2_1` | Permeability test screen (air tightness testing) |

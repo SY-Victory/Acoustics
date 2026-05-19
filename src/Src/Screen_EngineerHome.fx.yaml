@@ -164,7 +164,8 @@ Screen_EngineerHome As screen:
                             Filter(
                                 BESA_Shifts,
                                 'User GUID' = varStaffViewBESAID,
-                                'Shift Date' = dateEngineerSelectedView_1.SelectedDate,
+                                'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
+                                'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                                 'Shift Type' = "Booking"
                             ),
                             'Shift Type', 'Booking LookUp', 'Shift Date', 'User GUID', 'Shift ID', 'Site LookUp', 'Generate RAMs'
@@ -332,7 +333,8 @@ Screen_EngineerHome As screen:
                         Filter(
                             BESA_Shifts,
                             'User GUID' = varStaffViewBESAID,
-                            'Shift Date' = dateEngineerSelectedView_1.SelectedDate,
+                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
+                            'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                             Or(Adhoc = true, 'People HR Shift' = true)
                         )
                     );
@@ -358,7 +360,8 @@ Screen_EngineerHome As screen:
                         Filter(
                             BESA_Shifts,
                             'User GUID' = varStaffViewBESAID,
-                            'Shift Date' = dateEngineerSelectedView_1.SelectedDate,
+                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
+                            'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                             'Shift Type' = "Activity"
                         )
                     );
@@ -389,7 +392,8 @@ Screen_EngineerHome As screen:
                         Filter(
                             BESA_Shifts,
                             'User GUID' = varStaffViewBESAID,
-                            'Shift Date' = dateEngineerSelectedView_1.SelectedDate,
+                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
+                            'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                             'Shift Type' <> "Activity",
                             Not(Adhoc = true)
                         )
@@ -2121,7 +2125,7 @@ Screen_EngineerHome As screen:
                     Height: =35
                     Size: =11
                     Text: |-
-                        ="(" & CountRows(Filter(BESA_Shifts, 'Shift Date' = dateEngineerSelectedView_1.SelectedDate, 'User GUID' = Text(ThisItem.BESA_EngineerList))) & ") Shifts " &
+                        ="(" & CountRows(Filter(BESA_Shifts, 'Shift Date' >= dateEngineerSelectedView_1.SelectedDate, 'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days), 'User GUID' = Text(ThisItem.BESA_EngineerList))) & ") Shifts " &
                         "(" & CountRows(col_EngineerActionList) & ") Actions for : " & Text(dateEngineerSelectedView_1.SelectedDate, "dd dddd mmm, yyyy")
                     Width: =500
                     X: =5
@@ -4266,7 +4270,7 @@ Screen_EngineerHome As screen:
                     Size: =11
                     Text: |
                         =
-                        "Est. Total Hours: " & Coalesce(Sum(Filter(BESA_Shifts, 'User GUID' = varStaffViewBESAID && 'Shift Date' = dateEngineerSelectedView_1.SelectedDate), 'Estimated Duration'), 0)
+                        "Est. Total Hours: " & Coalesce(Sum(Filter(BESA_Shifts, 'User GUID' = varStaffViewBESAID && 'Shift Date' >= dateEngineerSelectedView_1.SelectedDate && 'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days)), 'Estimated Duration'), 0)
                     Width: =249
                     X: =380
                     ZIndex: =21
