@@ -321,7 +321,7 @@ App As appinfo:
                             'Action Type':    "Risk Assessment",
                             'Action Name':    "Risk Self Assessment",
                             'Action Status':  "Pending",
-                            'Shift ID':       GUID(shiftListGathering.'Shift ID')
+                            'Shift ID':       shiftListGathering.'Shift ID'
                         }
                     );
                     Collect(
@@ -335,7 +335,7 @@ App As appinfo:
                             'Induction GUID':    wthExistingInductionGUID,
                             'Action Type':       "Site Induction",
                             'Action Name':       "Site Induction Form",
-                            'Shift ID':          GUID(shiftListGathering.'Shift ID')
+                            'Shift ID':          shiftListGathering.'Shift ID'
                         }
                     )
                 )
@@ -373,7 +373,7 @@ App As appinfo:
                                 'Action Name':    "RAMs Form",
                                 'Action Status':  If(shiftItem.'Generate RAMs' = true, "Complete", "Pending"),
                                 'RAMS LookUp':    Blank(),
-                                'Shift ID':       GUID(shiftItem.'Shift ID')
+                                'Shift ID':       shiftItem.'Shift ID'
                             }
                         )
                     )
@@ -428,7 +428,7 @@ App As appinfo:
                                                       ),
                             'Element LookUp':         itemBookingElement.'Element LookUp',
                             'Booking Element LookUp': itemBookingElement,
-                            'Shift ID':               GUID(itemBookingElement.'Shift ID'),
+                            'Shift ID':               itemBookingElement.'Shift ID',
                             cachedTestType:           itemBookingElement.cachedTestType,
                             cachedClientName:         Text(wthClientLookUp.'Client Name'),
                             cachedSiteName:           Text(wthSiteLookUp.'Site Name'),
@@ -472,7 +472,7 @@ App As appinfo:
                         'Action Status': "Pending",
                         'Action Type':   "Misc",
                         'Action Name':   itemNonBookingItem.'Shift Type',
-                        'Shift ID':      GUID(itemNonBookingItem.'Shift ID')
+                        'Shift ID':      itemNonBookingItem.'Shift ID'
                     }
                 )
             );
@@ -509,7 +509,7 @@ App As appinfo:
                             'Action Name':         wthActivityRecord.'Activity Name',
                             'Additional Comments': activityShift.'Additional Comments',
                             'Client LookUp':       wthActivityRecord.'Client LookUp',
-                            'Shift ID':            GUID(activityShift.'Shift ID'),
+                            'Shift ID':            activityShift.'Shift ID',
                             'Activity LookUp':     wthActivityRecord
                             
                         }
