@@ -1,0 +1,49 @@
+component_MainMenu As CanvasComponent:
+    Fill: =RGBA(7, 110, 108, 1)
+    Height: =768
+    Width: =50
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    gallery_colMenu As gallery.galleryVertical:
+        DelayItemLoading: =true
+        Items: =col_Menu
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: |
+            =40
+        Width: =Parent.Width
+        Y: =135
+        ZIndex: =1
+
+        Icon1 As icon:
+            Color: =If(varActiveScreen = ThisItem.Screen, RGBA(255, 255, 255, 1), RGBA(255, 255, 255, 0.5))
+            Height: =30
+            Icon: =ThisItem.MenuIcon
+            OnSelect: |-
+                =Set(varActiveScreen, ThisItem.Screen);
+                Set(varTestViewMode, false);
+                Navigate(ThisItem.Screen);
+            PaddingLeft: =3
+            PaddingRight: =3
+            Tooltip: =ThisItem.MenuLabel
+            Width: =30
+            X: =5
+            Y: =5
+            ZIndex: =1
+
+        Button1_1 As button:
+            Color: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(237, 237, 237, 0.46)
+            OnSelect: |-
+                =Set(varActiveScreen, ThisItem.Screen);
+                Set(varTestViewMode, false);
+                
+                Navigate(ThisItem.Screen);
+            Size: =0
+            Text: =
+            Width: =40
+            ZIndex: =2
+

@@ -1,0 +1,108 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_clientcontacts",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_clientcontact",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_ClientContacts",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_booking_BookingContactLookUp_sy_besa_clientcontact": "BESA_Bookings",
+      "sy_besa_clientcontact_AsyncOperations": "System Jobs",
+      "sy_besa_clientcontact_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_clientcontact_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_clientcontact_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_clientcontact_ProcessSession": "Process Sessions",
+      "sy_besa_clientcontact_SyncErrors": "Sync Errors",
+      "sy_besa_clientcontactid": "BESA_ClientContact",
+      "sy_besa_element_ContactLookUp_sy_besa_clientcontact": "BESA_Elements",
+      "sy_besa_order_OrderClientContactLookUp_sy_besa_clientcontact": "BESA_Orders",
+      "sy_besa_site_SiteContactLookUp_sy_besa_clientcontact": "BESA_Sites",
+      "sy_clientcontactid": "Client Contact ID",
+      "sy_ClientLookUp": "Client LookUp",
+      "sy_clientreference": "Client Reference",
+      "sy_connectedprojects": "Connected Projects",
+      "sy_contactemailaddress": "Contact Email Address",
+      "sy_contactname": "Contact Name",
+      "sy_contactstatus": "Contact Status",
+      "sy_contacttelephone": "Contact Telephone",
+      "sy_contacttype": "Contact Type",
+      "sy_eleosid": "Eleos ID",
+      "sy_entraid": "Entra ID",
+      "sy_name": "Name",
+      "sy_role": "Role",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_ClientContacts",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_ClientContacts (Views)",
+    "Name": "_sy_besa_clientcontact_views",
+    "RelatedEntityName": "BESA_ClientContacts",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "47af7739-c1cb-4da1-b2f7-f46695da5385": "BESA_ClientContact Advanced Find View",
+      "49332d16-311a-448a-86ab-dc131d673b31": "BESA_ClientContact Associated View",
+      "79f834cb-4c2f-43df-a8d1-b78bb0771440": "Active BESA_ClientContacts",
+      "c2ab689a-f36a-423e-abb6-c93469daaab1": "BESA_ClientContact Lookup View",
+      "c53d817a-ed7d-4024-9748-7e7521a76843": "Inactive BESA_ClientContacts"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_ClientContacts)",
+    "Name": "sy_besa_clientcontact_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_ClientContacts"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_ClientContacts",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_ClientContacts)",
+    "Name": "sy_besa_clientcontact_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_ClientContacts"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_ClientContacts",
+    "Type": "OptionSetInfo"
+  }
+]

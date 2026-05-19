@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(awk NR>=300 && NR<=310:*)",
+      "Bash(awk NR>=37 && NR<=38:*)",
+      "Bash(pac:*)",
+      "Bash(where pac:*)",
+      "Bash(\"C:/Users/VictoryMpokosa/AppData/Local/Microsoft/PowerAppsCLI/pac.cmd\" canvas:*)",
+      "Bash(awk NR>=30 && NR<=80:*)",
+      "Bash(python3:*)",
+      "Bash(cp:*)",
+      "Bash(awk NR>=345 && NR<=355:*)",
+      "Bash(awk NR>=346 && NR<=350:*)",
+      "Bash(awk NR==347{print \"\"        \"\"; next} {print}:*)",
+      "Bash(awk NR>=346 && NR<=348:*)"
+    ]
+  }
+}

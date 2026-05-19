@@ -1,0 +1,99 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_settingsglobals",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_settingsglobal",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_SettingsGlobals",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_settingsglobal_AsyncOperations": "System Jobs",
+      "sy_besa_settingsglobal_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_settingsglobal_DuplicateBaseRecord": "Duplicate Records (sy_besa_settingsglobal_DuplicateBaseRecord)",
+      "sy_besa_settingsglobal_DuplicateMatchingRecord": "Duplicate Records (sy_besa_settingsglobal_DuplicateMatchingRecord)",
+      "sy_besa_settingsglobal_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_settingsglobal_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_settingsglobal_ProcessSession": "Process Sessions",
+      "sy_besa_settingsglobal_SyncErrors": "Sync Errors",
+      "sy_besa_settingsglobalid": "BESA_SettingsGlobal",
+      "sy_settingsjson": "Settings Json",
+      "sy_settingsname": "Settings Name",
+      "sy_settingsvalue": "Settings Value",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_SettingsGlobals",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_SettingsGlobals (Views)",
+    "Name": "_sy_besa_settingsglobal_views",
+    "RelatedEntityName": "BESA_SettingsGlobals",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2bf52e06-9ca8-4e60-87ea-6a4cc50c3b87": "Inactive BESA_SettingsGlobals",
+      "5abf3313-0555-40df-937a-6cfd81a6be27": "BESA_SettingsGlobal Advanced Find View",
+      "9630f473-83d8-494a-a427-67aa9412d7cd": "BESA_SettingsGlobal Lookup View",
+      "aa1a77ca-2197-48f0-a613-018ab46e9cdc": "BESA_SettingsGlobal Associated View",
+      "f477084c-e6a2-493c-b23a-aec30d9a154c": "Active BESA_SettingsGlobals"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_SettingsGlobals)",
+    "Name": "sy_besa_settingsglobal_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_SettingsGlobals"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_SettingsGlobals",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_SettingsGlobals)",
+    "Name": "sy_besa_settingsglobal_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_SettingsGlobals"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_SettingsGlobals",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_bookingservices",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_bookingservice",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_BookingServices",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_bookingservice_AsyncOperations": "System Jobs",
+      "sy_besa_bookingservice_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_bookingservice_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_bookingservice_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_bookingservice_ProcessSession": "Process Sessions",
+      "sy_besa_bookingservice_SyncErrors": "Sync Errors",
+      "sy_besa_bookingserviceid": "BESA_BookingService",
+      "sy_BookingLookUp": "Booking LookUp",
+      "sy_bookingservicecost": "Booking Service Cost",
+      "sy_confirmationemailsent": "Confirmation Email Sent",
+      "sy_cost": "Cost",
+      "sy_division": "Division",
+      "sy_ElementLookUp": "Element LookUp",
+      "sy_emailstatus": "Email Status",
+      "sy_EngineerLookUp": "Engineer LookUp",
+      "sy_OrderServiceLookUp": "Order Service LookUp",
+      "sy_priceperunit": "Price Per Unit",
+      "sy_PurchaseOrderLookUp": "Purchase Order LookUp",
+      "sy_quantity": "Quantity",
+      "sy_quantityapplied": "Quantity Applied",
+      "sy_reapplied": "Reapplied",
+      "sy_service": "Service",
+      "sy_ServiceLookUp": "Service LookUp",
+      "sy_servicename": "Service Name",
+      "sy_sy_besa_bookingelement_sy_BESA_BookingService_sy_BookingServiceLookup": "BESA_BookingElements",
+      "sy_workpackage": "Work Package",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_BookingServices",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_BookingServices (Views)",
+    "Name": "_sy_besa_bookingservice_views",
+    "RelatedEntityName": "BESA_BookingServices",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "5edb022d-ab72-43b7-8806-e8102930036b": "Inactive BESA_BookingServices",
+      "731bef7d-7db5-4a28-a81b-d36379a19d7e": "BESA_BookingService Associated View",
+      "95ff71c9-0610-4be4-b246-0a2e44c44f2a": "Active BESA_BookingServices",
+      "96e24a18-44da-400d-a47d-0869fa51bc6b": "BESA_BookingService Advanced Find View",
+      "bea3e52a-48bb-485b-b6d0-7bea4103ec47": "BESA_BookingService Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_BookingServices)",
+    "Name": "sy_besa_bookingservice_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_BookingServices"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_BookingServices",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_BookingServices)",
+    "Name": "sy_besa_bookingservice_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_BookingServices"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_BookingServices",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Confirmation Email Sent (BESA_BookingServices)",
+    "Name": "sy_besa_bookingservice_sy_confirmationemailsent",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_confirmationemailsent",
+        "OptionSetReferenceEntityName": "BESA_BookingServices"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_confirmationemailsent",
+    "RelatedEntityName": "BESA_BookingServices",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Reapplied (BESA_BookingServices)",
+    "Name": "sy_besa_bookingservice_sy_reapplied",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_reapplied",
+        "OptionSetReferenceEntityName": "BESA_BookingServices"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_reapplied",
+    "RelatedEntityName": "BESA_BookingServices",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Work Package (BESA_BookingServices)",
+    "Name": "sy_besa_bookingservice_sy_workpackage",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_workpackage",
+        "OptionSetReferenceEntityName": "BESA_BookingServices"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_workpackage",
+    "RelatedEntityName": "BESA_BookingServices",
+    "Type": "OptionSetInfo"
+  }
+]

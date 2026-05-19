@@ -1,0 +1,196 @@
+<widget xmlns="http://openajax.org/metadata" xmlns:appMagic="http://schemas.microsoft.com/appMagic" spec="1.0" id="http://microsoft.com/appmagic/modernDatePicker" name="modernDatePicker" jsClass="AppMagic.Controls.ModernDatePickerControl" version="1.0.0" styleable="true" enabledForFeatureGate="Controls.ModernDatePickerControl" runtimeCost="1">
+  <author name="Microsoft AppMagic" />
+  <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
+  <description><![CDATA[Modern date picker control using Fluent UI v9 styling.]]></description>
+  <requires>
+    <require type="javascript" src="/openSource/modified/pcfplatformlibs/fluent_9_4_0.js" />
+    <require type="javascript" src="/ctrllib/shared/js/PowerAppsControlsFluentIcons.js" />
+    <require type="javascript" src="js/modernDatePicker.js" />
+  </requires>
+  <appMagic:capabilities contextualViewsEnabled="true" autoDisabledViewState="true" isVersionFlexible="true" supportsResettableProperties="true" />
+  <appMagic:accessibilityChecks controlIsInteractive="true" />
+  <content><![CDATA[]]></content>
+  <properties>
+    <!-- Data properties -->
+    <property name="DefaultDate" localizedName="##DatePicker_DefaultDate##" datatype="date" defaultValue="" isExpr="true" direction="in" isPrimaryInputProperty="true">
+      <title>Default date</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##DatePicker_DefaultDate_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##DatePicker_DefaultDate_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="SelectedDate" localizedName="##DatePicker_SelectedDate##" datatype="date" defaultValue="" isExpr="true" direction="out" canBeCompressed="false">
+      <title>Selected date</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##DatePicker_SelectedDate_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##DatePicker_SelectedDate_Tooltip##</appMagic:tooltip>
+      <appMagic:excludeFromReachability />
+    </property>
+    <property name="StartDate" localizedName="##DatePicker_StartDate##" datatype="date" defaultValue="Date(1900, 1, 1)" isExpr="true" direction="in" editable="true">
+      <title>Start date</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##DatePicker_StartDate_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##DatePicker_StartDate_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="EndDate" localizedName="##DatePicker_EndDate##" datatype="date" defaultValue="Date(Year(Today())+100, 12, 31)" isExpr="true" direction="in" editable="true">
+      <title>End date</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##DatePicker_EndDate_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##DatePicker_EndDate_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Placeholder" localizedName="##DatePicker_Placeholder##" datatype="String" defaultValue="&quot;##DatePicker_DefaultPlaceholder##&quot;" isExpr="true">
+      <title>Placeholder</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##DatePicker_Placeholder_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##DatePicker_Placeholder_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="DateTimeZone" localizedName="##DatePicker_DateTimeZone##" datatype="DateTimeZone" direction="in" defaultValue="%DateTimeZone.RESERVED%.Local" isExpr="true" editable="true">
+      <title>DateTimeZone</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:helperUI>DateTimeZone</appMagic:helperUI>
+      <appMagic:displayName>##DatePicker_DateTimeZone_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##DatePicker_DateTimeZone_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="Format" localizedName="##DatePicker_Format##" datatype="DatePickerFormat" direction="in" defaultValue="%DatePickerFormat.RESERVED%.LongAbbreviated" isExpr="true" editable="true">
+      <title>Format</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:helperUI>DatePickerFormat</appMagic:helperUI>
+      <appMagic:displayName>##DatePicker_Format_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##DatePicker_Format_Tooltip##</appMagic:tooltip>
+    </property>
+    <property name="StartOfWeek" localizedName="##DatePicker_StartOfWeek##" datatype="StartOfWeek" direction="in" defaultValue="%StartOfWeek.RESERVED%.Sunday" isExpr="true" editable="true">
+      <title>Start of week</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:helperUI>StartOfWeek</appMagic:helperUI>
+      <appMagic:displayName>##DatePicker_StartOfWeek_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##DatePicker_StartOfWeek_Tooltip##</appMagic:tooltip>
+    </property>
+    <!-- Behavior properties -->
+    <property name="IsEditable" localizedName="##DatePicker_IsEditable##" datatype="Boolean" direction="in" defaultValue="false" isExpr="true" editable="true">
+      <title>IsEditable</title>
+      <appMagic:category>data</appMagic:category>
+      <appMagic:displayName>##DatePicker_IsEditable_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##DatePicker_IsEditable_Tooltip##</appMagic:tooltip>
+    </property>
+    <!-- Design properties -->
+    <property name="BasePaletteColor" localizedName="##DatePicker_BasePaletteColor##" datatype="Color" defaultValue="" isExpr="true" converter="argbConverter">
+      <title>Base palette color</title>
+      <appMagic:category>design</appMagic:category>
+      <appMagic:displayName>##DatePicker_BasePaletteColor_DisplayName##</appMagic:displayName>
+      <appMagic:tooltip>##DatePicker_BasePaletteColor_Tooltip##</appMagic:tooltip>
+    </property>
+  </properties>
+  <appMagic:includeProperties>
+    <!-- Data -->
+    <appMagic:includeProperty name="ContentLanguage" />
+    <!-- Appearance and Trigger Output -->
+    <appMagic:includeProperty name="Appearance" />
+    <appMagic:includeProperty name="ValidationState" />
+    <!-- Design - Fill and Background -->
+    <appMagic:includeProperty name="Fill" defaultValue="" converter="argbConverter" isExpr="true" isResettableToManifestDefault="true" isLinkableToParentTheme="true" />
+    <!-- Design - Border -->
+    <appMagic:includeProperty name="BorderColor" defaultValue="" converter="argbConverter" isExpr="true" />
+    <appMagic:includeProperty name="BorderStyle" defaultValue="" isExpr="true" />
+    <appMagic:includeProperty name="BorderThickness" defaultValue="" nullDefault="" isExpr="true" />
+    <!-- Design - Border Radius -->
+    <appMagic:includeProperty name="RadiusTopLeft" defaultValue="" nullDefault="" isExpr="true" isResettableToManifestDefault="true" isLinkableToParentTheme="true" />
+    <appMagic:includeProperty name="RadiusTopRight" defaultValue="" nullDefault="" isExpr="true" isResettableToManifestDefault="true" isLinkableToParentTheme="true" />
+    <appMagic:includeProperty name="RadiusBottomLeft" defaultValue="" nullDefault="" isExpr="true" isResettableToManifestDefault="true" isLinkableToParentTheme="true" />
+    <appMagic:includeProperty name="RadiusBottomRight" defaultValue="" nullDefault="" isExpr="true" isResettableToManifestDefault="true" isLinkableToParentTheme="true" />
+    <!-- Design - Font -->
+    <appMagic:includeProperty name="Font" defaultValue="" nullDefault="" isExpr="true" isResettableToManifestDefault="true" isLinkableToParentTheme="true" />
+    <appMagic:includeProperty name="Size" defaultValue="14" phoneDefaultValue="24" isResettableToManifestDefault="true" isLinkableToParentTheme="true" />
+    <appMagic:includeProperty name="Color" defaultValue="" converter="argbConverter" isExpr="true" isResettableToManifestDefault="true" isLinkableToParentTheme="true" />
+    <appMagic:includeProperty name="FontWeight" defaultValue="" nullDefault="" isExpr="true" isResettableToManifestDefault="true" isLinkableToParentTheme="true" />
+    <appMagic:includeProperty name="Italic" defaultValue="false" isExpr="true" />
+    <appMagic:includeProperty name="Underline" defaultValue="false" isExpr="true" />
+    <appMagic:includeProperty name="Strikethrough" defaultValue="false" isExpr="true" />
+    <!-- Design - Padding -->
+    <appMagic:includeProperty name="PaddingTop" defaultValue="" nullDefault="" isExpr="true" />
+    <appMagic:includeProperty name="PaddingRight" defaultValue="" nullDefault="" isExpr="true" />
+    <appMagic:includeProperty name="PaddingBottom" defaultValue="" nullDefault="" isExpr="true" />
+    <appMagic:includeProperty name="PaddingLeft" defaultValue="" nullDefault="" isExpr="true" />
+    <!-- Position and Size -->
+    <appMagic:includeProperty name="X" />
+    <appMagic:includeProperty name="Y" />
+    <appMagic:includeProperty name="Width" defaultValue="320" phoneDefaultValue="560" webDefaultValue="320" />
+    <appMagic:includeProperty name="Height" defaultValue="32" phoneDefaultValue="64" webDefaultValue="32" />
+    <appMagic:includeProperty name="Visible" />
+    <!-- Accessibility -->
+    <appMagic:includeProperty name="AccessibleLabel" />
+    <!-- Behavior -->
+    <appMagic:includeProperty name="DisplayMode" />
+    <appMagic:includeProperty name="OnChange" direction="in" isPrimaryBehaviorProperty="true" />
+    <!-- Hidden properties -->
+    <appMagic:includeProperty name="maximumHeight" defaultValue="768" />
+    <appMagic:includeProperty name="maximumWidth" defaultValue="1366" />
+    <appMagic:includeProperty name="minimumHeight" defaultValue="30" />
+    <appMagic:includeProperty name="minimumWidth" defaultValue="10" />
+  </appMagic:includeProperties>
+  <appMagic:propertyDependencies>
+    <appMagic:propertyDependency input="DefaultDate" output="SelectedDate" />
+    <appMagic:propertyDependency input="DateTimeZone" output="SelectedDate" />
+    <appMagic:propertyDependency input="StartDate" output="SelectedDate" />
+    <appMagic:propertyDependency input="EndDate" output="SelectedDate" />
+  </appMagic:propertyDependencies>
+  <appMagic:insertMetadata>
+    <appMagic:category name="Input" priority="20" />
+  </appMagic:insertMetadata>
+  <appMagic:displayMetadata>
+    <!-- General Section -->
+    <appMagic:section type="GeneralSection">
+      <appMagic:property name="DefaultDate" />
+      <appMagic:property name="Placeholder" />
+      <appMagic:property name="Format" />
+      <appMagic:property name="DateTimeZone" labelOverride="##DatePicker_DateTimeZone_DisplayName##" />
+      <appMagic:property name="AccessibleLabel" />
+    </appMagic:section>
+    <!-- Behavior Section -->
+    <appMagic:section type="BehaviorSection">
+      <appMagic:property name="DisplayMode" />
+      <appMagic:property name="Visible" />
+    </appMagic:section>
+    <!-- Size and Position Section -->
+    <appMagic:section type="SizeAndPositioningSection">
+      <appMagic:propertyGroup name="Position">
+        <appMagic:property name="X" />
+        <appMagic:property name="Y" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Size">
+        <appMagic:property name="Width" />
+        <appMagic:property name="Height" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Padding">
+        <appMagic:property name="PaddingTop" labelOverride="##Padding_Top_Title##" />
+        <appMagic:property name="PaddingBottom" labelOverride="##Padding_Bottom_Title##" />
+        <appMagic:property name="PaddingLeft" labelOverride="##Padding_Left_Title##" />
+        <appMagic:property name="PaddingRight" labelOverride="##Padding_Right_Title##" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+    <!-- Style and Theme Section -->
+    <appMagic:section type="StyleAndThemeSection">
+      <appMagic:property name="Appearance" />
+      <appMagic:property name="BasePaletteColor" displayType="ColorPalette" />
+      <appMagic:property name="Font" displayType="FontEnum" showInFloatie="true" showInCommandBar="true" />
+      <appMagic:property name="Size" labelOverride="##FontSize_Property##" showInFloatie="true" showInCommandBar="true" />
+      <appMagic:property name="Color" showInFloatie="true" showInCommandBar="true" />
+      <appMagic:property name="Fill" showInFloatie="true" showInCommandBar="true" />
+      <appMagic:property name="FontWeight" displayType="EnumIcon" itemsOrder="Bold;Semibold;Normal;Lighter" />
+      <appMagic:propertyGroup name="Style">
+        <appMagic:property name="Italic" displayType="ToggleButton" />
+        <appMagic:property name="Underline" displayType="ToggleButton" />
+        <appMagic:property name="Strikethrough" displayType="ToggleButton" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Border">
+        <appMagic:property name="BorderStyle" />
+        <appMagic:property name="BorderThickness" />
+        <appMagic:property name="BorderColor" />
+      </appMagic:propertyGroup>
+      <appMagic:propertyGroup name="Radius">
+        <appMagic:property name="RadiusTopLeft" labelOverride="##Radius_TopLeft_Title##" />
+        <appMagic:property name="RadiusTopRight" labelOverride="##Radius_TopRight_Title##" />
+        <appMagic:property name="RadiusBottomLeft" labelOverride="##Radius_BottomLeft_Title##" />
+        <appMagic:property name="RadiusBottomRight" labelOverride="##Radius_BottomRight_Title##" />
+      </appMagic:propertyGroup>
+    </appMagic:section>
+  </appMagic:displayMetadata>
+</widget>

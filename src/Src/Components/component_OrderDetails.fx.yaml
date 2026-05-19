@@ -1,0 +1,67 @@
+component_OrderDetails As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =33
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    containerComponentOrderDetails As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Semilight
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =32
+        LayoutGridColumnMinWidth: =0
+        LayoutGridColumns: =6
+        LayoutGridRowMinHeight: =0
+        LayoutGridRows: =6
+        Width: =Parent.Width
+        ZIndex: =1
+
+        galleryOrderDetailsComponent As gallery.galleryHorizontal:
+            '#CopilotOverlayLabel': ="Filtered"
+            DelayItemLoading: =true
+            Height: =32
+            Items: =col_OrdersMenu
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =150
+            X: =10
+            ZIndex: =1
+
+            Label6_1 As label:
+                Color: =If(varOrderDetailsTab = ThisItem.MenuLabel, RGBA(7, 110, 108, 1),RGBA(56, 56, 56, 1))
+                Height: =32
+                OnSelect: =Select(Parent)
+                Size: =11
+                Text: =ThisItem.MenuLabel
+                X: =30
+                ZIndex: =2
+
+            Icon6_1 As icon:
+                Color: =If(varOrderDetailsTab = ThisItem.MenuLabel, RGBA(7, 110, 108, 1),RGBA(56, 56, 56, 1))
+                Height: =32
+                Icon: =ThisItem.MenuIcon
+                OnSelect: =Select(Parent)
+                PaddingBottom: =5
+                PaddingTop: =5
+                Width: =30
+                ZIndex: =3
+
+            Button1_3 As button:
+                Color: =RGBA(0, 0, 0, 0)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverFill: =RGBA(237, 237, 237, 0.46)
+                OnSelect: |-
+                    =Set(varOrderDetailsTab, ThisItem.MenuLabel);
+                    Switch(ThisItem.MenuLabel, 
+                    "Order Details", Navigate(Screen_OrderDetails), 
+                    "Booking Details", Navigate(Screen_OrderBookingDetails);
+                    "Activities List", Navigate(Screen_OrderActivitiesList)
+                    );
+                Size: =0
+                Text: =
+                Width: =150
+                Y: =1
+                ZIndex: =4
+

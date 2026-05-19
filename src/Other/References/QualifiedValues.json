@@ -1,0 +1,199 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_sy_besa_shift_forms",
+      "Namespace": "BESA_Shifts (Forms)",
+      "Values": {
+        "Information": "1cd88802-fa04-482b-a853-7e7cd7feb682"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_booking_forms",
+      "Namespace": "BESA_Bookings (Forms)",
+      "Values": {
+        "Information": "474a0303-4fce-4c30-90b9-a71857544a16"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_site_forms",
+      "Namespace": "BESA_Sites (Forms)",
+      "Values": {
+        "Information": "a4d42761-3308-4648-8415-bd01590e1091"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_engineerlist_forms",
+      "Namespace": "BESA_EngineerLists (Forms)",
+      "Values": {
+        "Information": "a8f0296f-dd7f-41a1-8c0d-af1a09cb0191"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_bookingelement_forms",
+      "Namespace": "BESA_BookingElements (Forms)",
+      "Values": {
+        "Information": "765d70bd-35ab-4557-8cf6-c8f167e59224"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_element_forms",
+      "Namespace": "BESA_Elements (Forms)",
+      "Values": {
+        "Information": "211b9065-ba08-4a35-b817-eee69c56b46b"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_clientcontact_forms",
+      "Namespace": "BESA_ClientContacts (Forms)",
+      "Values": {
+        "Information": "670d33eb-5790-49bc-8f7c-d55f3f9ac8a1"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_client_forms",
+      "Namespace": "BESA_Clients (Forms)",
+      "Values": {
+        "Information": "237b3ad2-96d7-4be1-a5c0-f7f54ae2c9a6"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_order_forms",
+      "Namespace": "BESA_Orders (Forms)",
+      "Values": {
+        "Information": "6ecdeb1e-f4b4-4ff7-b853-eedb2d65ec1d"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_orderservice_forms",
+      "Namespace": "BESA_OrderServices (Forms)",
+      "Values": {
+        "Information": "7dc896a3-c985-4760-8ca2-ea7df887f135"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_servicecatalogue_forms",
+      "Namespace": "BESA_ServiceCatalogues (Forms)",
+      "Values": {
+        "Information": "699069dc-c792-4bf4-bdda-f8fab968b113"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_envelope_forms",
+      "Namespace": "BESA_Envelopes (Forms)",
+      "Values": {
+        "Information": "cda42d4d-1cb7-4313-bd94-aac186aad91f"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_envelopecatalogue_forms",
+      "Namespace": "BESA_EnvelopeCatalogues (Forms)",
+      "Values": {
+        "Information": "d3ea27d3-caf2-4c31-8b81-d5ae5a4b531c"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_referencepointimage_forms",
+      "Namespace": "BESA_ReferencePointImages (Forms)",
+      "Values": {
+        "Information": "fc5a636f-f802-4713-becc-ef719b551880"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_referencepoint_forms",
+      "Namespace": "BESA_ReferencePoints (Forms)",
+      "Values": {
+        "Information": "1325dc6f-c987-44c2-89b4-d2467640224a"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_test_forms",
+      "Namespace": "BESA_Tests (Forms)",
+      "Values": {
+        "Information": "a2f36b37-9e13-4200-b21e-fff223e58272"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_testrun_forms",
+      "Namespace": "BESA_TestRuns (Forms)",
+      "Values": {
+        "Information": "8baa905c-28e6-4cab-bf7d-bdd4c90a6a67"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_bookingservice_forms",
+      "Namespace": "BESA_BookingServices (Forms)",
+      "Values": {
+        "Information": "7e77c05a-0d3c-4b4b-b886-fa7656aefff6"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_activity_forms",
+      "Namespace": "BESA_Activities (Forms)",
+      "Values": {
+        "Information": "be081f65-8689-4c77-ae7e-cbf5fcd95706"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_siteinduction_forms",
+      "Namespace": "BESA_SiteInductions (Forms)",
+      "Values": {
+        "Information": "aaf721d5-ea85-424b-ac7c-dcbae604f76c"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_document_forms",
+      "Namespace": "BESA_Documents (Forms)",
+      "Values": {
+        "Information": "f00f6b2e-e8c7-4ae8-9bf8-62f7f598a65c"
+      }
+    },
+    {
+      "Kind": "default.cds_asyncoperation_forms",
+      "Namespace": "System Jobs (Forms)",
+      "Values": {
+        "Information": "436c0566-7176-466b-b109-46af8263ab22",
+        "New Bulk Cancel Job form": "7fa18c99-5942-47a0-b924-7c0567d9d416",
+        "New Bulk Pause Job form": "d9313bf2-7766-4f62-bde8-62ae886da408",
+        "New Bulk Resume Job form": "65aa170e-744d-4f65-95f0-2641138f0ead",
+        "New Duplicate Detection Job form": "687f5434-4014-ef11-840b-6045bd03966e",
+        "View Duplicate Detection Job details form": "4ab9fde6-3498-4316-a08f-f30077eb21ad",
+        "View Job Details": "e0166470-55ac-4793-b4ef-e86c956ead83"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_equipment_forms",
+      "Namespace": "BESA_Equipments (Forms)",
+      "Values": {
+        "Information": "57eb7bef-6dfc-4ff2-a1c4-d661f8f875b2"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_besa_settingsglobal_forms",
+      "Namespace": "BESA_SettingsGlobals (Forms)",
+      "Values": {
+        "Information": "d4c55019-e035-4475-8272-61712f143c83"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_appen_order_forms",
+      "Namespace": "Appen_Orders (Forms)",
+      "Values": {
+        "Information": "a63ea9a8-e4b0-4db7-929b-e9b5380401ef"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_gratte_audit_forms",
+      "Namespace": "**DELETE**Gratte_Audits (Forms)",
+      "Values": {
+        "Information": "8985bbb0-dc40-4bcd-a11f-d4a992ce1cb7"
+      }
+    },
+    {
+      "Kind": "default.cds_sy_appen_clientlist_forms",
+      "Namespace": "Appen_ClientLists (Forms)",
+      "Values": {
+        "Information": "51d53db8-066e-4a05-b435-f10628faed03"
+      }
+    }
+  ]
+}

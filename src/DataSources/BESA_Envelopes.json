@@ -1,0 +1,145 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_envelopes",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_envelope",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_Envelopes",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_approvedby": "Approved By",
+      "sy_ApprovedByLookUp": "Approved By LookUp",
+      "sy_approvedon": "Approved On",
+      "sy_besa_envelope_AsyncOperations": "System Jobs",
+      "sy_besa_envelope_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_envelope_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_envelope_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_envelope_ProcessSession": "Process Sessions",
+      "sy_besa_envelope_SyncErrors": "Sync Errors",
+      "sy_besa_envelopeid": "BESA_Envelope",
+      "sy_besa_note_EnvelopeLookUp_sy_besa_envelope": "BESA_Notes",
+      "sy_besa_referencepoint_EnvelopeLookUp_sy_besa_envelope": "BESA_ReferencePoints",
+      "sy_besa_test_EnvelopeLookUp_sy_besa_envelope": "BESA_Tests",
+      "sy_BookingElementLookUp": "Booking Element LookUp",
+      "sy_BookingLookUp": "Booking LookUp",
+      "sy_calculatedby": "Calculated By",
+      "sy_CalculatedByLookUp": "Calculated By LookUp",
+      "sy_calculatedon": "Calculated On",
+      "sy_ceilingarea": "Ceiling Area",
+      "sy_ClientLookUp": "Client LookUp",
+      "sy_clientname": "Client Name",
+      "sy_draftedcalculation": "Drafted Calculation",
+      "sy_ElementLookUp": "Element LookUp",
+      "sy_envelopearea": "Envelope Area",
+      "sy_EnvelopeCatalogueLookUp": "Envelope Catalogue LookUp",
+      "sy_envelopeid": "Envelope ID",
+      "sy_envelopereference": "Envelope Reference",
+      "sy_envelopestatus": "Envelope Status",
+      "sy_envelopetype": "Envelope Type",
+      "sy_envelopevolume": "Envelope Volume",
+      "sy_floorarea": "Floor Area",
+      "sy_floorquantity": "Floor Quantity",
+      "sy_gfa": "GFA",
+      "sy_maximumheight": "Maximum Height",
+      "sy_passivvolume": "Passiv Volume",
+      "sy_scheduleddate": "Scheduled Date",
+      "sy_SiteLookUp": "Site LookUp",
+      "sy_verifiedby": "Verified By",
+      "sy_verifiedemailsent": "Verified Email Sent",
+      "sy_volume": "Volume",
+      "sy_wallarea": "Wall Area",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_Envelopes",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_Envelopes (Views)",
+    "Name": "_sy_besa_envelope_views",
+    "RelatedEntityName": "BESA_Envelopes",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "512bf035-eacc-4b36-9e2e-4b4164783414": "BESA_Envelope Lookup View",
+      "5c22a819-dd58-4bd6-9527-f2369b2edb73": "Active BESA_Envelopes",
+      "6db2c219-3477-44c1-a15e-79e9783cc195": "BESA_Envelope Associated View",
+      "d48912d2-4610-46a1-948e-aa2b16a91ae4": "Inactive BESA_Envelopes",
+      "ed56fd31-a74e-4800-bfb9-9c0053c00f99": "BESA_Envelope Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_Envelopes)",
+    "Name": "sy_besa_envelope_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_Envelopes"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_Envelopes",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_Envelopes)",
+    "Name": "sy_besa_envelope_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_Envelopes"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_Envelopes",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Drafted Calculation (BESA_Envelopes)",
+    "Name": "sy_besa_envelope_sy_draftedcalculation",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_draftedcalculation",
+        "OptionSetReferenceEntityName": "BESA_Envelopes"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_draftedcalculation",
+    "RelatedEntityName": "BESA_Envelopes",
+    "Type": "OptionSetInfo"
+  }
+]

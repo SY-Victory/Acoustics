@@ -1,0 +1,103 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_siteinductions",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_siteinduction",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_SiteInductions",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_siteinduction_AsyncOperations": "System Jobs",
+      "sy_besa_siteinduction_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_siteinduction_DuplicateBaseRecord": "Duplicate Records (sy_besa_siteinduction_DuplicateBaseRecord)",
+      "sy_besa_siteinduction_DuplicateMatchingRecord": "Duplicate Records (sy_besa_siteinduction_DuplicateMatchingRecord)",
+      "sy_besa_siteinduction_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_siteinduction_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_siteinduction_ProcessSession": "Process Sessions",
+      "sy_besa_siteinduction_SyncErrors": "Sync Errors",
+      "sy_besa_siteinductionid": "BESA_SiteInduction",
+      "sy_comments": "Comments",
+      "sy_EngineerLookUp": "Engineer LookUp",
+      "sy_expirydate": "Expiry Date",
+      "sy_inductiondate": "Induction Date",
+      "sy_inductionid": "Induction ID",
+      "sy_inductionstatus": "Induction Status",
+      "sy_SiteLookUp": "Site LookUp",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_SiteInductions",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_SiteInductions (Views)",
+    "Name": "_sy_besa_siteinduction_views",
+    "RelatedEntityName": "BESA_SiteInductions",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "02fef9c1-6c4c-4a7c-875b-a96dd6c496a4": "BESA_SiteInduction Associated View",
+      "555dfcdf-5ca7-4176-8757-40379c937f14": "BESA_SiteInduction Advanced Find View",
+      "8c5c6433-b902-4a50-9898-5a4c6a88f6e3": "Inactive BESA_SiteInductions",
+      "aa42ff79-83fc-4c13-b89f-6ff1e8cbb2c3": "Active BESA_SiteInductions",
+      "df24e309-1048-45d0-a64e-ac0aff70fc8b": "BESA_SiteInduction Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_SiteInductions)",
+    "Name": "sy_besa_siteinduction_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_SiteInductions"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_SiteInductions",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_SiteInductions)",
+    "Name": "sy_besa_siteinduction_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_SiteInductions"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_SiteInductions",
+    "Type": "OptionSetInfo"
+  }
+]

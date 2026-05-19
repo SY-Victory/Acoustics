@@ -1,0 +1,122 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_elements",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_element",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_Elements",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_additionalinformationtbc": "Additional Information TBC",
+      "sy_addressline1": "Address Line 1",
+      "sy_addressline2": "Address Line 2",
+      "sy_besa_bookingelement_ElementLookUp_sy_besa_element": "BESA_BookingElements",
+      "sy_besa_bookingservice_ElementLookUp_sy_besa_element": "BESA_BookingServices",
+      "sy_besa_element_AsyncOperations": "System Jobs",
+      "sy_besa_element_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_element_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_element_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_element_ProcessSession": "Process Sessions",
+      "sy_besa_element_SyncErrors": "Sync Errors",
+      "sy_besa_elementid": "BESA_Element",
+      "sy_besa_envelope_ElementLookUp_sy_besa_element": "BESA_Envelopes",
+      "sy_besa_test_ElementLookUp_sy_besa_element": "BESA_Tests",
+      "sy_block": "Block",
+      "sy_ClientLookUp": "Client LookUp",
+      "sy_ContactLookUp": "Contact LookUp",
+      "sy_county": "County",
+      "sy_elementaddressline1": "Element Address Line 1",
+      "sy_elementaddressline2": "Element Address Line 2",
+      "sy_elementname": "Element Name",
+      "sy_elementpostcode": "Element Post Code",
+      "sy_elementreference": "Element Reference",
+      "sy_elementstatus": "Element Status",
+      "sy_elementwhat3words": "Element What3Words",
+      "sy_heatingtype": "Heating Type",
+      "sy_lat": "Lat",
+      "sy_long": "Long",
+      "sy_phase": "Phase",
+      "sy_postcode": "Postcode",
+      "sy_sector": "Sector",
+      "sy_SiteLookUp": "Site LookUp",
+      "sy_targetmax": "Target Max",
+      "sy_targetmin": "Target Min",
+      "sy_towncity": "Town/City",
+      "sy_ventilationtype": "Ventilation Type",
+      "sy_what3words": "what3words",
+      "sy_yearbuilt": "Year Built",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_Elements",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_Elements (Views)",
+    "Name": "_sy_besa_element_views",
+    "RelatedEntityName": "BESA_Elements",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "4e219313-0473-44f1-83da-62762ee58833": "Active BESA_Elements",
+      "707921a8-8d71-42b9-911f-e06638d80865": "BESA_Element Lookup View",
+      "9194b1a7-b3fa-4b1b-bf43-2a7098b96e44": "BESA_Element Advanced Find View",
+      "9326d09f-9595-4f31-8958-a47332fcdabb": "BESA_Element Associated View",
+      "f021943b-82c3-4712-b390-0648a5d73a31": "Inactive BESA_Elements"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_Elements)",
+    "Name": "sy_besa_element_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_Elements"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_Elements",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_Elements)",
+    "Name": "sy_besa_element_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_Elements"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_Elements",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_engineerlists",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_engineerlist",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_EngineerLists",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_bookingelement_EngineerLookUp_sy_besa_engineerlist": "BESA_BookingElements",
+      "sy_besa_bookingservice_EngineerLookUp_sy_besa_engineerlist": "BESA_BookingServices",
+      "sy_besa_engineerlist_AsyncOperations": "System Jobs",
+      "sy_besa_engineerlist_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_engineerlist_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_engineerlist_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_engineerlist_ProcessSession": "Process Sessions",
+      "sy_besa_engineerlist_SyncErrors": "Sync Errors",
+      "sy_besa_engineerlistid": "BESA_EngineerList",
+      "sy_besa_engineerskill_EngineerLookUp_sy_besa_engineerlist": "BESA_EngineerSkills",
+      "sy_besa_note_EngineerLookUp_sy_besa_engineerlist": "BESA_Notes",
+      "sy_besa_shift_EngineerLookUp_sy_besa_engineerlist": "BESA_Shifts",
+      "sy_besa_siteinduction_EngineerLookUp_sy_besa_engineerlist": "BESA_SiteInductions",
+      "sy_besarole": "BESA Role",
+      "sy_competencyauditorgroup": "Competency Auditor Group",
+      "sy_department": "Department",
+      "sy_divisionlead": "Division Lead",
+      "sy_engineername": "Engineer Name",
+      "sy_equipmentset": "Equipment Set",
+      "sy_jobtitle": "Job Title",
+      "sy_office365id": "Office 365 ID",
+      "sy_peoplehrid": "People HR ID",
+      "sy_postcode": "Postcode",
+      "sy_schedulinginformation": "Scheduling Information",
+      "sy_schedulingnotes": "Scheduling Notes",
+      "sy_staffemailaddress": "Staff Email Address",
+      "sy_stafffirstname": "Staff First Name",
+      "sy_stafflastname": "Staff Last Name",
+      "sy_staffname": "Staff Name",
+      "sy_staffstatus": "Staff Status",
+      "sy_stafftype": "Staff Type",
+      "sy_telephonenumber": "Telephone Number",
+      "sy_useraccess": "User Access",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_EngineerLists",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_EngineerLists (Views)",
+    "Name": "_sy_besa_engineerlist_views",
+    "RelatedEntityName": "BESA_EngineerLists",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "23a3e5e2-1a8a-4286-ad33-587c9eb0c546": "BESA_EngineerList Lookup View",
+      "2c5d5236-1740-4bb0-ab65-79c6ea694124": "Inactive BESA_EngineerLists",
+      "5f9c03f1-750d-48f9-a885-f0db781dc521": "Active BESA_EngineerLists",
+      "91b9508f-8c7d-41db-aa51-eab422a92153": "BESA_EngineerList Advanced Find View",
+      "d4a1169f-2d85-4625-ab1d-e28856457457": "BESA_EngineerList Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_EngineerLists)",
+    "Name": "sy_besa_engineerlist_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_EngineerLists"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_EngineerLists",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_EngineerLists)",
+    "Name": "sy_besa_engineerlist_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_EngineerLists"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_EngineerLists",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,83 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  component_OrderDetails:
+    DefinitionType: CanvasComponent
+    AccessAppScope: true
+    Properties:
+      Height: =33
+    Children:
+      - containerComponentOrderDetails:
+          Control: GroupContainer@1.5.0
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.Semilight
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =32
+            Width: =Parent.Width
+          Children:
+            - galleryOrderDetailsComponent:
+                Control: Gallery@2.15.0
+                Variant: Horizontal
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Height: =32
+                  Items: =col_OrdersMenu
+                  TemplatePadding: =0
+                  TemplateSize: =150
+                  X: =10
+                Children:
+                  - Label6_1:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =If(varOrderDetailsTab = ThisItem.MenuLabel, RGBA(7, 110, 108, 1),RGBA(56, 56, 56, 1))
+                        Font: =Font.'Open Sans'
+                        Height: =32
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: =ThisItem.MenuLabel
+                        X: =30
+                  - Icon6_1:
+                      Control: Classic/Icon@2.5.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =If(varOrderDetailsTab = ThisItem.MenuLabel, RGBA(7, 110, 108, 1),RGBA(56, 56, 56, 1))
+                        Height: =32
+                        Icon: =ThisItem.MenuIcon
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =5
+                        PaddingTop: =5
+                        Width: =30
+                  - Button1_3:
+                      Control: Classic/Button@2.2.0
+                      Properties:
+                        BorderColor: =ColorFade(Self.Fill, -15%)
+                        Color: =RGBA(0, 0, 0, 0)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Font: =Font.'Open Sans'
+                        Height: =32
+                        HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =RGBA(237, 237, 237, 0.46)
+                        OnSelect: |-
+                          =Set(varOrderDetailsTab, ThisItem.MenuLabel);
+                          Switch(ThisItem.MenuLabel, 
+                          "Order Details", Navigate(Screen_OrderDetails), 
+                          "Booking Details", Navigate(Screen_OrderBookingDetails);
+                          "Activities List", Navigate(Screen_OrderActivitiesList)
+                          );
+                        PressedBorderColor: =Self.Fill
+                        PressedColor: =Self.Fill
+                        PressedFill: =Self.Color
+                        Size: =0
+                        Text: =
+                        Width: =150
+                        Y: =1

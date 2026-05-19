@@ -1,0 +1,96 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_envelopecatalogues",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_envelopecatalogue",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_EnvelopeCatalogues",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_envelope_EnvelopeCatalogueLookUp_sy_besa_envelopecatalogue": "BESA_Envelopes",
+      "sy_besa_envelopecatalogue_AsyncOperations": "System Jobs",
+      "sy_besa_envelopecatalogue_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_envelopecatalogue_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_envelopecatalogue_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_envelopecatalogue_ProcessSession": "Process Sessions",
+      "sy_besa_envelopecatalogue_SyncErrors": "Sync Errors",
+      "sy_besa_envelopecatalogueid": "BESA_EnvelopeCatalogue",
+      "sy_envelopeabreviation": "Envelope Abreviation",
+      "sy_envelopeid": "Envelope ID",
+      "sy_envelopename": "Envelope Name",
+      "sy_envelopetype": "Envelope Type",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_EnvelopeCatalogues",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_EnvelopeCatalogues (Views)",
+    "Name": "_sy_besa_envelopecatalogue_views",
+    "RelatedEntityName": "BESA_EnvelopeCatalogues",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0f52f348-4324-4159-997e-d7164091c52a": "Inactive BESA_EnvelopeCatalogues",
+      "42f9482c-4f3d-41b2-9dce-334a06f57765": "BESA_EnvelopeCatalogue Advanced Find View",
+      "78c35279-ceed-4f7f-a44c-4014767d77c0": "Active BESA_EnvelopeCatalogues",
+      "e0741f01-6ba3-4be2-89a6-b37605ac06d0": "BESA_EnvelopeCatalogue Lookup View",
+      "ed86ae1d-f2f5-444f-a2ed-2222adc52b6f": "BESA_EnvelopeCatalogue Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_EnvelopeCatalogues)",
+    "Name": "sy_besa_envelopecatalogue_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_EnvelopeCatalogues"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_EnvelopeCatalogues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_EnvelopeCatalogues)",
+    "Name": "sy_besa_envelopecatalogue_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_EnvelopeCatalogues"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_EnvelopeCatalogues",
+    "Type": "OptionSetInfo"
+  }
+]

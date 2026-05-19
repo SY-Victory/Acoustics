@@ -1,0 +1,27 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": true,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "component_NotesPopup",
+    "TemplateGuid": "6d20ba9112bf43d2b135cc34bc84cb40"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "639147082033928213",
+  "Name": "6d20ba9112bf43d2b135cc34bc84cb40",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "a96f89ddbeaf4bf98c1059602492239b",
+  "Version": "1.0"
+}

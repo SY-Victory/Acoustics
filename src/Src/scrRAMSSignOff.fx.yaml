@@ -1,0 +1,625 @@
+scrRAMSSignOff As screen:
+    ContentLanguage: =""
+    Fill: =Color.White
+    LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+
+    lblScreenTitle As Text:
+        Align: ='TextCanvas.Align'.Start
+        AutoHeight: =false
+        BorderColor: =
+        BorderStyle: =""
+        ContentLanguage: =""
+        DisplayMode: =DisplayMode.Edit
+        Fill: =
+        Font: =""
+        FontColor: =RGBA(255, 255, 255, 1)
+        FontItalic: =false
+        FontStrikethrough: =false
+        FontUnderline: =false
+        Height: =56
+        Size: =18
+        TabIndex: =0
+        Text: ="RAMS Sign-Off"
+        Tooltip: =""
+        VerticalAlign: =VerticalAlign.Middle
+        Visible: =true
+        Weight: ='TextCanvas.Weight'.Semibold
+        Width: =600
+        Wrap: =true
+        X: =114
+        Y: =0
+        ZIndex: =1
+
+    rectHeaderBg As rectangle:
+        BorderColor: =App.Theme.Colors.Darker40
+        Fill: =RGBA(7, 110, 108, 1)
+        Height: =56
+        Width: =Parent.Width
+        ZIndex: =2
+
+    rectLeftPanel As rectangle:
+        BorderColor: =RGBA(0, 18, 107, 0.12)
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =690
+        Width: =660
+        X: =16
+        Y: =68
+        ZIndex: =3
+
+    lblElementsHeader As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(0, 18, 107, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =24
+        Size: =11
+        Text: |-
+            ="Elements being signed off:"
+        Width: =500
+        X: =28
+        Y: =80
+        ZIndex: =4
+
+    lblElementCount As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(100, 100, 100, 1)
+        Height: =24
+        Size: =10
+        Text: =CountRows(col_SelectedSignOffElements) & " element(s)"
+        Width: =160
+        X: =508
+        Y: =80
+        ZIndex: =5
+
+    galSelectedElements As gallery.galleryHorizontal:
+        '#CopilotOverlayLabel': ="Filtered"
+        BorderColor: =RGBA(0, 0, 0, 0)
+        DelayItemLoading: =true
+        Height: =72
+        Items: =col_SelectedSignOffElements
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =6
+        TemplateSize: =160
+        Width: =632
+        X: =28
+        Y: =106
+        ZIndex: =6
+
+        rectElementChip As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 0.3)
+            BorderThickness: =1
+            Fill: =RGBA(232, 240, 254, 1)
+            Height: =56
+            Width: =154
+            Y: =4
+            ZIndex: =1
+
+        iconElement As icon:
+            BorderColor: =App.Theme.Colors.Darker40
+            Height: =22
+            Icon: =Icon.Location
+            Width: =22
+            X: =6
+            Y: =10
+            ZIndex: =2
+
+        lblElementName As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(0, 18, 107, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =36
+            Size: =9
+            Text: =ThisItem.ElementName
+            Width: =122
+            X: =30
+            Y: =8
+            ZIndex: =3
+
+    rectDividerElements As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 18, 107, 0.12)
+        Height: =1
+        Width: =624
+        X: =28
+        Y: =186
+        ZIndex: =7
+
+    lblRAMSDocsHeader As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(0, 18, 107, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =24
+        Size: =11
+        Text: |-
+            ="RAMS Documents - Select to View Each:"
+        Width: =500
+        X: =28
+        Y: =194
+        ZIndex: =8
+
+    galRAMSDocs As gallery.galleryHorizontal:
+        '#CopilotOverlayLabel': ="Filtered"
+        BorderColor: =RGBA(0, 0, 0, 0)
+        DelayItemLoading: =true
+        Height: =108
+        Items: =col_RAMSDocuments
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =6
+        TemplateSize: =150
+        Width: =632
+        X: =28
+        Y: =220
+        ZIndex: =9
+
+        rectRAMSCard_1 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 0.25)
+            BorderThickness: =1
+            Fill: =RGBA(232, 240, 254, 1)
+            Height: =90
+            Width: =138
+            Y: =2
+            ZIndex: =1
+
+        iconRAMSDoc_1 As icon:
+            BorderColor: =App.Theme.Colors.Darker40
+            Height: =26
+            Icon: =Icon.Document
+            Width: =26
+            X: =56
+            Y: =8
+            ZIndex: =2
+
+        lblRAMSDocName_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =9
+            Text: =ThisItem.'Document ID'
+            Width: =130
+            X: =4
+            Y: =36
+            ZIndex: =3
+
+        btnViewRAMSDoc_1 As Button:
+            AcceptsFocus: =true
+            AccessibleLabel: =""
+            Align: =""
+            Appearance: ="Primary"
+            BasePaletteColor: =RGBA(0, 18, 107, 1)
+            BorderColor: =
+            BorderStyle: =""
+            ContentLanguage: =""
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontSize: =0
+            FontStrikethrough: =false
+            FontUnderline: =false
+            FontWeight: =""
+            Height: =22
+            Icon: =""
+            IconRotation: =0
+            IconStyle: ="Outline"
+            Layout: ="Icon before"
+            OnSelect: =Launch(ThisItem.'Document Link')
+            TabIndex: =0
+            Text: ="View"
+            Tooltip: =""
+            VerticalAlign: =""
+            Visible: =true
+            Width: =90
+            X: =24
+            Y: =68
+            ZIndex: =4
+
+    rectDividerDocs As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 18, 107, 0.12)
+        Height: =1
+        Width: =624
+        X: =28
+        Y: =336
+        ZIndex: =10
+
+    lblJobInfoTitle As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(0, 18, 107, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =22
+        Size: =11
+        Text: ="Job Details"
+        Width: =300
+        X: =28
+        Y: =344
+        ZIndex: =11
+
+    lblJobService As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(100, 100, 100, 1)
+        Height: =22
+        Size: =10
+        Text: |-
+            ="Service(s):"
+        Width: =110
+        X: =28
+        Y: =370
+        ZIndex: =12
+
+    lblJobServiceVal As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(30, 30, 30, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =110
+        Overflow: =Overflow.Scroll
+        Size: =10
+        Text: =varSignOffActivity
+        Width: =490
+        X: =144
+        Y: =370
+        ZIndex: =13
+
+    lblJobAction As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(100, 100, 100, 1)
+        Height: =22
+        Size: =10
+        Text: |-
+            ="Action:"
+        Width: =110
+        X: =28
+        Y: =480
+        ZIndex: =14
+
+    lblJobActionVal As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(30, 30, 30, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =22
+        Size: =10
+        Text: =varActionRecord.'Action Name'
+        Width: =490
+        X: =144
+        Y: =480
+        ZIndex: =15
+
+    rectRightPanel As rectangle:
+        BorderColor: =RGBA(0, 18, 107, 0.12)
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =690
+        Width: =668
+        X: =690
+        Y: =68
+        ZIndex: =16
+
+    lblEngineerHeader As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(0, 18, 107, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =24
+        Size: =11
+        Text: ="Engineer"
+        Width: =300
+        X: =702
+        Y: =80
+        ZIndex: =17
+
+    rectEngineerBg As rectangle:
+        BorderColor: =RGBA(0, 18, 107, 0.2)
+        BorderThickness: =1
+        Fill: =RGBA(232, 240, 254, 1)
+        Height: =40
+        Width: =640
+        X: =702
+        Y: =108
+        ZIndex: =18
+
+    iconEngineerUser As icon:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Height: =28
+        Icon: =Icon.Person
+        Width: =28
+        X: =710
+        Y: =114
+        ZIndex: =19
+
+    lblEngineerName As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(0, 18, 107, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: =User().FullName
+        Width: =580
+        X: =744
+        Y: =108
+        ZIndex: =20
+
+    rectDividerEng As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 18, 107, 0.12)
+        Height: =1
+        Width: =640
+        X: =702
+        Y: =158
+        ZIndex: =21
+
+    lblSignatureSection As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(0, 18, 107, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =24
+        Size: =11
+        Text: |-
+            ="Signature - Sign to Acknowledge RAMS:"
+        Width: =480
+        X: =702
+        Y: =166
+        ZIndex: =22
+
+    rectSigBg As rectangle:
+        BorderColor: =RGBA(0, 18, 107, 0.3)
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =240
+        Width: =640
+        X: =702
+        Y: =196
+        ZIndex: =23
+
+    penRAMSSignOff As inkControl:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderThickness: =0
+        Height: =240
+        Width: =640
+        X: =702
+        Y: =196
+        ZIndex: =24
+
+    rectDividerSig As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 18, 107, 0.12)
+        Height: =1
+        Width: =640
+        X: =702
+        Y: =446
+        ZIndex: =25
+
+    rectDividerSubmit As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 18, 107, 0.12)
+        Height: =1
+        Width: =640
+        X: =702
+        Y: =520
+        ZIndex: =26
+
+    lblSubmitNote As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(140, 140, 140, 1)
+        Height: =36
+        Size: =9
+        Text: ="Submitting will generate a signed RAMS document and update the status of all selected elements."
+        Width: =640
+        X: =702
+        Y: =528
+        ZIndex: =27
+
+    lblActivityHeader As Text:
+        Align: ='TextCanvas.Align'.End
+        AutoHeight: =false
+        BorderColor: =
+        BorderStyle: =""
+        ContentLanguage: =""
+        DisplayMode: =DisplayMode.Edit
+        Fill: =
+        Font: =""
+        FontColor: =RGBA(255, 255, 255, 0.75)
+        FontItalic: =false
+        FontStrikethrough: =false
+        FontUnderline: =false
+        Height: =56
+        Size: =11
+        TabIndex: =0
+        Text: =varSignOffActivity
+        Tooltip: =""
+        VerticalAlign: =VerticalAlign.Middle
+        Visible: =true
+        Weight: ='TextCanvas.Weight'.Medium
+        Width: =500
+        Wrap: =true
+        X: =852
+        Y: =0
+        ZIndex: =28
+
+    checkConfirm As Checkbox:
+        AccessibleLabel: =""
+        BasePaletteColor: =
+        CheckboxSize: =16
+        Checked: =false
+        ContentLanguage: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =""
+        FontColor: =
+        FontItalic: =true
+        FontSize: =0
+        FontStrikethrough: =false
+        FontUnderline: =false
+        FontWeight: =""
+        Height: =32
+        Label: ="I confirm I have reviewed all RAMS documents and acknowledge the contents for the elements listed above"
+        OnCheck: =false
+        OnSelect: =false
+        OnUncheck: =false
+        TabIndex: =0
+        Tooltip: =""
+        Visible: =true
+        Width: =630
+        X: =702
+        Y: =454
+        ZIndex: =29
+
+    btnSubmitRAMSSignOff As Button:
+        AcceptsFocus: =true
+        AccessibleLabel: =""
+        Align: =""
+        Appearance: ="Primary"
+        BasePaletteColor: =RGBA(8, 222, 8, 1)
+        BorderColor: =
+        BorderStyle: =""
+        ContentLanguage: =""
+        DisplayMode: |-
+            =If(
+                !checkConfirm.Checked || IsBlank(penRAMSSignOff.Image),
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        Font: =""
+        FontColor: =
+        FontItalic: =false
+        FontSize: =0
+        FontStrikethrough: =false
+        FontUnderline: =false
+        FontWeight: =""
+        Height: =44
+        Icon: ="Send"
+        IconRotation: =0
+        IconStyle: ="Outline"
+        Layout: ="Icon before"
+        OnSelect: |-
+            =Patch(col_EngineerActionList,
+                LookUp(col_EngineerActionList, ActionGUID = varActionRecord.ShiftActionID),
+                {'Action Status': "Complete"});
+            Patch(col_ShiftTimeline,
+                LookUp(col_ShiftTimeline, ShiftActionID = varActionRecord.ShiftActionID),
+                {'Action Status': "Complete"});
+            Patch(
+                BESA_Shifts,
+                LookUp(BESA_Shifts, BESA_Shift = GUID(varCurrentShiftID)),
+                {'Generate RAMs': true}
+            );
+            Patch(BESA_Documents,
+                Defaults(BESA_Documents),
+                {
+                    'Document Image': penRAMSSignOff.Image,
+                    'Direct Related GUID': varCurrentShiftID,
+                    'Document Type': "RAMS SignOff"
+                }
+            );
+            Notify("RAMS Signed off!", NotificationType.Success);
+            Reset(checkConfirm);
+            Reset(penRAMSSignOff);
+            Back()
+        TabIndex: =0
+        Text: ="Submit & Confirm Completion"
+        Tooltip: =""
+        VerticalAlign: =""
+        Visible: =true
+        Width: =320
+        X: =862
+        Y: =580
+        ZIndex: =30
+
+    btnCancelScreen As Button:
+        AcceptsFocus: =true
+        AccessibleLabel: =""
+        Align: =""
+        Appearance: ='ButtonCanvas.Appearance'.Secondary
+        BasePaletteColor: =
+        BorderColor: =
+        BorderStyle: =""
+        ContentLanguage: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =""
+        FontColor: =
+        FontItalic: =false
+        FontSize: =0
+        FontStrikethrough: =false
+        FontUnderline: =false
+        FontWeight: =""
+        Height: =44
+        Icon: =""
+        IconRotation: =0
+        IconStyle: ="Outline"
+        Layout: ="Icon before"
+        OnSelect: |-
+            =Reset(checkConfirm);
+            Reset(penRAMSSignOff);
+            Back()
+        TabIndex: =0
+        Text: ="Cancel"
+        Tooltip: =""
+        VerticalAlign: =""
+        Visible: =true
+        Width: =140
+        X: =702
+        Y: =580
+        ZIndex: =31
+
+    btnClearSig As Button:
+        AcceptsFocus: =true
+        AccessibleLabel: =""
+        Align: =""
+        Appearance: ='ButtonCanvas.Appearance'.Secondary
+        BasePaletteColor: =
+        BorderColor: =
+        BorderStyle: =""
+        ContentLanguage: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =""
+        FontColor: =
+        FontItalic: =false
+        FontSize: =0
+        FontStrikethrough: =false
+        FontUnderline: =false
+        FontWeight: =""
+        Height: =26
+        Icon: =""
+        IconRotation: =0
+        IconStyle: ="Outline"
+        Layout: ="Icon before"
+        OnSelect: =Reset(penRAMSSignOff)
+        TabIndex: =0
+        Text: ="Clear"
+        Tooltip: =""
+        VerticalAlign: =""
+        Visible: =true
+        Width: =80
+        X: =1262
+        Y: =165
+        ZIndex: =32
+
+    btnBack As Button:
+        AcceptsFocus: =true
+        AccessibleLabel: =""
+        Align: =""
+        Appearance: ='ButtonCanvas.Appearance'.Secondary
+        BasePaletteColor: =RGBA(255, 255, 255, 1)
+        BorderColor: =
+        BorderStyle: =""
+        ContentLanguage: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =""
+        FontColor: =
+        FontItalic: =false
+        FontSize: =0
+        FontStrikethrough: =false
+        FontUnderline: =false
+        FontWeight: =""
+        Height: =36
+        Icon: =""
+        IconRotation: =0
+        IconStyle: ="Outline"
+        Layout: ="Icon before"
+        OnSelect: =Back()
+        TabIndex: =0
+        Text: ="< Back"
+        Tooltip: =""
+        VerticalAlign: =""
+        Visible: =true
+        Width: =90
+        X: =12
+        Y: =10
+        ZIndex: =33
+

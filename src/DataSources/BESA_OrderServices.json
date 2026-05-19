@@ -1,0 +1,127 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_orderservices",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_orderservice",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_OrderServices",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_activity_OrderServiceLookUp_sy_besa_orderservice": "BESA_Activities",
+      "sy_besa_bookingelement_OrderServiceLookUp_sy_besa_orderservice": "BESA_BookingElements",
+      "sy_besa_bookingservice_OrderServiceLookUp_sy_besa_orderservice": "BESA_BookingServices",
+      "sy_besa_orderservice_AsyncOperations": "System Jobs",
+      "sy_besa_orderservice_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_orderservice_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_orderservice_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_orderservice_ProcessSession": "Process Sessions",
+      "sy_besa_orderservice_SyncErrors": "Sync Errors",
+      "sy_besa_orderserviceid": "BESA_OrderService",
+      "sy_discount": "Discount",
+      "sy_division": "Division",
+      "sy_eleosid": "Eleos ID",
+      "sy_OrderLookUp": "Order LookUp",
+      "sy_orderserviceid": "OrderServiceID",
+      "sy_priceperunit": "Price Per Unit",
+      "sy_quantity": "Quantity",
+      "sy_service": "Service",
+      "sy_ServiceLookUp": "Service LookUp",
+      "sy_servicenotes": "Service Notes",
+      "sy_totalcost": "Total Cost",
+      "sy_unitcost": "Unit Cost",
+      "sy_workpackage": "Work Package",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_OrderServices",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_OrderServices (Views)",
+    "Name": "_sy_besa_orderservice_views",
+    "RelatedEntityName": "BESA_OrderServices",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "37693da0-b3f9-4f94-a5a8-934ee2f38a07": "Active BESA_OrderServices",
+      "66d3c205-beaf-4603-afab-68cf1551b58e": "Inactive BESA_OrderServices",
+      "6c55755d-6e35-49ac-ad1e-e12fb94d6c2e": "BESA_OrderService Advanced Find View",
+      "ae857847-1b0b-42f0-9aa3-82efeb317460": "BESA_OrderService Lookup View",
+      "ff6943a5-7a30-40d3-b670-ff4abfa8ba3c": "BESA_OrderService Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_OrderServices)",
+    "Name": "sy_besa_orderservice_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_OrderServices"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_OrderServices",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_OrderServices)",
+    "Name": "sy_besa_orderservice_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_OrderServices"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_OrderServices",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Work Package (BESA_OrderServices)",
+    "Name": "sy_besa_orderservice_sy_workpackage",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_workpackage",
+        "OptionSetReferenceEntityName": "BESA_OrderServices"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_workpackage",
+    "RelatedEntityName": "BESA_OrderServices",
+    "Type": "OptionSetInfo"
+  }
+]

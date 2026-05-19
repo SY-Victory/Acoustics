@@ -1,0 +1,118 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_tests",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_test",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_Tests",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_referencepoint_TestLookUp_sy_besa_test": "BESA_ReferencePoints",
+      "sy_besa_test_AsyncOperations": "System Jobs",
+      "sy_besa_test_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_test_DuplicateBaseRecord": "Duplicate Records (sy_besa_test_DuplicateBaseRecord)",
+      "sy_besa_test_DuplicateMatchingRecord": "Duplicate Records (sy_besa_test_DuplicateMatchingRecord)",
+      "sy_besa_test_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_test_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_test_ProcessSession": "Process Sessions",
+      "sy_besa_test_SyncErrors": "Sync Errors",
+      "sy_besa_testid": "BESA_Test",
+      "sy_besa_testrun_TestLookUp_sy_besa_test": "BESA_TestRuns",
+      "sy_bloblist": "Blob List",
+      "sy_BookingElementLookUp": "Booking Element LookUp",
+      "sy_BookingLookUp": "Booking LookUp",
+      "sy_ClientLookUp": "Client LookUp",
+      "sy_deviations": "Deviations",
+      "sy_ElementLookUp": "Element LookUp",
+      "sy_EnvelopeLookUp": "Envelope LookUp",
+      "sy_envelopeoverride": "Envelope Override",
+      "sy_recipients": "Recipients",
+      "sy_sectionstatus": "Section Status",
+      "sy_ShiftLookUp": "Shift LookUp",
+      "sy_SiteLookUp": "Site LookUp",
+      "sy_tempsealingdata": "TempSealingData",
+      "sy_testid": "Test ID",
+      "sy_testinfo": "Test Info",
+      "sy_testjson": "Test JSON",
+      "sy_testnumber": "Test Number",
+      "sy_testruns": "Test Runs",
+      "sy_teststatus": "Test Status",
+      "sy_testtype": "Test Type",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_Tests",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_Tests (Views)",
+    "Name": "_sy_besa_test_views",
+    "RelatedEntityName": "BESA_Tests",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "01f89fda-4bdc-48e7-b7ab-84a207b42d00": "BESA_Test Lookup View",
+      "55346a25-6c07-4553-8e3a-7336711ff3e6": "BESA_Test Associated View",
+      "5858e2e9-9c4f-44c4-b072-3301f19ee0b1": "BESA_Test Advanced Find View",
+      "c96fc9a0-b3b1-48f2-9284-0955025c674b": "Active BESA_Tests",
+      "d759aba4-4284-454e-886d-ee09c4f92e21": "Inactive BESA_Tests"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_Tests)",
+    "Name": "sy_besa_test_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_Tests"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_Tests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_Tests)",
+    "Name": "sy_besa_test_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_Tests"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_Tests",
+    "Type": "OptionSetInfo"
+  }
+]

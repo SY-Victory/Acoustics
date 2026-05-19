@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_referencepointimages",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_referencepointimage",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_ReferencePointImages",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_referencepointimage_AsyncOperations": "System Jobs",
+      "sy_besa_referencepointimage_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_referencepointimage_DuplicateBaseRecord": "Duplicate Records (sy_besa_referencepointimage_DuplicateBaseRecord)",
+      "sy_besa_referencepointimage_DuplicateMatchingRecord": "Duplicate Records (sy_besa_referencepointimage_DuplicateMatchingRecord)",
+      "sy_besa_referencepointimage_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_referencepointimage_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_referencepointimage_ProcessSession": "Process Sessions",
+      "sy_besa_referencepointimage_SyncErrors": "Sync Errors",
+      "sy_besa_referencepointimageid": "BESA_ReferencePointImage",
+      "sy_imageid": "Image ID",
+      "sy_referenceimage": "Reference Image",
+      "sy_referenceimageid": "sy_ReferenceImageId",
+      "sy_ReferencePointLookUp": "Reference Point LookUp",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_ReferencePointImages",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_ReferencePointImages (Views)",
+    "Name": "_sy_besa_referencepointimage_views",
+    "RelatedEntityName": "BESA_ReferencePointImages",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "034252ef-c23a-420f-9bc0-62b892891b68": "Inactive BESA_ReferencePointImages",
+      "34fd38c0-15e4-4103-be81-c9b0c8e1e7c2": "Active BESA_ReferencePointImages",
+      "40347c70-2689-4faf-8dd3-9a7b0fa58fbf": "BESA_ReferencePointImage Advanced Find View",
+      "520de4d7-2206-45ea-821b-fdb470ac7188": "BESA_ReferencePointImage Associated View",
+      "a26efaf8-8a4c-4e0d-97ee-818803a5032c": "BESA_ReferencePointImage Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_ReferencePointImages)",
+    "Name": "sy_besa_referencepointimage_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_ReferencePointImages"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_ReferencePointImages",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_ReferencePointImages)",
+    "Name": "sy_besa_referencepointimage_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_ReferencePointImages"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_ReferencePointImages",
+    "Type": "OptionSetInfo"
+  }
+]

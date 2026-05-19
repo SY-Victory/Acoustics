@@ -1,0 +1,67 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  component_MainMenu:
+    DefinitionType: CanvasComponent
+    AccessAppScope: true
+    Properties:
+      Fill: =RGBA(7, 110, 108, 1)
+      Height: =768
+      Width: =50
+    Children:
+      - gallery_colMenu:
+          Control: Gallery@2.15.0
+          Variant: Vertical
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Items: =col_Menu
+            TemplateSize: |+
+              =40
+            Width: =Parent.Width
+            Y: =135
+          Children:
+            - Icon1:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =If(varActiveScreen = ThisItem.Screen, RGBA(255, 255, 255, 1), RGBA(255, 255, 255, 0.5))
+                  Height: =30
+                  Icon: =ThisItem.MenuIcon
+                  OnSelect: |-
+                    =Set(varActiveScreen, ThisItem.Screen);
+                    Set(varTestViewMode, false);
+                    Navigate(ThisItem.Screen);
+                  PaddingLeft: =3
+                  PaddingRight: =3
+                  Tooltip: =ThisItem.MenuLabel
+                  Width: =30
+                  X: =5
+                  Y: =5
+            - Button1_1:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(0, 0, 0, 0)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(0, 0, 0, 0)
+                  Font: =Font.'Open Sans'
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =RGBA(237, 237, 237, 0.46)
+                  OnSelect: |-
+                    =Set(varActiveScreen, ThisItem.Screen);
+                    Set(varTestViewMode, false);
+
+                    Navigate(ThisItem.Screen);
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Size: =0
+                  Text: =
+                  Width: =40

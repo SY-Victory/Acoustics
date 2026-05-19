@@ -1,0 +1,380 @@
+/* ============================================================
+   Acoustic Test Details PCF — Stylesheet
+   ============================================================ */
+
+/* ── CSS Variables ────────────────────────────────────────────── */
+:root {
+  --td-teal:        #006D5B;
+  --td-teal-dark:   #005A4A;
+  --td-teal-light:  #00897B;
+  --td-brown:       #5D4037;
+  --td-brown-hover: #4E342E;
+  --td-border:      #ddd;
+  --td-bg:          #f5f5f5;
+  --td-card-bg:     #ffffff;
+  --td-text:        #333333;
+  --td-label:       #555555;
+  --td-readonly:    #666666;
+  --td-highlight:   #FFFDE7;
+  --td-font:        'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Root container ───────────────────────────────────────────── */
+.td-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  font-family: var(--td-font);
+  font-size: 13px;
+  color: var(--td-text);
+  background: var(--td-bg);
+  overflow-y: auto;
+}
+
+/* ── Offline / cache status banner ───────────────────────────── */
+.td-status-banner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--td-font);
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.td-status-banner--offline {
+  background: #FFF3E0;
+  color: #E65100;
+}
+
+.td-status-banner--cached {
+  background: #E3F2FD;
+  color: #1565C0;
+}
+
+.td-status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.td-status-banner--offline .td-status-dot {
+  background: #E65100;
+}
+
+.td-status-banner--cached .td-status-dot {
+  background: #1565C0;
+}
+
+/* ── Card ─────────────────────────────────────────────────────── */
+.td-card {
+  background: var(--td-card-bg);
+  border: 1px solid var(--td-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.td-card--tall {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.td-card-body {
+  padding: 8px 14px 10px;
+}
+
+/* ── Section header (teal bar) ────────────────────────────────── */
+.td-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--td-teal);
+  padding: 6px 14px;
+}
+
+.td-section-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+}
+
+.td-view-details {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 11px;
+  font-family: var(--td-font);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition: background 0.15s;
+}
+
+.td-view-details:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ── Top row layout: left col + right col ─────────────────────── */
+.td-top-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.td-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.td-right-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Row (label + value pair) ─────────────────────────────────── */
+.td-row {
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 2px 0;
+}
+
+.td-row:last-child {
+  border-bottom: none;
+}
+
+.td-label-avtime {
+  flex: 0 0 160px;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--td-label);
+  padding-right: 65px;
+}
+
+.td-label {
+  flex: 0 0 160px;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--td-label);
+  padding-right: 8px;
+}
+
+.td-label--inline {
+  flex: none;
+  margin-left: 12px;
+  padding-right: 6px;
+}
+
+.td-value {
+  flex: 1;
+  font-size: 13px;
+  color: var(--td-text);
+}
+
+.td-value--readonly {
+  color: var(--td-readonly);
+}
+
+/* ── Select field ─────────────────────────────────────────────── */
+.td-select-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.td-select-wrap--narrow {
+  flex: 0 0 auto;
+  min-width: 80px;
+}
+
+.td-select-wrap--highlight {
+  background: var(--td-highlight);
+  border-radius: 3px;
+}
+
+.td-select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  font-family: var(--td-font);
+  font-size: 13px;
+  color: var(--td-text);
+  padding: 4px 22px 4px 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+.td-select:focus {
+  outline: 2px solid var(--td-teal-light);
+  outline-offset: -2px;
+  border-radius: 3px;
+}
+
+.td-dropdown-icon {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--td-teal);
+  pointer-events: none;
+}
+
+/* ── Input field ──────────────────────────────────────────────── */
+.td-input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid transparent;
+  font-family: var(--td-font);
+  font-size: 13px;
+  color: var(--td-text);
+  padding: 4px;
+  outline: none;
+  background: transparent;
+  transition: border-color 0.15s;
+}
+
+.td-input:focus {
+  border-bottom-color: var(--td-teal);
+}
+
+.td-input[type="number"] {
+  max-width: 70px;
+}
+
+/* ── Test details body: two sub-columns ───────────────────────── */
+.td-test-details-body {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0 16px;
+}
+
+.td-test-left,
+.td-test-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.td-enhancement-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.td-equipment-section {
+  margin-top: 4px;
+}
+
+.td-equipment-section .td-label {
+  font-size: 11px;
+  color: var(--td-teal);
+  font-weight: 600;
+}
+
+/* ── Inputs/Methodologies body: two columns ───────────────────── */
+.td-methods-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+}
+
+.td-methods-left,
+.td-methods-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Compound row (Averaging Time + Freq Range) */
+.td-row--compound {
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.td-row--compound .td-label {
+  flex: none;
+}
+
+.td-freq-dash {
+  color: var(--td-label);
+  font-weight: 600;
+  margin: 0 4px;
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.td-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0 0;
+}
+
+.td-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--td-font);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.td-btn:hover {
+  opacity: 0.9;
+}
+
+.td-btn--back {
+  background: var(--td-brown);
+  color: #ffffff;
+}
+
+.td-btn--back:hover {
+  background: var(--td-brown-hover);
+}
+
+.td-btn--confirm {
+  background: var(--td-teal);
+  color: #ffffff;
+}
+
+.td-btn--confirm:hover {
+  background: var(--td-teal-dark);
+}
+
+/* ── Scrollbar (thin) ─────────────────────────────────────────── */
+.td-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.td-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.td-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.td-container::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}

@@ -1,0 +1,1105 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Screen_EngineerHome_Zzz:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Label3_564:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            Size: =11
+            Text: ="Date Selected:"
+            X: =60
+            Y: =73
+      - containerPageHeader_22:
+          Control: GroupContainer@1.5.0
+          Variant: ManualLayout
+          Properties:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =55
+            Width: =1295
+            X: =60
+            Y: =12
+          Children:
+            - iconPageHeaderIcon_23:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(0, 0, 0, 1)
+                  DisplayMode: =DisplayMode.View
+                  Height: =35
+                  Icon: =LookUp(col_Menu, Screen = App.ActiveScreen, MenuIcon)
+                  PaddingBottom: =5
+                  PaddingTop: =5
+                  Width: =35
+                  X: =8
+                  Y: =10
+            - iconPageHeaderRefresh_22:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(0, 0, 0, 1)
+                  Height: =35
+                  Icon: =Icon.Sync
+                  PaddingBottom: =7
+                  PaddingTop: =7
+                  Width: =35
+                  X: =43
+                  Y: =10
+            - labelPageHeader_25:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =35
+                  Size: =15
+                  Text: ="Engineer Application"
+                  Width: =400
+                  X: =78
+                  Y: =10
+            - btnRefreshOrders_68:
+                Control: Button@0.0.45
+                Properties:
+                  FontSize: =14
+                  Icon: ="ArrowSync"
+                  Layout: ='ButtonCanvas.Layout'.IconBefore
+                  OnSelect: |-
+                    =Set(varStaffViewID, First(col_StaffMembers));
+
+                    ClearCollect(col_SiteInductions,  
+                    {
+                        'Site Induction ID': GUID(),
+                        'Staff LookUp':First(col_StaffMembers), 
+                        'Site LookUp':First(col_Sites),
+                        'Induction Date': DateValue(Today()), 
+                        'Induction Status': "Pending", 
+                        'Created On': Now(), 
+                        'Expiry Date': DateAdd(Today(), 60, TimeUnit.Days), 
+                        Comments: ""
+                    });
+
+                    ClearCollect(col_RiskAssesments, 
+                    { 
+                        'Risk Assessment ID':GUID(),
+                     'Staff LookUp':First(col_StaffMembers), 
+                        'Site LookUp':First(col_Sites),
+                        'Assesment Date': DateValue(Today()), 
+                        'Assesment Status':"Pending", 
+                        'Created On': Now()
+                    });
+
+                    Clear(col_EngineerActionList);
+                  Text: ="Site Induction"
+                  Width: =141
+                  X: =770
+                  Y: =14
+            - Label3_565:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Right
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Height: =35
+                  Size: =11
+                  Text: |-
+                    ="Logged In: " & varStaffViewID.StaffName
+                  Width: =258
+                  X: =1025
+                  Y: =11
+            - btnRefreshActionList:
+                Control: Button@0.0.45
+                Properties:
+                  FontSize: =14
+                  Icon: ="ArrowSync"
+                  Layout: ='ButtonCanvas.Layout'.IconBefore
+                  OnSelect: "=ClearCollect(col_EngineerActionList, \n{ \n    'Site LookUp':First(col_Sites), \n    'Action Type': \"\", \n    'Action Name': \"\", \n    'Booking LookUp':First(col_Bookings), \n    'Induction LookUp':First(col_SiteInductions), \n    'Action Status':\"\", \n    'RAMS LookUp':First(col_RiskAssesments), \n    'Element LookUp':First(col_ElementList), \n    'Booking Element LookUp':First(col_BookingElement),\n    'Shift ID': \"\"\n});\n\nClear(col_EngineerActionList);\n\n//Site Information\n\nClearCollect(col_ShiftListCheck, AddColumns(RenameColumns(ShowColumns(Filter(col_ShiftList, 'Technician GUID' = varStaffViewID.StaffID, 'Shift Date' = dateEngineerSelectedView.SelectedDate, 'Shift Type' = \"Booking\"), 'Shift Type', BookingID, 'Shift Date', 'Technician GUID'), BookingID, BookingTempID), 'Site LookUp', LookUp(col_BookingsSchedule, BookingID = BookingTempID, 'Site LookUp'))); \n\nForAll(col_ShiftListCheck As shiftListCheck, \n    //IsBlank(LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\")), \n    Collect(col_EngineerActionList, \n    { \n        'Booking LookUp':LookUp(col_Bookings, BookingReference = shiftListCheck.BookingTempID), \n        'Site LookUp':LookUp(col_Sites, SiteID = shiftListCheck.'Site LookUp'.SiteID), \n        'Induction LookUp':LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\"),\n        'Action Status': If(IsBlank(LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\")), \"Pending\", \"Not Required\"),\n        'Action Type':\"Site Induction\", \n        'Action Name':\"Site Induction Form\"\n    }); \n    Collect(col_EngineerActionList, \n    { \n        'Booking LookUp':LookUp(col_Bookings, BookingReference = shiftListCheck.BookingTempID), \n        'Site LookUp':LookUp(col_Sites, SiteID = shiftListCheck.'Site LookUp'.SiteID), \n        //'Induction LookUp':LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\"),\n        'Action Type':\"RAMs\", \n        'Action Name':\"RAMs Form\",\n        'Action Status':If(IsBlank(LookUp(col_RiskAssesments, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Assesment Date' = dateEngineerSelectedView.SelectedDate)), \"Pending\", If(IsBlank(LookUp(col_RiskAssesments, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Assesment Date' = dateEngineerSelectedView.SelectedDate, 'Assesment Status' = \"Completed\")), \"Drafted\", \"Completed\")),\n        'RAMS LookUp':LookUp(col_RiskAssesments, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Assesment Date' = dateEngineerSelectedView.SelectedDate)\n    }); \n    );\n    \n\n    ClearCollect(col_ShiftListCheck, AddColumns(RenameColumns(ShowColumns(Filter(col_ShiftList, 'Technician GUID' = varStaffViewID.StaffID, 'Shift Date' = dateEngineerSelectedView.SelectedDate, 'Shift Type' = \"Booking\"), 'Shift Type', BookingID, 'Shift Date', 'Technician GUID', 'Shift ID'), BookingID, BookingTempID), 'Site LookUp', LookUp(col_BookingsSchedule, BookingID = BookingTempID, 'Site LookUp'))); \n\n\n//Booking Elements for each Shift\nClearCollect(col_BookingElementCheck, Filter(col_BookingElement, 'Shift ID' in col_ShiftListCheck.'Shift ID'));\n\nForAll(col_BookingElementCheck As itemBookingElement, \nCollect(col_EngineerActionList, \n    { \n        'Booking LookUp':LookUp(col_Bookings, BookingReference = itemBookingElement.BookingID), \n        'Site LookUp':LookUp(col_Sites, SiteID = itemBookingElement.'Site LookUp'.SiteID), \n        //'Induction LookUp':LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\"),\n        'Action Status': \"Pending\",\n        'Action Type':\"Service\", \n        'Action Name':\"Service\", \n        'Element LookUp':itemBookingElement.'Element LookUp', \n        'Booking Element LookUp':LookUp(col_BookingElement, BookingElementID = itemBookingElement.BookingElementID), \n        'Shift ID':itemBookingElement.'Shift ID'\n    }));\n\n\n//Non Booking Shifts\nClearCollect(col_ShiftListNonBookingCheck, RenameColumns(ShowColumns(Filter(col_ShiftList, 'Technician GUID' = varStaffViewID.StaffID, 'Shift Date' = dateEngineerSelectedView.SelectedDate, 'Shift Type' <> \"Booking\"), 'Shift Type', BookingID, 'Shift Date', 'Technician GUID', 'Shift ID'), BookingID, BookingTempID));\n\nForAll(col_ShiftListNonBookingCheck As itemNonBookingItem, \nCollect(col_EngineerActionList,\n{ \n    'Action Status': \"Pending\", \n    'Action Type':\"Misc\", \n    'Action Name':itemNonBookingItem.'Shift Type', \n    'Shift ID':itemNonBookingItem.'Shift ID'\n}));\n\n\n\n"
+                  Text: ="Action List"
+                  Width: =141
+                  X: =932
+                  Y: =14
+            - labelPageHeader_26:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =33
+                  Size: =10
+                  Text: |-
+                    ="In order to see something functioning..Collections, Assign Shifts to Aaron Baxer & Run On Start
+                    "
+                  Width: =376
+                  X: =394
+                  Y: =12
+      - component_MainMenu_24:
+          Control: CanvasComponent
+          ComponentName: component_MainMenu
+          Properties:
+            Fill: =RGBA(7, 110, 108, 1)
+            Height: =768
+            Width: =50
+      - containerMainEngineerContainer:
+          Control: GroupContainer@1.5.0
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Height: =645
+            Width: =1295
+            X: =60
+            Y: =110
+          Children:
+            - galleryMainEngineerStaffView:
+                Control: Gallery@2.15.0
+                Variant: Vertical
+                Properties:
+                  Height: =645
+                  Items: =LookUp(col_StaffMembers, StaffID = varStaffViewID.StaffID)
+                  OnSelect: =
+                  TemplatePadding: =0
+                  TemplateSize: =645
+                  Width: =1295
+                Children:
+                  - Container2_17:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =645
+                        Width: =654
+                      Children:
+                        - ButtonCanvas3_18:
+                            Control: Button@0.0.45
+                            Properties:
+                              Appearance: ='ButtonCanvas.Appearance'.Subtle
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Icon: ="AppsListDetail"
+                              Text: ="Add Activity"
+                              Width: =154
+                              X: =500
+                              Y: =2
+                        - Rectangle2_129:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Fill: =RGBA(7, 110, 108, 1)
+                              Height: =35
+                              Width: =Parent.Width
+                        - Label3_566:
+                            Control: Label@2.5.1
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Color: =RGBA(255, 255, 255, 1)
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =35
+                              Size: =11
+                              Text: |-
+                                ="(" & CountRows(Filter(col_ShiftList, 'Shift Date' = dateEngineerSelectedView.SelectedDate, 'Technician GUID' = ThisItem.StaffID)) & ") Shifts for : " & Text(dateEngineerSelectedView.SelectedDate, "dd dddd mmm, yyyy")
+                              Width: =500
+                              X: =5
+                        - Label3_567:
+                            Control: Label@2.5.1
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =35
+                              Size: =11
+                              Text: |-
+                                =With({wfx_weekday:1},
+
+                                "Start Time: " & 
+                                If(IsBlank(First(Sort(Filter(col_ShiftList, 'Technician GUID' = ThisItem.StaffID && 'Shift Date' = dateEngineerSelectedView.SelectedDate), 'Shift Start Time')).'Shift Start Time'),
+                                "N/A", 
+                                First(Sort(Filter(col_ShiftList, 'Technician GUID' = ThisItem.StaffID&& 'Shift Date' = dateEngineerSelectedView.SelectedDate), 'Shift Start Time')).'Shift Start Time')
+
+
+                                )
+                              Width: =500
+                              X: =5
+                              Y: =36
+                        - Label3_569:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Right
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Color: =RGBA(255, 255, 255, 1)
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =33
+                              Size: =11
+                              Text: |-
+                                =With({wfx_weekday:1},
+
+
+                                "Est. Total Hours: " & Coalesce(Sum(Filter(col_ShiftList, 'Technician GUID' = ThisItem.StaffID/*, 'Technician Name' = ThisItem.StaffName*/ && 'Shift Date' = dateEngineerSelectedView.SelectedDate), 'Estimated Duration'), 0)
+
+
+
+                                )
+                              Width: =249
+                              X: =381
+                              Y: =1
+                        - galleryMainEngineerShiftDayView:
+                            Control: Gallery@2.15.0
+                            Variant: VariableHeight
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Height: =544
+                              Items: =Filter(col_ShiftList, 'Technician GUID' = ThisItem.StaffID, 'Shift Date' = dateEngineerSelectedView.SelectedDate)
+                              Width: =654
+                              Y: =71
+                            Children:
+                              - containerShiftListView_1:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    Fill: =If(ThisItem.'Shift Status' = "Complete", RGBA(219, 247, 210, 1), RGBA(163, 147, 147, 0))
+                                    Height: |-
+                                      =If(varShiftExpandAll, If(ThisItem.'Shift Type' = "Booking", 150, 60), 
+                                      If(varShiftExpand = ThisItem.'Shift ID', 
+                                      If(ThisItem.'Shift Type' = "Booking", 150, 60), 32))
+                                    Width: =630
+                                  Children:
+                                    - circleShiftTypeColorScheme:
+                                        Control: Circle@2.3.0
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Fill: =RGBA(56, 96, 178, 1)
+                                          Height: =15
+                                          OnSelect: =
+                                          Tooltip: |
+                                            ="Division: " & " 
+                                            Service: " 
+                                          Width: =15
+                                          X: =5
+                                          Y: =7
+                                    - labelShiftNameHours:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Font: =Font.'Open Sans'
+                                          Height: =30
+                                          OnSelect: =
+                                          Size: =11
+                                          Text: |-
+                                            =Switch(ThisItem.'Shift Type', 
+                                            "Booking", 
+                                            With(
+                                                {BookingRecord: LookUp(col_BookingsSchedule, BookingID = ThisItem.BookingID)
+                                                },
+
+                                                "(" & ThisItem.'Estimated Duration' & ") " & BookingRecord.BookingID & " - Site: " & BookingRecord.'Site LookUp'.'Site Name'
+                                            ),
+
+                                            "(" & ThisItem.'Estimated Duration' & ") " & ThisItem.'Shift Type'
+                                            )
+                                          Tooltip: =Self.Text
+                                          Width: =300
+                                          Wrap: =false
+                                          X: =25
+                                    - iconViewSiteDetails:
+                                        Control: Classic/Icon@2.5.0
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Color: =RGBA(0, 18, 107, 1)
+                                          Height: =32
+                                          Icon: =Icon.OfficeBuilding
+                                          PaddingBottom: =5
+                                          PaddingTop: =5
+                                          Tooltip: ="View Site Details"
+                                          Visible: |-
+                                            =Switch(ThisItem.'Shift Type', 
+                                            "Booking", true, false)
+                                          Width: =32
+                                          X: =560
+                                    - iconExpandShiftDetails:
+                                        Control: Classic/Icon@2.5.0
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Color: =RGBA(0, 18, 107, 1)
+                                          Height: =32
+                                          Icon: |-
+                                            =If(varShiftExpandAll, Icon.ChevronUp, 
+                                            If(varShiftExpand = ThisItem.'Shift ID', Icon.ChevronUp, 
+                                            Icon.ChevronDown))
+                                          OnSelect: |
+                                            =Set(varShiftExpandAll, false);
+                                            If(varShiftExpand = ThisItem.'Shift ID', Set(varShiftExpand, Blank()), Set(varShiftExpand, ThisItem.'Shift ID'));
+                                          PaddingBottom: =5
+                                          PaddingTop: =5
+                                          Tooltip: ="View Site Details"
+                                          Width: =32
+                                          X: =592
+                                    - labelBookingSiteInductionTime:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Align: =Align.Right
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Font: =Font.'Open Sans'
+                                          Height: =30
+                                          OnSelect: =
+                                          Size: =11
+                                          Text: |-
+                                            =Switch(ThisItem.'Shift Type', 
+                                            "Booking", 
+                                            With(
+                                                {BookingRecord: LookUp(col_BookingsSchedule, BookingID = ThisItem.BookingID)
+                                                },
+
+                                               "Site Induction: " & BookingRecord.'Site LookUp'.'Induction on Site Time'
+                                            ))
+                                          Tooltip: =Self.Text
+                                          Width: =182
+                                          Wrap: =false
+                                          X: =348
+                                    - iconFlagSiteInduction:
+                                        Control: Classic/Icon@2.5.0
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Color: =RGBA(184, 0, 0, 1)
+                                          Height: =30
+                                          Icon: =Icon.Flag
+                                          PaddingBottom: =5
+                                          PaddingLeft: =5
+                                          PaddingRight: =5
+                                          PaddingTop: =5
+                                          Tooltip: ="Site Induction Required."
+                                          Visible: |-
+                                            =Switch(ThisItem.'Shift Type', 
+                                            "Booking", 
+                                            With(
+                                                {BookingRecord: LookUp(col_BookingsSchedule, BookingID = ThisItem.BookingID)
+                                                },
+                                            If(IsBlank(LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = varStaffViewID.StaffID && 'Site LookUp'.SiteID = BookingRecord.'Site LookUp'.SiteID && 'Induction Status' = "Completed")), 
+                                            true, false)))
+                                          Width: =30
+                                          X: =530
+                                    - labelShiftNameHours_1:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Font: =Font.'Open Sans'
+                                          Height: =30
+                                          OnSelect: =
+                                          Size: =11
+                                          Text: |-
+                                            =Switch(ThisItem.'Shift Type', 
+                                            "Booking", "View Booking Details:",
+
+                                            "Additional Details: " & If(IsBlank( ThisItem.'Additional Comments'), "N/A", ThisItem.'Additional Comments')
+                                            )
+                                          Tooltip: =Self.Text
+                                          Width: =600
+                                          Wrap: =false
+                                          X: =5
+                                          Y: =30
+                        - Label3_570:
+                            Control: Label@2.5.1
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Font: =Font.'Open Sans'
+                              Height: =35
+                              Italic: =true
+                              Size: =11
+                              Text: ="There are no Shifts for this selected Date"
+                              Visible: =galleryMainEngineerShiftDayView.AllItemsCount = 0
+                              Width: =500
+                              X: =5
+                              Y: =76
+                        - toggleShiftExpandAll:
+                            Control: Toggle@1.1.5
+                            Properties:
+                              BasePaletteColor: =RGBA(255, 255, 255, 1)
+                              Checked: =If(varShiftExpandAll = true, true, false)
+                              FontColor: =RGBA(0, 0, 0, 1)
+                              Height: =34
+                              Label: =If(Self.Checked, "Close All", "Expand All")
+                              OnCheck: =
+                              OnSelect: |
+                                =Set(varShiftExpand, Blank());
+                                If(varShiftExpandAll, Set(varShiftExpandAll, false), Set(varShiftExpandAll, true));
+                              Width: =148
+                              X: =482
+                              Y: =37
+                  - Container2_18:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =645
+                        Width: =629
+                        X: =666
+                      Children:
+                        - ButtonCanvas3_19:
+                            Control: Button@0.0.45
+                            Properties:
+                              Appearance: ='ButtonCanvas.Appearance'.Subtle
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Icon: ="AppsListDetail"
+                              Text: ="Add Activity"
+                              Width: =154
+                              X: =475
+                              Y: =2
+                        - Rectangle2_130:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Fill: =RGBA(7, 110, 108, 1)
+                              Height: =35
+                              Width: =Parent.Width
+                        - Label3_571:
+                            Control: Label@2.5.1
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Color: =RGBA(255, 255, 255, 1)
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =35
+                              Size: =11
+                              Text: |-
+                                ="(" & CountRows(col_EngineerActionList) & ") Action List for : " & Text(dateEngineerSelectedView.SelectedDate, "dd dddd mmm, yyyy")
+                              Width: =500
+                              X: =5
+                        - Label3_572:
+                            Control: Label@2.5.1
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =32
+                              Size: =11
+                              Text: ="Action"
+                              Width: =185
+                              X: =5
+                              Y: =36
+                        - galleryMainEngineerShiftDayView_1:
+                            Control: Gallery@2.15.0
+                            Variant: VariableHeight
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Height: =539
+                              Items: =col_EngineerActionList
+                              Width: =582
+                              Y: =76
+                            Children:
+                              - containerShiftListView_2:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    Fill: =If(ThisItem.'Action Status' = "Completed", RGBA(219, 247, 210, 1), RGBA(163, 147, 147, 0))
+                                    Height: =32
+                                    Width: =Parent.Width - 10
+                                  Children:
+                                    - Label3_14:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Font: =Font.'Open Sans'
+                                          Height: =32
+                                          Size: =11
+                                          Text: |-
+                                            =Switch(ThisItem.'Action Name', 
+                                            "Service", ThisItem.'Booking Element LookUp'.Division & " - " & ThisItem.'Booking Element LookUp'.Service, 
+                                            ThisItem.'Action Name')
+                                          Tooltip: =Self.Text
+                                          Width: =175
+                                          Wrap: =false
+                                          X: =10
+                                    - ButtonCanvas7:
+                                        Control: Button@0.0.45
+                                        Properties:
+                                          Align: =Align.Center
+                                          Appearance: ='ButtonCanvas.Appearance'.Transparent
+                                          BasePaletteColor: =RGBA(8, 222, 8, 1)
+                                          Icon: ="CheckmarkCircle"
+                                          OnSelect: |-
+                                            =Switch(ThisItem.'Action Type', 
+                                            "Site Induction", 
+                                            Set(varInductionForm, true),
+
+                                            "RAMs", 
+                                            Set(varRAMS, true);, 
+                                            "Misc", 
+                                            Set(varMiscAction, true);
+                                            );
+
+                                            Set(varActionRecord, ThisItem);
+                                          Text: ="Action"
+                                          Visible: =If(ThisItem.'Action Status' <> "Completed", true, false)
+                                          Width: =122
+                                          X: =448
+                                    - Label3_15:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Font: =Font.'Open Sans'
+                                          Height: =32
+                                          Size: =11
+                                          Text: =ThisItem.'Action Status'
+                                          Width: =175
+                                          X: =185
+                                    - InfoButtonCanvas9:
+                                        Control: InfoButton@0.0.33
+                                        Properties:
+                                          Content: |-
+                                            =Switch(ThisItem.'Action Type', 
+                                            "Site Induction", 
+
+                                            With( 
+                                                { 
+                                                    wthInductionRecord: LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = varStaffViewID.StaffID && 'Site LookUp'.SiteID = ThisItem.'Site LookUp'.SiteID && 'Induction Status' = "Completed")
+                                                }, 
+                                                "Site Induction Completed On: " & wthInductionRecord.'Created On' & "
+                                                Site Induction Expires On: " & wthInductionRecord.'Expiry Date'), 
+
+                                            "Service", 
+
+
+                                            "Element: " & ThisItem.'Booking Element LookUp'.Element
+
+                                            )
+                                          PaddingBottom: =5
+                                          PaddingLeft: =3
+                                          PaddingRight: =3
+                                          PaddingTop: =5
+                                          X: =300
+                        - Label3_587:
+                            Control: Label@2.5.1
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Font: =Font.'Open Sans'
+                              Height: =35
+                              Italic: =true
+                              Size: =11
+                              Text: ="There are no Actions for this selected Date"
+                              Visible: =galleryMainEngineerShiftDayView_1.AllItemsCount = 0
+                              Width: =500
+                              X: =5
+                              Y: =76
+                        - Label3_588:
+                            Control: Label@2.5.1
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =32
+                              Size: =11
+                              Text: ="Status"
+                              Width: =128
+                              X: =190
+                              Y: =36
+      - dateEngineerSelectedView:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =0
+            DefaultDate: =var_ScheduleDate
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            IconBackground: =RGBA(20,52,92,1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            OnChange: |
+              =Set(var_ScheduleDate, Self.SelectedDate);
+              Select(btnRefreshActionList);
+            OnSelect: =Set(varTrigger, "DatePicker1_2");
+            PaddingLeft: =5
+            PaddingTop: =5
+            Size: =11
+            StartOfWeek: =StartOfWeek.Monday
+            Width: =180
+            X: =174
+            Y: =73
+      - containerSiteInductionForm:
+          Control: GroupContainer@1.5.0
+          Variant: ManualLayout
+          Properties:
+            BorderColor: =RGBA(106, 122, 127, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =585
+            Visible: =varInductionForm
+            Width: =445
+            X: =461
+            Y: =92
+          Children:
+            - Rectangle2_131:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(7, 110, 108, 1)
+                  Height: =35
+                  Width: =445
+            - TextCanvas3_44:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Start
+                  FontColor: =RGBA(255, 255, 255, 1)
+                  Height: =35
+                  Size: =18
+                  Text: ="Site Induction Form"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =380
+                  Wrap: =false
+                  X: =31
+            - inputSiteInductionSiteName:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(139, 154, 159, 1)
+                  BorderThickness: =0
+                  Default: =varActionRecord.'Site LookUp'.'Site Name'
+                  DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                  DisplayMode: =DisplayMode.View
+                  Fill: =If(IsBlank(Self.Text),RGBA(255, 255, 205, 1),RGBA(245, 245, 245, 1))
+                  Font: =Font.'Open Sans'
+                  Height: =35
+                  HintText: ="'Shift Type'"
+                  HoverBorderColor: =RGBA(0, 0, 0, 0)
+                  HoverFill: =RGBA(237, 237, 237, 1)
+                  OnChange: =
+                  PaddingBottom: =2
+                  PaddingLeft: =5
+                  PaddingTop: |
+                    =2
+                  RadiusBottomLeft: =1
+                  RadiusBottomRight: =1
+                  RadiusTopLeft: =1
+                  RadiusTopRight: =1
+                  Reset: =
+                  Size: =11
+                  Width: =300
+                  X: =125
+                  Y: =75
+            - ButtonCanvas8_14:
+                Control: Button@0.0.45
+                Properties:
+                  BasePaletteColor: =RGBA(8, 222, 8, 1)
+                  DisplayMode: "=If(\n    !checkSiteInductionConfirmation.Checked,\n    DisplayMode.Disabled,\n    \n    DisplayMode.Edit\n      \n    )\n"
+                  Height: =30
+                  Icon: ="Save"
+                  OnSelect: |-
+                    =With(
+                        {
+                            newSiteInductionRecord: GUID()
+                        }, 
+
+                    Collect(col_SiteInductions, 
+                    {
+                        'Site Induction ID': newSiteInductionRecord,
+                        'Staff LookUp':varStaffViewID, 
+                        'Site LookUp':varActionRecord.'Site LookUp',
+                        'Induction Date': DateValue(Today()), 
+                        'Induction Status': "Completed", 
+                        'Created On': Now(), 
+                        'Created By': User(),
+                        'Expiry Date': DateAdd(inputSiteInductionExpiration.SelectedDate, 12, TimeUnit.Hours), 
+                        Comments: inputSiteInductionComments.Text
+                    });
+
+                    Patch(col_EngineerActionList, varActionRecord, 
+                    { 
+                        'Induction LookUp':LookUp(col_SiteInductions, 'Site Induction ID' = newSiteInductionRecord),
+                        'Action Status': "Completed"
+                    })
+                    );
+
+                    Set(varInductionForm, false);
+                    Reset(inputSiteInductionClientName);
+                    Reset(inputSiteInductionComments);
+                    Reset(inputSiteInductionCurrentDate);
+                    Reset(inputSiteInductionExpiration);
+                    Reset(inputSiteInductionSiteName);
+                    Reset(attachmentSiteInductionForm);
+                    Reset(checkSiteInductionConfirmation);
+                  Text: ="Confirm Site Induction"
+                  Width: =206
+                  X: =119
+                  Y: =533
+            - Icon17_32:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(255, 138, 140, 1)
+                  Height: =32
+                  Icon: =Icon.CancelBadge
+                  OnSelect: |-
+                    =Set(varInductionForm, false);
+
+                    Reset(inputSiteInductionClientName);
+                    Reset(inputSiteInductionComments);
+                    Reset(inputSiteInductionCurrentDate);
+                    Reset(inputSiteInductionExpiration);
+                    Reset(inputSiteInductionSiteName);
+                    Reset(attachmentSiteInductionForm);
+                    Reset(checkSiteInductionConfirmation);
+                  Tooltip: ="Close Window"
+                  Width: =22
+                  X: =410
+            - inputSiteInductionClientName:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(139, 154, 159, 1)
+                  BorderThickness: =0
+                  Default: =varActionRecord.'Booking LookUp'.ClientName
+                  DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                  DisplayMode: =DisplayMode.View
+                  Fill: =If(IsBlank(Self.Text),RGBA(255, 255, 205, 1),RGBA(245, 245, 245, 1))
+                  Font: =Font.'Open Sans'
+                  Height: =35
+                  HintText: ="'Est Duration'"
+                  HoverBorderColor: =RGBA(0, 0, 0, 0)
+                  HoverFill: =RGBA(237, 237, 237, 1)
+                  OnChange: =
+                  PaddingBottom: =2
+                  PaddingLeft: =5
+                  PaddingTop: |
+                    =2
+                  RadiusBottomLeft: =1
+                  RadiusBottomRight: =1
+                  RadiusTopLeft: =1
+                  RadiusTopRight: =1
+                  Reset: =
+                  Size: =11
+                  Width: =300
+                  X: =125
+                  Y: =110
+            - Label3_589:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =35
+                  Size: =11
+                  Text: ="Site:"
+                  Width: =100
+                  X: =10
+                  Y: =75
+            - Label3_590:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Italic: =true
+                  Size: =11
+                  Text: ="Complete the details below to complete the Site Induction."
+                  Width: =422
+                  X: =10
+                  Y: =40
+            - Label3_591:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =35
+                  Size: =11
+                  Text: ="Client:"
+                  Width: =100
+                  X: =10
+                  Y: =110
+            - Label3_592:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =35
+                  Size: =11
+                  Text: ="Date:"
+                  Width: =100
+                  X: =10
+                  Y: =145
+            - inputSiteInductionCurrentDate:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(139, 154, 159, 1)
+                  BorderThickness: =0
+                  Default: =Today()
+                  DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                  DisplayMode: =DisplayMode.View
+                  Fill: =If(IsBlank(Self.Text),RGBA(255, 255, 205, 1),RGBA(245, 245, 245, 1))
+                  Font: =Font.'Open Sans'
+                  Height: =35
+                  HintText: ="'Additional Comments'"
+                  HoverBorderColor: =RGBA(0, 0, 0, 0)
+                  HoverFill: =RGBA(237, 237, 237, 1)
+                  OnChange: =
+                  PaddingBottom: =2
+                  PaddingLeft: =5
+                  PaddingTop: |
+                    =2
+                  RadiusBottomLeft: =1
+                  RadiusBottomRight: =1
+                  RadiusTopLeft: =1
+                  RadiusTopRight: =1
+                  Reset: =
+                  Size: =11
+                  Width: =300
+                  X: =125
+                  Y: =145
+            - iconViewSiteDetails_1:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(255, 255, 255, 1)
+                  Height: =35
+                  Icon: =Icon.OfficeBuilding
+                  PaddingBottom: =5
+                  PaddingTop: =5
+                  Tooltip: ="View Site Details"
+                  Width: =32
+                  Y: =1
+            - Label3_593:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =35
+                  Size: =11
+                  Text: ="Expiration"
+                  Width: =100
+                  X: =10
+                  Y: =180
+            - inputSiteInductionExpiration:
+                Control: Classic/DatePicker@2.6.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  BorderThickness: =0
+                  DefaultDate: =DateAdd(Today(), 60, TimeUnit.Days)
+                  Fill: =If(IsBlank(Self.SelectedDate),RGBA(255, 255, 205, 1),RGBA(245, 245, 245, 1))
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =35
+                  IconBackground: =RGBA(20,52,92,1)
+                  IconFill: =RGBA(255, 255, 255, 1)
+                  OnChange: =
+                  OnSelect: =Set(varTrigger, "DatePicker1_2");
+                  PaddingLeft: =5
+                  PaddingTop: =5
+                  Size: =11
+                  StartOfWeek: =StartOfWeek.Monday
+                  Width: =300
+                  X: =125
+                  Y: =180
+            - InfoButtonCanvas8:
+                Control: InfoButton@0.0.33
+                Properties:
+                  Content: |-
+                    ="Expiration Date of the Induction. 
+                    Once a Site Induction has Expired, Engineers are required to complete a new Induction Form for the specific Site."
+                  PaddingBottom: =5
+                  PaddingTop: =5
+                  X: =93
+                  Y: =184
+            - Label3_594:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =35
+                  Size: =11
+                  Text: ="Comments"
+                  Width: =100
+                  X: =10
+                  Y: =227
+            - inputSiteInductionComments:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(139, 154, 159, 1)
+                  BorderThickness: =0
+                  Default: =
+                  DisabledBorderColor: =RGBA(128, 128, 128, 1)
+                  Fill: =If(IsBlank(Self.Text),RGBA(255, 255, 205, 1),RGBA(245, 245, 245, 1))
+                  Font: =Font.'Open Sans'
+                  Height: =38
+                  HintText: ="'Add Comments to this Site Induction'"
+                  HoverBorderColor: =RGBA(0, 0, 0, 0)
+                  HoverFill: =RGBA(237, 237, 237, 1)
+                  OnChange: =
+                  PaddingBottom: =2
+                  PaddingLeft: =5
+                  PaddingTop: |
+                    =2
+                  RadiusBottomLeft: =1
+                  RadiusBottomRight: =1
+                  RadiusTopLeft: =1
+                  RadiusTopRight: =1
+                  Reset: =
+                  Size: =11
+                  Width: =415
+                  X: =10
+                  Y: =262
+            - Label3_595:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =35
+                  Size: =11
+                  Text: ="Attach Relevant Documents/Images"
+                  Width: =300
+                  X: =10
+                  Y: =306
+            - checkSiteInductionConfirmation:
+                Control: CheckBox@0.0.30
+                Properties:
+                  FontItalic: =true
+                  Label: ="Confirm you have attended the Site Induction."
+                  Width: =400
+                  X: =11
+                  Y: =448
+            - attachmentSiteInductionForm:
+                Control: Attachments@2.3.0
+                Properties:
+                  AddAttachmentText: ="Upload file"
+                  BorderColor: =RGBA(255, 255, 255, 0)
+                  BorderThickness: =0
+                  DisplayMode: =DisplayMode.Disabled
+                  Font: =Font.'Open Sans'
+                  Height: =96
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  ItemColor: =RGBA(255, 255, 255, 1)
+                  ItemFill: =RGBA(56, 96, 178, 1)
+                  ItemHoverFill: =RGBA(186, 202, 226, 1)
+                  MaxAttachments: =1
+                  MaxAttachmentsText: =""
+                  NoAttachmentsText: ="There is no file."
+                  PaddingBottom: =5
+                  PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                  PaddingRight: =5
+                  PaddingTop: =5
+                  PressedColor: =RGBA(255, 255, 255, 1)
+                  PressedFill: =RGBA(0, 18, 107, 1)
+                  Size: =11
+                  Tooltip: =
+                  Width: =422
+                  X: =10
+                  Y: =341
+      - containerSiteInductionForm_1:
+          Control: GroupContainer@1.5.0
+          Variant: ManualLayout
+          Properties:
+            BorderColor: =RGBA(106, 122, 127, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =208
+            Visible: =varMiscAction
+            Width: =445
+            X: =461
+            Y: =280
+          Children:
+            - Rectangle2_132:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(7, 110, 108, 1)
+                  Height: =35
+                  Width: =445
+            - TextCanvas3_45:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Start
+                  FontColor: =RGBA(255, 255, 255, 1)
+                  Height: =35
+                  Size: =18
+                  Text: =varActionRecord.'Action Name'
+                  VerticalAlign: =VerticalAlign.Middle
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =380
+                  Wrap: =false
+                  X: =31
+            - ButtonCanvas8_15:
+                Control: Button@0.0.45
+                Properties:
+                  BasePaletteColor: =RGBA(8, 222, 8, 1)
+                  DisplayMode: "=If(\n    !checkSiteInductionConfirmation_1.Checked,\n    DisplayMode.Disabled,\n    \n    DisplayMode.Edit\n      \n    )\n"
+                  Height: =30
+                  Icon: ="Save"
+                  OnSelect: |-
+                    =
+
+                    Patch(col_EngineerActionList, varActionRecord, 
+                    { 
+                        //'Induction LookUp':LookUp(col_SiteInductions, 'Site Induction ID' = newSiteInductionRecord),
+                        'Action Status': "Completed"
+                    });
+                    Patch(col_ShiftList, LookUp(col_ShiftList, 'Shift ID' = GUID(varActionRecord.'Shift ID')), 
+                    { 
+                    'Shift Status':"Complete"
+                    });
+
+
+                    Set(varMiscAction, false);
+                    Reset(checkSiteInductionConfirmation_1);
+                  Text: ="Confirm Completion"
+                  Width: =206
+                  X: =118
+                  Y: =138
+            - Icon17_33:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(255, 138, 140, 1)
+                  Height: =32
+                  Icon: =Icon.CancelBadge
+                  OnSelect: |-
+                    =Set(varMiscAction, false);
+                    Reset(checkSiteInductionConfirmation_1);
+                  Tooltip: ="Close Window"
+                  Width: =22
+                  X: =410
+            - Label3_596:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Italic: =true
+                  Size: =11
+                  Text: |-
+                    ="Check the Checkbox Below to Mark off this Action, 
+                    Updating Shift Item to Complete"
+                  Width: =422
+                  X: =10
+                  Y: =40
+            - iconViewSiteDetails_2:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(255, 255, 255, 1)
+                  Height: =35
+                  Icon: =Icon.ListScrollWatchlist
+                  PaddingBottom: =5
+                  PaddingTop: =5
+                  Tooltip: ="View Site Details"
+                  Width: =32
+                  Y: =1
+            - checkSiteInductionConfirmation_1:
+                Control: CheckBox@0.0.30
+                Properties:
+                  FontItalic: =true
+                  Label: ="Confirm you have completed this Action"
+                  Width: =400
+                  X: =11
+                  Y: =87

@@ -1,0 +1,227 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_shifts",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_shift",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_Shifts",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_additionalcomments": "Additional Comments",
+      "sy_adhoc": "Adhoc",
+      "sy_besa_activity_ShiftLookUp_sy_besa_shift": "BESA_Activities",
+      "sy_besa_note_ShiftLookUp_sy_besa_shift": "BESA_Notes",
+      "sy_besa_shift_AsyncOperations": "System Jobs",
+      "sy_besa_shift_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_shift_DuplicateBaseRecord": "Duplicate Records (sy_besa_shift_DuplicateBaseRecord)",
+      "sy_besa_shift_DuplicateMatchingRecord": "Duplicate Records (sy_besa_shift_DuplicateMatchingRecord)",
+      "sy_besa_shift_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_shift_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_shift_ProcessSession": "Process Sessions",
+      "sy_besa_shift_SyncErrors": "Sync Errors",
+      "sy_besa_shiftid": "BESA_Shift",
+      "sy_besa_test_ShiftLookUp_sy_besa_shift": "BESA_Tests",
+      "sy_BookingElementLookUp": "Booking Element LookUp",
+      "sy_bookingid": "Booking ID",
+      "sy_BookingLookUp": "Booking LookUp",
+      "sy_bookingschedulereference": "BookingScheduleReference",
+      "sy_bookingserviceid": "Booking Service ID",
+      "sy_clientid": "Client ID",
+      "sy_ClientLookUp": "Client LookUp",
+      "sy_EngineerLookUp": "Engineer LookUp",
+      "sy_estimatedduration": "Estimated Duration",
+      "sy_generaterams": "Generate RAMs",
+      "sy_isparent": "Is Parent",
+      "sy_parentid": "ParentID",
+      "sy_peoplehrshift": "People HR Shift",
+      "sy_riskassesmentjson": "Risk Assesment JSON",
+      "sy_servicesbooked": "Services Booked",
+      "sy_shiftdate": "Shift Date",
+      "sy_shiftid": "Shift ID",
+      "sy_shiftstarttime": "Shift Start Time",
+      "sy_shiftstatus": "Shift Status",
+      "sy_shifttype": "Shift Type",
+      "sy_shiftviewid": "Shift View ID",
+      "sy_siteid": "Site ID",
+      "sy_SiteLookUp": "Site LookUp",
+      "sy_userguid": "User GUID",
+      "sy_weatherreportjson": "Weather Report Json",
+      "sy_workpackageschedule": "Work Package Schedule",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_Shifts",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_Shifts (Views)",
+    "Name": "_sy_besa_shift_views",
+    "RelatedEntityName": "BESA_Shifts",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "256869bb-ef31-4b3c-a417-2b3919b19a26": "BESA_Shift Lookup View",
+      "56ad0fef-5959-4219-be76-f292d143135b": "Inactive BESA_Shifts",
+      "a83e426f-c491-4b8a-a363-caef22c20990": "BESA_Shift Advanced Find View",
+      "f033a7d8-2481-445d-ac5e-a60b2388bd9b": "Active BESA_Shifts",
+      "f4c412c3-38f8-4a43-92a2-bf4cf51520c0": "BESA_Shift Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_Shifts)",
+    "Name": "sy_besa_shift_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_Shifts"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_Shifts",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_Shifts)",
+    "Name": "sy_besa_shift_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_Shifts"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_Shifts",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Adhoc (BESA_Shifts)",
+    "Name": "sy_besa_shift_sy_adhoc",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_adhoc",
+        "OptionSetReferenceEntityName": "BESA_Shifts"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_adhoc",
+    "RelatedEntityName": "BESA_Shifts",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Generate RAMs (BESA_Shifts)",
+    "Name": "sy_besa_shift_sy_generaterams",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_generaterams",
+        "OptionSetReferenceEntityName": "BESA_Shifts"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_generaterams",
+    "RelatedEntityName": "BESA_Shifts",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is Parent (BESA_Shifts)",
+    "Name": "sy_besa_shift_sy_isparent",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_isparent",
+        "OptionSetReferenceEntityName": "BESA_Shifts"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_isparent",
+    "RelatedEntityName": "BESA_Shifts",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "People HR Shift (BESA_Shifts)",
+    "Name": "sy_besa_shift_sy_peoplehrshift",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_peoplehrshift",
+        "OptionSetReferenceEntityName": "BESA_Shifts"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_peoplehrshift",
+    "RelatedEntityName": "BESA_Shifts",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Work Package Schedule (BESA_Shifts)",
+    "Name": "sy_besa_shift_sy_workpackageschedule",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_workpackageschedule",
+        "OptionSetReferenceEntityName": "BESA_Shifts"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_workpackageschedule",
+    "RelatedEntityName": "BESA_Shifts",
+    "Type": "OptionSetInfo"
+  }
+]

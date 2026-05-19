@@ -1,0 +1,108 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Screen2:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - ScreenContainer1:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Fill: =RGBA(245, 245, 245, 1)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =16
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Width: =Parent.Width
+          Children:
+            - HeaderContainer1:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  Fill: =App.Theme.Colors.Primary
+                  FillPortions: =0
+                  Height: =75
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  PaddingBottom: =8
+                  PaddingLeft: =10
+                  PaddingRight: =10
+                  PaddingTop: =8
+                  RadiusBottomLeft: =8
+                  RadiusBottomRight: =8
+                  RadiusTopLeft: =8
+                  RadiusTopRight: =8
+                Children:
+                  - AppName1:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Start
+                        AlignInContainer: =AlignInContainer.Stretch
+                        FillPortions: =1
+                        FontColor: =App.Theme.Colors.Lighter70
+                        Height: =75
+                        LayoutMinHeight: =40
+                        LayoutMinWidth: =280
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =25
+                        Text: ="App name"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Regular
+                        Width: =280
+                  - Offline sync Icon1:
+                      Control: Button@0.0.45
+                      Properties:
+                        AccessibleLabel: ="Offline sync status icon"
+                        Align: =Align.Left
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: ='ButtonCanvas.Appearance'.Transparent
+                        FontColor: =App.Theme.Colors.Lighter70
+                        FontSize: =50
+                        Icon: |-
+                          =Switch(Connection.Sync,
+                             ConnectionSync.Connected, "Globe", 
+                             ConnectionSync.ConnectedWithWarning, "GlobeWarning",
+                             ConnectionSync.ConnectedPendingUpsync, "GlobeArrowUp",   ConnectionSync.ConnectedError, "GlobeError",
+                             ConnectionSync.ConnectedRefresh, "GlobeSync",
+                             ConnectionSync.NotConnected, "GlobeProhibited", 
+                             ConnectionSync.NotConnectedWithWarning, "GlobeWarning",
+                             ConnectionSync.NotConnectedPendingUpsync, "GlobeArrowUp",
+                             ConnectionSync.NotConnectedSyncError, "GlobeError")
+                        IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                        Layout: ='ButtonCanvas.Layout'.IconOnly
+                        LayoutMinHeight: =50
+                        OnSelect: =ShowHostInfo(HostInfo.OfflineSync)
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: =Host.OfflineEnabled
+                        Width: =70
+            - MainSectionContainer1:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  DropShadow: =DropShadow.None
+                  Fill: =RGBA(255, 255, 255, 1)
+                  LayoutDirection: =LayoutDirection.Vertical
+                  PaddingBottom: =8
+                  PaddingLeft: =8
+                  PaddingRight: =8
+                  PaddingTop: =8
+                  RadiusBottomLeft: =8
+                  RadiusBottomRight: =8
+                  RadiusTopLeft: =8
+                  RadiusTopRight: =8

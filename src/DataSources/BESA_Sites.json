@@ -1,0 +1,188 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_sites",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_site",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_Sites",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_accessinformation": "Access Information",
+      "sy_addressline1": "Address Line 1",
+      "sy_addressline2": "Address Line 2",
+      "sy_besa_booking_SiteLookUp_sy_besa_site": "BESA_Bookings",
+      "sy_besa_bookingelement_SiteLookUp_sy_besa_site": "BESA_BookingElements",
+      "sy_besa_bookingschedule_SiteLookUp_sy_besa_site": "BESA_BookingSchedules",
+      "sy_besa_envelope_SiteLookUp_sy_besa_site": "BESA_Envelopes",
+      "sy_besa_note_SiteLookUp_sy_besa_site": "BESA_Notes",
+      "sy_besa_order_SiteLookUp_sy_besa_site": "BESA_Orders",
+      "sy_besa_project_SiteLookUp_sy_besa_site": "BESA_Projects",
+      "sy_besa_shift_SiteLookUp_sy_besa_site": "BESA_Shifts",
+      "sy_besa_site_AsyncOperations": "System Jobs",
+      "sy_besa_site_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_site_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_site_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_site_ProcessSession": "Process Sessions",
+      "sy_besa_site_SyncErrors": "Sync Errors",
+      "sy_besa_siteid": "BESA_Site",
+      "sy_besa_siteinduction_SiteLookUp_sy_besa_site": "BESA_SiteInductions",
+      "sy_besa_test_SiteLookUp_sy_besa_site": "BESA_Tests",
+      "sy_cancellationwindow": "Cancellation Window",
+      "sy_ClientLookUp": "Client LookUp",
+      "sy_county": "County",
+      "sy_heating": "Heating",
+      "sy_inductiontime": "Induction Time",
+      "sy_isasbestospresentonsite": "Is Asbestos Present On Site",
+      "sy_lat": "Lat",
+      "sy_long": "Long",
+      "sy_name": "Name",
+      "sy_onsitepower": "On Site Power",
+      "sy_parkinginformation": "Parking Information",
+      "sy_postcode": "Postcode",
+      "sy_pperequirements": "PPE Requirements",
+      "sy_securityclearance": "Security Clearance",
+      "sy_siteclosinghours": "Site Closing Hours",
+      "sy_SiteContactLookUp": "Site Contact LookUp",
+      "sy_siteid": "Site ID",
+      "sy_sitename": "Site Name",
+      "sy_siteopeninghours": "Site Opening Hours",
+      "sy_sitestatus": "Site Status",
+      "sy_sy_besa_element_sy_BESA_Site_sy_SiteLookUp": "BESA_Elements",
+      "sy_town": "Town",
+      "sy_ventilation": "Ventilation",
+      "sy_what3words": "what3words",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_Sites",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_Sites (Views)",
+    "Name": "_sy_besa_site_views",
+    "RelatedEntityName": "BESA_Sites",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1b02df8a-c3aa-47ed-9fd9-0f03bcaa12b9": "Active BESA_Sites",
+      "4732d57b-1a0d-4290-b147-fa8e67f27a4f": "BESA_Site Advanced Find View",
+      "bf06a7c5-c2f3-42c4-a678-b734410a14d3": "Inactive BESA_Sites",
+      "cbf8fd97-756a-4cd3-807a-b5a25a9e6e4c": "BESA_Site Lookup View",
+      "db0eb520-adf1-4aa3-b61d-f66351a7e09d": "BESA_Site Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_Sites)",
+    "Name": "sy_besa_site_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_Sites"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_Sites",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_Sites)",
+    "Name": "sy_besa_site_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_Sites"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_Sites",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Heating (BESA_Sites)",
+    "Name": "sy_besa_site_sy_heating",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_heating",
+        "OptionSetReferenceEntityName": "BESA_Sites"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_heating",
+    "RelatedEntityName": "BESA_Sites",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is Asbestos Present On Site (BESA_Sites)",
+    "Name": "sy_besa_site_sy_isasbestospresentonsite",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_isasbestospresentonsite",
+        "OptionSetReferenceEntityName": "BESA_Sites"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_isasbestospresentonsite",
+    "RelatedEntityName": "BESA_Sites",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Ventilation (BESA_Sites)",
+    "Name": "sy_besa_site_sy_ventilation",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_ventilation",
+        "OptionSetReferenceEntityName": "BESA_Sites"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_ventilation",
+    "RelatedEntityName": "BESA_Sites",
+    "Type": "OptionSetInfo"
+  }
+]

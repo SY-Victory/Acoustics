@@ -1,0 +1,115 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_orders",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_order",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_Orders",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_activity_OrderLookUp_sy_besa_order": "BESA_Activities",
+      "sy_besa_audit_OrderLookUp_sy_besa_order": "BESA_Audits",
+      "sy_besa_booking_OrderLookUp_sy_besa_order": "BESA_Bookings",
+      "sy_besa_bookingschedule_OrderLookUp_sy_besa_order": "BESA_BookingSchedules",
+      "sy_besa_invoice_OrderLookUp_sy_besa_order": "BESA_Invoices",
+      "sy_besa_invoiceitem_OrderLookUp_sy_besa_order": "BESA_InvoiceItems",
+      "sy_besa_order_AsyncOperations": "System Jobs",
+      "sy_besa_order_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_order_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_order_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_order_ProcessSession": "Process Sessions",
+      "sy_besa_order_SyncErrors": "Sync Errors",
+      "sy_besa_orderid": "BESA_Order",
+      "sy_besa_purchaseorder_OrderLookUp_sy_besa_order": "BESA_PurchaseOrders",
+      "sy_bookingcount": "Booking Count",
+      "sy_bookingscomplete": "Bookings Complete",
+      "sy_clientcontactname": "Client Contact Name",
+      "sy_ClientLookUp": "Client LookUp",
+      "sy_clientname": "Client Name",
+      "sy_deadlinedate": "Deadline Date",
+      "sy_eleosid": "Eleos ID",
+      "sy_eleoslastmodified": "Eleos Last Modified",
+      "sy_folderlink": "Folder Link",
+      "sy_OrderClientContactLookUp": "Order Client Contact LookUp",
+      "sy_orderreference": "OrderReference",
+      "sy_orderstatus": "Order Status",
+      "sy_projectid": "Project ID",
+      "sy_projectidstring": "Project ID String",
+      "sy_SiteLookUp": "Site LookUp",
+      "sy_sy_besa_note_sy_BESA_Order_sy_OrderLookUp": "BESA_Notes",
+      "sy_sy_besa_orderservice_sy_BESA_Order_sy_OrderLookUp": "BESA_OrderServices",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_Orders",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_Orders (Views)",
+    "Name": "_sy_besa_order_views",
+    "RelatedEntityName": "BESA_Orders",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "3bf3cc37-968d-409d-b17f-3a2cf8ce7af3": "BESA_Order Advanced Find View",
+      "7ee558bb-f383-463d-8c5f-1107558cf6a7": "Active BESA_Orders",
+      "9678a00a-6a79-4fa1-a941-b77547fb3337": "BESA_Order Associated View",
+      "ed82b1b8-d74d-49e5-9ee0-d403d1d77553": "Inactive BESA_Orders",
+      "fbe228f9-30df-4fb5-a161-5d26e08f2301": "BESA_Order Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_Orders)",
+    "Name": "sy_besa_order_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_Orders"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_Orders",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_Orders)",
+    "Name": "sy_besa_order_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_Orders"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_Orders",
+    "Type": "OptionSetInfo"
+  }
+]

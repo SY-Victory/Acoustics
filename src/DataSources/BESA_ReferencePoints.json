@@ -1,0 +1,121 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_referencepoints",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_referencepoint",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_ReferencePoints",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_referencepoint_AsyncOperations": "System Jobs",
+      "sy_besa_referencepoint_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_referencepoint_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_referencepoint_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_referencepoint_ProcessSession": "Process Sessions",
+      "sy_besa_referencepoint_SyncErrors": "Sync Errors",
+      "sy_besa_referencepointid": "BESA_ReferencePoint",
+      "sy_besa_referencepointimage_ReferencePointLookUp_sy_besa_referencepoint": "BESA_ReferencePointImages",
+      "sy_comments": "Comments",
+      "sy_documentlink": "Document Link",
+      "sy_engineerresult": "Engineer Result",
+      "sy_engineerupload": "Engineer Upload",
+      "sy_EnvelopeLookUp": "Envelope LookUp",
+      "sy_referencedimension": "Reference Dimension",
+      "sy_referenceexpectedresult": "Reference Expected Result",
+      "sy_referencepoint": "Reference Point",
+      "sy_TestLookUp": "Test LookUp",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_ReferencePoints",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_ReferencePoints (Views)",
+    "Name": "_sy_besa_referencepoint_views",
+    "RelatedEntityName": "BESA_ReferencePoints",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "8f1d4ed0-81f1-4b66-bb56-284ce0b053bf": "BESA_ReferencePoint Lookup View",
+      "bfb7a2ee-3fdf-465c-a325-b3e2a4e1b350": "Inactive BESA_ReferencePoints",
+      "cd1533a2-9ab3-4384-9bbf-da1260d18cd0": "Active BESA_ReferencePoints",
+      "f2085e7b-12b7-4812-b47a-7c926d94ccb4": "BESA_ReferencePoint Advanced Find View",
+      "f8f971cb-0107-4a0e-b887-b4757b3b0842": "BESA_ReferencePoint Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_ReferencePoints)",
+    "Name": "sy_besa_referencepoint_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_ReferencePoints"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_ReferencePoints",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_ReferencePoints)",
+    "Name": "sy_besa_referencepoint_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_ReferencePoints"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_ReferencePoints",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Engineer Upload (BESA_ReferencePoints)",
+    "Name": "sy_besa_referencepoint_sy_engineerupload",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_engineerupload",
+        "OptionSetReferenceEntityName": "BESA_ReferencePoints"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_engineerupload",
+    "RelatedEntityName": "BESA_ReferencePoints",
+    "Type": "OptionSetInfo"
+  }
+]

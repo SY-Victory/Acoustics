@@ -1,0 +1,140 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_clients",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_client",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_Clients",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_activity_ClientLookUp_sy_besa_client": "BESA_Activities",
+      "sy_besa_audit_ClientLookUp_sy_besa_client": "BESA_Audits",
+      "sy_besa_booking_ClientLookUp_sy_besa_client": "BESA_Bookings",
+      "sy_besa_client_AsyncOperations": "System Jobs",
+      "sy_besa_client_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_client_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_client_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_client_ProcessSession": "Process Sessions",
+      "sy_besa_client_SyncErrors": "Sync Errors",
+      "sy_besa_clientcontact_ClientLookUp_sy_besa_client": "BESA_ClientContacts",
+      "sy_besa_clientid": "BESA_Client",
+      "sy_besa_element_ClientLookUp_sy_besa_client": "BESA_Elements",
+      "sy_besa_envelope_ClientLookUp_sy_besa_client": "BESA_Envelopes",
+      "sy_besa_invoice_ClientLookUp_sy_besa_client": "BESA_Invoices",
+      "sy_besa_invoiceitem_ClientLookUp_sy_besa_client": "BESA_InvoiceItems",
+      "sy_besa_note_ClientLookUp_sy_besa_client": "BESA_Notes",
+      "sy_besa_order_ClientLookUp_sy_besa_client": "BESA_Orders",
+      "sy_besa_shift_ClientLookUp_sy_besa_client": "BESA_Shifts",
+      "sy_besa_test_ClientLookUp_sy_besa_client": "BESA_Tests",
+      "sy_cancellationwindow": "Cancellation Window",
+      "sy_clientaddressline1": "Client Address Line 1",
+      "sy_clientaddressline2": "Client Address Line 2",
+      "sy_clientid": "Client ID",
+      "sy_clientname": "Client Name",
+      "sy_clientonhold": "Client On Hold",
+      "sy_clientstatus": "Client Status",
+      "sy_county": "County",
+      "sy_eleosid": "Eleos ID",
+      "sy_lat": "Lat",
+      "sy_long": "Long",
+      "sy_name": "Name",
+      "sy_portalorgid": "Portal OrgId",
+      "sy_postcode": "Postcode",
+      "sy_sy_besa_site_sy_BESA_Client_sy_ClientLookUp": "BESA_Sites",
+      "sy_towncity": "Town/City",
+      "sy_what3words": "what3words",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_Clients",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_Clients (Views)",
+    "Name": "_sy_besa_client_views",
+    "RelatedEntityName": "BESA_Clients",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "08c1a85f-2a83-4146-b17c-979b63b22627": "Inactive BESA_Clients",
+      "3985bffb-039e-4ae5-afbb-9a4782a0bf94": "Active BESA_Clients",
+      "4e8126b8-e0fa-44a8-9855-92f1a8992510": "BESA_Client Lookup View",
+      "6368ab5a-a69a-4de3-b1e8-32e046bc9866": "BESA_Client Advanced Find View",
+      "df310337-ab8e-48c5-98db-dfdd36b3b094": "BESA_Client Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_Clients)",
+    "Name": "sy_besa_client_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_Clients"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_Clients",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_Clients)",
+    "Name": "sy_besa_client_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_Clients"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_Clients",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Client On Hold (BESA_Clients)",
+    "Name": "sy_besa_client_sy_clientonhold",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_clientonhold",
+        "OptionSetReferenceEntityName": "BESA_Clients"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_clientonhold",
+    "RelatedEntityName": "BESA_Clients",
+    "Type": "OptionSetInfo"
+  }
+]

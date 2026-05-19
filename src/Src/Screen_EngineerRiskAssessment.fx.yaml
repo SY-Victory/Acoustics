@@ -1,0 +1,974 @@
+Screen_EngineerRiskAssessment As screen:
+    ContentLanguage: =""
+    Fill: =Color.White
+    LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    OnVisible: |-
+        =ClearCollect(col_RAMSTake2General,
+            {ID: 1, Question: "Do you have the correct PPE for the activity?", Answer: "N/A", Comments: ""},
+            {ID: 2, Question: "Do you have the correct Risk Assessment?", Answer: "N/A", Comments: ""},
+            {ID: 3, Question: "Do you have the correct Method Statement?", Answer: "N/A", Comments: ""},
+            {ID: 4, Question: "Do you have the correct equipment to complete the activity?", Answer: "N/A", Comments: ""},
+            {ID: 5, Question: "Is your equipment in-date calibration?", Answer: "N/A", Comments: ""}
+        );
+        ClearCollect(col_RAMSTake2Site,
+            {ID: 1, Question: "Have you completed a site induction?", Answer: "N/A", Comments: ""},
+            {ID: 2, Question: "Has the client informed you of the site emergency procedures?", Answer: "N/A", Comments: ""},
+            {ID: 3, Question: "Has the client provided adequate welfare facilities?", Answer: "N/A", Comments: ""},
+            {ID: 4, Question: "Has the client made you aware of the first aiders and first aid point?", Answer: "N/A", Comments: ""},
+            {ID: 5, Question: "Has the client provided 110V or 240V power supply?", Answer: "N/A", Comments: ""}
+        );
+        ClearCollect(col_RAMSTake2Risks,
+            {ID: 1, Risk: "Asbestos", Answer: "N/A", Comments: ""},
+            {ID: 2, Risk: "Working at height (step ups, ladders, MEWPs)", Answer: "N/A", Comments: ""},
+            {ID: 3, Risk: "Slips, Trips and Falls", Answer: "N/A", Comments: ""},
+            {ID: 4, Risk: "Manual handling", Answer: "N/A", Comments: ""},
+            {ID: 5, Risk: "Moving vehicles", Answer: "N/A", Comments: ""},
+            {ID: 6, Risk: "Excessive dust", Answer: "N/A", Comments: ""},
+            {ID: 7, Risk: "Excessive noise", Answer: "N/A", Comments: ""},
+            {ID: 8, Risk: "Poor Lighting", Answer: "N/A", Comments: ""},
+            {ID: 9, Risk: "Exposed utilities", Answer: "N/A", Comments: ""},
+            {ID: 10, Risk: "Confined Spaces", Answer: "N/A", Comments: ""},
+            {ID: 11, Risk: "Poor Housekeeping", Answer: "N/A", Comments: ""},
+            {ID: 12, Risk: "Extreme weather (Ice, High Temps, High Winds)", Answer: "N/A", Comments: ""},
+            {ID: 13, Risk: "Poor Access", Answer: "N/A", Comments: ""},
+            {ID: 14, Risk: "Other trades working in the area", Answer: "N/A", Comments: ""},
+            {ID: 15, Risk: "Overhead works (cranes, roofing, scaffold)", Answer: "N/A", Comments: ""},
+            {ID: 16, Risk: "Heavy machinery operating nearby", Answer: "N/A", Comments: ""},
+            {ID: 17, Risk: "Paint / chemical fumes", Answer: "N/A", Comments: ""},
+            {ID: 18, Risk: "Electricity", Answer: "N/A", Comments: ""},
+            {ID: 19, Risk: "Exposed Cables", Answer: "N/A", Comments: ""},
+            {ID: 20, Risk: "Uneven ground (manholes, trenches)", Answer: "N/A", Comments: ""},
+            {ID: 21, Risk: "Sharps / blades", Answer: "N/A", Comments: ""},
+            {ID: 22, Risk: "Out of date plant and equipment inspection sheet", Answer: "N/A", Comments: ""},
+            {ID: 23, Risk: "Other", Answer: "N/A", Comments: ""}
+        )
+
+    rectRAMSPageHeader As rectangle:
+        Fill: =RGBA(7, 110, 108, 1)
+        Height: =55
+        Width: =1366
+        ZIndex: =1
+
+    iconRAMSBack As icon:
+        Color: =RGBA(255, 138, 140, 1)
+        Height: =40
+        Icon: =Icon.CancelBadge
+        OnSelect: =Back()
+        PaddingBottom: =5
+        PaddingTop: =5
+        Tooltip: ="Close RAMS Form"
+        Width: =40
+        X: =10
+        Y: =8
+        ZIndex: =2
+
+    txtRAMSPageTitle As Text:
+        Align: ='TextCanvas.Align'.Start
+        AutoHeight: =false
+        BorderColor: =
+        BorderStyle: =""
+        ContentLanguage: =""
+        DisplayMode: =DisplayMode.Edit
+        Fill: =
+        Font: =""
+        FontColor: =RGBA(255, 255, 255, 1)
+        FontItalic: =false
+        FontStrikethrough: =false
+        FontUnderline: =false
+        Height: =55
+        Size: =18
+        TabIndex: =0
+        Text: ="STROMA - Risk Assessment Take 2 Form"
+        Tooltip: =""
+        VerticalAlign: =VerticalAlign.Middle
+        Visible: =true
+        Weight: ='TextCanvas.Weight'.Semibold
+        Width: =800
+        Wrap: =true
+        X: =60
+        Y: =0
+        ZIndex: =3
+
+    galRAMSScrollOuter As gallery.variableTemplateHeightGallery:
+        '#CopilotOverlayLabel': ="Filtered"
+        DelayItemLoading: =true
+        Height: =713
+        Items: =Sequence(1)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =2270
+        Width: =1366
+        Y: =55
+        ZIndex: =4
+
+        containerRAMSDetails As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            LayoutGridColumnMinWidth: =0
+            LayoutGridColumns: =6
+            LayoutGridRowMinHeight: =0
+            LayoutGridRows: =6
+            Width: =1346
+            X: =10
+            Y: =5
+            ZIndex: =2
+
+            rectRAMSDetailsHdr As rectangle:
+                Fill: =RGBA(7, 110, 108, 1)
+                Height: =35
+                Width: =1346
+                ZIndex: =1
+
+            txtRAMSDetailsHdr As Text:
+                Align: ='TextCanvas.Align'.Start
+                AutoHeight: =false
+                BorderColor: =
+                BorderStyle: =""
+                ContentLanguage: =""
+                DisplayMode: =DisplayMode.Edit
+                Fill: =
+                Font: =""
+                FontColor: =RGBA(255, 255, 255, 1)
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                Height: =35
+                Size: =14
+                TabIndex: =0
+                Text: ="RAMS Details"
+                Tooltip: =""
+                VerticalAlign: =VerticalAlign.Middle
+                Visible: =true
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =400
+                Wrap: =true
+                X: =10
+                Y: =0
+                ZIndex: =2
+
+            lblRAMSNameLbl As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                Size: =11
+                Text: |-
+                    ="Name:"
+                X: =10
+                Y: =42
+                ZIndex: =3
+
+            lblRAMSNameVal As label:
+                Height: =32
+                Size: =11
+                Text: =varStaffViewID.'Staff Name'
+                Width: =380
+                X: =165
+                Y: =42
+                ZIndex: =4
+
+            lblRAMSJobNumLbl As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                Size: =11
+                Text: |-
+                    ="Job Number:"
+                X: =10
+                Y: =78
+                ZIndex: =5
+
+            lblRAMSJobNumVal As label:
+                Height: =32
+                Size: =11
+                Text: =varRAMSJobNum//varActionRecord.'Booking LookUp'.'Booking ID'
+                Width: =380
+                X: =165
+                Y: =78
+                ZIndex: =6
+
+            lblRAMSSiteLbl As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                Size: =11
+                Text: |-
+                    ="Site:"
+                X: =10
+                Y: =114
+                ZIndex: =7
+
+            lblRAMSSiteVal As label:
+                Height: =32
+                Size: =11
+                Text: =varRAMSSiteName//varActionRecord.'Site LookUp'.'Site Name'
+                Width: =380
+                X: =165
+                Y: =114
+                ZIndex: =8
+
+            lblRAMSDateLbl As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                Size: =11
+                Text: |-
+                    ="Date:"
+                X: =700
+                Y: =42
+                ZIndex: =9
+
+            lblRAMSDateVal As label:
+                Height: =32
+                Size: =11
+                Text: =Text(Today(), "dd/mm/yyyy")
+                Width: =250
+                X: =860
+                Y: =42
+                ZIndex: =10
+
+            lblRAMSActivityLbl As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                Size: =11
+                Text: |-
+                    ="Activity:"
+                X: =700
+                Y: =78
+                ZIndex: =11
+
+            lblRAMSActivityVal As label:
+                Size: =11
+                Text: |-
+                    =/*Concat(
+                            Filter(col_EngineerActionList, 'Action Name' = "Service" && GUID('Shift ID') = varActionRecord.'Shift LookUp'.BESA_Shift),
+                                'Booking Element LookUp'.'Order Service LookUp'.Division & " - " & 'Booking Element LookUp'.'Order Service LookUp'.Service,
+                                Char(10)
+                            )*/
+                    
+                    varRAMSActivities
+                Width: =380
+                X: =860
+                Y: =78
+                ZIndex: =12
+
+            lblRAMSProNumLbl As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                Size: =11
+                Text: |-
+                    ="PRO Number:"
+                X: =700
+                Y: =114
+                ZIndex: =13
+
+            lblRAMSProNumVal As label:
+                Height: =32
+                Size: =11
+                Text: =varRAMSProNum//varActionRecord.'Booking LookUp'.'Booking ID'
+                Width: =250
+                X: =860
+                Y: =114
+                ZIndex: =14
+
+            lblRAMSNote As label:
+                Height: =30
+                Italic: =true
+                Size: =10
+                Text: ="* Mark Yes, No or N/A as appropriate"
+                Width: =600
+                X: =657
+                Y: =170
+                ZIndex: =15
+
+            lblRAMSSiteLbl_1 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                Size: =11
+                Text: |-
+                    ="Elements:"
+                X: =10
+                Y: =150
+                ZIndex: =25
+
+            lblRAMSSiteVal_1 As label:
+                Size: =11
+                Text: =varRAMSElements//varActionRecord.'Site LookUp'.'Site Name'
+                Width: =380
+                X: =165
+                Y: =150
+                ZIndex: =26
+
+        rectRAMSGeneralHdr As rectangle:
+            Fill: =RGBA(7, 110, 108, 1)
+            Height: =35
+            Width: =1346
+            X: =10
+            Y: =215
+            ZIndex: =3
+
+        txtRAMSGeneralTitle As Text:
+            Align: ='TextCanvas.Align'.Start
+            AutoHeight: =false
+            BorderColor: =
+            BorderStyle: =""
+            ContentLanguage: =""
+            DisplayMode: =DisplayMode.Edit
+            Fill: =
+            Font: =""
+            FontColor: =RGBA(255, 255, 255, 1)
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            Height: =35
+            Size: =13
+            TabIndex: =0
+            Text: ="General Information"
+            Tooltip: =""
+            VerticalAlign: =VerticalAlign.Middle
+            Visible: =true
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =500
+            Wrap: =true
+            X: =20
+            Y: =215
+            ZIndex: =4
+
+        rectRAMSGeneralColHdr As rectangle:
+            Fill: =RGBA(220, 230, 240, 1)
+            Height: =30
+            Width: =1346
+            X: =10
+            Y: =250
+            ZIndex: =5
+
+        lblRAMSGeneralColQ As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: ="Question"
+            Width: =640
+            X: =15
+            Y: =253
+            ZIndex: =6
+
+        lblRAMSGeneralColA As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: ="Answer"
+            Width: =130
+            X: =660
+            Y: =253
+            ZIndex: =7
+
+        lblRAMSGeneralColC As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: ="Comments"
+            Width: =400
+            X: =800
+            Y: =253
+            ZIndex: =8
+
+        galRAMSGeneral As gallery.variableTemplateHeightGallery:
+            '#CopilotOverlayLabel': ="Filtered"
+            DelayItemLoading: =true
+            Height: =275
+            Items: =col_RAMSTake2General
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =55
+            Width: =1346
+            X: =10
+            Y: =280
+            ZIndex: =9
+
+            rectGalGeneralRow As rectangle:
+                Fill: =If(Mod(ThisItem.ID, 2) = 1, RGBA(245, 248, 252, 1), RGBA(255, 255, 255, 1))
+                Height: =54
+                Width: =1346
+                ZIndex: =1
+
+            rectGalGeneralRowBorder As rectangle:
+                Fill: =RGBA(200, 210, 220, 1)
+                Height: =1
+                Width: =1346
+                Y: =54
+                ZIndex: =2
+
+            lblGalGeneralQ As label:
+                Height: =55
+                Size: =11
+                Text: =ThisItem.Question
+                Width: =640
+                X: =5
+                ZIndex: =3
+
+            ddGalGeneralAnswer As Dropdown.pcfdataset:
+                AccessibleLabel: =""
+                Appearance: ="FilledDarker"
+                BorderStyle: =""
+                ContentLanguage: =""
+                DefaultSelectedItems: |-
+                    ={Value:ThisItem.Answer}
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =0
+                Height: =35
+                Items: =["Yes", "No", "N/A"]
+                OnChange: |-
+                    =Patch(col_RAMSTake2General, ThisItem, {Answer: Self.Selected.Value})
+                Required: =false
+                TabIndex: =0
+                Tooltip: =""
+                ValidationState: ="None"
+                Visible: =true
+                Width: =120
+                X: =655
+                Y: =10
+                ZIndex: =4
+
+            tiGalGeneralComments As text:
+                BorderThickness: =0
+                Default: ="Text input"
+                Fill: =If(IsBlank(Self.Text), RGBA(255, 255, 205, 1), RGBA(245, 245, 245, 1))
+                Height: =35
+                HintText: ="Add comments..."
+                HoverBorderColor: =App.Theme.Colors.Darker40
+                HoverFill: =App.Theme.Colors.Lighter70
+                OnChange: |-
+                    =Patch(col_RAMSTake2General, ThisItem, {Comments: Self.Text})
+                Size: =11
+                Width: =536
+                X: =785
+                Y: =10
+                ZIndex: =5
+
+        rectRAMSSiteHdr As rectangle:
+            Fill: =RGBA(7, 110, 108, 1)
+            Height: =35
+            Width: =1346
+            X: =10
+            Y: =565
+            ZIndex: =10
+
+        txtRAMSSiteTitle As Text:
+            Align: ='TextCanvas.Align'.Start
+            AutoHeight: =false
+            BorderColor: =
+            BorderStyle: =""
+            ContentLanguage: =""
+            DisplayMode: =DisplayMode.Edit
+            Fill: =
+            Font: =""
+            FontColor: =RGBA(255, 255, 255, 1)
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            Height: =35
+            Size: =13
+            TabIndex: =0
+            Text: ="Site Information"
+            Tooltip: =""
+            VerticalAlign: =VerticalAlign.Middle
+            Visible: =true
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =500
+            Wrap: =true
+            X: =20
+            Y: =565
+            ZIndex: =11
+
+        rectRAMSSiteColHdr As rectangle:
+            Fill: =RGBA(220, 230, 240, 1)
+            Height: =30
+            Width: =1346
+            X: =10
+            Y: =600
+            ZIndex: =12
+
+        lblRAMSSiteColQ As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: ="Question"
+            Width: =640
+            X: =15
+            Y: =603
+            ZIndex: =13
+
+        lblRAMSSiteColA As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: ="Answer"
+            Width: =130
+            X: =660
+            Y: =603
+            ZIndex: =14
+
+        lblRAMSSiteColC As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: ="Comments"
+            Width: =400
+            X: =800
+            Y: =603
+            ZIndex: =15
+
+        galRAMSSite As gallery.variableTemplateHeightGallery:
+            '#CopilotOverlayLabel': ="Filtered"
+            DelayItemLoading: =true
+            Height: =275
+            Items: =col_RAMSTake2Site
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =55
+            Width: =1346
+            X: =10
+            Y: =630
+            ZIndex: =16
+
+            rectGalSiteRow As rectangle:
+                Fill: =If(Mod(ThisItem.ID, 2) = 1, RGBA(245, 248, 252, 1), RGBA(255, 255, 255, 1))
+                Height: =54
+                Width: =1346
+                ZIndex: =1
+
+            rectGalSiteRowBorder As rectangle:
+                Fill: =RGBA(200, 210, 220, 1)
+                Height: =1
+                Width: =1346
+                Y: =54
+                ZIndex: =2
+
+            lblGalSiteQ As label:
+                Height: =55
+                Size: =11
+                Text: =ThisItem.Question
+                Width: =640
+                X: =5
+                ZIndex: =3
+
+            ddGalSiteAnswer As Dropdown.pcfdataset:
+                AccessibleLabel: =""
+                Appearance: ="FilledDarker"
+                BorderStyle: =""
+                ContentLanguage: =""
+                DefaultSelectedItems: |-
+                    ={Value:ThisItem.Answer}
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =0
+                Height: =35
+                Items: =["Yes", "No", "N/A"]
+                OnChange: |-
+                    =Patch(col_RAMSTake2Site, ThisItem, {Answer: Self.Selected.Value})
+                Required: =false
+                TabIndex: =0
+                Tooltip: =""
+                ValidationState: ="None"
+                Visible: =true
+                Width: =120
+                X: =655
+                Y: =10
+                ZIndex: =4
+
+            tiGalSiteComments As text:
+                BorderThickness: =0
+                Default: ="Text input"
+                Fill: =If(IsBlank(Self.Text), RGBA(255, 255, 205, 1), RGBA(245, 245, 245, 1))
+                Height: =35
+                HintText: ="Add comments..."
+                HoverBorderColor: =App.Theme.Colors.Darker40
+                HoverFill: =App.Theme.Colors.Lighter70
+                OnChange: |-
+                    =Patch(col_RAMSTake2Site, ThisItem, {Comments: Self.Text})
+                Size: =11
+                Width: =536
+                X: =785
+                Y: =10
+                ZIndex: =5
+
+        rectRAMSRisksHdr As rectangle:
+            Fill: =RGBA(7, 110, 108, 1)
+            Height: =35
+            Width: =1346
+            X: =10
+            Y: =915
+            ZIndex: =17
+
+        txtRAMSRisksTitle As Text:
+            Align: ='TextCanvas.Align'.Start
+            AutoHeight: =false
+            BorderColor: =
+            BorderStyle: =""
+            ContentLanguage: =""
+            DisplayMode: =DisplayMode.Edit
+            Fill: =
+            Font: =""
+            FontColor: =RGBA(255, 255, 255, 1)
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            Height: =35
+            Size: =13
+            TabIndex: =0
+            Text: ="Site Specific Risks"
+            Tooltip: =""
+            VerticalAlign: =VerticalAlign.Middle
+            Visible: =true
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =500
+            Wrap: =true
+            X: =20
+            Y: =915
+            ZIndex: =18
+
+        rectRAMSRisksColHdr As rectangle:
+            Fill: =RGBA(220, 230, 240, 1)
+            Height: =30
+            Width: =1346
+            X: =10
+            Y: =950
+            ZIndex: =19
+
+        lblRAMSRisksColR As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: ="Risk"
+            Width: =640
+            X: =15
+            Y: =953
+            ZIndex: =20
+
+        lblRAMSRisksColA As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: ="Answer"
+            Width: =130
+            X: =660
+            Y: =953
+            ZIndex: =21
+
+        lblRAMSRisksColC As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: ="Comments"
+            Width: =400
+            X: =800
+            Y: =953
+            ZIndex: =22
+
+        galRAMSRisks As gallery.variableTemplateHeightGallery:
+            '#CopilotOverlayLabel': ="Filtered"
+            DelayItemLoading: =true
+            Height: =1150
+            Items: =col_RAMSTake2Risks
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =50
+            Width: =1346
+            X: =10
+            Y: =980
+            ZIndex: =23
+
+            rectGalRisksRow As rectangle:
+                Fill: =If(Mod(ThisItem.ID, 2) = 1, RGBA(245, 248, 252, 1), RGBA(255, 255, 255, 1))
+                Height: =49
+                Width: =1346
+                ZIndex: =1
+
+            rectGalRisksRowBorder As rectangle:
+                Fill: =RGBA(200, 210, 220, 1)
+                Height: =1
+                Width: =1346
+                Y: =49
+                ZIndex: =2
+
+            lblGalRisksR As label:
+                Height: =50
+                Size: =11
+                Text: =ThisItem.Risk
+                Width: =640
+                X: =5
+                ZIndex: =3
+
+            ddGalRisksAnswer As Dropdown.pcfdataset:
+                AccessibleLabel: =""
+                Appearance: ="FilledDarker"
+                BorderStyle: =""
+                ContentLanguage: =""
+                DefaultSelectedItems: |-
+                    ={Value:ThisItem.Answer}
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =0
+                Height: =35
+                Items: =["Yes", "No", "N/A"]
+                OnChange: |-
+                    =Patch(col_RAMSTake2Risks, ThisItem, {Answer: Self.Selected.Value})
+                Required: =false
+                TabIndex: =0
+                Tooltip: =""
+                ValidationState: ="None"
+                Visible: =true
+                Width: =120
+                X: =655
+                Y: =8
+                ZIndex: =4
+
+            tiGalRisksComments As text:
+                BorderThickness: =0
+                Default: ="Text input"
+                Fill: =If(IsBlank(Self.Text), RGBA(255, 255, 205, 1), RGBA(245, 245, 245, 1))
+                Height: =35
+                HintText: ="Add comments..."
+                HoverBorderColor: =App.Theme.Colors.Darker40
+                HoverFill: =App.Theme.Colors.Lighter70
+                OnChange: |-
+                    =Patch(col_RAMSTake2Risks, ThisItem, {Comments: Self.Text})
+                Size: =11
+                Width: =536
+                X: =785
+                Y: =8
+                ZIndex: =5
+
+        lblRAMSRisksNote As label:
+            Italic: =true
+            Size: =10
+            Text: |-
+                ="Note: When Yes is indicated, ensure your risk assessment(s) cover the hazard(s). If not, add to your dynamic risk assessment section. If in doubt, contact your operations team / line manager for advice."
+            Width: =1336
+            X: =10
+            Y: =2120
+            ZIndex: =24
+
+        containerRAMSSignOff_1 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =260
+            LayoutGridColumnMinWidth: =0
+            LayoutGridColumns: =6
+            LayoutGridRowMinHeight: =0
+            LayoutGridRows: =6
+            Width: =1346
+            X: =10
+            Y: =2160
+            ZIndex: =25
+
+            rectSignOffHdr_1 As rectangle:
+                Fill: =RGBA(7, 110, 108, 1)
+                Height: =35
+                Width: =1346
+                ZIndex: =1
+
+            txtSignOffTitle_1 As Text:
+                Align: ='TextCanvas.Align'.Start
+                AutoHeight: =false
+                BorderColor: =
+                BorderStyle: =""
+                ContentLanguage: =""
+                DisplayMode: =DisplayMode.Edit
+                Fill: =
+                Font: =""
+                FontColor: =RGBA(255, 255, 255, 1)
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                Height: =35
+                Size: =13
+                TabIndex: =0
+                Text: ="Sign Off"
+                Tooltip: =""
+                VerticalAlign: =VerticalAlign.Middle
+                Visible: =true
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =300
+                Wrap: =true
+                X: =10
+                Y: =0
+                ZIndex: =2
+
+            lblSignOffCompletedBy_1 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                Size: =11
+                Text: |-
+                    ="Completed by:"
+                X: =10
+                Y: =43
+                ZIndex: =3
+
+            lblSignOffCompletedByVal_1 As label:
+                Height: =32
+                Size: =11
+                Text: =varStaffViewID.'Staff Name'
+                Width: =300
+                X: =165
+                Y: =43
+                ZIndex: =4
+
+            lblSignOffDate_1 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                Size: =11
+                Text: |-
+                    ="Date: " & Text(Today(), "dd/mm/yyyy")
+                Width: =280
+                X: =475
+                Y: =43
+                ZIndex: =5
+
+            lblRAMSSignatureLbl As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                Size: =11
+                Text: |-
+                    ="Signature:"
+                X: =10
+                Y: =83
+                ZIndex: =6
+
+            penRAMSSignature As inkControl:
+                BorderThickness: =1
+                Height: =120
+                Width: =500
+                X: =165
+                Y: =83
+                ZIndex: =7
+
+            btnRAMSSignatureClear As Button:
+                AcceptsFocus: =true
+                AccessibleLabel: =""
+                Align: =""
+                Appearance: ='ButtonCanvas.Appearance'.Secondary
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                ContentLanguage: =""
+                DisplayMode: =DisplayMode.Edit
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontSize: =0
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =30
+                Icon: =""
+                IconRotation: =0
+                IconStyle: ="Outline"
+                Layout: ="Icon before"
+                OnSelect: =Reset(penRAMSSignature)
+                TabIndex: =0
+                Text: ="Clear"
+                Tooltip: =""
+                VerticalAlign: =""
+                Visible: =true
+                Width: =80
+                X: =670
+                Y: =83
+                ZIndex: =8
+
+            checkRAMSConfirm_1 As Checkbox:
+                AccessibleLabel: =""
+                BasePaletteColor: =
+                CheckboxSize: =16
+                Checked: =false
+                ContentLanguage: =""
+                DisplayMode: =DisplayMode.Edit
+                Font: =""
+                FontColor: =
+                FontItalic: =true
+                FontSize: =0
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =30
+                Label: ="I confirm I have reviewed all risks on this form and the information is accurate"
+                OnCheck: =false
+                OnSelect: =false
+                OnUncheck: =false
+                TabIndex: =0
+                Tooltip: =""
+                Visible: =true
+                Width: =700
+                X: =10
+                Y: =218
+                ZIndex: =9
+
+            btnRAMSSave_1 As Button:
+                AcceptsFocus: =true
+                AccessibleLabel: =""
+                Align: =Align.Center
+                Appearance: ='ButtonCanvas.Appearance'.Primary
+                BasePaletteColor: =RGBA(8, 222, 8, 1)
+                BorderColor: =
+                BorderStyle: =""
+                ContentLanguage: =""
+                DisplayMode: =If(!checkRAMSConfirm_1.Checked, DisplayMode.Disabled, DisplayMode.Edit)
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontSize: =0
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
+                Height: =32
+                Icon: ="Save"
+                IconRotation: =0
+                IconStyle: ="Outline"
+                Layout: ="Icon before"
+                OnSelect: |-
+                    =Patch(BESA_Shifts,
+                        LookUp(BESA_Shifts, 'Shift ID' = varCurrentShiftID),
+                        {
+                            'Risk Assesment JSON': JSON(
+                                {
+                                    JobNumber: varRAMSJobNum,
+                                    SiteName: varRAMSSiteName,
+                                    ProNumber: varRAMSProNum,
+                                    Activity: varRAMSActivities,
+                                    Elements: varRAMSElements,
+                                    CompletedBy: varStaffViewID.'Staff Name',
+                                    CompletedDate: Text(Today(), "dd/mm/yyyy"),
+                                    General: col_RAMSTake2General,
+                                    Site: col_RAMSTake2Site,
+                                    Risks: col_RAMSTake2Risks
+                                }
+                            )
+                        }
+                    );
+                    Patch(BESA_Documents,
+                        Defaults(BESA_Documents),
+                        {
+                            'Document Image': penRAMSSignature.Image,
+                            'Direct Related GUID': varActionRecord.'Shift ID', 
+                            'Document Type': "Risk Assessment" //& varRAMSJobNum & " - " & Text(Today(), "dd/mm/yyyy")
+                        }
+                    );
+                    Patch(col_EngineerActionList,
+                        LookUp(col_EngineerActionList, ActionGUID = varActionRecord.ActionGUID),
+                        {'Action Status': "Completed"}
+                    );
+                    Patch(col_ShiftTimeline,
+                        LookUp(col_ShiftTimeline, ShiftActionID = varActionRecord.ActionGUID),
+                        {'Action Status': "Completed"}
+                    );
+                    Reset(checkRAMSConfirm_1);
+                    Reset(penRAMSSignature);
+                    Back()
+                TabIndex: =0
+                Text: ="Save RAMS Take 2"
+                Tooltip: =""
+                VerticalAlign: =""
+                Visible: =true
+                Width: =200
+                X: =760
+                Y: =216
+                ZIndex: =10
+

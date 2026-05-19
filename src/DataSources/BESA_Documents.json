@@ -1,0 +1,149 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_documents",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_document",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_Documents",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_besa_document_AsyncOperations": "System Jobs",
+      "sy_besa_document_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_document_DuplicateBaseRecord": "Duplicate Records (sy_besa_document_DuplicateBaseRecord)",
+      "sy_besa_document_DuplicateMatchingRecord": "Duplicate Records (sy_besa_document_DuplicateMatchingRecord)",
+      "sy_besa_document_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_document_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_document_ProcessSession": "Process Sessions",
+      "sy_besa_document_SyncErrors": "Sync Errors",
+      "sy_besa_documentid": "BESA_Document",
+      "sy_blobpath": "Blob Path",
+      "sy_clientvisability": "Client Visability",
+      "sy_comments": "Comments",
+      "sy_directrelatedguid": "Direct Related GUID",
+      "sy_documentid": "Document ID",
+      "sy_documentimage": "Document Image",
+      "sy_documentimageid": "sy_DocumentImageId",
+      "sy_documentlink": "Document Link",
+      "sy_documentname": "Document Name",
+      "sy_documenttype": "Document Type",
+      "sy_reviewed": "Reviewed",
+      "sy_source": "Source",
+      "sy_spfileidentifier": "SP File Identifier",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_Documents",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_Documents (Views)",
+    "Name": "_sy_besa_document_views",
+    "RelatedEntityName": "BESA_Documents",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "138e78fd-5d03-4f12-8b19-55ce5da4e0f5": "Inactive BESA_Documents",
+      "2ebd342e-f93e-4829-be03-02693b32500a": "BESA_Document Associated View",
+      "7eda6ed3-c2ab-46f5-b305-479a73d77ca8": "BESA_Document Lookup View",
+      "9cbe4d93-e2e5-44ca-bda2-baa220da5518": "BESA_Document Advanced Find View",
+      "f191cfad-461f-40d4-8d94-32a24f739e4d": "Active BESA_Documents"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_Documents)",
+    "Name": "sy_besa_document_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_Documents"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_Documents",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_Documents)",
+    "Name": "sy_besa_document_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_Documents"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_Documents",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Client Visability (BESA_Documents)",
+    "Name": "sy_besa_document_sy_clientvisability",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_clientvisability",
+        "OptionSetReferenceEntityName": "BESA_Documents"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_clientvisability",
+    "RelatedEntityName": "BESA_Documents",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Reviewed (BESA_Documents)",
+    "Name": "sy_besa_document_sy_reviewed",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_reviewed",
+        "OptionSetReferenceEntityName": "BESA_Documents"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_reviewed",
+    "RelatedEntityName": "BESA_Documents",
+    "Type": "OptionSetInfo"
+  }
+]

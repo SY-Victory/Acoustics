@@ -1,0 +1,117 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_equipments",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_equipment",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_Equipments",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_attmaid": "Attma ID",
+      "sy_attmalevel": "Attma Level",
+      "sy_besa_equipment_AsyncOperations": "System Jobs",
+      "sy_besa_equipment_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_equipment_DuplicateBaseRecord": "Duplicate Records (sy_besa_equipment_DuplicateBaseRecord)",
+      "sy_besa_equipment_DuplicateMatchingRecord": "Duplicate Records (sy_besa_equipment_DuplicateMatchingRecord)",
+      "sy_besa_equipment_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_equipment_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_equipment_ProcessSession": "Process Sessions",
+      "sy_besa_equipment_SyncErrors": "Sync Errors",
+      "sy_besa_equipmentid": "BESA_EquipmentID",
+      "sy_c": "C",
+      "sy_calibrationexpirydate": "Calibration Expiry Date",
+      "sy_constant": "Constant",
+      "sy_correction": "Correction",
+      "sy_equipmenttype": "Equipment Type",
+      "sy_fanno": "Fan No",
+      "sy_fullname": "Full Name",
+      "sy_initials": "Initials",
+      "sy_lower": "Lower",
+      "sy_manufacturer": "Manufacturer",
+      "sy_maxcalpressure": "Max Cal Pressure",
+      "sy_mincalpressure": "Min Cal Pressure",
+      "sy_n": "N",
+      "sy_range": "Range",
+      "sy_reference": "Reference",
+      "sy_scale": "Scale",
+      "sy_set": "Set",
+      "sy_type": "Type",
+      "sy_upper": "Upper",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_Equipments",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_Equipments (Views)",
+    "Name": "_sy_besa_equipment_views",
+    "RelatedEntityName": "BESA_Equipments",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "35601601-da18-453a-ac5f-f42b650aabeb": "Active BESA_Equipments",
+      "637b2808-d9da-4edf-bac9-4dc65c9764fd": "BESA_Equipment Advanced Find View",
+      "685fcca0-ac35-44c6-8896-5e133600fffd": "BESA_Equipment Lookup View",
+      "d13ffe29-b260-44c8-835f-ab5dd0d613f4": "BESA_Equipment Associated View",
+      "f5d96b00-c7a9-45b8-b965-2438944024d3": "Inactive BESA_Equipments"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_Equipments)",
+    "Name": "sy_besa_equipment_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_Equipments"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_Equipments",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_Equipments)",
+    "Name": "sy_besa_equipment_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_Equipments"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_Equipments",
+    "Type": "OptionSetInfo"
+  }
+]

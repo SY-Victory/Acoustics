@@ -1,0 +1,288 @@
+/* ============================================================
+   Site Data Readings PCF — Stylesheet
+   Mimics paper-based acoustic field worksheet
+   ============================================================ */
+
+:root {
+  --sdr-teal:       #006D5B;
+  --sdr-teal-dark:  #005A4A;
+  --sdr-border:     #333;
+  --sdr-border-lt:  #999;
+  --sdr-bg:         #ffffff;
+  --sdr-header-bg:  #f0f0f0;
+  --sdr-section-bg: #e8e8e8;
+  --sdr-text:       #222;
+  --sdr-label:      #444;
+  --sdr-font:       'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── Root ─────────────────────────────────────────────────────── */
+.sdr-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  font-family: var(--sdr-font);
+  font-size: 12px;
+  color: var(--sdr-text);
+  background: var(--sdr-bg);
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+/* ── Offline / cache status banner ───────────────────────────── */
+.sdr-status-banner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--sdr-font);
+  border-bottom: 1px solid transparent;
+}
+
+.sdr-status-banner--offline {
+  background: #FFF3E0;
+  color: #E65100;
+  border-bottom-color: #FFCC80;
+}
+
+.sdr-status-banner--cached {
+  background: #E3F2FD;
+  color: #1565C0;
+  border-bottom-color: #90CAF9;
+}
+
+.sdr-status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sdr-status-banner--offline .sdr-status-dot {
+  background: #E65100;
+}
+
+.sdr-status-banner--cached .sdr-status-dot {
+  background: #1565C0;
+}
+
+/* ── Title row ────────────────────────────────────────────────── */
+.sdr-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-bottom: 2px solid var(--sdr-border);
+}
+
+.sdr-title {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.sdr-note {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--sdr-label);
+}
+
+/* ── Table ────────────────────────────────────────────────────── */
+.sdr-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.sdr-table th,
+.sdr-table td {
+  border: 1px solid var(--sdr-border-lt);
+  padding: 3px 4px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Header rows ──────────────────────────────────────────────── */
+.sdr-table thead th {
+  background: var(--sdr-header-bg);
+  font-weight: 600;
+  font-size: 10px;
+  color: var(--sdr-label);
+  border-color: var(--sdr-border);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.sdr-table thead tr:first-child th {
+  border-bottom: 1px solid var(--sdr-border);
+}
+
+/* Results group header */
+.sdr-results-header {
+  background: #222 !important;
+  color: #fff !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Section separator rows ───────────────────────────────────── */
+.sdr-section-row td {
+  background: var(--sdr-section-bg);
+  font-weight: 700;
+  font-size: 12px;
+  text-align: left;
+  padding: 5px 8px;
+  border-color: var(--sdr-border);
+}
+
+.sdr-section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sdr-hammer-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 400;
+  font-size: 11px;
+  margin-left: 20px;
+}
+
+.sdr-hammer-check input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+/* ── Data cells ───────────────────────────────────────────────── */
+.sdr-table tbody td {
+  height: 28px;
+}
+
+.sdr-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-family: var(--sdr-font);
+  font-size: 11px;
+  color: var(--sdr-text);
+  padding: 2px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.sdr-input:focus {
+  background: #fffbe6;
+  outline: 1px solid var(--sdr-teal);
+}
+
+.sdr-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.sdr-input[type="number"]::-webkit-outer-spin-button,
+.sdr-input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ── Checkbox cells (Y/N) ─────────────────────────────────────── */
+.sdr-check {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--sdr-teal);
+}
+
+/* ── Tick mark ────────────────────────────────────────────────── */
+.sdr-tick {
+  color: var(--sdr-teal);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ── Empty row (placeholder) ──────────────────────────────────── */
+.sdr-empty-row td {
+  height: 28px;
+  background: #fafafa;
+}
+
+/* ── Comments column ──────────────────────────────────────────── */
+.sdr-comments-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-family: var(--sdr-font);
+  font-size: 11px;
+  color: var(--sdr-text);
+  padding: 2px 4px;
+  outline: none;
+}
+
+.sdr-comments-input:focus {
+  background: #fffbe6;
+  outline: 1px solid var(--sdr-teal);
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.sdr-footer {
+  padding: 6px 10px;
+  border-top: 2px solid var(--sdr-border);
+  font-size: 10px;
+  color: var(--sdr-label);
+  font-style: italic;
+}
+
+/* ── Disabled / read-only cells (Verified column) ───────────── */
+.sdr-cell--disabled {
+  background: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.sdr-readonly-value {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  color: var(--sdr-label);
+  padding: 2px;
+}
+
+.sdr-col-verified-header {
+  color: var(--sdr-label);
+  font-style: italic;
+}
+
+/* ── Impact table spacing ────────────────────────────────────── */
+.sdr-table--impact {
+  margin-top: 8px;
+}
+
+/* ── Column widths ────────────────────────────────────────────── */
+.sdr-col-partid  { width: 60px; }
+.sdr-col-id      { width: 65px; }
+.sdr-col-vol     { width: 50px; }
+.sdr-col-reading { width: 40px; }
+.sdr-col-yn      { width: 45px; }
+.sdr-col-result  { width: 70px; }
+.sdr-col-floor   { width: 80px; }
+.sdr-col-comment { width: auto; min-width: 100px; }
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+.sdr-container::-webkit-scrollbar { width: 6px; height: 6px; }
+.sdr-container::-webkit-scrollbar-track { background: transparent; }
+.sdr-container::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+.sdr-container::-webkit-scrollbar-thumb:hover { background: #aaa; }

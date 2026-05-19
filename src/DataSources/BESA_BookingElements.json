@@ -1,0 +1,160 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sy_besa_bookingelements",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sy_besa_bookingelement",
+    "MaxGetRowsCount": 2000,
+    "Name": "BESA_BookingElements",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "sy_allocationnotes": "Allocation Notes",
+      "sy_besa_bookingelement_AsyncOperations": "System Jobs",
+      "sy_besa_bookingelement_BulkDeleteFailures": "Bulk Delete Failures",
+      "sy_besa_bookingelement_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sy_besa_bookingelement_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sy_besa_bookingelement_ProcessSession": "Process Sessions",
+      "sy_besa_bookingelement_SyncErrors": "Sync Errors",
+      "sy_besa_bookingelementid": "BESA_BookingElement",
+      "sy_besa_bookingschedule_BookingElementLookUp_sy_besa_bookingelement": "BESA_BookingSchedules",
+      "sy_besa_envelope_BookingElementLookUp_sy_besa_bookingelement": "BESA_Envelopes",
+      "sy_besa_invoiceitem_BookingElementLookUp_sy_besa_bookingelement": "BESA_InvoiceItems",
+      "sy_besa_note_BookingElementLookUp_sy_besa_bookingelement": "BESA_Notes",
+      "sy_besa_shift_BookingElementLookUp_sy_besa_bookingelement": "BESA_Shifts",
+      "sy_besa_test_BookingElementLookUp_sy_besa_bookingelement": "BESA_Tests",
+      "sy_bookingelementreference": "Booking Element Reference",
+      "sy_bookingelementstatus": "Booking Element Status",
+      "sy_BookingLookUp": "Booking LookUp",
+      "sy_bookingschedulereference": "BookingScheduleReference",
+      "sy_BookingServiceLookup": "Booking Service Lookup",
+      "sy_cancellednotification": "Cancelled Notification",
+      "sy_cancellednotificationby": "Cancelled Notification By",
+      "sy_element": "Element",
+      "sy_elementcost": "Element Cost",
+      "sy_ElementLookUp": "Element LookUp",
+      "sy_elementreference": "Element Reference",
+      "sy_engineercomments": "Engineer Comments",
+      "sy_EngineerLookUp": "Engineer LookUp",
+      "sy_engineerresults": "Engineer Results",
+      "sy_OrderServiceLookUp": "Order Service LookUp",
+      "sy_scheduled": "Scheduled",
+      "sy_shiftid": "Shift ID",
+      "sy_SiteLookUp": "Site LookUp",
+      "sy_weatherreportjson": "Weather Report Json",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BESA_BookingElements",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BESA_BookingElements (Views)",
+    "Name": "_sy_besa_bookingelement_views",
+    "RelatedEntityName": "BESA_BookingElements",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "256c959a-3f86-4e51-a306-a1a7b6b6dfcd": "BESA_BookingElement Advanced Find View",
+      "418479af-28dc-4e51-8b2a-60a20d24823d": "Inactive BESA_BookingElements",
+      "b69e8037-d8be-496a-bf85-973267469447": "Active BESA_BookingElements",
+      "bb417122-81c5-4320-8359-a9a3c602f48b": "BESA_BookingElement Lookup View",
+      "fb01b8fb-85f9-4e4e-9907-3ea955c3f88d": "BESA_BookingElement Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (BESA_BookingElements)",
+    "Name": "sy_besa_bookingelement_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BESA_BookingElements"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BESA_BookingElements",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BESA_BookingElements)",
+    "Name": "sy_besa_bookingelement_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BESA_BookingElements"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BESA_BookingElements",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Cancelled Notification (BESA_BookingElements)",
+    "Name": "sy_besa_bookingelement_sy_cancellednotification",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_cancellednotification",
+        "OptionSetReferenceEntityName": "BESA_BookingElements"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_cancellednotification",
+    "RelatedEntityName": "BESA_BookingElements",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Scheduled (BESA_BookingElements)",
+    "Name": "sy_besa_bookingelement_sy_scheduled",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sy_scheduled",
+        "OptionSetReferenceEntityName": "BESA_BookingElements"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "sy_scheduled",
+    "RelatedEntityName": "BESA_BookingElements",
+    "Type": "OptionSetInfo"
+  }
+]
