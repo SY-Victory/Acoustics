@@ -13,7 +13,17 @@
       "Bash(awk NR>=345 && NR<=355:*)",
       "Bash(awk NR>=346 && NR<=350:*)",
       "Bash(awk NR==347{print \"\"        \"\"; next} {print}:*)",
-      "Bash(awk NR>=346 && NR<=348:*)"
+      "Bash(awk NR>=346 && NR<=348:*)",
+      "Bash(\"C:/Users/VictoryMpokosa/AppData/Local/Microsoft/PowerAppsCLI/pac.cmd\":*)",
+      "Bash(\"C:/Users/VictoryMpokosa/AppData/Local/Microsoft/PowerAppsCLI/pac.cmd\" auth:*)",
+      "Bash(git stash:*)",
+      "Bash(rm:*)",
+      "Bash(do echo:*)",
+      "Bash(\"/c/Users/VictoryMpokosa/AppData/Local/Microsoft/PowerAppsCLI/pac.cmd\" canvas:*)",
+      "Bash(echo:*)",
+      "Bash(python:*)",
+      "Bash(\"C:\\\\Users\\\\VictoryMpokosa\\\\AppData\\\\Local\\\\Microsoft\\\\PowerAppsCLI\\\\pac.cmd\" canvas:*)",
+      "Bash(/c/Users/VictoryMpokosa/AppData/Local/Microsoft/PowerAppsCLI/pac.cmd canvas:*)"
     ]
   }
 }

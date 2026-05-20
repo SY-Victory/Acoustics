@@ -148,19 +148,6 @@
       }
     },
     {
-      "Kind": "default.cds_asyncoperation_forms",
-      "Namespace": "System Jobs (Forms)",
-      "Values": {
-        "Information": "436c0566-7176-466b-b109-46af8263ab22",
-        "New Bulk Cancel Job form": "7fa18c99-5942-47a0-b924-7c0567d9d416",
-        "New Bulk Pause Job form": "d9313bf2-7766-4f62-bde8-62ae886da408",
-        "New Bulk Resume Job form": "65aa170e-744d-4f65-95f0-2641138f0ead",
-        "New Duplicate Detection Job form": "687f5434-4014-ef11-840b-6045bd03966e",
-        "View Duplicate Detection Job details form": "4ab9fde6-3498-4316-a08f-f30077eb21ad",
-        "View Job Details": "e0166470-55ac-4793-b4ef-e86c956ead83"
-      }
-    },
-    {
       "Kind": "default.cds_sy_besa_equipment_forms",
       "Namespace": "BESA_Equipments (Forms)",
       "Values": {
@@ -172,6 +159,19 @@
       "Namespace": "BESA_SettingsGlobals (Forms)",
       "Values": {
         "Information": "d4c55019-e035-4475-8272-61712f143c83"
+      }
+    },
+    {
+      "Kind": "default.cds_asyncoperation_forms",
+      "Namespace": "System Jobs (Forms)",
+      "Values": {
+        "Information": "436c0566-7176-466b-b109-46af8263ab22",
+        "New Bulk Cancel Job form": "7fa18c99-5942-47a0-b924-7c0567d9d416",
+        "New Bulk Pause Job form": "d9313bf2-7766-4f62-bde8-62ae886da408",
+        "New Bulk Resume Job form": "65aa170e-744d-4f65-95f0-2641138f0ead",
+        "New Duplicate Detection Job form": "687f5434-4014-ef11-840b-6045bd03966e",
+        "View Duplicate Detection Job details form": "4ab9fde6-3498-4316-a08f-f30077eb21ad",
+        "View Job Details": "e0166470-55ac-4793-b4ef-e86c956ead83"
       }
     },
     {

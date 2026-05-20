@@ -1991,7 +1991,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "Switch(ThisItem.'Action Type', \n\"Site Induction\", \nSet(varInductionForm, true),\n\n\"RAMs\", \nSet(varRAMS, true);, \n\"Misc\", \nSet(varMiscAction, true);\n);\n\nSet(varActionRecord, ThisItem);",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "OnSelect",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -2167,7 +2167,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "",
@@ -2441,7 +2441,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "ClearCollect(col_EngineerActionList, \n{ \n    'Site LookUp':First(col_Sites), \n    'Action Type': \"\", \n    'Action Name': \"\", \n    'Booking LookUp':First(col_Bookings), \n    'Induction LookUp':First(col_SiteInductions), \n    'Action Status':\"\", \n    'RAMS LookUp':First(col_RiskAssesments), \n    'Element LookUp':First(col_ElementList), \n    'Booking Element LookUp':First(col_BookingElement),\n    'Shift ID': \"\"\n});\n\nClear(col_EngineerActionList);\n\n//Site Information\n\nClearCollect(col_ShiftListCheck, AddColumns(RenameColumns(ShowColumns(Filter(col_ShiftList, 'Technician GUID' = varStaffViewID.StaffID, 'Shift Date' = dateEngineerSelectedView_1.SelectedDate, 'Shift Type' = \"Booking\"), 'Shift Type', BookingID, 'Shift Date', 'Technician GUID'), BookingID, BookingTempID), 'Site LookUp', LookUp(col_BookingsSchedule, BookingID = BookingTempID, 'Site LookUp'))); \n\nForAll(col_ShiftListCheck As shiftListCheck, \n    //IsBlank(LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\")), \n    Collect(col_EngineerActionList, \n    { \n        'Booking LookUp':LookUp(col_Bookings, BookingReference = shiftListCheck.BookingTempID), \n        'Site LookUp':LookUp(col_Sites, SiteID = shiftListCheck.'Site LookUp'.SiteID), \n        'Induction LookUp':LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\"),\n        'Action Status': If(IsBlank(LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\")), \"Pending\", \"Not Required\"),\n        'Action Type':\"Site Induction\", \n        'Action Name':\"Site Induction Form\"\n    }); \n    Collect(col_EngineerActionList, \n    { \n        'Booking LookUp':LookUp(col_Bookings, BookingReference = shiftListCheck.BookingTempID), \n        'Site LookUp':LookUp(col_Sites, SiteID = shiftListCheck.'Site LookUp'.SiteID), \n        //'Induction LookUp':LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\"),\n        'Action Type':\"RAMs\", \n        'Action Name':\"RAMs Form\",\n        'Action Status':If(IsBlank(LookUp(col_RiskAssesments, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Assesment Date' = dateEngineerSelectedView_1.SelectedDate)), \"Pending\", If(IsBlank(LookUp(col_RiskAssesments, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Assesment Date' = dateEngineerSelectedView_1.SelectedDate, 'Assesment Status' = \"Completed\")), \"Drafted\", \"Completed\")),\n        'RAMS LookUp':LookUp(col_RiskAssesments, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Assesment Date' = dateEngineerSelectedView_1.SelectedDate)\n    }); \n    );\n    \n\n    ClearCollect(col_ShiftListCheck, AddColumns(RenameColumns(ShowColumns(Filter(col_ShiftList, 'Technician GUID' = varStaffViewID.StaffID, 'Shift Date' = dateEngineerSelectedView_1.SelectedDate, 'Shift Type' = \"Booking\"), 'Shift Type', BookingID, 'Shift Date', 'Technician GUID', 'Shift ID'), BookingID, BookingTempID), 'Site LookUp', LookUp(col_BookingsSchedule, BookingID = BookingTempID, 'Site LookUp'))); \n\n\n//Booking Elements for each Shift\nClearCollect(col_BookingElementCheck, Filter(col_BookingElement, 'Shift ID' in col_ShiftListCheck.'Shift ID'));\n\nForAll(col_BookingElementCheck As itemBookingElement, \nCollect(col_EngineerActionList, \n    { \n        'Booking LookUp':LookUp(col_Bookings, BookingReference = itemBookingElement.BookingID), \n        'Site LookUp':LookUp(col_Sites, SiteID = itemBookingElement.'Site LookUp'.SiteID), \n        //'Induction LookUp':LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = shiftListCheck.'Technician GUID' && 'Site LookUp'.SiteID = shiftListCheck.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\"),\n        'Action Status': \"Pending\",\n        'Action Type':\"Service\", \n        'Action Name':\"Service\", \n        'Element LookUp':itemBookingElement.'Element LookUp', \n        'Booking Element LookUp':LookUp(col_BookingElement, BookingElementID = itemBookingElement.BookingElementID), \n        'Shift ID':itemBookingElement.'Shift ID'\n    }));\n\n\n//Non Booking Shifts\nClearCollect(col_ShiftListNonBookingCheck, RenameColumns(ShowColumns(Filter(col_ShiftList, 'Technician GUID' = varStaffViewID.StaffID, 'Shift Date' = dateEngineerSelectedView_1.SelectedDate, 'Shift Type' <> \"Booking\"), 'Shift Type', BookingID, 'Shift Date', 'Technician GUID', 'Shift ID'), BookingID, BookingTempID));\n\nForAll(col_ShiftListNonBookingCheck As itemNonBookingItem, \nCollect(col_EngineerActionList,\n{ \n    'Action Status': \"Pending\", \n    'Action Type':\"Misc\", \n    'Action Name':itemNonBookingItem.'Shift Type', \n    'Shift ID':itemNonBookingItem.'Shift ID'\n}));\n\n\n\n",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "OnSelect",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -3299,7 +3299,14 @@
           "NameMapSourceSchema": "?"
         },
         "DisplayMode",
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "UpdateContext({varTempSiteId: \"S0-00\"&CountRows(col_Sites)});\n\nPatch(col_Sites,\n    LookUp(col_Sites,SiteID = varSelectedSite.SiteID),\n    {\n        'Client LookUp': ComboboxCanvas1_5.Selected,\n        'Site Name': inputSiteName_13.Text,\n        'Induction on Site Time':DateValue(DatePickerCanvas1_12.SelectedDate) +\n        If(\n            !IsBlank(DropdownCanvas1_52.Selected),\n            TimeValue(DropdownCanvas1_52.Selected.Value),\n            TimeValue(\"01:00\")\n        ),\n        'PPE Requirements': Concat(ComboboxCanvas3_3.SelectedItems,'Equipment Name', \", \"),\n        'Is Asbestos Present On Site':CheckboxCanvas2_6.Checked,\n        'Open/Close Hours':DropdownCanvas1_53.Selected.Value &\"\"&DropdownCanvas1_51.Selected.Value,\n        Ventilation: Toggle2_7.Checked,\n        'Access Instructions':inputAccessIn_5.Text,\n        'Parking Infomraiton':inputAddShiftType_47.Text,\n        'Security Clearance':inputAddShiftType_48.Text,\n        Heating:CheckboxCanvas2_5.Checked,'Address Line 1':inputAddShiftType_49,'Address Line 2':inputAddShiftType_53.Text,Postcode:inputAddShiftType_50.Text,Town:inputAddShiftType_52.Text,'Site Status':DropdownCanvas2_5.Selected.Value,SiteID:varTempSiteId,County:inputAddShiftType_54.Text,'Client Name':ComboboxCanvas1_5.Selected.ClientName\n    }\n);\n\nSelect(Icon17_36);",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "ContentLanguage",
         "FontColor",
         "BorderColor"
@@ -3451,7 +3458,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -3471,7 +3478,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -3673,7 +3680,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -3881,7 +3888,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -4089,7 +4096,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -8821,7 +8828,7 @@
         {
           "Category": "Design",
           "PropertyName": "X",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -13676,7 +13683,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -13807,12 +13814,12 @@
         {
           "Category": "Design",
           "PropertyName": "Y",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -14259,7 +14266,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "LookUp(col_StaffMembers, StaffID = varStaffViewID.StaffID)",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "Items",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -16971,7 +16978,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "Switch(ThisItem.'Shift Type', \n\"Booking\", \nWith(\n    {BookingRecord: LookUp(col_BookingsSchedule, BookingID = ThisItem.BookingID)\n    },\nIf(IsBlank(LookUp(col_SiteInductions, 'Staff LookUp'.StaffID = varStaffViewID.StaffID && 'Site LookUp'.SiteID = BookingRecord.'Site LookUp'.SiteID && 'Induction Status' = \"Completed\")), \ntrue, false)))",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "Visible",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -17089,7 +17096,7 @@
         {
           "Category": "Design",
           "PropertyName": "Visible",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -17522,7 +17529,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "false",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "OnSelect",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -21240,7 +21247,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -21994,7 +22001,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -22364,7 +22371,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -29899,7 +29906,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -32601,7 +32608,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -32992,7 +32999,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -34154,7 +34161,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -38233,7 +38240,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "\n\"Est. Total Hours: \" & Coalesce(Sum(Filter(col_ShiftList, 'Technician GUID' = ThisItem.StaffID/*, 'Technician Name' = ThisItem.StaffName*/ && 'Shift Date' = dateEngineerSelectedView_1.SelectedDate), 'Estimated Duration'), 0)\n",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "Text",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -38569,7 +38576,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "\"(\" & CountRows(col_EngineerActionList) & \") Action List for : \" & Text(dateEngineerSelectedView_1.SelectedDate, \"dd dddd mmm, yyyy\")",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "Text",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -38640,7 +38647,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Data",
@@ -47698,7 +47705,7 @@
         {
           "Category": "Design",
           "PropertyName": "Y",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",

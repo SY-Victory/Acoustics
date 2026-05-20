@@ -42,13 +42,13 @@ Screen_EngineerRiskAssessment As screen:
             {ID: 22, Risk: "Out of date plant and equipment inspection sheet", Answer: "N/A", Comments: ""},
             {ID: 23, Risk: "Other", Answer: "N/A", Comments: ""}
         )
-
+    
     rectRAMSPageHeader As rectangle:
         Fill: =RGBA(7, 110, 108, 1)
         Height: =55
         Width: =1366
         ZIndex: =1
-
+    
     iconRAMSBack As icon:
         Color: =RGBA(255, 138, 140, 1)
         Height: =40
@@ -61,7 +61,7 @@ Screen_EngineerRiskAssessment As screen:
         X: =10
         Y: =8
         ZIndex: =2
-
+    
     txtRAMSPageTitle As Text:
         Align: ='TextCanvas.Align'.Start
         AutoHeight: =false
@@ -88,7 +88,7 @@ Screen_EngineerRiskAssessment As screen:
         X: =60
         Y: =0
         ZIndex: =3
-
+    
     galRAMSScrollOuter As gallery.variableTemplateHeightGallery:
         '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
@@ -100,7 +100,7 @@ Screen_EngineerRiskAssessment As screen:
         Width: =1366
         Y: =55
         ZIndex: =4
-
+        
         containerRAMSDetails As groupContainer.manualLayoutContainer:
             BorderColor: =RGBA(0, 18, 107, 1)
             BorderThickness: =1
@@ -113,13 +113,13 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =5
             ZIndex: =2
-
+            
             rectRAMSDetailsHdr As rectangle:
                 Fill: =RGBA(7, 110, 108, 1)
                 Height: =35
                 Width: =1346
                 ZIndex: =1
-
+            
             txtRAMSDetailsHdr As Text:
                 Align: ='TextCanvas.Align'.Start
                 AutoHeight: =false
@@ -146,7 +146,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =10
                 Y: =0
                 ZIndex: =2
-
+            
             lblRAMSNameLbl As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =32
@@ -156,16 +156,16 @@ Screen_EngineerRiskAssessment As screen:
                 X: =10
                 Y: =42
                 ZIndex: =3
-
+            
             lblRAMSNameVal As label:
                 Height: =32
                 Size: =11
-                Text: =varStaffViewID.'Staff Name'
+                Text: =varStaffViewName
                 Width: =380
                 X: =165
                 Y: =42
                 ZIndex: =4
-
+            
             lblRAMSJobNumLbl As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =32
@@ -175,7 +175,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =10
                 Y: =78
                 ZIndex: =5
-
+            
             lblRAMSJobNumVal As label:
                 Height: =32
                 Size: =11
@@ -184,7 +184,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =165
                 Y: =78
                 ZIndex: =6
-
+            
             lblRAMSSiteLbl As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =32
@@ -194,7 +194,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =10
                 Y: =114
                 ZIndex: =7
-
+            
             lblRAMSSiteVal As label:
                 Height: =32
                 Size: =11
@@ -203,7 +203,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =165
                 Y: =114
                 ZIndex: =8
-
+            
             lblRAMSDateLbl As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =32
@@ -213,7 +213,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =700
                 Y: =42
                 ZIndex: =9
-
+            
             lblRAMSDateVal As label:
                 Height: =32
                 Size: =11
@@ -222,7 +222,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =860
                 Y: =42
                 ZIndex: =10
-
+            
             lblRAMSActivityLbl As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =32
@@ -232,7 +232,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =700
                 Y: =78
                 ZIndex: =11
-
+            
             lblRAMSActivityVal As label:
                 Size: =11
                 Text: |-
@@ -247,7 +247,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =860
                 Y: =78
                 ZIndex: =12
-
+            
             lblRAMSProNumLbl As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =32
@@ -257,7 +257,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =700
                 Y: =114
                 ZIndex: =13
-
+            
             lblRAMSProNumVal As label:
                 Height: =32
                 Size: =11
@@ -266,7 +266,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =860
                 Y: =114
                 ZIndex: =14
-
+            
             lblRAMSNote As label:
                 Height: =30
                 Italic: =true
@@ -276,7 +276,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =657
                 Y: =170
                 ZIndex: =15
-
+            
             lblRAMSSiteLbl_1 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =32
@@ -286,7 +286,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =10
                 Y: =150
                 ZIndex: =25
-
+            
             lblRAMSSiteVal_1 As label:
                 Size: =11
                 Text: =varRAMSElements//varActionRecord.'Site LookUp'.'Site Name'
@@ -294,7 +294,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =165
                 Y: =150
                 ZIndex: =26
-
+        
         rectRAMSGeneralHdr As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
@@ -302,7 +302,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =215
             ZIndex: =3
-
+        
         txtRAMSGeneralTitle As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -329,7 +329,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =20
             Y: =215
             ZIndex: =4
-
+        
         rectRAMSGeneralColHdr As rectangle:
             Fill: =RGBA(220, 230, 240, 1)
             Height: =30
@@ -337,7 +337,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =250
             ZIndex: =5
-
+        
         lblRAMSGeneralColQ As label:
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -347,7 +347,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =15
             Y: =253
             ZIndex: =6
-
+        
         lblRAMSGeneralColA As label:
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -357,7 +357,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =660
             Y: =253
             ZIndex: =7
-
+        
         lblRAMSGeneralColC As label:
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -367,7 +367,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =800
             Y: =253
             ZIndex: =8
-
+        
         galRAMSGeneral As gallery.variableTemplateHeightGallery:
             '#CopilotOverlayLabel': ="Filtered"
             DelayItemLoading: =true
@@ -381,20 +381,20 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =280
             ZIndex: =9
-
+            
             rectGalGeneralRow As rectangle:
                 Fill: =If(Mod(ThisItem.ID, 2) = 1, RGBA(245, 248, 252, 1), RGBA(255, 255, 255, 1))
                 Height: =54
                 Width: =1346
                 ZIndex: =1
-
+            
             rectGalGeneralRowBorder As rectangle:
                 Fill: =RGBA(200, 210, 220, 1)
                 Height: =1
                 Width: =1346
                 Y: =54
                 ZIndex: =2
-
+            
             lblGalGeneralQ As label:
                 Height: =55
                 Size: =11
@@ -402,7 +402,7 @@ Screen_EngineerRiskAssessment As screen:
                 Width: =640
                 X: =5
                 ZIndex: =3
-
+            
             ddGalGeneralAnswer As Dropdown.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -425,7 +425,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =655
                 Y: =10
                 ZIndex: =4
-
+            
             tiGalGeneralComments As text:
                 BorderThickness: =0
                 Default: ="Text input"
@@ -441,7 +441,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =785
                 Y: =10
                 ZIndex: =5
-
+        
         rectRAMSSiteHdr As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
@@ -449,7 +449,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =565
             ZIndex: =10
-
+        
         txtRAMSSiteTitle As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -476,7 +476,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =20
             Y: =565
             ZIndex: =11
-
+        
         rectRAMSSiteColHdr As rectangle:
             Fill: =RGBA(220, 230, 240, 1)
             Height: =30
@@ -484,7 +484,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =600
             ZIndex: =12
-
+        
         lblRAMSSiteColQ As label:
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -494,7 +494,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =15
             Y: =603
             ZIndex: =13
-
+        
         lblRAMSSiteColA As label:
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -504,7 +504,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =660
             Y: =603
             ZIndex: =14
-
+        
         lblRAMSSiteColC As label:
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -514,7 +514,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =800
             Y: =603
             ZIndex: =15
-
+        
         galRAMSSite As gallery.variableTemplateHeightGallery:
             '#CopilotOverlayLabel': ="Filtered"
             DelayItemLoading: =true
@@ -528,20 +528,20 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =630
             ZIndex: =16
-
+            
             rectGalSiteRow As rectangle:
                 Fill: =If(Mod(ThisItem.ID, 2) = 1, RGBA(245, 248, 252, 1), RGBA(255, 255, 255, 1))
                 Height: =54
                 Width: =1346
                 ZIndex: =1
-
+            
             rectGalSiteRowBorder As rectangle:
                 Fill: =RGBA(200, 210, 220, 1)
                 Height: =1
                 Width: =1346
                 Y: =54
                 ZIndex: =2
-
+            
             lblGalSiteQ As label:
                 Height: =55
                 Size: =11
@@ -549,7 +549,7 @@ Screen_EngineerRiskAssessment As screen:
                 Width: =640
                 X: =5
                 ZIndex: =3
-
+            
             ddGalSiteAnswer As Dropdown.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -572,7 +572,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =655
                 Y: =10
                 ZIndex: =4
-
+            
             tiGalSiteComments As text:
                 BorderThickness: =0
                 Default: ="Text input"
@@ -588,7 +588,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =785
                 Y: =10
                 ZIndex: =5
-
+        
         rectRAMSRisksHdr As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
@@ -596,7 +596,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =915
             ZIndex: =17
-
+        
         txtRAMSRisksTitle As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -623,7 +623,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =20
             Y: =915
             ZIndex: =18
-
+        
         rectRAMSRisksColHdr As rectangle:
             Fill: =RGBA(220, 230, 240, 1)
             Height: =30
@@ -631,7 +631,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =950
             ZIndex: =19
-
+        
         lblRAMSRisksColR As label:
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -641,7 +641,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =15
             Y: =953
             ZIndex: =20
-
+        
         lblRAMSRisksColA As label:
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -651,7 +651,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =660
             Y: =953
             ZIndex: =21
-
+        
         lblRAMSRisksColC As label:
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -661,7 +661,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =800
             Y: =953
             ZIndex: =22
-
+        
         galRAMSRisks As gallery.variableTemplateHeightGallery:
             '#CopilotOverlayLabel': ="Filtered"
             DelayItemLoading: =true
@@ -675,20 +675,20 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =980
             ZIndex: =23
-
+            
             rectGalRisksRow As rectangle:
                 Fill: =If(Mod(ThisItem.ID, 2) = 1, RGBA(245, 248, 252, 1), RGBA(255, 255, 255, 1))
                 Height: =49
                 Width: =1346
                 ZIndex: =1
-
+            
             rectGalRisksRowBorder As rectangle:
                 Fill: =RGBA(200, 210, 220, 1)
                 Height: =1
                 Width: =1346
                 Y: =49
                 ZIndex: =2
-
+            
             lblGalRisksR As label:
                 Height: =50
                 Size: =11
@@ -696,7 +696,7 @@ Screen_EngineerRiskAssessment As screen:
                 Width: =640
                 X: =5
                 ZIndex: =3
-
+            
             ddGalRisksAnswer As Dropdown.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -719,7 +719,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =655
                 Y: =8
                 ZIndex: =4
-
+            
             tiGalRisksComments As text:
                 BorderThickness: =0
                 Default: ="Text input"
@@ -735,7 +735,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =785
                 Y: =8
                 ZIndex: =5
-
+        
         lblRAMSRisksNote As label:
             Italic: =true
             Size: =10
@@ -745,7 +745,7 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =2120
             ZIndex: =24
-
+        
         containerRAMSSignOff_1 As groupContainer.manualLayoutContainer:
             BorderColor: =RGBA(0, 18, 107, 1)
             BorderThickness: =1
@@ -759,13 +759,13 @@ Screen_EngineerRiskAssessment As screen:
             X: =10
             Y: =2160
             ZIndex: =25
-
+            
             rectSignOffHdr_1 As rectangle:
                 Fill: =RGBA(7, 110, 108, 1)
                 Height: =35
                 Width: =1346
                 ZIndex: =1
-
+            
             txtSignOffTitle_1 As Text:
                 Align: ='TextCanvas.Align'.Start
                 AutoHeight: =false
@@ -792,7 +792,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =10
                 Y: =0
                 ZIndex: =2
-
+            
             lblSignOffCompletedBy_1 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =32
@@ -802,16 +802,16 @@ Screen_EngineerRiskAssessment As screen:
                 X: =10
                 Y: =43
                 ZIndex: =3
-
+            
             lblSignOffCompletedByVal_1 As label:
                 Height: =32
                 Size: =11
-                Text: =varStaffViewID.'Staff Name'
+                Text: =varStaffViewName
                 Width: =300
                 X: =165
                 Y: =43
                 ZIndex: =4
-
+            
             lblSignOffDate_1 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =32
@@ -822,7 +822,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =475
                 Y: =43
                 ZIndex: =5
-
+            
             lblRAMSSignatureLbl As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =32
@@ -832,7 +832,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =10
                 Y: =83
                 ZIndex: =6
-
+            
             penRAMSSignature As inkControl:
                 BorderThickness: =1
                 Height: =120
@@ -840,7 +840,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =165
                 Y: =83
                 ZIndex: =7
-
+            
             btnRAMSSignatureClear As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -873,7 +873,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =670
                 Y: =83
                 ZIndex: =8
-
+            
             checkRAMSConfirm_1 As Checkbox:
                 AccessibleLabel: =""
                 BasePaletteColor: =
@@ -900,7 +900,7 @@ Screen_EngineerRiskAssessment As screen:
                 X: =10
                 Y: =218
                 ZIndex: =9
-
+            
             btnRAMSSave_1 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -934,7 +934,7 @@ Screen_EngineerRiskAssessment As screen:
                                     ProNumber: varRAMSProNum,
                                     Activity: varRAMSActivities,
                                     Elements: varRAMSElements,
-                                    CompletedBy: varStaffViewID.'Staff Name',
+                                    CompletedBy: varStaffViewName,
                                     CompletedDate: Text(Today(), "dd/mm/yyyy"),
                                     General: col_RAMSTake2General,
                                     Site: col_RAMSTake2Site,

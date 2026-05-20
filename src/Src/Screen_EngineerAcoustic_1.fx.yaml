@@ -2,21 +2,21 @@ Screen_EngineerAcoustic_1 As screen:
     ContentLanguage: =""
     Fill: =Color.White
     LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
-
+    
     component_MainMenu_29 As component_MainMenu:
         ChildTabPriority: =true
         ContentLanguage: =""
         EnableChildFocus: =true
         Visible: =true
         ZIndex: =2
-
+    
     Rectangle_BackgroundBlur_4 As rectangle:
         Fill: =RGBA(214, 221, 224, 0.31)
         Height: =768
         Visible: =!IsBlank(varUploadAttachment)
         Width: =1366
         ZIndex: =2
-
+    
     rectBackgroundPopUps_18 As rectangle:
         Fill: =RGBA(245, 245, 245, 0.51)
         Height: =768
@@ -27,7 +27,7 @@ Screen_EngineerAcoustic_1 As screen:
         Visible: =varCompleteServicePopup
         Width: =1366
         ZIndex: =3
-
+    
     containerCameraView_3 As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Semibold
         Fill: =RGBA(255, 255, 255, 1)
@@ -40,7 +40,7 @@ Screen_EngineerAcoustic_1 As screen:
         Width: =620
         X: =373
         ZIndex: =4
-
+        
         "'Camera Select_3' As group":
             Height: =5
             minimumHeight: =5
@@ -49,7 +49,7 @@ Screen_EngineerAcoustic_1 As screen:
             Width: =5
             X: =0
             Y: =0
-
+            
             lblCameraSelect_1 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(99, 139, 44, 1)
@@ -62,7 +62,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =23
                 Y: =110
                 ZIndex: =13
-
+            
             Dropdown1_10 As dropdown:
                 BorderColor: =RGBA(40, 112, 134, 1)
                 BorderThickness: =0
@@ -74,7 +74,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =258
                 Y: =112
                 ZIndex: =14
-
+        
         Gallery_Image_Taken_3 As gallery.galleryVertical:
             '#CopilotOverlayLabel': ="Filtered"
             DelayItemLoading: =true
@@ -87,7 +87,7 @@ Screen_EngineerAcoustic_1 As screen:
             Visible: =varGallery
             Width: =620
             ZIndex: =1
-
+            
             "'Retake Button_3' As group":
                 Height: =5
                 minimumHeight: =5
@@ -96,7 +96,7 @@ Screen_EngineerAcoustic_1 As screen:
                 Width: =5
                 X: =0
                 Y: =0
-
+                
                 Button11_3 As button:
                     Color: =RGBA(0, 81, 100, 1)
                     Fill: =RGBA(174, 208, 221, 1)
@@ -112,7 +112,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =159
                     Y: =717
                     ZIndex: =7
-
+                
                 Icon7_11 As icon:
                     Color: =RGBA(0, 81, 100, 1)
                     Height: =23
@@ -122,7 +122,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =292
                     Y: =728
                     ZIndex: =8
-
+            
             Icon6_7 As icon:
                 Color: =RGBA(215, 58, 60, 1)
                 Height: =33
@@ -136,7 +136,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =559
                 Y: =12
                 ZIndex: =2
-
+            
             lblFileNameLabel_1 As label:
                 BorderColor: =RGBA(99, 139, 44, 1)
                 Color: =RGBA(40, 112, 134, 1)
@@ -150,7 +150,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =28
                 Y: =203
                 ZIndex: =3
-
+            
             TextInput2_5 As text:
                 BorderColor: =RGBA(40, 112, 134, 1)
                 BorderThickness: =1
@@ -163,7 +163,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =159
                 Y: =203
                 ZIndex: =4
-
+            
             Image5_3 As image:
                 Height: =312
                 Image: =ThisItem.Value  
@@ -172,7 +172,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =60
                 Y: =290
                 ZIndex: =5
-
+            
             Icon7_10 As icon:
                 Color: =RGBA(0, 81, 100, 1)
                 DisplayMode: =If(IsBlank(TextInput2_5.Text), DisplayMode.Disabled, DisplayMode.Edit)
@@ -188,7 +188,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =387
                 Y: =709
                 ZIndex: =6
-
+        
         Icon10_31 As icon:
             Color: =Color.DarkRed
             Height: =30
@@ -201,7 +201,7 @@ Screen_EngineerAcoustic_1 As screen:
             Width: =28
             X: =592
             ZIndex: =10
-
+        
         lblCamera_1 As label:
             FontWeight: =FontWeight.Semibold
             Size: =20
@@ -210,7 +210,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =47
             Y: =11
             ZIndex: =11
-
+        
         Rectangle6_87 As rectangle:
             BorderColor: =RGBA(0, 81, 100, 1)
             BorderThickness: =1
@@ -219,7 +219,7 @@ Screen_EngineerAcoustic_1 As screen:
             Width: =620
             Y: =55
             ZIndex: =12
-
+        
         lblCameraCaptureInstruction_1 As label:
             Align: =Align.Center
             Color: =RGBA(40, 112, 134, 1)
@@ -229,7 +229,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =48
             Y: =167
             ZIndex: =15
-
+        
         Camera3_4 As camera:
             Camera: =Dropdown1_10.Selected.Id
             DisplayMode: =If(varCamera,DisplayMode.Edit,DisplayMode.Disabled)
@@ -242,7 +242,7 @@ Screen_EngineerAcoustic_1 As screen:
             Width: =620
             Y: =210
             ZIndex: =16
-
+    
     containerPageHeader_30 As groupContainer.manualLayoutContainer:
         Fill: =fxPrimary
         Height: =55
@@ -254,14 +254,14 @@ Screen_EngineerAcoustic_1 As screen:
         X: =65
         Y: =12
         ZIndex: =5
-
+        
         lblAcousticTest_1 As label:
             Color: =RGBA(255, 255, 255, 1)
             Text: ="Acoustic Test"
             X: =78
             Y: =7
             ZIndex: =17
-
+        
         iconPageHeaderIcon_31 As icon:
             Color: =RGBA(255, 255, 255, 1)
             Height: =35
@@ -275,7 +275,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =8
             Y: =10
             ZIndex: =18
-
+        
         iconPageHeaderRefresh_28 As icon:
             Color: =RGBA(255, 255, 255, 1)
             Height: =35
@@ -287,23 +287,23 @@ Screen_EngineerAcoustic_1 As screen:
                 // ═══════════════════════════════════════
                 If(
                     Connection.Connected && CountRows(Filter(col_OfflineTests, Synced = false)) > 0,
-                
+                    
                     ForAll(
                         Filter(col_OfflineTests, Synced = false) As offTest,
-                
+                        
                         // Create the BESA_Tests record
                         With(
                     {
-                        _be: LookUp(
+                        _be: First(Filter(
                             BESA_BookingElements,
-                            BESA_BookingElement = GUID(offTest.BookingElementID)
-                        )
+                            Text(BESA_BookingElement) = offTest.BookingElementID
+                        ))
                     },
                     With(
                         {
                             _booking: _be.'Booking LookUp',
                             _site: _be.'Site LookUp',
-                            _shift: LookUp(BESA_Shifts, 'Shift ID' = offTest.ShiftID)
+                            _shift: First(Filter(BESA_Shifts, 'Shift ID' = offTest.ShiftID))
                         },
                         With(
                             {
@@ -324,11 +324,11 @@ Screen_EngineerAcoustic_1 As screen:
                                     }
                                 )
                             },
-                
+                            
                             // Sync Runs for this test
                             ForAll(
                                 Filter(col_OfflineTestRuns, LocalTestID = offTest.LocalID && RunType = "Run") As offRun,
-                
+                                
                                 With(
                                     {
                                         _newRun: Patch(
@@ -345,7 +345,7 @@ Screen_EngineerAcoustic_1 As screen:
                                             }
                                         )
                                     },
-                
+                                    
                                     // Sync Partitions under this run
                                     ForAll(
                                         Filter(col_OfflineTestRuns, ParentRunGUID = offRun.LocalRunID) As offPart,
@@ -367,21 +367,21 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                
+                            
                             // Mark as synced
                             Patch(col_OfflineTests, offTest, {Synced: true})
                         )
                     );
-                
+                    
                     // Mark all runs as synced
                     ForAll(
                         Filter(col_OfflineTestRuns, Synced = false) As r,
                         Patch(col_OfflineTestRuns, r, {Synced: true})
                     );
-                
+                    
                     SaveData(col_OfflineTests, "col_OfflineTests_offline");
                     SaveData(col_OfflineTestRuns, "col_OfflineTestRuns_offline");
-                
+                    
                     Notify("Offline data synced to Dataverse", NotificationType.Success)
                 );
                 // Sync
@@ -454,7 +454,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =43
             Y: =10
             ZIndex: =19
-
+        
         lblLoggedInUserName_1 As label:
             Align: =Align.Right
             Color: =RGBA(255, 255, 255, 1)
@@ -462,12 +462,12 @@ Screen_EngineerAcoustic_1 As screen:
             Height: =35
             Size: =11
             Text: |-
-                ="Logged In: " & varStaffViewID.'Staff Name'
+                ="Logged In: " & varStaffViewName
             Width: =258
             X: =1027
             Y: =10
             ZIndex: =20
-
+    
     Icon8_10 As icon:
         Color: =RGBA(53, 61, 63, 1)
         Height: =55
@@ -477,7 +477,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =1235
         Y: =67
         ZIndex: =6
-
+    
     Icon3_6 As icon:
         Color: =RGBA(53, 61, 63, 1)
         Height: =55
@@ -487,7 +487,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =1305
         Y: =67
         ZIndex: =7
-
+    
     "TabList3_8 As 'Tab list'.pcfdataset":
         AccessibleLabel: =""
         Alignment: ="Horizontal"
@@ -504,7 +504,7 @@ Screen_EngineerAcoustic_1 As screen:
         Height: =46
         Items: =Sort(col_AcousticTestMenu,Sort)
         OnChange: =
-        OnSelect: |+
+        OnSelect: |
             =Set(
                 varTestMenu,
                 Self.Selected
@@ -519,12 +519,19 @@ Screen_EngineerAcoustic_1 As screen:
             Switch(
                 Self.Selected.MenuCategory,
                 "Test Details",
-                UpdateContext({varEngineer:LookUp(BESA_EngineerLists,BESA_EngineerList = varStaffViewID.BESA_EngineerList)});
+                ClearCollect(col_EngineerBuf, {pk: varStaffViewBESAID});
+                Clear(col_EngineerResult);
+                ForAll(col_EngineerBuf As g,
+                    With({rec: First(Filter(BESA_EngineerLists, Text(BESA_EngineerList) = g.pk))},
+                        If(!IsBlank(rec), Collect(col_EngineerResult, rec))
+                    )
+                );
+                UpdateContext({varEngineer: First(col_EngineerResult)});
                 With(
                     {
                         _engineerEquipment: If(
                             !IsBlank(varEngineer.'Equipment Set'),
-                            ParseJSON(varEngineer.'Equipment Set'),
+                            ParseJSON(Coalesce(varEngineer.'Equipment Set', "[]")),
                             Blank()
                         )
                     },
@@ -617,7 +624,7 @@ Screen_EngineerAcoustic_1 As screen:
                         PartitionNo, 0
                     )
                 );
-            
+                
                 Collect(
                     col_TestRunsAndPartitions,
                     AddColumns(
@@ -814,7 +821,6 @@ Screen_EngineerAcoustic_1 As screen:
                     Description: "DnT spectral plot with ISO reference"
                 }
             );
-            
         Size: ='TabList.Size'.Medium
         TabIndex: =0
         Tooltip: =""
@@ -823,7 +829,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =65
         Y: =71
         ZIndex: =8
-
+        
         DisplayLabel1_4 As PowerApps_CoreControls_TabListTemplate_dataField.textualColumn:
             FieldDisplayName: ="DisplayLabel"
             FieldName: ="DisplayLabel"
@@ -831,7 +837,7 @@ Screen_EngineerAcoustic_1 As screen:
             Order: =3
             Type: ="s"
             ZIndex: =21
-
+    
     Container18_3 As groupContainer.manualLayoutContainer:
         Fill: =RGBA(255, 255, 255, 1)
         Height: =622
@@ -844,7 +850,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =363
         Y: =73
         ZIndex: =9
-
+        
         lblServiceCompletion_1 As Text:
             Align: ="Start"
             AutoHeight: =false
@@ -875,7 +881,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =0
             Y: =0
             ZIndex: =22
-
+        
         Icon17_48 As icon:
             Color: =RGBA(255, 138, 140, 1)
             Height: =32
@@ -888,7 +894,7 @@ Screen_EngineerAcoustic_1 As screen:
             Width: =22
             X: =618
             ZIndex: =23
-
+        
         lblEngineerHeader_4 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             Color: =RGBA(0, 18, 107, 1)
@@ -899,7 +905,7 @@ Screen_EngineerAcoustic_1 As screen:
             Width: =300
             Y: =64
             ZIndex: =24
-
+        
         lblEngineerFullName_1 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             Color: =RGBA(0, 18, 107, 1)
@@ -910,7 +916,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =42
             Y: =92
             ZIndex: =25
-
+        
         btnClearSig_4 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -943,7 +949,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =560
             Y: =149
             ZIndex: =26
-
+        
         lblSignatureAcknowledgement_1 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             Color: =RGBA(0, 18, 107, 1)
@@ -955,14 +961,14 @@ Screen_EngineerAcoustic_1 As screen:
             Width: =480
             Y: =150
             ZIndex: =27
-
+        
         penRAMSSignOff_4 As inkControl:
             BorderColor: =RGBA(0, 0, 0, 1)
             Height: =240
             Width: =640
             Y: =180
             ZIndex: =28
-
+        
         checkConfirm_4 As Checkbox:
             AccessibleLabel: =""
             BasePaletteColor: =
@@ -989,7 +995,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =0
             Y: =438
             ZIndex: =29
-
+        
         lblSubmitTestReportNote_1 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             Color: =RGBA(140, 140, 140, 1)
@@ -999,7 +1005,7 @@ Screen_EngineerAcoustic_1 As screen:
             Width: =640
             Y: =512
             ZIndex: =30
-
+        
         btnCancelScreen_4 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -1035,7 +1041,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =92
             Y: =562
             ZIndex: =31
-
+        
         btnSubmitRAMSSignOff_4 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -1049,35 +1055,35 @@ Screen_EngineerAcoustic_1 As screen:
                 =If(
                 
                       !checkConfirm_4.Checked
-                
+                      
                       || IsBlank(penRAMSSignOff_4.Image)
-                
-                      || Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus) <> "Complete"
-                
+                      
+                      || Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus) <> "Complete"
+                      
                       || !If(
-                
+                      
                           varServiceTestType = "Plenum Test"
-                
+                          
                           || varServiceTestType = "Isolation Room Air Test"
-                
+                          
                           || varServiceTestType = "PassivHaus Test",
-                
+                          
                           //|| varServiceTestType = "Smoke Shaft Test",
-                
+                          
                           //|| varServiceTestType = "Air Test",
-                
+                          
                           CountRows(Filter(col_TestRun, RunSelected = true && Text(TestMetaData.TestType) = "Pressurisation")) = 1
-                
+                          
                           && CountRows(Filter(col_TestRun, RunSelected = true && Text(TestMetaData.TestType) = "Depressurisation")) = 1,
-                
+                          
                           CountRows(Filter(col_TestRun, RunSelected = true)) = 1
-                
+                      
                       ),
-                
+                      
                       DisplayMode.Disabled,
-                
+                      
                       DisplayMode.Edit
-                
+                  
                   )
             Font: =""
             FontColor: =
@@ -1095,7 +1101,7 @@ Screen_EngineerAcoustic_1 As screen:
                 =
                 Patch(
                     BESA_Tests,
-                    LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test),
+                    varActionRecord,
                     {
                         'Section Status': JSON(
                             {
@@ -1109,15 +1115,17 @@ Screen_EngineerAcoustic_1 As screen:
                 );
                 
                 
-                Patch(
-                    BESA_BookingElements,
-                    LookUp(BESA_BookingElements, BESA_BookingElement = varActionRecord.'Booking Element LookUp'.BESA_BookingElement),
-                    {
-                        'Booking Element Status': "Pending Completion"
-                    }
+                // SQLite-safe: ForAll buffer for BESA_BookingElements Patch
+                ClearCollect(_compBEBuf, {pk: Text(varActionRecord.'Booking Element LookUp'.BESA_BookingElement)});
+                ForAll(_compBEBuf As g,
+                    With({rec: First(Filter(BESA_BookingElements, Text(BESA_BookingElement) = g.pk))},
+                        If(!IsBlank(rec),
+                            Patch(BESA_BookingElements, rec, {
+                                'Booking Element Status': "Pending Completion"
+                            })
+                        )
+                    )
                 );
-                
-                
                 
                 Patch(BESA_Documents,
                     Defaults(BESA_Documents),
@@ -1137,13 +1145,13 @@ Screen_EngineerAcoustic_1 As screen:
                       },
                       Patch(
                           BESA_Tests,
-                          LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test),
+                          varActionRecord,
                           {
                               'Test JSON': If(
                                   varServiceTestType = "Plenum Test"
                                   || varServiceTestType = "PassivHaus Test"
                                   || varServiceTestType = "Isolation Room Air Test",
-                
+                                  
                                   // 2-run tests — save Depress, Press and computed Result
                                   JSON({
                                       Depressurisation: {
@@ -1181,7 +1189,7 @@ Screen_EngineerAcoustic_1 As screen:
                   (Value(wthD.CL)   + Value(wthP.CL))   / 2), 2)
                                       }
                                   }),
-                
+                                  
                                   // Single run — Air Test, Smoke Shaft, Air Permeability
                                   JSON({
                                       AP50: Value(wthSingle.AP50),
@@ -1250,7 +1258,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =252
             Y: =562
             ZIndex: =32
-
+        
         iconTempSealWarning_5 As icon:
             BorderColor: =App.Theme.Colors.Darker40
             Color: =RGBA(255, 140, 0, 1)
@@ -1263,7 +1271,7 @@ Screen_EngineerAcoustic_1 As screen:
             Tooltip: |-
                 =Concatenate(
                             If(
-                                Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus) <> "Complete",
+                                Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus) <> "Complete",
                                 "• Temporary sealing checklist not complete." & Char(10),
                                 ""
                             ),
@@ -1284,7 +1292,7 @@ Screen_EngineerAcoustic_1 As screen:
                             )
                         )
             Visible: |-
-                =Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus) <> "Complete"
+                =Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus) <> "Complete"
                         ||
                         !If(
                           varServiceTestType = "Plenum Test"
@@ -1300,7 +1308,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =578
             Y: =570
             ZIndex: =33
-
+    
     containerAddShift_7 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(106, 122, 127, 1)
         BorderThickness: =1
@@ -1315,13 +1323,13 @@ Screen_EngineerAcoustic_1 As screen:
         X: =521
         Y: =122
         ZIndex: =10
-
+        
         Rectangle2_148 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =Parent.Width
             ZIndex: =34
-
+        
         lblSheetInformation_1 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -1348,7 +1356,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =10
             Y: =0
             ZIndex: =35
-
+        
         Icon17_49 As icon:
             Color: =RGBA(255, 138, 140, 1)
             Height: =32
@@ -1360,7 +1368,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =300
             Y: =1
             ZIndex: =36
-
+        
         Container11_5 As groupContainer.manualLayoutContainer:
             Height: =490
             LayoutGridColumnMinWidth: =0
@@ -1370,7 +1378,7 @@ Screen_EngineerAcoustic_1 As screen:
             Width: =325
             Y: =35
             ZIndex: =37
-
+            
             lblPartitionLabel_1 As label:
                 Height: =30
                 Size: =11
@@ -1379,7 +1387,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =10
                 ZIndex: =38
-
+            
             txtPartitionLabel_1 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -1405,7 +1413,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =10
                 ZIndex: =39
-
+            
             Label3_658 As label:
                 Height: =30
                 Size: =11
@@ -1414,7 +1422,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =45
                 ZIndex: =40
-
+            
             drpPartitionType_1 As Dropdown.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -1436,7 +1444,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =45
                 ZIndex: =41
-
+            
             lblPassFailStatus_1 As label:
                 Height: =30
                 Size: =11
@@ -1445,7 +1453,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =80
                 ZIndex: =42
-
+            
             txtPassFail_1 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -1471,7 +1479,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =80
                 ZIndex: =43
-
+            
             lblTestCategory_1 As label:
                 Height: =30
                 Size: =11
@@ -1480,7 +1488,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =115
                 ZIndex: =44
-
+            
             drpTestCategory_1 As Dropdown.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -1502,7 +1510,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =115
                 ZIndex: =45
-
+            
             lblDateOfTestDuplicate_1 As label:
                 Height: =30
                 Size: =11
@@ -1511,7 +1519,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =150
                 ZIndex: =46
-
+            
             dtpDateOfTest_1 As modernDatePicker:
                 Appearance: =Appearance.FilledDarker
                 DefaultDate: =cVar_CurrentPartition.RunDate
@@ -1522,7 +1530,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =150
                 ZIndex: =47
-
+            
             Label3_669 As label:
                 Height: =30
                 Size: =11
@@ -1531,7 +1539,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =185
                 ZIndex: =48
-
+            
             txtTestReportNumber_1 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -1557,7 +1565,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =185
                 ZIndex: =49
-
+            
             lblSourceRoomDescription_1 As label:
                 Height: =30
                 Size: =11
@@ -1566,7 +1574,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =220
                 ZIndex: =50
-
+            
             txtSourceRoom_3 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -1592,7 +1600,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =220
                 ZIndex: =51
-
+            
             lblSourceRoomVolume_1 As label:
                 Height: =30
                 Size: =11
@@ -1601,7 +1609,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =255
                 ZIndex: =52
-
+            
             txtSourceRoomVolume_1 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -1627,7 +1635,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =255
                 ZIndex: =53
-
+            
             lblReceiverRoomDescription_1 As label:
                 Height: =30
                 PaddingRight: =0
@@ -1637,7 +1645,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =290
                 ZIndex: =54
-
+            
             txtReceiverRoom_1 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -1663,7 +1671,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =290
                 ZIndex: =55
-
+            
             lblReceiverRoomVolume_1 As label:
                 Height: =30
                 Size: =11
@@ -1672,7 +1680,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =325
                 ZIndex: =56
-
+            
             txtReceiverRoomVolume_1 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -1698,7 +1706,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =325
                 ZIndex: =57
-
+            
             lblSeparatingElementArea_1 As label:
                 Height: =30
                 Size: =11
@@ -1707,7 +1715,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =360
                 ZIndex: =58
-
+            
             txtRoomArea_1 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -1733,7 +1741,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =120
                 Y: =360
                 ZIndex: =59
-
+            
             ButtonTestChecks_1 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -1871,7 +1879,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =229
                 Y: =425
                 ZIndex: =60
-
+            
             ButtonCanvas12_13 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -1945,7 +1953,7 @@ Screen_EngineerAcoustic_1 As screen:
                             TestMetaData: JSON(
                                 {
                                     DateTimeTest: Text(dtpDateOfTest_1.SelectedDate, "yyyy-mm-dd"),
-                                    Engineer: varStaffViewID.'Staff Name',
+                                    Engineer: varStaffViewName,
                                     MeasurementAveragingTime: Value(Text(varTestInfo.MeasurementAveragingTime)),
                                     SixDbRuleMet: _sixDbMet,
                                     BackgroundCorrectionApplied: _bgCorrectionApplied,
@@ -2307,7 +2315,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =68
                 Y: =453
                 ZIndex: =61
-
+    
     containerMainEngineerContainer_6 As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Regular
         Height: =630
@@ -2319,7 +2327,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =65
         Y: =130
         ZIndex: =11
-
+        
         galleryMainEngineerStaffView_6 As gallery.galleryVertical:
             '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =App.Theme.Colors.Darker40
@@ -2333,7 +2341,7 @@ Screen_EngineerAcoustic_1 As screen:
             TemplateSize: =Self.Height
             Width: =Parent.Width
             ZIndex: =1
-
+            
             ctn_OnSite_Envelope_9 As groupContainer.manualLayoutContainer:
                 Height: =Parent.Height - 50
                 LayoutGridColumnMinWidth: =0
@@ -2343,7 +2351,7 @@ Screen_EngineerAcoustic_1 As screen:
                 Visible: =varTestMenu.MenuCategory="Report & Export"
                 Width: =Parent.Width
                 ZIndex: =2
-
+                
                 lblReportExportServiceCompletion_1 As Text:
                     Align: ="Start"
                     AutoHeight: =false
@@ -2374,7 +2382,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =0
                     Y: =0
                     ZIndex: =284
-
+                
                 btnRefreshMeasurements_3 As Button:
                     AcceptsFocus: =true
                     AccessibleLabel: =""
@@ -2577,7 +2585,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =740
                     Y: =0
                     ZIndex: =285
-
+                
                 iconTempSealWarning_6 As icon:
                     BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(255, 140, 0, 1)
@@ -2590,7 +2598,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Tooltip: |-
                         =Concatenate(
                                     If(
-                                        Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus) <> "Complete",
+                                        Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus) <> "Complete",
                                         "• Temporary sealing checklist not complete." & Char(10),
                                         ""
                                     ),
@@ -2611,7 +2619,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                     Visible: |-
-                        =Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus) <> "Complete"
+                        =Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus) <> "Complete"
                                 ||
                                 !If(
                                   varServiceTestType = "Plenum Test"
@@ -2626,7 +2634,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Width: =28
                     X: =994
                     ZIndex: =286
-
+                
                 ButtonCanvas12_45 As Button:
                     AcceptsFocus: =true
                     AccessibleLabel: =""
@@ -2637,32 +2645,32 @@ Screen_EngineerAcoustic_1 As screen:
                     BorderStyle: =""
                     ContentLanguage: =""
                     DisplayMode: |-
-                        =If( Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus) <> "Complete"
+                        =If( Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus) <> "Complete"
                         
                               || !If(
-                        
+                              
                                   varServiceTestType = "Plenum Test"
-                        
+                                  
                                   || varServiceTestType = "Isolation Room Air Test"
-                        
+                                  
                                   || varServiceTestType = "PassivHaus Test",
-                        
+                                  
                                   //|| varServiceTestType = "Smoke Shaft Test",
-                        
+                                  
                                   //|| varServiceTestType = "Air Test",
-                        
+                                  
                                   CountRows(Filter(col_TestRun, RunSelected = true && Text(TestMetaData.TestType) = "Pressurisation")) = 1
-                        
+                                  
                                   && CountRows(Filter(col_TestRun, RunSelected = true && Text(TestMetaData.TestType) = "Depressurisation")) = 1,
-                        
+                                  
                                   CountRows(Filter(col_TestRun, RunSelected = true)) = 1
-                        
+                              
                               ),
-                        
+                              
                               DisplayMode.Disabled,
-                        
+                              
                               DisplayMode.Edit
-                        
+                          
                           )
                     Font: =""
                     FontColor: =
@@ -2680,7 +2688,7 @@ Screen_EngineerAcoustic_1 As screen:
                         =/*
                         Patch(
                             BESA_Tests,
-                            LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test),
+                            varActionRecord,
                             {
                                 'Section Status': JSON(
                                     {
@@ -2694,14 +2702,17 @@ Screen_EngineerAcoustic_1 As screen:
                         );
                         
                         
-                        Patch(
-                            BESA_BookingElements,
-                            LookUp(BESA_BookingElements, BESA_BookingElement = varActionRecord.'Booking Element LookUp'.BESA_BookingElement),
-                            {
-                                'Booking Element Status': "Pending Completion"
-                            }
+                        // SQLite-safe: ForAll buffer for BESA_BookingElements Patch
+                        ClearCollect(_compBEBuf, {pk: Text(varActionRecord.'Booking Element LookUp'.BESA_BookingElement)});
+                        ForAll(_compBEBuf As g,
+                            With({rec: First(Filter(BESA_BookingElements, Text(BESA_BookingElement) = g.pk))},
+                                If(!IsBlank(rec),
+                                    Patch(BESA_BookingElements, rec, {
+                                        'Booking Element Status': "Pending Completion"
+                                    })
+                                )
+                            )
                         );
-                        
                         
                         Notify("Test marked as complete", NotificationType.Success);
                         
@@ -2755,7 +2766,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1022
                     Y: =1
                     ZIndex: =287
-
+                
                 lblServiceLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2764,7 +2775,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =10
                     Y: =40
                     ZIndex: =288
-
+                
                 lblServiceNameFromRecord_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2774,7 +2785,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =160
                     Y: =40
                     ZIndex: =289
-
+                
                 lblReportType_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2783,7 +2794,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =575
                     Y: =40
                     ZIndex: =290
-
+                
                 lblTestTypeFromServiceCatalog_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2793,7 +2804,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =725
                     Y: =40
                     ZIndex: =291
-
+                
                 lblResultsSummaryLabel1_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2803,7 +2814,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1065
                     Y: =40
                     ZIndex: =292
-
+                
                 lblResultsSummaryValue1_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2813,7 +2824,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1150
                     Y: =40
                     ZIndex: =293
-
+                
                 lblElementLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2822,7 +2833,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =10
                     Y: =70
                     ZIndex: =294
-
+                
                 lblElementNameFromRecord_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2834,7 +2845,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =160
                     Y: =70
                     ZIndex: =295
-
+                
                 lblReportGeneratedLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2843,7 +2854,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =575
                     Y: =70
                     ZIndex: =296
-
+                
                 lblDomComLabel_247 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2853,7 +2864,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =721
                     Y: =70
                     ZIndex: =297
-
+                
                 lblTrueFalseLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2863,7 +2874,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =725
                     Y: =70
                     ZIndex: =298
-
+                
                 lblResultsSummaryLabel2_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2873,7 +2884,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1065
                     Y: =70
                     ZIndex: =299
-
+                
                 lblResultsSummaryValue2_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2883,7 +2894,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1150
                     Y: =70
                     ZIndex: =300
-
+                
                 lblTypeOfTest_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2892,7 +2903,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =10
                     Y: =100
                     ZIndex: =301
-
+                
                 lblTestStandardText_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2902,7 +2913,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =160
                     Y: =100
                     ZIndex: =302
-
+                
                 lblElementTargetsLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2912,7 +2923,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =575
                     Y: =100
                     ZIndex: =303
-
+                
                 drpSelectedPartition_1 As dropdown:
                     BorderThickness: =0
                     ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -2943,7 +2954,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =725
                     Y: =100
                     ZIndex: =304
-
+                
                 lblResultsSummaryLabel3_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2953,7 +2964,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1065
                     Y: =100
                     ZIndex: =305
-
+                
                 lblResultsSummaryValue3_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2963,7 +2974,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1150
                     Y: =100
                     ZIndex: =306
-
+                
                 lblEnvelopeTypeLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2972,7 +2983,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =10
                     Y: =130
                     ZIndex: =307
-
+                
                 lblEnvelopeTypeFromRecord_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2982,7 +2993,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =160
                     Y: =130
                     ZIndex: =308
-
+                
                 lblB2SummaryLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -2991,7 +3002,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =575
                     Y: =130
                     ZIndex: =309
-
+                
                 lblBackgroundCorrectionSummary_1 As label:
                     Fill: |-
                         =If(
@@ -3019,7 +3030,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =725
                     Y: =130
                     ZIndex: =310
-
+                
                 lblResultsSummaryLabel4_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -3029,7 +3040,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1065
                     Y: =130
                     ZIndex: =311
-
+                
                 lblResultsSummaryValue4_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -3039,7 +3050,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1150
                     Y: =130
                     ZIndex: =312
-
+                
                 lblEnvelopeStatusLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -3048,7 +3059,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =10
                     Y: =160
                     ZIndex: =313
-
+                
                 Icon19_3 As icon:
                     Color: =RGBA(189, 49, 51, 1)
                     Height: =30
@@ -3059,7 +3070,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =146
                     Y: =160
                     ZIndex: =314
-
+                
                 lblEnvelopeStatusFromRecord_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -3069,7 +3080,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =160
                     Y: =160
                     ZIndex: =315
-
+                
                 lblResultsSummaryLabel5_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -3079,7 +3090,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1065
                     Y: =160
                     ZIndex: =316
-
+                
                 lblResultsSummaryValue5_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -3089,7 +3100,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1150
                     Y: =160
                     ZIndex: =317
-
+                
                 lblElementTargetsLabelDuplicate_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -3100,7 +3111,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =10
                     Y: =190
                     ZIndex: =318
-
+                
                 lblElementTargetRange_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -3110,7 +3121,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =240
                     Y: =190
                     ZIndex: =319
-
+                
                 btnSummaryResults_1 As Button:
                     BasePaletteColor: =
                     BorderColor: =
@@ -3133,7 +3144,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =457
                     Y: =200
                     ZIndex: =320
-
+                
                 btnRTStandardisation_1 As Button:
                     BasePaletteColor: =
                     BorderColor: =
@@ -3161,7 +3172,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =577
                     Y: =204
                     ZIndex: =321
-
+                
                 btnAdjacencyCheck_1 As Button:
                     BasePaletteColor: =
                     BorderColor: =
@@ -3241,7 +3252,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =685
                     Y: =204
                     ZIndex: =322
-
+                
                 btnDSpectral_1 As Button:
                     BasePaletteColor: =
                     BorderColor: =
@@ -3276,7 +3287,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =799
                     Y: =204
                     ZIndex: =323
-
+                
                 btnISOCurve_1 As Button:
                     BasePaletteColor: =
                     BorderColor: =
@@ -3328,7 +3339,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =926
                     Y: =204
                     ZIndex: =324
-
+                
                 btnCalculateAirborne_4 As Button:
                     AcceptsFocus: =true
                     AccessibleLabel: =""
@@ -3363,7 +3374,7 @@ Screen_EngineerAcoustic_1 As screen:
                             || CountRows(Filter(col_MeasurementDisplay, MeasurementType = "B2")) = 0
                             || CountRows(Filter(col_MeasurementDisplay, MeasurementType = "T2")) = 0,
                             Notify("Missing measurement data — cannot calculate", NotificationType.Error),
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 1: Energy-average L1 across positions
                             // ═══════════════════════════════════════
@@ -3396,7 +3407,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 2: Energy-average L2 across positions
                             // ═══════════════════════════════════════
@@ -3429,7 +3440,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 3: Get B2 and average T2
                             // ═══════════════════════════════════════
@@ -3438,7 +3449,7 @@ Screen_EngineerAcoustic_1 As screen:
                                 _l1: First(col_CalcL1Avg),
                                 _l2: First(col_CalcL2Avg)
                             });
-                        
+                            
                             ClearCollect(
                                 col_CalcT2Avg,
                                 With(
@@ -3460,9 +3471,9 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             UpdateContext({_t2: First(col_CalcT2Avg)});
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 4: Reverberation display
                             // ═══════════════════════════════════════
@@ -3523,7 +3534,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 5: Background correction
                             // ═══════════════════════════════════════
@@ -3564,7 +3575,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             ClearCollect(
                                 col_CalcL2Corrected,
                                 {
@@ -3586,14 +3597,14 @@ Screen_EngineerAcoustic_1 As screen:
                                     Hz3150: LookUp(col_BgCorrection, Freq="3150").L2Corrected
                                 }
                             );
-                        
+                            
                             UpdateContext({
                                 _bgCorrectionApplied: CountRows(Filter(col_BgCorrection, CorrectionType = "Energy")) > 0,
                                 _limitedByBackground: CountRows(Filter(col_BgCorrection, CorrectionType = "Limited")) > 0
                             });
-                        
+                            
                             UpdateContext({_l2c: First(col_CalcL2Corrected)});
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 6: 6dB adjacency rule
                             // ═══════════════════════════════════════
@@ -3620,7 +3631,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 ) = 0
                             });
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 7: D and DnT
                             // ═══════════════════════════════════════
@@ -3637,9 +3648,9 @@ Screen_EngineerAcoustic_1 As screen:
                                     Hz2500: _l1.Hz2500-_l2c.Hz2500, Hz3150: _l1.Hz3150-_l2c.Hz3150
                                 }
                             );
-                        
+                            
                             UpdateContext({_d: First(col_CalcD)});
-                        
+                            
                             ClearCollect(
                                 col_CalcDnT,
                                 {
@@ -3653,9 +3664,9 @@ Screen_EngineerAcoustic_1 As screen:
                                     Hz2500: _d.Hz2500+10*Log(_t2.Hz2500/0.5,10), Hz3150: _d.Hz3150+10*Log(_t2.Hz3150/0.5,10)
                                 }
                             );
-                        
+                            
                             UpdateContext({_dnt: First(col_CalcDnT)});
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 8: Level difference display
                             // ═══════════════════════════════════════
@@ -3705,7 +3716,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 9: ISO 717-1 curve fitting (DnT)
                             // ═══════════════════════════════════════
@@ -3715,9 +3726,9 @@ Screen_EngineerAcoustic_1 As screen:
                                  Hz400:51, Hz500:52, Hz630:53, Hz800:54, Hz1000:55, Hz1250:56,
                                  Hz1600:56, Hz2000:56, Hz2500:56, Hz3150:56}
                             );
-                        
+                            
                             UpdateContext({_ref: First(col_ISORef)});
-                        
+                            
                             ClearCollect(
                                 col_ShiftResults,
                                 ForAll(
@@ -3738,10 +3749,10 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             UpdateContext({_bestShift: Max(Filter(col_ShiftResults, Passes), Shift)});
                             UpdateContext({_DnTw: _ref.Hz500 + _bestShift});
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 10: ISO 717-1 curve fitting (D) for Dw
                             // ═══════════════════════════════════════
@@ -3765,12 +3776,12 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             UpdateContext({
                                 _bestShiftD: Max(Filter(col_ShiftResultsD, Passes), Shift),
                                 _Dw: _ref.Hz500 + Max(Filter(col_ShiftResultsD, Passes), Shift)
                             });
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 11: C and Ctr
                             // ═══════════════════════════════════════
@@ -3798,16 +3809,16 @@ Screen_EngineerAcoustic_1 As screen:
                                         Power(10,(-13-_dnt.Hz2500)/10) + Power(10,(-15-_dnt.Hz3150)/10),
                                     10) - _DnTw, 0)
                             });
-                        
+                            
                             UpdateContext({_DnTwPlusCtr: _DnTw + _Ctr});
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 12: Pass/Fail
                             // ═══════════════════════════════════════
                             UpdateContext({
                                 _result: If(_DnTwPlusCtr >= cVar_CurrentPartition.RequiredValue, "Pass", "Fail")
                             });
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 13: Results summary (AFTER curve fitting)
                             // ═══════════════════════════════════════
@@ -3834,7 +3845,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     {Sort: 18, Label: "Small Room Used",         Value: If(cVar_CurrentPartition.SourceRoomVolume < 25 || cVar_CurrentPartition.ReceiverRoomVolume < 25, "Yes ⚠", "No"), Category: "Flags"}
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 14: ISO curve display
                             // ═══════════════════════════════════════
@@ -3869,7 +3880,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     }
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 15: Save results to Dataverse
                             // ═══════════════════════════════════════
@@ -3921,7 +3932,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 }
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 16: Update partitions collection
                             // ═══════════════════════════════════════
@@ -3935,7 +3946,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     ResultLimitedByBackground: _limitedByBackground
                                 }
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 17: Rebuild airborne results table
                             // ═══════════════════════════════════════
@@ -4002,7 +4013,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 18: Refresh display + notify
                             // ═══════════════════════════════════════
@@ -4018,7 +4029,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1036
                     Y: =210
                     ZIndex: =325
-
+                
                 btnCalculateImpact_4 As Button:
                     AcceptsFocus: =true
                     AccessibleLabel: =""
@@ -4052,7 +4063,7 @@ Screen_EngineerAcoustic_1 As screen:
                             || CountRows(Filter(col_MeasurementDisplay, MeasurementType = "B2")) = 0
                             || CountRows(Filter(col_MeasurementDisplay, MeasurementType = "T2")) = 0,
                             Notify("Missing measurement data — cannot calculate", NotificationType.Error),
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 1: Energy-average L2 across tapper positions
                             // ═══════════════════════════════════════
@@ -4085,7 +4096,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 2: Get B2 and average T2
                             // ═══════════════════════════════════════
@@ -4093,7 +4104,7 @@ Screen_EngineerAcoustic_1 As screen:
                                 _b2: First(Filter(col_MeasurementDisplay, MeasurementType = "B2")),
                                 _l2: First(col_CalcL2Avg)
                             });
-                        
+                            
                             ClearCollect(
                                 col_CalcT2Avg,
                                 With(
@@ -4115,9 +4126,9 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             UpdateContext({_t2: First(col_CalcT2Avg)});
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 3: Reverberation display
                             // ═══════════════════════════════════════
@@ -4178,7 +4189,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 4: Background correction
                             // ═══════════════════════════════════════
@@ -4219,7 +4230,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             ClearCollect(
                                 col_CalcL2Corrected,
                                 {
@@ -4241,14 +4252,14 @@ Screen_EngineerAcoustic_1 As screen:
                                     Hz3150: LookUp(col_BgCorrection, Freq="3150").L2Corrected
                                 }
                             );
-                        
+                            
                             UpdateContext({
                                 _bgCorrectionApplied: CountRows(Filter(col_BgCorrection, CorrectionType = "Energy")) > 0,
                                 _limitedByBackground: CountRows(Filter(col_BgCorrection, CorrectionType = "Limited")) > 0
                             });
-                        
+                            
                             UpdateContext({_l2c: First(col_CalcL2Corrected)});
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 5: Calculate L'nT per frequency
                             // L'nT = L2corrected - 10*log10(T/0.5)
@@ -4274,9 +4285,9 @@ Screen_EngineerAcoustic_1 As screen:
                                     Hz3150: _l2c.Hz3150 - 10*Log(_t2.Hz3150/0.5, 10)
                                 }
                             );
-                        
+                            
                             UpdateContext({_lnt: First(col_CalcLnT)});
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 6: Level difference display (impact version)
                             // ═══════════════════════════════════════
@@ -4327,7 +4338,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 7: ISO 717-2 curve fitting
                             // ═══════════════════════════════════════
@@ -4337,9 +4348,9 @@ Screen_EngineerAcoustic_1 As screen:
                                  Hz400:61, Hz500:60, Hz630:59, Hz800:58, Hz1000:57, Hz1250:54,
                                  Hz1600:51, Hz2000:48, Hz2500:45, Hz3150:42}
                             );
-                        
+                            
                             UpdateContext({_ref: First(col_ISORefImpact)});
-                        
+                            
                             ClearCollect(
                                 col_ShiftResults,
                                 ForAll(
@@ -4360,22 +4371,22 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             UpdateContext({
                                 _bestShift: Min(Filter(col_ShiftResults, Passes), Shift)
                             });
-                        
+                            
                             UpdateContext({
                                 _LnTw: _ref.Hz500 + _bestShift
                             });
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 8: Pass/Fail
                             // ═══════════════════════════════════════
                             UpdateContext({
                                 _result: If(_LnTw <= cVar_CurrentPartition.RequiredValue, "Pass", "Fail")
                             });
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 9: Results summary (AFTER curve fitting)
                             // ═══════════════════════════════════════
@@ -4396,7 +4407,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     {Sort: 12, Label: "Small Room Used",        Value: If(cVar_CurrentPartition.SourceRoomVolume < 25 || cVar_CurrentPartition.ReceiverRoomVolume < 25, "Yes ⚠", "No"), Category: "Flags"}
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 10: ISO curve display
                             // ═══════════════════════════════════════
@@ -4432,7 +4443,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     }
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 11: Save results to Dataverse
                             // ═══════════════════════════════════════
@@ -4469,7 +4480,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 }
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 12: Update partitions collection
                             // ═══════════════════════════════════════
@@ -4482,7 +4493,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     ResultLimitedByBackground: _limitedByBackground
                                 }
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 13: Rebuild impact results table
                             // ═══════════════════════════════════════
@@ -4539,7 +4550,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             );
-                        
+                            
                             // ═══════════════════════════════════════
                             // STEP 14: Refresh display + notify
                             // ═══════════════════════════════════════
@@ -4556,7 +4567,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =1036
                     Y: =210
                     ZIndex: =326
-
+                
                 "TabList3_9 As 'Tab list'.pcfdataset":
                     AccessibleLabel: =""
                     Alignment: ="Horizontal"
@@ -4663,7 +4674,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =0
                     Y: =240
                     ZIndex: =327
-
+                    
                     DisplayLabel1_5 As PowerApps_CoreControls_TabListTemplate_dataField.textualColumn:
                         FieldDisplayName: ="DisplayLabel"
                         FieldName: ="DisplayLabel"
@@ -4671,7 +4682,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Order: =3
                         Type: ="s"
                         ZIndex: =328
-
+                
                 lblAP50ResultFormatted_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =30
@@ -4687,7 +4698,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =240
                     Y: =242
                     ZIndex: =329
-
+                
                 conResults_12 As groupContainer.manualLayoutContainer:
                     Height: =290
                     LayoutGridColumnMinWidth: =0
@@ -4698,7 +4709,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Width: =Parent.Width
                     Y: =290
                     ZIndex: =330
-
+                    
                     lblDomComLabel_244 As label:
                         FontWeight: =FontWeight.Semibold
                         Height: =30
@@ -4707,7 +4718,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =100
                         X: =3
                         ZIndex: =331
-
+                    
                     lblDomComLabel_245 As label:
                         FontWeight: =FontWeight.Semibold
                         Height: =30
@@ -4715,7 +4726,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Text: ="Test Status"
                         X: =103
                         ZIndex: =332
-
+                    
                     lblDomComLabel_248 As label:
                         FontWeight: =FontWeight.Semibold
                         Height: =30
@@ -4724,7 +4735,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =145
                         X: =253
                         ZIndex: =333
-
+                    
                     lblDomComLabel_249 As label:
                         FontWeight: =FontWeight.Semibold
                         Height: =30
@@ -4732,7 +4743,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Text: ="Run Date"
                         X: =398
                         ZIndex: =334
-
+                    
                     lblDomComLabel_258 As label:
                         FontWeight: =FontWeight.Semibold
                         Height: =30
@@ -4740,7 +4751,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Text: ="Partition Count"
                         X: =532
                         ZIndex: =335
-
+                    
                     galSummary_1 As gallery.galleryVertical:
                         '#CopilotOverlayLabel': ="Filtered"
                         DelayItemLoading: =true
@@ -4774,7 +4785,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =1290
                         Y: =30
                         ZIndex: =336
-
+                        
                         lblDomComLabel_250 As label:
                             Height: =27
                             Size: =11
@@ -4782,14 +4793,14 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =100
                             X: =5
                             ZIndex: =337
-
+                        
                         lblDomComLabel_251 As label:
                             Height: =27
                             Size: =11
                             Text: =ThisItem.TestStatus
                             X: =105
                             ZIndex: =338
-
+                        
                         lblDomComLabel_259 As label:
                             Height: =27
                             Size: =11
@@ -4797,14 +4808,14 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =145
                             X: =255
                             ZIndex: =339
-
+                        
                         lblDomComLabel_260 As label:
                             Height: =27
                             Size: =11
                             Text: =ThisItem.RunDate
                             X: =400
                             ZIndex: =340
-
+                        
                         lblRunSelected_2 As label:
                             BorderColor: =App.Theme.Colors.Darker40
                             FontWeight: =FontWeight.Bold
@@ -4814,7 +4825,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =120
                             X: =550
                             ZIndex: =341
-
+                
                 conResults_13 As groupContainer.manualLayoutContainer:
                     Height: =290
                     LayoutGridColumnMinWidth: =0
@@ -4825,7 +4836,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Width: =Parent.Width
                     Y: =290
                     ZIndex: =342
-
+                    
                     "galAverages_5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                         '#CopilotOverlayLabel': ="Filtered"
                         DelayItemLoading: =true
@@ -4857,7 +4868,7 @@ Screen_EngineerAcoustic_1 As screen:
                         TemplateSize: =40
                         Width: =Parent.Width
                         ZIndex: =343
-
+                        
                         lblRowLabel_4 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 0, 0, 1)
@@ -4883,7 +4894,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             Wrap: =false
                             ZIndex: =344
-
+                        
                         txtHz100_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -4913,7 +4924,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =lblRowLabel_4.X + lblRowLabel_4.Width
                             ZIndex: =345
-
+                        
                         txtHz125_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -4943,7 +4954,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz100_4.X + txtHz100_4.Width
                             ZIndex: =346
-
+                        
                         txtHz160_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -4973,7 +4984,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz125_4.X + txtHz125_4.Width
                             ZIndex: =347
-
+                        
                         txtHz200_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5003,7 +5014,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz160_4.X + txtHz160_4.Width
                             ZIndex: =348
-
+                        
                         txtHz250_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5033,7 +5044,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz200_4.X + txtHz200_4.Width
                             ZIndex: =349
-
+                        
                         txtHz315_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5063,7 +5074,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz250_4.X + txtHz250_4.Width
                             ZIndex: =350
-
+                        
                         txtHz400_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5093,7 +5104,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz315_4.X + txtHz315_4.Width
                             ZIndex: =351
-
+                        
                         txtHz500_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5123,7 +5134,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz400_4.X + txtHz400_4.Width
                             ZIndex: =352
-
+                        
                         txtHz630_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5153,7 +5164,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz500_4.X + txtHz500_4.Width
                             ZIndex: =353
-
+                        
                         txtHz800_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5183,7 +5194,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz630_4.X + txtHz630_4.Width
                             ZIndex: =354
-
+                        
                         txtHz1000_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5213,7 +5224,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz800_4.X + txtHz800_4.Width
                             ZIndex: =355
-
+                        
                         txtHz1250_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5243,7 +5254,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz1000_4.X + txtHz1000_4.Width
                             ZIndex: =356
-
+                        
                         txtHz1600_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5273,7 +5284,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz1250_4.X + txtHz1250_4.Width
                             ZIndex: =357
-
+                        
                         txtHz2000_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5303,7 +5314,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz1600_4.X + txtHz1600_4.Width
                             ZIndex: =358
-
+                        
                         txtHz2500_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5333,7 +5344,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz2000_4.X + txtHz2000_4.Width
                             ZIndex: =359
-
+                        
                         txtHz3150_4 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5363,7 +5374,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz2500_4.X + txtHz2500_4.Width
                             ZIndex: =360
-
+                        
                         btnRemovePartitionRow_4 As Button:
                             AcceptsFocus: =true
                             AccessibleLabel: =""
@@ -5395,14 +5406,14 @@ Screen_EngineerAcoustic_1 As screen:
                                             Filter(col_MeasurementDisplay, MeasurementType = ThisItem.MeasurementType)
                                         )
                                     },
-                                
+                                    
                                     If(
                                         _count <= 1,
                                         Notify(
                                             "Cannot remove last " & _type & " row",
                                             NotificationType.Warning
                                         ),
-                                
+                                        
                                         // Remove this specific row
                                         RemoveIf(
                                             col_MeasurementDisplay,
@@ -5421,7 +5432,7 @@ Screen_EngineerAcoustic_1 As screen:
                             X: =915
                             Y: =3
                             ZIndex: =361
-
+                        
                         btnAddPartitionRow_4 As Button:
                             AcceptsFocus: =true
                             AccessibleLabel: =""
@@ -5470,7 +5481,7 @@ Screen_EngineerAcoustic_1 As screen:
                                             3999, 4999
                                         )
                                     },
-                                
+                                    
                                     With(
                                         {
                                             _existingRows: Filter(
@@ -5504,7 +5515,7 @@ Screen_EngineerAcoustic_1 As screen:
                                                 Sort
                                             )
                                         },
-                                
+                                        
                                         With(
                                             {
                                                 _newPosition: If(
@@ -5519,7 +5530,7 @@ Screen_EngineerAcoustic_1 As screen:
                                                 ),
                                                 _newSort: Coalesce(_maxSort, _rangeStart) + 1
                                             },
-                                
+                                            
                                             Collect(
                                                 col_MeasurementDisplay,
                                                 {
@@ -5552,7 +5563,7 @@ Screen_EngineerAcoustic_1 As screen:
                             X: =820
                             Y: =4
                             ZIndex: =362
-
+                
                 conResults_14 As groupContainer.manualLayoutContainer:
                     Height: =290
                     LayoutGridColumnMinWidth: =0
@@ -5563,7 +5574,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Width: =Parent.Width
                     Y: =290
                     ZIndex: =363
-
+                    
                     "galAverages_6 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                         '#CopilotOverlayLabel': ="Filtered"
                         DelayItemLoading: =true
@@ -5579,7 +5590,7 @@ Screen_EngineerAcoustic_1 As screen:
                         TemplateSize: =40
                         Width: =Parent.Width
                         ZIndex: =364
-
+                        
                         lblRowLabel_5 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 0, 0, 1)
@@ -5596,7 +5607,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             Wrap: =false
                             ZIndex: =365
-
+                        
                         txtHz100_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5626,7 +5637,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =lblRowLabel_5.X + lblRowLabel_5.Width
                             ZIndex: =366
-
+                        
                         txtHz125_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5656,7 +5667,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz100_5.X + txtHz100_5.Width
                             ZIndex: =367
-
+                        
                         txtHz160_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5686,7 +5697,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz125_5.X + txtHz125_5.Width
                             ZIndex: =368
-
+                        
                         txtHz200_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5716,7 +5727,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz160_5.X + txtHz160_5.Width
                             ZIndex: =369
-
+                        
                         txtHz250_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5746,7 +5757,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz200_5.X + txtHz200_5.Width
                             ZIndex: =370
-
+                        
                         txtHz315_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5776,7 +5787,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz250_5.X + txtHz250_5.Width
                             ZIndex: =371
-
+                        
                         txtHz400_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5806,7 +5817,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz315_5.X + txtHz315_5.Width
                             ZIndex: =372
-
+                        
                         txtHz500_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5836,7 +5847,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz400_5.X + txtHz400_5.Width
                             ZIndex: =373
-
+                        
                         txtHz630_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5866,7 +5877,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz500_5.X + txtHz500_5.Width
                             ZIndex: =374
-
+                        
                         txtHz800_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5896,7 +5907,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz630_5.X + txtHz630_5.Width
                             ZIndex: =375
-
+                        
                         txtHz1000_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5926,7 +5937,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz800_5.X + txtHz800_5.Width
                             ZIndex: =376
-
+                        
                         txtHz1250_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5956,7 +5967,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz1000_5.X + txtHz1000_5.Width
                             ZIndex: =377
-
+                        
                         txtHz1600_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -5986,7 +5997,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz1250_5.X + txtHz1250_5.Width
                             ZIndex: =378
-
+                        
                         txtHz2000_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6016,7 +6027,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz1600_5.X + txtHz1600_5.Width
                             ZIndex: =379
-
+                        
                         txtHz2500_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6046,7 +6057,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz2000_5.X + txtHz2000_5.Width
                             ZIndex: =380
-
+                        
                         txtHz3150_5 As text:
                             Align: =If(ThisItem.MeasurementType = "Header",Align.Center, Align.Right)
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6076,7 +6087,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/17
                             X: =txtHz2500_5.X + txtHz2500_5.Width
                             ZIndex: =381
-
+                        
                         btnRemovePartitionRow_5 As Button:
                             AcceptsFocus: =true
                             AccessibleLabel: =""
@@ -6108,14 +6119,14 @@ Screen_EngineerAcoustic_1 As screen:
                                             Filter(col_MeasurementDisplay, MeasurementType = ThisItem.MeasurementType)
                                         )
                                     },
-                                
+                                    
                                     If(
                                         _count <= 1,
                                         Notify(
                                             "Cannot remove last " & _type & " row",
                                             NotificationType.Warning
                                         ),
-                                
+                                        
                                         // Remove this specific row
                                         RemoveIf(
                                             col_MeasurementDisplay,
@@ -6134,7 +6145,7 @@ Screen_EngineerAcoustic_1 As screen:
                             X: =915
                             Y: =3
                             ZIndex: =382
-
+                        
                         btnAddPartitionRow_5 As Button:
                             AcceptsFocus: =true
                             AccessibleLabel: =""
@@ -6183,7 +6194,7 @@ Screen_EngineerAcoustic_1 As screen:
                                             3999, 4999
                                         )
                                     },
-                                
+                                    
                                     With(
                                         {
                                             _existingRows: Filter(
@@ -6217,7 +6228,7 @@ Screen_EngineerAcoustic_1 As screen:
                                                 Sort
                                             )
                                         },
-                                
+                                        
                                         With(
                                             {
                                                 _newPosition: If(
@@ -6232,7 +6243,7 @@ Screen_EngineerAcoustic_1 As screen:
                                                 ),
                                                 _newSort: Coalesce(_maxSort, _rangeStart) + 1
                                             },
-                                
+                                            
                                             Collect(
                                                 col_MeasurementDisplay,
                                                 {
@@ -6265,7 +6276,7 @@ Screen_EngineerAcoustic_1 As screen:
                             X: =820
                             Y: =4
                             ZIndex: =383
-
+                
                 conResults_15 As groupContainer.manualLayoutContainer:
                     Height: =290
                     LayoutGridColumnMinWidth: =0
@@ -6276,7 +6287,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Width: =Parent.Width
                     Y: =290
                     ZIndex: =384
-
+                    
                     lblHeaderFreq_18 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6286,7 +6297,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galAverages_7.Width/6
                         Y: =5
                         ZIndex: =385
-
+                    
                     lblHeaderFreq_19 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6297,7 +6308,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_18.X + lblHeaderFreq_18.Width
                         Y: =5
                         ZIndex: =386
-
+                    
                     lblHeaderFreq_20 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6308,7 +6319,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_19.X + lblHeaderFreq_19.Width
                         Y: =5
                         ZIndex: =387
-
+                    
                     lblHeaderFreq_21 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6319,7 +6330,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_20.X + lblHeaderFreq_20.Width
                         Y: =5
                         ZIndex: =388
-
+                    
                     lblHeaderFreq_22 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6330,7 +6341,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_21.X + lblHeaderFreq_21.Width
                         Y: =5
                         ZIndex: =389
-
+                    
                     lblHeaderFreq_23 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6341,7 +6352,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_22.X + lblHeaderFreq_22.Width
                         Y: =5
                         ZIndex: =390
-
+                    
                     "galAverages_7 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                         '#CopilotOverlayLabel': ="Filtered"
                         DelayItemLoading: =true
@@ -6377,7 +6388,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =Parent.Width
                         Y: =35
                         ZIndex: =391
-
+                        
                         lblFreq_3 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 0, 0, 1)
@@ -6395,7 +6406,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/6
                             Wrap: =false
                             ZIndex: =392
-
+                        
                         lblL2Raw_2 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6411,7 +6422,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/6
                             X: =lblFreq_3.X + lblFreq_3.Width
                             ZIndex: =393
-
+                        
                         lblB2Raw_2 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6427,7 +6438,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/6
                             X: =lblL2Raw_2.X + lblL2Raw_2.Width
                             ZIndex: =394
-
+                        
                         lblDiff_2 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6450,7 +6461,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/6
                             X: =lblB2Raw_2.X + lblB2Raw_2.Width
                             ZIndex: =395
-
+                        
                         lblCorrectionType_2 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6466,7 +6477,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/6
                             X: =lblDiff_2.X + lblDiff_2.Width
                             ZIndex: =396
-
+                        
                         lblL2Corrected_1 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6482,7 +6493,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/6
                             X: =lblCorrectionType_2.X + lblCorrectionType_2.Width
                             ZIndex: =397
-
+                
                 conResults_16 As groupContainer.manualLayoutContainer:
                     Height: =290
                     LayoutGridColumnMinWidth: =0
@@ -6493,7 +6504,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Width: =Parent.Width
                     Y: =290
                     ZIndex: =398
-
+                    
                     lblHeaderFreq_24 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6503,7 +6514,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galAverages_8.Width/5
                         Y: =5
                         ZIndex: =399
-
+                    
                     lblHeaderFreq_25 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6514,7 +6525,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_24.X + lblHeaderFreq_24.Width
                         Y: =5
                         ZIndex: =400
-
+                    
                     lblHeaderFreq_26 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6525,7 +6536,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_25.X + lblHeaderFreq_25.Width
                         Y: =5
                         ZIndex: =401
-
+                    
                     lblHeaderFreq_27 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6536,7 +6547,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_26.X + lblHeaderFreq_26.Width
                         Y: =5
                         ZIndex: =402
-
+                    
                     lblHeaderFreq_28 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6547,7 +6558,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_27.X + lblHeaderFreq_27.Width
                         Y: =5
                         ZIndex: =403
-
+                    
                     "galAverages_8 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                         '#CopilotOverlayLabel': ="Filtered"
                         DelayItemLoading: =true
@@ -6560,7 +6571,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =Parent.Width
                         Y: =35
                         ZIndex: =404
-
+                        
                         lblFreq_4 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 0, 0, 1)
@@ -6578,7 +6589,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/5
                             Wrap: =false
                             ZIndex: =405
-
+                        
                         lblL2Raw_3 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6594,7 +6605,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/5
                             X: =lblFreq_4.X + lblFreq_4.Width
                             ZIndex: =406
-
+                        
                         lblB2Raw_3 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6610,7 +6621,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/5
                             X: =lblL2Raw_3.X + lblL2Raw_3.Width
                             ZIndex: =407
-
+                        
                         lblDiff_3 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6633,7 +6644,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/5
                             X: =lblB2Raw_3.X + lblB2Raw_3.Width
                             ZIndex: =408
-
+                        
                         lblCorrectionType_3 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6649,7 +6660,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/5
                             X: =lblDiff_3.X + lblDiff_3.Width
                             ZIndex: =409
-
+                
                 conResults_17 As groupContainer.manualLayoutContainer:
                     Height: =290
                     LayoutGridColumnMinWidth: =0
@@ -6660,7 +6671,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Width: =Parent.Width
                     Y: =290
                     ZIndex: =410
-
+                    
                     lblHeaderFreq_29 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6670,7 +6681,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galAverages_9.Width/7
                         Y: =5
                         ZIndex: =411
-
+                    
                     lblHeaderFreq_30 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6681,7 +6692,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_29.X + lblHeaderFreq_29.Width
                         Y: =5
                         ZIndex: =412
-
+                    
                     lblHeaderFreq_31 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6692,7 +6703,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_30.X + lblHeaderFreq_30.Width
                         Y: =5
                         ZIndex: =413
-
+                    
                     lblHeaderFreq_32 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6703,7 +6714,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_31.X + lblHeaderFreq_31.Width
                         Y: =5
                         ZIndex: =414
-
+                    
                     lblHeaderFreq_33 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6714,7 +6725,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_32.X + lblHeaderFreq_32.Width
                         Y: =5
                         ZIndex: =415
-
+                    
                     lblHeaderFreq_34 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6725,7 +6736,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_33.X + lblHeaderFreq_33.Width
                         Y: =5
                         ZIndex: =416
-
+                    
                     lblHeaderFreq_35 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Bold
@@ -6736,7 +6747,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =lblHeaderFreq_34.X + lblHeaderFreq_34.Width
                         Y: =5
                         ZIndex: =417
-
+                    
                     "galAverages_9 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                         '#CopilotOverlayLabel': ="Filtered"
                         DelayItemLoading: =true
@@ -6749,7 +6760,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =Parent.Width
                         Y: =35
                         ZIndex: =418
-
+                        
                         lblFreq_5 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 0, 0, 1)
@@ -6767,7 +6778,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             Wrap: =false
                             ZIndex: =419
-
+                        
                         lblT2Avg_1 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6783,7 +6794,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblFreq_5.X + lblFreq_5.Width
                             ZIndex: =420
-
+                        
                         lblMin_1 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6799,7 +6810,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblT2Avg_1.X + lblT2Avg_1.Width
                             ZIndex: =421
-
+                        
                         lblMax_1 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6815,7 +6826,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblMin_1.X + lblMin_1.Width
                             ZIndex: =422
-
+                        
                         lblSpread_1 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6831,7 +6842,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblMax_1.X + lblMax_1.Width
                             ZIndex: =423
-
+                        
                         lblRTCorr_1 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6847,7 +6858,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblSpread_1.X + lblSpread_1.Width
                             ZIndex: =424
-
+                        
                         lblT0_1 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(200, 200, 200, 1)
@@ -6863,7 +6874,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblRTCorr_1.X + lblRTCorr_1.Width
                             ZIndex: =425
-
+                
                 conResults_18 As groupContainer.manualLayoutContainer:
                     Height: =290
                     LayoutGridColumnMinWidth: =0
@@ -6874,7 +6885,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Width: =Parent.Width
                     Y: =290
                     ZIndex: =426
-
+                    
                     lblDomComLabel_268 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -6883,7 +6894,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Text: ="Date of Test"
                         Width: =galAirborne_3.TemplateWidth/8
                         ZIndex: =427
-
+                    
                     lblDomComLabel_279 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -6893,7 +6904,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galAirborne_3.TemplateWidth/8
                         X: =lblDomComLabel_268.X + lblDomComLabel_268.Width
                         ZIndex: =428
-
+                    
                     lblDomComLabel_280 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -6903,7 +6914,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galAirborne_3.TemplateWidth/8
                         X: =lblDomComLabel_279.X + lblDomComLabel_279.Width
                         ZIndex: =429
-
+                    
                     lblDomComLabel_321 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -6913,7 +6924,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galAirborne_3.TemplateWidth/8
                         X: =lblDomComLabel_280.X + lblDomComLabel_280.Width
                         ZIndex: =430
-
+                    
                     lblDomComLabel_322 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -6923,7 +6934,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galAirborne_3.TemplateWidth/8
                         X: =lblDomComLabel_321.X + lblDomComLabel_321.Width
                         ZIndex: =431
-
+                    
                     lblDomComLabel_323 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -6933,7 +6944,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galAirborne_3.TemplateWidth/8
                         X: =lblDomComLabel_322.X + lblDomComLabel_322.Width
                         ZIndex: =432
-
+                    
                     lblDomComLabel_324 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -6943,7 +6954,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galAirborne_3.TemplateWidth/8
                         X: =lblDomComLabel_323.X + lblDomComLabel_323.Width
                         ZIndex: =433
-
+                    
                     lblDomComLabel_325 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -6953,7 +6964,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galAirborne_3.TemplateWidth/8
                         X: =lblDomComLabel_324.X + lblDomComLabel_324.Width
                         ZIndex: =434
-
+                    
                     galAirborne_3 As gallery.galleryVertical:
                         '#CopilotOverlayLabel': ="Filtered"
                         DelayItemLoading: =true
@@ -6965,7 +6976,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =1290
                         Y: =30
                         ZIndex: =435
-
+                        
                         lblDateOfTest_6 As label:
                             Align: =Align.Center
                             Height: =27
@@ -6973,7 +6984,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Text: =ThisItem.DateOfTest
                             Width: =Parent.TemplateWidth/8
                             ZIndex: =436
-
+                        
                         lblTestReportNumber_6 As label:
                             Align: =Align.Center
                             Height: =27
@@ -6982,7 +6993,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/8
                             X: =lblDateOfTest_6.X + lblDateOfTest_6.Width
                             ZIndex: =437
-
+                        
                         lblSourceRoom_6 As label:
                             Align: =Align.Center
                             Height: =27
@@ -6991,7 +7002,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/8
                             X: =lblTestReportNumber_6.X + lblTestReportNumber_6.Width
                             ZIndex: =438
-
+                        
                         lblReceiverRoom_6 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7000,7 +7011,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/8
                             X: =lblSourceRoom_6.X + lblSourceRoom_6.Width
                             ZIndex: =439
-
+                        
                         lblPartitionType_3 As label:
                             Align: =Align.Center
                             BorderColor: =App.Theme.Colors.Darker40
@@ -7011,7 +7022,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/8
                             X: =lblReceiverRoom_6.X + lblReceiverRoom_6.Width
                             ZIndex: =440
-
+                        
                         lblMeasured_6 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7020,7 +7031,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/8
                             X: =lblPartitionType_3.X + lblPartitionType_3.Width
                             ZIndex: =441
-
+                        
                         lblRequired_6 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7029,7 +7040,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/8
                             X: =lblMeasured_6.X + lblMeasured_6.Width
                             ZIndex: =442
-
+                        
                         lblPassFail_6 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7038,7 +7049,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/8
                             X: =lblRequired_6.X + lblRequired_6.Width
                             ZIndex: =443
-
+                
                 conResults_19 As groupContainer.manualLayoutContainer:
                     Height: =290
                     LayoutGridColumnMinWidth: =0
@@ -7049,7 +7060,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Width: =Parent.Width
                     Y: =290
                     ZIndex: =444
-
+                    
                     lblDomComLabel_326 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -7058,7 +7069,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Text: ="Date of Test"
                         Width: =galImpact_3.TemplateWidth/7
                         ZIndex: =445
-
+                    
                     lblDomComLabel_327 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -7068,7 +7079,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galImpact_3.TemplateWidth/7
                         X: =lblDomComLabel_326.X + lblDomComLabel_326.Width
                         ZIndex: =446
-
+                    
                     lblDomComLabel_328 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -7078,7 +7089,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galImpact_3.TemplateWidth/7
                         X: =lblDomComLabel_327.X + lblDomComLabel_327.Width
                         ZIndex: =447
-
+                    
                     lblDomComLabel_329 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -7088,7 +7099,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galImpact_3.TemplateWidth/7
                         X: =lblDomComLabel_328.X + lblDomComLabel_328.Width
                         ZIndex: =448
-
+                    
                     lblDomComLabel_330 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -7098,7 +7109,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galImpact_3.TemplateWidth/7
                         X: =lblDomComLabel_329.X + lblDomComLabel_329.Width
                         ZIndex: =449
-
+                    
                     lblDomComLabel_331 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -7108,7 +7119,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galImpact_3.TemplateWidth/7
                         X: =lblDomComLabel_330.X + lblDomComLabel_330.Width
                         ZIndex: =450
-
+                    
                     lblDomComLabel_332 As label:
                         Align: =Align.Center
                         FontWeight: =FontWeight.Semibold
@@ -7118,7 +7129,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =galImpact_3.TemplateWidth/7
                         X: =lblDomComLabel_331.X + lblDomComLabel_331.Width
                         ZIndex: =451
-
+                    
                     galImpact_3 As gallery.galleryVertical:
                         '#CopilotOverlayLabel': ="Filtered"
                         DelayItemLoading: =true
@@ -7130,7 +7141,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =1290
                         Y: =30
                         ZIndex: =452
-
+                        
                         lblDateOfTest_7 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7138,7 +7149,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Text: =ThisItem.DateOfTest
                             Width: =Parent.TemplateWidth/7
                             ZIndex: =453
-
+                        
                         lblTestReportNumber_7 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7147,7 +7158,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblDateOfTest_7.X + lblDateOfTest_7.Width
                             ZIndex: =454
-
+                        
                         lblSourceRoom_7 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7156,7 +7167,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblTestReportNumber_7.X + lblTestReportNumber_7.Width
                             ZIndex: =455
-
+                        
                         lblReceiverRoom_7 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7165,7 +7176,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblSourceRoom_7.X + lblSourceRoom_7.Width
                             ZIndex: =456
-
+                        
                         lblMeasured_7 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7174,7 +7185,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblReceiverRoom_7.X + lblReceiverRoom_7.Width
                             ZIndex: =457
-
+                        
                         lblRequired_7 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7183,7 +7194,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblMeasured_7.X + lblMeasured_7.Width
                             ZIndex: =458
-
+                        
                         lblPassFail_7 As label:
                             Align: =Align.Center
                             Height: =27
@@ -7192,7 +7203,7 @@ Screen_EngineerAcoustic_1 As screen:
                             Width: =Parent.TemplateWidth/7
                             X: =lblRequired_7.X + lblRequired_7.Width
                             ZIndex: =459
-
+                
                 ctn_AverageResults_2 As groupContainer.manualLayoutContainer:
                     Height: =234
                     LayoutGridColumnMinWidth: =0
@@ -7209,7 +7220,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =824
                     Y: =333
                     ZIndex: =460
-
+                    
                     lblAverageHeader_2 As label:
                         BorderColor: =App.Theme.Colors.Darker40
                         Fill: =ColorFade(fxPrimary, 70%)
@@ -7224,7 +7235,7 @@ Screen_EngineerAcoustic_1 As screen:
                             )
                         Width: =Parent.Width
                         ZIndex: =461
-
+                    
                     lblAvgAP50_2 As label:
                         BorderColor: =App.Theme.Colors.Darker40
                         Font: =App.Theme.Font
@@ -7244,7 +7255,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =340
                         Y: =25
                         ZIndex: =462
-
+                    
                     lblAvgELA_2 As label:
                         BorderColor: =App.Theme.Colors.Darker40
                         Font: =App.Theme.Font
@@ -7264,7 +7275,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =340
                         Y: =52
                         ZIndex: =463
-
+                    
                     lblAvgExp_2 As label:
                         BorderColor: =App.Theme.Colors.Darker40
                         Font: =App.Theme.Font
@@ -7284,7 +7295,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =340
                         Y: =79
                         ZIndex: =464
-
+                    
                     lblAvgCL_2 As label:
                         BorderColor: =App.Theme.Colors.Darker40
                         Font: =App.Theme.Font
@@ -7304,7 +7315,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =340
                         Y: =106
                         ZIndex: =465
-
+                    
                     lblAvgQ50_2 As label:
                         BorderColor: =App.Theme.Colors.Darker40
                         Font: =App.Theme.Font
@@ -7324,7 +7335,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =340
                         Y: =131
                         ZIndex: =466
-
+                    
                     lblAvgR2_2 As label:
                         BorderColor: =App.Theme.Colors.Darker40
                         Font: =App.Theme.Font
@@ -7344,7 +7355,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =340
                         Y: =156
                         ZIndex: =467
-
+                    
                     lblAvgCenv_2 As label:
                         BorderColor: =App.Theme.Colors.Darker40
                         Font: =App.Theme.Font
@@ -7364,7 +7375,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =340
                         Y: =181
                         ZIndex: =468
-
+                
                 lblRunSelectionWarning_2 As label:
                     BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(200, 50, 0, 1)
@@ -7400,7 +7411,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =10
                     Y: =537
                     ZIndex: =469
-
+            
             ctn_OnSite_Envelope_10 As groupContainer.manualLayoutContainer:
                 Height: =567
                 LayoutGridColumnMinWidth: =0
@@ -7412,7 +7423,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =20
                 Y: =15
                 ZIndex: =3
-
+                
                 lblEnvelopeDetails_1 As Text:
                     Align: ="Start"
                     AutoHeight: =false
@@ -7443,7 +7454,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =0
                     Y: =0
                     ZIndex: =480
-
+                
                 lblEnvelopeTypeLabelDuplicate_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =25
@@ -7453,7 +7464,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =40
                     ZIndex: =481
-
+                
                 inputEnvelopeFloorArea_150 As text:
                     BorderColor: =RGBA(139, 154, 159, 1)
                     BorderThickness: =0
@@ -7478,13 +7489,13 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =40
                     ZIndex: =482
-
+                
                 Label14_3 As label:
                     Text: =
                     X: =60
                     Y: =60
                     ZIndex: =483
-
+                
                 lblYearBuiltLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =25
@@ -7494,7 +7505,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =65
                     ZIndex: =484
-
+                
                 lblMaxAllowablePermeability_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =25
@@ -7504,7 +7515,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =115
                     ZIndex: =485
-
+                
                 inputEnvelopeFloorArea_151 As text:
                     Align: =Align.Right
                     BorderColor: =RGBA(139, 154, 159, 1)
@@ -7532,7 +7543,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =115
                     ZIndex: =486
-
+                
                 lblEnvelopeTypeLabelSecondDuplicate_1 As label:
                     Height: =25
                     Size: =11
@@ -7540,7 +7551,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =147
                     ZIndex: =487
-
+                
                 inputEnvelopeFloorArea_152 As text:
                     Align: =Align.Right
                     BorderColor: =RGBA(139, 154, 159, 1)
@@ -7567,7 +7578,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =147
                     ZIndex: =488
-
+                
                 lblNetFloorAreaLabel_1 As label:
                     Height: =25
                     Size: =11
@@ -7575,7 +7586,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =185
                     ZIndex: =489
-
+                
                 inputEnvelopeFloorArea_153 As text:
                     Align: =Align.Right
                     BorderColor: =RGBA(139, 154, 159, 1)
@@ -7603,7 +7614,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =185
                     ZIndex: =490
-
+                
                 lblEnvelopeVolumeLabel_1 As label:
                     Height: =25
                     Size: =11
@@ -7611,7 +7622,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =210
                     ZIndex: =491
-
+                
                 inputEnvelopeVolume_9 As text:
                     Align: =Align.Right
                     BorderColor: =RGBA(139, 154, 159, 1)
@@ -7640,7 +7651,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =210
                     ZIndex: =492
-
+                
                 lblVolumeLabel_1 As label:
                     Height: =25
                     Size: =11
@@ -7648,7 +7659,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =235
                     ZIndex: =493
-
+                
                 inputEnvelopeVolume_10 As text:
                     Align: =Align.Right
                     BorderColor: =RGBA(139, 154, 159, 1)
@@ -7676,7 +7687,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =235
                     ZIndex: =494
-
+                
                 lblNumberOfStoreysLabel_1 As label:
                     Height: =25
                     Size: =11
@@ -7684,7 +7695,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =260
                     ZIndex: =495
-
+                
                 inputEnvelopeFloorQuantity_11 As text:
                     Align: =Align.Right
                     BorderColor: =RGBA(139, 154, 159, 1)
@@ -7712,7 +7723,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =260
                     ZIndex: =496
-
+                
                 lblMaxHeightLabel_1 As label:
                     Height: =25
                     Size: =11
@@ -7720,7 +7731,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =285
                     ZIndex: =497
-
+                
                 inputEnvelopeMaxHeight_23 As text:
                     Align: =Align.Right
                     BorderColor: =RGBA(139, 154, 159, 1)
@@ -7748,7 +7759,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =285
                     ZIndex: =498
-
+                
                 lblCalculatedByLabel_1 As label:
                     Height: =25
                     Size: =11
@@ -7756,7 +7767,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =310
                     ZIndex: =499
-
+                
                 inputEnvelopeMaxHeight_24 As text:
                     BorderColor: =RGBA(139, 154, 159, 1)
                     BorderThickness: =0
@@ -7782,7 +7793,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =310
                     ZIndex: =500
-
+                
                 lblApprovedByLabel_1 As label:
                     Height: =25
                     Size: =11
@@ -7790,7 +7801,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =335
                     ZIndex: =501
-
+                
                 inputEnvelopeMaxHeight_25 As text:
                     BorderColor: =RGBA(139, 154, 159, 1)
                     BorderThickness: =0
@@ -7816,7 +7827,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =335
                     ZIndex: =502
-
+                
                 lblVerifiedByLabel_1 As label:
                     Height: =25
                     Size: =11
@@ -7824,7 +7835,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =360
                     ZIndex: =503
-
+                
                 inputEnvelopeMaxHeight_26 As text:
                     BorderColor: =RGBA(139, 154, 159, 1)
                     BorderThickness: =0
@@ -7850,7 +7861,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =215
                     Y: =360
                     ZIndex: =504
-
+                
                 Icon14_11 As icon:
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =31
@@ -7863,7 +7874,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =5
                     Y: =400
                     ZIndex: =505
-
+                
                 lblEnvelopeStatusDescription_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =28
@@ -7878,7 +7889,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =49
                     Y: =403
                     ZIndex: =506
-
+            
             ctn_OnSite_Envelope_11 As groupContainer.manualLayoutContainer:
                 Height: =567
                 LayoutGridColumnMinWidth: =0
@@ -7890,7 +7901,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =498
                 Y: =15
                 ZIndex: =4
-
+                
                 TextCanvas1_22 As Text:
                     Align: ="Start"
                     AutoHeight: =false
@@ -7921,7 +7932,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =0
                     Y: =0
                     ZIndex: =508
-
+                
                 labelTestMenu_405 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =25
@@ -7930,7 +7941,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =7
                     Y: =40
                     ZIndex: =509
-
+                
                 labelTestMenu_406 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =25
@@ -7939,7 +7950,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =135
                     Y: =40
                     ZIndex: =510
-
+                
                 labelTestMenu_407 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =25
@@ -7949,7 +7960,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =335
                     Y: =40
                     ZIndex: =511
-
+                
                 labelTestMenu_408 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =25
@@ -7959,7 +7970,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =435
                     Y: =40
                     ZIndex: =512
-
+                
                 labelTestMenu_409 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =25
@@ -7969,7 +7980,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =560
                     Y: =40
                     ZIndex: =513
-
+                
                 galEnvelopeReferenceChecks_3 As gallery.galleryVertical:
                     '#CopilotOverlayLabel': ="Filtered"
                     DelayItemLoading: =true
@@ -7982,7 +7993,7 @@ Screen_EngineerAcoustic_1 As screen:
                     Width: =773
                     Y: =65
                     ZIndex: =514
-
+                    
                     AddMediaWithImage1_3 As group:
                         Height: =5
                         minimumHeight: =5
@@ -7991,7 +8002,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =5
                         X: =0
                         Y: =0
-
+                        
                         UploadedImage1_3 As image:
                             DisplayMode: =DisplayMode.View
                             Height: =80
@@ -8002,7 +8013,7 @@ Screen_EngineerAcoustic_1 As screen:
                             X: =AddMediaButton1_3.X
                             Y: =AddMediaButton1_3.Y
                             ZIndex: =516
-
+                        
                         AddMediaButton1_3 As addMedia:
                             ChangePictureText: ="Change Picture"
                             DisplayMode: =DisplayMode.View
@@ -8015,14 +8026,14 @@ Screen_EngineerAcoustic_1 As screen:
                             X: =15
                             Y: =8
                             ZIndex: =517
-
+                    
                     Rectangle3_6 As rectangle:
                         Fill: =fxPrimary
                         Height: =1
                         OnSelect: =Select(Parent)
                         Width: =773
                         ZIndex: =515
-
+                    
                     labelTestMenu_410 As label:
                         FontWeight: =FontWeight.Semibold
                         Height: =25
@@ -8033,7 +8044,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =652
                         Y: =8
                         ZIndex: =518
-
+                    
                     inputEnvelopeFloorArea_154 As text:
                         BorderColor: =RGBA(139, 154, 159, 1)
                         BorderThickness: =0
@@ -8059,7 +8070,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =135
                         Y: =28
                         ZIndex: =519
-
+                    
                     inputEnvelopeFloorArea_155 As text:
                         BorderColor: =RGBA(139, 154, 159, 1)
                         BorderThickness: =0
@@ -8085,7 +8096,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =335
                         Y: =28
                         ZIndex: =520
-
+                    
                     inputEnvelopeFloorArea_156 As text:
                         BorderColor: =RGBA(139, 154, 159, 1)
                         BorderThickness: =0
@@ -8111,7 +8122,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =430
                         Y: =28
                         ZIndex: =521
-
+                    
                     inputEnvelopeFloorArea_157 As text:
                         BorderColor: =RGBA(139, 154, 159, 1)
                         BorderThickness: =0
@@ -8142,7 +8153,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =566
                         Y: =28
                         ZIndex: =522
-
+                    
                     Icon2_6 As icon:
                         Color: |-
                             =If(
@@ -8195,7 +8206,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =688
                         Y: =28
                         ZIndex: =523
-
+                
                 labelPageHeader_37 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =35
@@ -8207,7 +8218,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =7
                     Y: =72
                     ZIndex: =525
-
+                
                 ButtonCanvas5_14 As Button:
                     AcceptsFocus: =true
                     AccessibleLabel: =""
@@ -8230,12 +8241,12 @@ Screen_EngineerAcoustic_1 As screen:
                     IconRotation: =0
                     IconStyle: ="Outline"
                     Layout: ="Icon before"
-                    OnSelect: |+
+                    OnSelect: |
                         =// ===== MARK TEST DETAILS COMPLETE =====
                         With(
                             {
                                 // Get current Section Status
-                                wthCurrentSectionStatus: ParseJSON(LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test).'Section Status')
+                                wthCurrentSectionStatus: ParseJSON(Coalesce(varActionRecord.'Section Status', "{}"))
                             },
                             
                                 Patch(
@@ -8251,10 +8262,10 @@ Screen_EngineerAcoustic_1 As screen:
                                         )
                                     }
                                 );
-                        
+                            
                             // 2️⃣ Reload Section Status variable
-                            Set(varSectionStatus, ParseJSON(varActionRecord.'Section Status'));
-                        
+                            Set(varSectionStatus, ParseJSON(Coalesce(varActionRecord.'Section Status', "{}")));
+                            
                             // 3️⃣ Rebuild Perm Test Menu
                             ClearCollect(
                                 col_PermTestMenu,
@@ -8278,12 +8289,12 @@ Screen_EngineerAcoustic_1 As screen:
                                         MenuCategory: "Temp Sealing",
                                         Sort: 3,
                                         Status: Text(varSectionStatus.TempSealing),
-                                        DisplayLabel:  "Temp Sealing " & If(Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus) =
+                                        DisplayLabel:  "Temp Sealing " & If(Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus) =
                           "Complete", "✓", "⚠️")
                                         //,MenuIcon: Icon.CheckBadge  
                                     }
                             );
-                        
+                            
                             // Add dynamic Test Run items
                             ForAll(
                                 col_TestRun As run,
@@ -8298,7 +8309,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     }
                                 )
                             );
-                        
+                            
                             // Add final Report & Export item
                             /*Collect(
                                 col_PermTestMenu,
@@ -8310,15 +8321,12 @@ Screen_EngineerAcoustic_1 As screen:
                                     DisplayLabel: "Report & Export " & If(varSectionStatus.ReportExport = "Complete", "✓", "⚠️")
                                 }
                             );*/
-                        
+                            
                             // 4️⃣ Notify user
                             Notify("Envelope Details marked complete", NotificationType.Success)
                         );
                         
                         Set(varEnvelopeArea, Value(inputEnvelopeFloorArea_153.Text));
-                        
-                        
-                        
                     PaddingLeft: =2
                     PaddingRight: =2
                     TabIndex: =0
@@ -8330,7 +8338,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =607
                     Y: =536
                     ZIndex: =526
-
+            
             ctn_TestData_TempSealing_3 As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 Height: =514
@@ -8349,7 +8357,7 @@ Screen_EngineerAcoustic_1 As screen:
                 Width: =Parent.Width
                 Y: =40
                 ZIndex: =5
-
+                
                 Container15_3 As groupContainer.manualLayoutContainer:
                     LayoutGridColumnMinWidth: =0
                     LayoutGridColumns: =6
@@ -8360,7 +8368,7 @@ Screen_EngineerAcoustic_1 As screen:
                     LayoutMinHeight: =16
                     LayoutMinWidth: =16
                     ZIndex: =556
-
+                    
                     labelTestMenu_413 As label:
                         Color: =RGBA(255, 255, 255, 1)
                         Fill: =fxPrimary
@@ -8368,10 +8376,10 @@ Screen_EngineerAcoustic_1 As screen:
                         Height: =35
                         Size: =11
                         Text: |-
-                            ="Check List - Status: " & Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus)//& Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus) //Check List - Status: " & Text(LookUp(col_TestRun, TestID = varSelectedTestRunID).TempSealingData.TempSealingStatus)
+                            ="Check List - Status: " & Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus)//& Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus) //Check List - Status: " & Text(LookUp(col_TestRun, TestID = varSelectedTestRunID).TempSealingData.TempSealingStatus)
                         Width: =Parent.Width-Parent.PaddingLeft-Parent.PaddingRight
                         ZIndex: =557
-
+                    
                     ButtonCanvas10_6 As Button:
                         AcceptsFocus: =true
                         AccessibleLabel: =""
@@ -8446,7 +8454,7 @@ Screen_EngineerAcoustic_1 As screen:
                             );*/
                             Patch(
                                 BESA_Tests,
-                                LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test),
+                                varActionRecord,
                                 {
                                     TempSealingData: JSON({
                                         TempSealingStatus: "Complete",
@@ -8461,7 +8469,6 @@ Screen_EngineerAcoustic_1 As screen:
                                     })
                                 }
                             );
-                            Set(varActionRecord, LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test));
                         TabIndex: =0
                         Text: ="Add Additional Question"
                         Tooltip: =""
@@ -8471,7 +8478,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =825
                         Y: =1
                         ZIndex: =558
-
+                    
                     ButtonCanvas10_7 As Button:
                         AcceptsFocus: =true
                         AccessibleLabel: =""
@@ -8551,7 +8558,7 @@ Screen_EngineerAcoustic_1 As screen:
                             );*/
                             Patch(
                                 BESA_Tests,
-                                LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test),
+                                varActionRecord,
                                 {
                                     TempSealingData: JSON({
                                         TempSealingStatus: "Complete",
@@ -8566,7 +8573,6 @@ Screen_EngineerAcoustic_1 As screen:
                                     })
                                 }
                             );
-                            Set(varActionRecord, LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test));
                             UpdateIf(
                                   col_PermTestMenu,
                                   MenuCategory = "Temp Sealing",
@@ -8575,7 +8581,6 @@ Screen_EngineerAcoustic_1 As screen:
                                       DisplayLabel: "Temp Sealing ✓"
                                   }
                               );
-                              
                         TabIndex: =0
                         Text: ="Complete TempSealing"
                         Tooltip: =""
@@ -8585,7 +8590,7 @@ Screen_EngineerAcoustic_1 As screen:
                         X: =1045
                         Y: =1
                         ZIndex: =559
-
+                    
                     labelTestMenu_414 As label:
                         FontWeight: =FontWeight.Semibold
                         Height: =25
@@ -8594,7 +8599,7 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =250
                         Y: =40
                         ZIndex: =560
-
+                    
                     Gallery3_4 As gallery.galleryVertical:
                         '#CopilotOverlayLabel': ="Filtered"
                         DelayItemLoading: =true
@@ -8606,20 +8611,20 @@ Screen_EngineerAcoustic_1 As screen:
                         Width: =Parent.Width-Parent.PaddingLeft-Parent.PaddingRight
                         Y: =65
                         ZIndex: =561
-
+                        
                         lblDomComLabel_265 As label:
                             Size: =11
                             Text: =ThisItem.Question
                             Width: =490
                             ZIndex: =562
-
+                        
                         Rectangle2_4 As rectangle:
                             Fill: =ColorFade(fxPrimary,50%)
                             Height: =1
                             OnSelect: =Select(Parent)
                             Width: =490
                             ZIndex: =563
-
+                        
                         RadioGroupCanvas1_3 As Radio.pcfdataset:
                             AccessibleLabel: =""
                             ContentLanguage: =""
@@ -8707,7 +8712,7 @@ Screen_EngineerAcoustic_1 As screen:
                                 );*/
                                 Patch(
                                     BESA_Tests,
-                                    LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test),
+                                    varActionRecord,
                                     {
                                         TempSealingData: JSON({
                                             TempSealingStatus: If(
@@ -8726,7 +8731,6 @@ Screen_EngineerAcoustic_1 As screen:
                                         })
                                     }
                                 );
-                                Set(varActionRecord, LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test));
                             RadioSize: =16
                             Required: =false
                             TabIndex: =0
@@ -8736,7 +8740,7 @@ Screen_EngineerAcoustic_1 As screen:
                             X: =791
                             Y: =0
                             ZIndex: =564
-
+            
             SiteDataReadings1 As SiteDataReadings:
                 ContentLanguage: =""
                 DisplayMode: =DisplayMode.Edit
@@ -8747,7 +8751,7 @@ Screen_EngineerAcoustic_1 As screen:
                     =JSON(
                         ForAll(
                             Sort(col_AcousticPartitions,PartitionLabel) As p,
-                            With({ps: LookUp(col_PerformanceStandards, StandardName = Text(ParseJSON(ThisItem.'Test Info').TargetStandard)).Profile},
+                            With({ps: LookUp(col_PerformanceStandards, StandardName = Text(ParseJSON(Coalesce(ThisItem.'Test Info', "{}")).TargetStandard)).Profile},
                             {
                                 id: Text(p.PartitionID),
                                 partitionLabel: p.PartitionLabel,
@@ -8777,7 +8781,7 @@ Screen_EngineerAcoustic_1 As screen:
                                 comments: If(IsBlank(p.Comments), "", p.Comments)
                             }
                             )
-                            
+                        
                         )
                     )
                 TabIndex: =0
@@ -8788,7 +8792,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =0
                 Y: =0
                 ZIndex: =7
-
+            
             btnBackEngineer As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -8823,7 +8827,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =20
                 Y: =590
                 ZIndex: =8
-
+            
             ButtonCanvas5_17 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -8852,7 +8856,7 @@ Screen_EngineerAcoustic_1 As screen:
                     // =============================================
                     ForAll(
                         col_AcousticPartitions As part,
-                    
+                        
                         // Rebuild measurement display for this partition
                         With(
                             {
@@ -8924,7 +8928,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     )
                                 )
                             },
-                    
+                            
                             With(
                                 {
                                     _sixDb: CountRows(
@@ -8968,7 +8972,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     _avgL2Hz3150: Average(_l2Rows, Hz3150),
                                     _small: part.SourceRoomVolume < 25 || part.ReceiverRoomVolume < 25
                                 },
-                    
+                                
                                 With(
                                     {
                                         _limited: _bgCorr && CountRows(
@@ -9024,7 +9028,7 @@ Screen_EngineerAcoustic_1 As screen:
                                             && part.ReceiverRoomVolume > 0
                                             && part.HasMeasurementData
                                     },
-                    
+                                    
                                     // ── Patch this partition ──
                                     Patch(
                                         BESA_TestRuns,
@@ -9058,7 +9062,7 @@ Screen_EngineerAcoustic_1 As screen:
                                             'Test Status': If(_isComplete, "Complete", "In Progress")
                                         }
                                     );
-                    
+                                    
                                     // ── Update collection ──
                                     UpdateIf(
                                         col_AcousticPartitions,
@@ -9146,7 +9150,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =1094
                 Y: =590
                 ZIndex: =9
-
+            
             ButtonCanvas6_13 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -9282,7 +9286,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =1140
                 Y: =0
                 ZIndex: =10
-
+            
             TestDetails1 As TestDetails:
                 CompanyJSON: |-
                     =JSON(
@@ -9297,7 +9301,7 @@ Screen_EngineerAcoustic_1 As screen:
                 OnChange: |-
                     =If(
                         Self.EventName = "Confirm",
-                    
+                        
                         With(
                             {
                                 output: ParseJSON(Self.OutputJSON),
@@ -9307,14 +9311,14 @@ Screen_EngineerAcoustic_1 As screen:
                                     GUID(First(col_ActionRecordCache).TestGUID)
                                 )
                             },
-                    
+                            
                             If(
                                 Connection.Connected,
-                    
+                                
                                 // ── ONLINE: Patch to Dataverse ──
                                 Patch(
                                     BESA_Tests,
-                                    LookUp(BESA_Tests, BESA_Test = testGUID),
+                                    varActionRecord,
                                     {
                                         'Test Info': JSON(
                                             {
@@ -9344,7 +9348,7 @@ Screen_EngineerAcoustic_1 As screen:
                                     }
                                 );
                                 Notify("Test details saved", NotificationType.Success),
-                    
+                                
                                 // ── OFFLINE: Save to local collection + persist ──
                                 UpdateIf(
                                     col_OfflineTests,
@@ -9381,7 +9385,7 @@ Screen_EngineerAcoustic_1 As screen:
                                 IfError(SaveData(col_OfflineTests, "col_OfflineTests_offline"), Blank());
                                 Notify("Offline — saved locally", NotificationType.Warning)
                             );
-                    
+                            
                             Set(varTestMenu, {DispalyLabel: "Partition", MenuCategory: "Partition", MenuLabel: "Partition", Sort: 3, Status: ""});
                         )
                     );
@@ -9473,7 +9477,7 @@ Screen_EngineerAcoustic_1 As screen:
                                 {Value: "T30"}
                             ),
                             testConditions: Table(
-                                
+                            
                                 {Value: "Unfurnished"},
                                 {Value: "All test rooms essentially complete and unfurnished. All doors and windows shut including ventilators where applicable. All cupboard/en-suite doors open where applicable."}
                             ),
@@ -9517,10 +9521,10 @@ Screen_EngineerAcoustic_1 As screen:
                 TestDataJSON: |-
                     =With(
                         {
-                            td: ParseJSON(ThisItem.'Test Info'),
+                            td: ParseJSON(Coalesce(ThisItem.'Test Info', "{}")),
                             ps: LookUp(
                                 col_PerformanceStandards,
-                                StandardName = Text(ParseJSON(ThisItem.'Test Info').TargetStandard)
+                                StandardName = Text(ParseJSON(Coalesce(ThisItem.'Test Info', "{}")).TargetStandard)
                             ).Profile
                         },
                         JSON(
@@ -9559,7 +9563,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =0
                 Y: =0
                 ZIndex: =11
-
+    
     rectViewOverlay_Company_2 As rectangle:
         BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(255, 255, 255, 0.55)
@@ -9569,7 +9573,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =77
         Y: =130
         ZIndex: =12
-
+    
     rectViewOverlay_Envelope3_4 As rectangle:
         BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(255, 255, 255, 0.55)
@@ -9579,7 +9583,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =77
         Y: =130
         ZIndex: =13
-
+    
     containerAddEvidence_3 As groupContainer.manualLayoutContainer:
         BorderColor: =fxPrimary
         Fill: =RGBA(255, 255, 255, 1)
@@ -9594,7 +9598,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =314
         Y: =130
         ZIndex: =14
-
+        
         lblAddPhotos_1 As label:
             Color: =fxPrimary
             FontWeight: =FontWeight.Semibold
@@ -9604,7 +9608,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =7
             Y: =7
             ZIndex: =603
-
+        
         Icon10_32 As icon:
             Color: =Color.DarkRed
             Height: =30
@@ -9618,14 +9622,14 @@ Screen_EngineerAcoustic_1 As screen:
             X: =739
             Y: =12
             ZIndex: =604
-
+        
         Rectangle1_107 As rectangle:
             Fill: =fxPrimary
             Height: =2
             Width: =Parent.Width
             Y: =47
             ZIndex: =605
-
+        
         Container4_6 As groupContainer.manualLayoutContainer:
             Height: =419
             LayoutGridColumnMinWidth: =0
@@ -9636,7 +9640,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =7
             Y: =60
             ZIndex: =606
-
+            
             lblTestID_1 As label:
                 Color: =fxPrimary
                 DisplayMode: =DisplayMode.View
@@ -9648,7 +9652,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =5
                 ZIndex: =607
-
+            
             TextInput2_76 As text:
                 BorderThickness: =0
                 Color: =fxPrimary
@@ -9664,7 +9668,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =40
                 ZIndex: =608
-
+            
             lblEvidenceType_1 As label:
                 Color: =fxPrimary
                 DisplayMode: =DisplayMode.View
@@ -9676,7 +9680,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =78
                 ZIndex: =609
-
+            
             TextInput2_77 As text:
                 BorderThickness: =0
                 Color: =fxPrimary
@@ -9692,7 +9696,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =113
                 ZIndex: =610
-
+            
             lblReason_1 As label:
                 Color: =fxPrimary
                 DisplayMode: =DisplayMode.View
@@ -9704,7 +9708,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =151
                 ZIndex: =611
-
+            
             dropDomCom_63 As dropdown:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -9727,7 +9731,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =184
                 ZIndex: =612
-
+            
             lblComments_1 As label:
                 Color: =fxPrimary
                 DisplayMode: =DisplayMode.View
@@ -9739,7 +9743,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =224
                 ZIndex: =613
-
+            
             TextInput2_78 As text:
                 BorderThickness: =0
                 Color: =fxPrimary
@@ -9755,7 +9759,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =5
                 Y: =259
                 ZIndex: =614
-
+        
         Container1_9 As groupContainer.manualLayoutContainer:
             Height: =419
             LayoutGridColumnMinWidth: =0
@@ -9766,7 +9770,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =438
             Y: =60
             ZIndex: =615
-
+            
             lblAttachmentUpload_1 As label:
                 Color: =fxPrimary
                 FontWeight: =FontWeight.Semibold
@@ -9777,7 +9781,7 @@ Screen_EngineerAcoustic_1 As screen:
                     ="Remaining Documents: "& (attachmentDocumentUpload1_6.MaxAttachments - CountRows(attachmentDocumentUpload1_6.Attachments))
                 Width: =340
                 ZIndex: =616
-
+            
             attachmentDocumentUpload1_6 As attachments:
                 AddAttachmentText: ="Attach file"
                 AttachedFileListLabel: ="Attached files"
@@ -9806,7 +9810,7 @@ Screen_EngineerAcoustic_1 As screen:
                 Width: =340
                 Y: =38
                 ZIndex: =617
-
+            
             lblCapturedPhotos_1 As label:
                 Color: =fxPrimary
                 FontWeight: =FontWeight.Semibold
@@ -9818,7 +9822,7 @@ Screen_EngineerAcoustic_1 As screen:
                 Width: =340
                 Y: =201
                 ZIndex: =618
-
+            
             ButtonCanvas14_4 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -9853,7 +9857,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =170
                 Y: =208
                 ZIndex: =619
-
+            
             attachmentDocumentUpload1_7 As attachments:
                 AddAttachmentText: ="Attach file"
                 AttachedFileListLabel: ="Attached files"
@@ -9883,7 +9887,7 @@ Screen_EngineerAcoustic_1 As screen:
                 Width: =340
                 Y: =236
                 ZIndex: =620
-
+            
             Gallery10_4 As gallery.galleryVertical:
                 '#CopilotOverlayLabel': ="Filtered"
                 DelayItemLoading: =true
@@ -9897,7 +9901,7 @@ Screen_EngineerAcoustic_1 As screen:
                 X: =4
                 Y: =236
                 ZIndex: =621
-
+                
                 TextCanvas13_4 As Text:
                     Align: ="Start"
                     AutoHeight: =false
@@ -9924,7 +9928,7 @@ Screen_EngineerAcoustic_1 As screen:
                     X: =7
                     Y: =0
                     ZIndex: =622
-
+        
         ButtonCanvas17_3 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -9997,7 +10001,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =293
             Y: =498
             ZIndex: =623
-
+    
     rectViewOverlay_TestData_4 As rectangle:
         BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(255, 255, 255, 0.39)
@@ -10007,7 +10011,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =83
         Y: =143
         ZIndex: =15
-
+    
     rectViewOverlay_Envelope3_5 As rectangle:
         BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(255, 255, 255, 0.35)
@@ -10017,7 +10021,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =65
         Y: =177
         ZIndex: =16
-
+    
     rectViewOverlay_TestData_5 As rectangle:
         BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(255, 255, 255, 0.41)
@@ -10027,7 +10031,7 @@ Screen_EngineerAcoustic_1 As screen:
         X: =63
         Y: =186
         ZIndex: =17
-
+    
     containerAddShift_8 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(106, 122, 127, 1)
         BorderThickness: =1
@@ -10041,13 +10045,13 @@ Screen_EngineerAcoustic_1 As screen:
         X: =433
         Y: =234
         ZIndex: =18
-
+        
         Rectangle2_149 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =Parent.Width
             ZIndex: =624
-
+        
         lblAddTestRun_1 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -10074,7 +10078,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =10
             Y: =0
             ZIndex: =625
-
+        
         Icon17_50 As icon:
             Color: =RGBA(255, 138, 140, 1)
             Height: =32
@@ -10086,7 +10090,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =466
             Y: =1
             ZIndex: =626
-
+        
         Label3_672 As label:
             Height: =30
             PaddingBottom: =0
@@ -10096,7 +10100,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =10
             Y: =40
             ZIndex: =627
-
+        
         DatePicker1_2 As modernDatePicker:
             Appearance: =Appearance.FilledDarker
             Height: =30
@@ -10106,7 +10110,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =160
             Y: =40
             ZIndex: =628
-
+        
         lblRunName_1 As label:
             Height: =30
             Size: =11
@@ -10114,7 +10118,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =10
             Y: =75
             ZIndex: =629
-
+        
         txtSourceRoom_4 As text:
             BorderColor: =RGBA(139, 154, 159, 1)
             BorderThickness: =0
@@ -10140,7 +10144,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =160
             Y: =75
             ZIndex: =630
-
+        
         lblEngineerNameLabel_1 As label:
             Height: =30
             Size: =11
@@ -10148,7 +10152,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =10
             Y: =110
             ZIndex: =631
-
+        
         txtSourceRoom_5 As text:
             BorderColor: =RGBA(139, 154, 159, 1)
             BorderThickness: =0
@@ -10174,7 +10178,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =160
             Y: =110
             ZIndex: =632
-
+        
         Container19_1 As groupContainer.manualLayoutContainer:
             Height: =100
             LayoutGridColumnMinWidth: =0
@@ -10185,7 +10189,7 @@ Screen_EngineerAcoustic_1 As screen:
             X: =10
             Y: =145
             ZIndex: =633
-
+            
             attachmentResultUpload_1 As attachments:
                 AddAttachmentText: ="Upload file"
                 AttachedFileListLabel: ="Attached files"
@@ -10210,7 +10214,7 @@ Screen_EngineerAcoustic_1 As screen:
                 UndoRemoveAttachmentTooltip: ="Undo remove"
                 Width: =450
                 ZIndex: =634
-
+        
         ButtonCanvas8_25 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""

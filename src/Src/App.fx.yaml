@@ -21,8 +21,8 @@ App As appinfo:
         =// ══════════════════════════════════════════════
         // OFFLINE — Restore cached collections first
         // ══════════════════════════════════════════════
-        LoadData(colPartition, "colPartition_offline", true);
-        LoadData(col_EngineerActionList, "col_EngineerActionList_offline", true);
+        IfError(LoadData(colPartition, "colPartition_offline", true),Blank());
+        IfError(LoadData(col_EngineerActionList, "col_EngineerActionList_offline", true),Blank());
         
         
         // ══════════════════════════════════════════════
@@ -30,18 +30,17 @@ App As appinfo:
         // ══════════════════════════════════════════════
         
         ClearCollect(col_StaffIDCache, {id: "",name: ""});
-        LoadData(col_StaffIDCache, "varStaffViewBESAID_offline", true);
-        Set(varStaffViewBESAID, First(Filter(col_StaffIDCache,name = "")).id);
+        IfError(LoadData(col_StaffIDCache, "varStaffViewBESAID_offline", true), Blank());
         
-        LoadData(col_AcousticEquipmentMasterList, "col_AcousticEquipmentMasterList_offline", true);
+        IfError(LoadData(col_AcousticEquipmentMasterList, "col_AcousticEquipmentMasterList_offline", true), Blank());
         
         Set(varOfflineMode, true);
         
-        LoadData(col_ShiftListGather, "col_ShiftListGather_offline", true);
-        LoadData(col_BookingElementCheck, "col_BookingElementCheck_offline", true);
-        LoadData(col_ShiftListNonBookingCheck, "col_ShiftListNonBookingCheck_offline", true);
-        LoadData(col_ShiftListActivities, "col_ShiftListActivities_offline", true);
-        LoadData(col_ClientInfoCache, "col_ClientInfoCache_offline", true);
+        IfError(LoadData(col_ShiftListGather, "col_ShiftListGather_offline", true), Blank());
+        IfError(LoadData(col_BookingElementCheck, "col_BookingElementCheck_offline", true), Blank());
+        IfError(LoadData(col_ShiftListNonBookingCheck, "col_ShiftListNonBookingCheck_offline", true), Blank());
+        IfError(LoadData(col_ShiftListActivities, "col_ShiftListActivities_offline", true), Blank());
+        IfError(LoadData(col_ClientInfoCache, "col_ClientInfoCache_offline", true), Blank());
         // Add to the LoadData block at the top of OnStart
         ClearCollect(col_OfflineTests, {LocalID:"", BookingElementID:"", ShiftID:"", TestStatus:"", SectionStatus:"", TestInfo:"", Synced:true});
         ClearCollect(col_OfflineTestRuns, {LocalRunID:"", LocalTestID:"", ParentRunGUID:"", RunType:"", TestNo:0, TestName:"", RunDate:Today(), Engineer:"", TestStatus:"", RunMetaData:"{}", PartitionData:"{}", TestMetaData:"{}", PreTestData:"{}", Synced:true});
@@ -49,7 +48,7 @@ App As appinfo:
             LoadData(col_OfflineTests, "col_OfflineTests_offline", true),
             Blank()
         );
-        LoadData(col_OfflineTestRuns, "col_OfflineTestRuns_offline", true);
+        IfError(LoadData(col_OfflineTestRuns, "col_OfflineTestRuns_offline", true),Blank());
         IfError(LoadData(col_AcousticTestRuns, "col_AcousticTestRuns_offline", true), Blank());
         IfError(LoadData(col_AcousticPartitions, "col_AcousticPartitions_offline", true), Blank());
         IfError(LoadData(col_ShiftTimeline_Flat, "col_ShiftTimeline_Flat_offline", true), Blank());
@@ -71,17 +70,17 @@ App As appinfo:
         );
         IfError(LoadData(col_ActionRecordCache, "col_ActionRecordCache_offline", true), Blank());
         
-        ClearCollect(col_EngineerActionList, { 
-            'Site LookUp':First(col_Sites), 
-            'Action Type': "", 
-            'Action Name': "", 
-            'Booking LookUp':First(col_Bookings), 
-            'Induction LookUp':First(col_SiteInductions), 
-            'Action Status':"", 'RAMS LookUp':First(col_RiskAssesments), 
-            'Element LookUp':First(col_ElementList), 
-            'Booking Element LookUp':First(col_BookingElement), 
+        ClearCollect(col_EngineerActionList, {
+            'Site LookUp': Blank(),
+            'Action Type': "",
+            'Action Name': "",
+            'Booking LookUp': Blank(),
+            'Induction LookUp': Blank(),
+            'Action Status': "",
+            'RAMS LookUp': Blank(),
+            'Element LookUp': Blank(),
+            'Booking Element LookUp': Blank(),
             'Shift ID': "", ActionID: GUID(),
-            // ── ADD THESE ──
             cachedTestType: "",
             cachedClientName: "",
             cachedSiteName: "",
@@ -193,7 +192,7 @@ App As appinfo:
         // ══════════════════════════════════════════════
         If(
             Connection.Connected,
-        
+            
             // ── Refresh Dataverse tables ──
             // Refresh removed (anti-pattern #8: async race condition)
             // Background sync keeps SQLite current.
@@ -211,7 +210,7 @@ App As appinfo:
                     }
                 )
             );
-        
+            
             // ── Staff identity ──
             ClearCollect(col_StaffBuf, {email: User().Email});
             Clear(col_StaffResult);
@@ -222,9 +221,12 @@ App As appinfo:
             );
             Set(varStaffViewID, First(col_StaffResult));
             Set(varStaffViewBESAID, Text(varStaffViewID.BESA_EngineerList));
-            // Cache staff ID for offline
-            SaveData([{id: varStaffViewBESAID}], "varStaffViewBESAID_offline");
-        
+            Set(varStaffViewName, varStaffViewID.'Staff Name');
+            // Cache staff ID + name for offline
+            If(!IsBlank(varStaffViewID),
+                SaveData([{id: varStaffViewBESAID, name: varStaffViewName}], "varStaffViewBESAID_offline")
+            );
+            
             // ── Equipment master list ──
             ClearCollect(
                 col_AcousticEquipmentMasterList,
@@ -239,19 +241,19 @@ App As appinfo:
                 )
             );
             SaveData(col_AcousticEquipmentMasterList, "col_AcousticEquipmentMasterList_offline");
-        
+            
             // ── Engineer action list (clear + rebuild) ──
-            ClearCollect(col_EngineerActionList, { 
-                'Site LookUp':First(col_Sites), 
-                'Action Type': "", 
-                'Action Name': "", 
-                'Booking LookUp':First(col_Bookings), 
-                'Induction LookUp':First(col_SiteInductions), 
-                'Action Status':"", 
-                'RAMS LookUp':First(col_RiskAssesments), 
-                'Element LookUp':First(col_ElementList), 
-                'Booking Element LookUp':First(col_BookingElement), 
-                'Shift ID': "", 
+            ClearCollect(col_EngineerActionList, {
+                'Site LookUp': Blank(),
+                'Action Type': "",
+                'Action Name': "",
+                'Booking LookUp': Blank(),
+                'Induction LookUp': Blank(),
+                'Action Status': "",
+                'RAMS LookUp': Blank(),
+                'Element LookUp': Blank(),
+                'Booking Element LookUp': Blank(),
+                'Shift ID': "",
                 ActionID: GUID(),
                 cachedTestType: "",
                 cachedClientName: "",
@@ -264,7 +266,7 @@ App As appinfo:
             });
             Clear(col_EngineerActionList);
             Clear(col_ShiftTimeline);
-        
+            
             // =============================================
             // BOOKING SHIFTS — Site Induction & RAMs
             // =============================================
@@ -275,11 +277,10 @@ App As appinfo:
                     Filter(
                         BESA_Shifts,
                         'User GUID' = varStaffViewBESAID,
-                        'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
-                        'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
+                        'Shift Date' >= Today(), 'Shift Date' < DateAdd(Today(), 1, TimeUnit.Days),
                         'Shift Type' = "Booking"
                     ),
-                    'Shift Type', 'Booking LookUp', 'Shift Date', 'User GUID', 'Shift ID', 'Site LookUp', 'Generate RAMs'
+                    'Shift Type', 'Booking LookUp', 'Shift Date', 'User GUID', 'Shift ID', 'Site LookUp', 'Generate RAMs', BESA_Shift
                 )
             );
             // Step 2: AddColumns on local collection (anti-pattern #7 fix)
@@ -290,10 +291,10 @@ App As appinfo:
                         col_ShiftListGather_Raw,
                         BookingID, sy_BookingLookUp.'Booking ID'
                     ),
-                    BookingID, BookingTempID, sy_shiftid, 'Shift ID', sy_SiteLookUp, 'Site LookUp', sy_BookingLookUp, 'Booking LookUp', sy_generaterams, 'Generate RAMs'
+                    BookingID, BookingTempID, sy_shiftid, 'Shift ID', sy_SiteLookUp, 'Site LookUp', sy_BookingLookUp, 'Booking LookUp', sy_generaterams, 'Generate RAMs',sy_besa_shiftid, 'BESA_Shift'
                 )
             );
-        
+            
             ForAll(
                 col_ShiftListGather As shiftListGathering,
                 With(
@@ -303,7 +304,7 @@ App As appinfo:
                         siteRecord:         shiftListGathering.'Site LookUp',
                         wthExistingInductionGUID: Concat(
                             Filter(BESA_SiteInductions,
-                                Text('Engineer LookUp'.BESA_EngineerList) = varStaffViewBESAID &&
+                                'Engineer LookUp'.BESA_EngineerList = GUID(varStaffViewBESAID) &&
                                 Text('Site LookUp'.'Site ID') = Text(shiftListGathering.'Site LookUp'.'Site ID') &&
                                 'Induction Status' = "Completed" &&
                                 'Expiry Date' >= Today()
@@ -321,7 +322,8 @@ App As appinfo:
                             'Action Type':    "Risk Assessment",
                             'Action Name':    "Risk Self Assessment",
                             'Action Status':  "Pending",
-                            'Shift ID':       shiftListGathering.'Shift ID'
+                            'Shift ID':       shiftListGathering.'Shift ID',
+                            'BESA_Shift':     shiftListGathering.BESA_Shift
                         }
                     );
                     Collect(
@@ -340,12 +342,28 @@ App As appinfo:
                     )
                 )
             );
-        
+            
             // =============================================
-            // RAMs
+            // BOOKING ELEMENTS — Services
             // =============================================
-            // col_ShiftListGather_Sites removed (dead code — never referenced downstream)
-        
+            // Step 1: raw Dataverse filter (no AddColumns — anti-pattern #7 fix)
+            ClearCollect(
+                col_BookingElementCheck_Raw,
+                Filter(BESA_BookingElements, 'Shift ID' in col_ShiftListGather.'Shift ID')
+            );
+            // Step 2: AddColumns on local collection
+            ClearCollect(
+                col_BookingElementCheck,
+                AddColumns(
+                    col_BookingElementCheck_Raw,
+                    bookingElementService, Text('Booking Service Lookup'.BESA_BookingService),
+                    cachedTestType, Text('Order Service LookUp'.'Service LookUp'.'Test Type')
+                )
+            );
+            
+            // =============================================
+            // RAMs (must run after Booking Elements — uses col_BookingElementCheck)
+            // =============================================
             ForAll(
                 col_ShiftListGather As shiftItem,
                 With(
@@ -379,25 +397,10 @@ App As appinfo:
                     )
                 )
             );
-        
+            
             // =============================================
-            // BOOKING ELEMENTS — Services
+            // BOOKING ELEMENTS — Services ForAll
             // =============================================
-            // Step 1: raw Dataverse filter (no AddColumns — anti-pattern #7 fix)
-            ClearCollect(
-                col_BookingElementCheck_Raw,
-                Filter(BESA_BookingElements, 'Shift ID' in col_ShiftListGather.'Shift ID')
-            );
-            // Step 2: AddColumns on local collection
-            ClearCollect(
-                col_BookingElementCheck,
-                AddColumns(
-                    col_BookingElementCheck_Raw,
-                    bookingElementService, Text('Booking Service Lookup'.BESA_BookingService),
-                    cachedTestType, Text('Order Service LookUp'.'Service LookUp'.'Test Type')
-                )
-            );
-        
             ForAll(
                 col_BookingElementCheck As itemBookingElement,
                 With(
@@ -441,7 +444,7 @@ App As appinfo:
                     ))
                 )
             );
-        
+            
             // =============================================
             // NON-BOOKING SHIFTS — Misc
             // =============================================
@@ -452,8 +455,7 @@ App As appinfo:
                         Filter(
                             BESA_Shifts,
                             'User GUID' = varStaffViewBESAID,
-                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
-                            'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
+                            'Shift Date' >= Today(), 'Shift Date' < DateAdd(Today(), 1, TimeUnit.Days),
                             'Shift Type' <> "Booking",
                             'Shift Type' <> "Activity"
                         ),
@@ -462,7 +464,7 @@ App As appinfo:
                     sy_bookingid, BookingTempID
                 )
             );
-        
+            
             ForAll(
                 col_ShiftListNonBookingCheck As itemNonBookingItem,
                 Collect(
@@ -476,7 +478,7 @@ App As appinfo:
                     }
                 )
             );
-        
+            
             // =============================================
             // ACTIVITIES
             // =============================================
@@ -485,19 +487,18 @@ App As appinfo:
                 Filter(
                     BESA_Shifts,
                     'User GUID' = varStaffViewBESAID,
-                    'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
-                    'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
+                    'Shift Date' >= Today(), 'Shift Date' < DateAdd(Today(), 1, TimeUnit.Days),
                     'Shift Type' = "Activity"
                 )
             );
-        
+            
             ForAll(
                 col_ShiftListActivities As activityShift,
                 With(
                     {
                         wthActivityRecord: First(Filter(
                             BESA_Activities,
-                            Text('Shift GUID') = Text(activityShift.'Shift ID')
+                            Text('Shift GUID') = activityShift.'Shift ID'
                         ))
                     },
                     Collect(
@@ -511,12 +512,12 @@ App As appinfo:
                             'Client LookUp':       wthActivityRecord.'Client LookUp',
                             'Shift ID':            activityShift.'Shift ID',
                             'Activity LookUp':     wthActivityRecord
-                            
+                        
                         }
                     )
                 )
             );
-        
+            
             // =============================================
             // MERGE — Shift Timeline
             // =============================================
@@ -525,12 +526,11 @@ App As appinfo:
                 Filter(
                     BESA_Shifts,
                     'User GUID' = varStaffViewBESAID,
-                    'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
-                    'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
+                    'Shift Date' >= Today(), 'Shift Date' < DateAdd(Today(), 1, TimeUnit.Days),
                     'Shift Type' <> "Activity"
                 )
             );
-        
+            
             ClearCollect(
                 col_ShiftsWithIndex,
                 ForAll(
@@ -545,9 +545,9 @@ App As appinfo:
                     )
                 )
             );
-        
+            
             Clear(col_ShiftTimeline);
-        
+            
             ForAll(
                 col_ShiftsWithIndex As shift,
                 Collect(
@@ -564,7 +564,7 @@ App As appinfo:
                     }
                 );
                 ForAll(
-                    Filter(col_EngineerActionList, 'Shift ID' = Text(shift.'Shift ID')) As act,
+                    Filter(col_EngineerActionList, 'Shift ID' = shift.'Shift ID') As act,
                     Collect(
                         col_ShiftTimeline,
                         {
@@ -604,7 +604,7 @@ App As appinfo:
                     )
                 )
             );
-        
+            
             // Activity rows (no shift header)
             ForAll(
                 Filter(col_EngineerActionList, 'Action Type' = "Activity") As act,
@@ -624,13 +624,13 @@ App As appinfo:
                     }
                 )
             );
-        
+            
             // ══════════════════════════════════════════════
             // CACHE — Persist everything for offline use
             // ══════════════════════════════════════════════
             // SaveData(col_EngineerActionList, "col_EngineerActionList_offline");
             // SaveData(col_ShiftTimeline, "col_ShiftTimeline_offline");
-        
+            
             // ══════════════════════════════════════════════
             // FLATTEN — Create offline-safe version of timeline
             // ══════════════════════════════════════════════
@@ -641,7 +641,7 @@ App As appinfo:
                     {
                         RowType: row.RowType,
                         ShiftActionID: Text(row.ShiftActionID),
-                        ShiftID: Text(row.'Shift ID'),
+                        ShiftID: row.'Shift ID',
                         ShiftType: row.'Shift Type',
                         ShiftDate: row.'Shift Date',
                         SortOrder: row.SortOrder,
@@ -668,7 +668,7 @@ App As appinfo:
                     }
                 )
             );
-        
+            
             // Rebuild col_ShiftTimeline from flat so online uses _* fields
             ClearCollect(
                 col_ShiftTimeline,
@@ -704,38 +704,39 @@ App As appinfo:
                     }
                 )
             );
-        
+            
             // ══════════════════════════════════════════════
             // CACHE — Persist everything for offline use
             // ══════════════════════════════════════════════
             IfError(SaveData(col_ShiftTimeline_Flat, "col_ShiftTimeline_Flat_offline"), Blank());
             SaveData(col_EngineerActionList, "col_EngineerActionList_offline");
-        
+            
             ////
             SaveData(col_ShiftListGather, "col_ShiftListGather_offline");
             SaveData(col_BookingElementCheck, "col_BookingElementCheck_offline");
             SaveData(col_ShiftListNonBookingCheck, "col_ShiftListNonBookingCheck_offline");
             SaveData(col_ShiftListActivities, "col_ShiftListActivities_offline");
-        
-            Set(varOfflineMode, false);,
-        
+            
+            Set(varOfflineMode, false),
+            
             // ══════════════════════════════════════════════
             // OFFLINE — Use cached data from LoadData above
             // ══════════════════════════════════════════════
-        
+            
             // Restore staff ID
             ClearCollect(col_StaffIDCache, {id: "", name: ""});
-            LoadData(col_StaffIDCache, "varStaffViewBESAID_offline", true);
-            Set(varStaffViewBESAID, First(Filter(col_StaffIDCache,name = "")).id);
-        
+            IfError(LoadData(col_StaffIDCache, "varStaffViewBESAID_offline", true),Blank());
+            Set(varStaffViewBESAID, First(col_StaffIDCache).id);
+            Set(varStaffViewName, First(col_StaffIDCache).name);
+            
             // Restore equipment
-            LoadData(col_AcousticEquipmentMasterList, "col_AcousticEquipmentMasterList_offline", true);
-        
+            IfError(LoadData(col_AcousticEquipmentMasterList, "col_AcousticEquipmentMasterList_offline", true),Blank());
+            
             Set(varOfflineMode, true);
         );
     StartScreen: =Screen_EngineerHome
     Theme: =PowerAppsTheme
-
+    
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
         OnEdit: =false

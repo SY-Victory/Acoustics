@@ -1,6 +1,6 @@
 Screen_StartUpCollections As screen:
     OnVisible: =//Select(ButtonCanvas4);
-
+    
     btnRefreshOrders_34 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -268,7 +268,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =182
         ZIndex: =1
-
+    
     btnRefreshOrders_10 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -524,7 +524,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =131
         ZIndex: =2
-
+    
     btnRefreshOrders_35 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -682,7 +682,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =85
         ZIndex: =3
-
+    
     btnRefreshOrders_36 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -814,7 +814,7 @@ Screen_StartUpCollections As screen:
         X: =583
         Y: =100
         ZIndex: =4
-
+    
     btnRefreshOrders_37 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -899,7 +899,7 @@ Screen_StartUpCollections As screen:
         X: =583
         Y: =145
         ZIndex: =5
-
+    
     btnRefreshOrders_38 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -933,7 +933,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("d4e5f6g7-h8i9-0123-j4k5-l6m7n8o9p0q1"), Division: "ACD", Service: "Condensation Risk Analysis", 'Skill Required': "", 'Envelope Required': true, 'Compatible Envelopes': "" },
                     { ServiceID: Text("e5f6g7h8-i9j0-1234-k5l6-m7n8o9p0q1r2"), Division: "ACD", Service: "Specification Changes / Iterations - 2D", 'Skill Required': "", 'Envelope Required': true, 'Compatible Envelopes': "" },
                     { ServiceID: Text("f6g7h8i9-j0k1-2345-l6m7-n8o9p0q1r2s3"), Division: "ACD", Service: "Specification Changes / Iterations - 3D", 'Skill Required': "", 'Envelope Required': true, 'Compatible Envelopes': "" },
-            
+                    
                     // Acoustic Consultancy Division
                     { ServiceID: Text("1a2b3c4d-5e6f-7890-g1h2-i3j4k5l6m7n8"), Division: "Acoustic Consultancy", Service: "Acoustic Assessment to support Planning Application", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("2b3c4d5e-6f70-8192-i3j4-k5l6m7n8o9p0"), Division: "Acoustic Consultancy", Service: "Acoustic Tender Review", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -983,7 +983,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("k9l0m1n2-o3p4-q5r6-s7t8-u9v0w1x2y3z4"), Division: "Acoustic Consultancy", Service: "Stage 4 Detailed Internal M&E Noise Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("l0m1n2o3-p4q5-r6s7-t8u9-v0w1x2y3z4a5"), Division: "Acoustic Consultancy", Service: "Stage 4 Technical Design Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("m1n2o3p4-q5r6-s7t8-u9v0-w1x2y3z4a5b6"), Division: "Acoustic Consultancy", Service: "Testing Report", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Acoustic NVD Division
                     { ServiceID: Text("n2o3p4q5-r6s7-t8u9-v0w1-x2y3z4a5b6c7"), Division: "Acoustic NVD", Service: "Battery Hire for NVD", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("o3p4q5r6-s7t8-u9v0-w1x2-y3z4a5b6c7d8"), Division: "Acoustic NVD", Service: "Bespoke Service - NVD", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -995,7 +995,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("u9v0w1x2-y3z4-a5b6-c7d8-e9f0g1h2i3j4"), Division: "Acoustic NVD", Service: "Noise, Vibration & Air Quality Consultancy", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("v0w1x2y3-z4a5-b6c7-d8e9-f0g1h2i3j4k5"), Division: "Acoustic NVD", Service: "Upfront Payment - NVD", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("w1x2y3z4-a5b6-c7d8-e9f0-g1h2i3j4k5l6"), Division: "Acoustic NVD", Service: "Vibration Monitoring", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Acoustic Testing Division
                     { ServiceID: Text("x2y3z4a5-b6c7-d8e9-f0g1-h2i3j4k5l6m7"), Division: "Acoustic Testing", Service: "Airborne Floor Test", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("y3z4a5b6-c7d8-e9f0-g1h2-i3j4k5l6m7n8"), Division: "Acoustic Testing", Service: "Bespoke Service - Acoustic Testing", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1027,10 +1027,10 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("y9z0a1b2-c3d4-e5f6-g7h8-i9j0k1l2m3n4"), Division: "Acoustic Testing", Service: "Wall Test", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("z0a1b2c3-d4e5-f6g7-h8i9-j0k1l2m3n4o5"), Division: "Acoustic Testing", Service: "Weekday OOH %", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6"), Division: "Acoustic Testing", Service: "Weekend & BH OOH %", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Air Con Inspection Division
                     { ServiceID: Text("b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7"), Division: "Air Con Inspection", Service: "Air Conditioning Inspection", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Air Consultancy Division
                     { ServiceID: Text("c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8"), Division: "Air Consultancy", Service: "Additional Drawings - Desktop Review", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9"), Division: "Air Consultancy", Service: "Desktop Drawing Review", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1041,7 +1041,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("i9j0k1l2-m3n4-o5p6-q7r8-s9t0u1v2w3x4"), Division: "Air Consultancy", Service: "Remote Site Audit", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("j0k1l2m3-n4o5-p6q7-r8s9-t0u1v2w3x4y5"), Division: "Air Consultancy", Service: "Site Advice / Consultancy Visit", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("k1l2m3n4-o5p6-q7r8-s9t0-u1v2w3x4y5z6"), Division: "Air Consultancy", Service: "Summary Report", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Air Quality Division
                     { ServiceID: Text("l2m3n4o5-p6q7-r8s9-t0u1-v2w3x4y5z6a7"), Division: "Air Quality", Service: "Additional Air Quality Specifc Traffic Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("m3n4o5p6-q7r8-s9t0-u1v2-w3x4y5z6a7b8"), Division: "Air Quality", Service: "Additional Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1053,7 +1053,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("s9t0u1v2-w3x4-y5z6-a7b8-c9d0e1f2g3h4"), Division: "Air Quality", Service: "Nuisance Dust Monitoring", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("t0u1v2w3-x4y5-z6a7-b8c9-d0e1f2g3h4i5"), Division: "Air Quality", Service: "Other / Bespoke", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("u1v2w3x4-y5z6-a7b8-c9d0-e1f2g3h4i5j6"), Division: "Air Quality", Service: "Site Meeting", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Air Sealing Division
                     { ServiceID: Text("v2w3x4y5-z6a7-b8c9-d0e1-f2g3h4i5j6k7"), Division: "Air Sealing", Service: "Air Sealing - Bespoke", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("w3x4y5z6-a7b8-c9d0-e1f2-g3h4i5j6k7l8"), Division: "Air Sealing", Service: "Fire Stopping", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1063,7 +1063,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("a7b8c9d0-e1f2-g3h4-i5j6-k7l8m9n0o1p2"), Division: "Air Sealing", Service: "Permanent Air Sealing - Rope Access", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("b8c9d0e1-f2g3-h4i5-j6k7-l8m9n0o1p2q3"), Division: "Air Sealing", Service: "Remedial Air Sealing", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("c9d0e1f2-g3h4-i5j6-k7l8-m9n0o1p2q3r4"), Division: "Air Sealing", Service: "Temporary Sealing (SSA)", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Air Testing Division
                     { ServiceID: Text("d0e1f2g3-h4i5-j6k7-l8m9-n0o1p2q3r4s5"), Division: "Air Testing", Service: "Air Flow Rate & Test Combo", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("e1f2g3h4-i5j6-k7l8-m9n0-o1p2q3r4s5t6"), Division: "Air Testing", Service: "Air Leakage Diagnostic Test - Commercial", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1100,7 +1100,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("j2k3l4m5-n6o7-p8q9-r0s1-t2u3v4w5x6y7"), Division: "Air Testing", Service: "Trial (or Sample Area) Air Leakage Test", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("k3l4m5n6-o7p8-q9r0-s1t2-u3v4w5x6y7z8"), Division: "Air Testing", Service: "Weekday OOH", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("l4m5n6o7-p8q9-r0s1-t2u3-v4w5x6y7z8a9"), Division: "Air Testing", Service: "Weekend & BH OOH", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // BREEAM Division
                     { ServiceID: Text("m5n6o7p8-q9r0-s1t2-u3v4-w5x6y7z8a9b0"), Division: "BREEAM", Service: "Additional Meetings - Domestic Refurb", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("n6o7p8q9-r0s1-t2u3-v4w5-x6y7z8a9b0c1"), Division: "BREEAM", Service: "Bespoke Service", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1136,13 +1136,13 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("r6s7t8u9-v0w1-x2y3-z4a5-b6c7d8e9f0g1"), Division: "BREEAM", Service: "Wst 05 - Initial Review", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("s7t8u9v0-w1x2-y3z4-a5b6-c7d8e9f0g1h2"), Division: "BREEAM", Service: "Wst 05 - Report", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("t8u9v0w1-x2y3-z4a5-b6c7-d8e9f0g1h2i3"), Division: "BREEAM", Service: "Wst 05 - Summary Matrix", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Building Control Division
                     { ServiceID: Text("u9v0w1x2-y3z4-a5b6-c7d8-e9f0g1h2i3j4"), Division: "Building Control", Service: "Site Visit", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Building Decarbonisation Division
                     { ServiceID: Text("v0w1x2y3-z4a5-b6c7-d8e9-f0g1h2i3j4k5"), Division: "Building Decarbonisation", Service: "EPC and Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // CODE Division
                     { ServiceID: Text("w1x2y3z4-a5b6-c7d8-e9f0-g1h2i3j4k5l6"), Division: "CODE", Service: "Assessment Certification Fee - per plot", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("x2y3z4a5-b6c7-d8e9-f0g1-h2i3j4k5l6m7"), Division: "CODE", Service: "Consultancy Meeting at Tender or Planning Stage", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1150,7 +1150,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("z4a5b6c7-d8e9-f0g1-h2i3-j4k5l6m7n8o9"), Division: "CODE", Service: "Design Stage Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("a5b6c7d8-e9f0-g1h2-i3j4-k5l6m7n8o9p0"), Division: "CODE", Service: "Full Pre-Assessment Report", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("b6c7d8e9-f0g1-h2i3-j4k5-l6m7n8o9p0q1"), Division: "CODE", Service: "Post Construction Stage Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Commercial - Alteration, Extension or Improvement Division
                     { ServiceID: Text("c7d8e9f0-g1h2-i3j4-k5l6-m7n8o9p0q1r2"), Division: "Commercial - Alteration, Extension or Improvement", Service: "Commercial - Existing - Bespoke", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("d8e9f0g1-h2i3-j4k5-l6m7-n8o9p0q1r2s3"), Division: "Commercial - Alteration, Extension or Improvement", Service: "Consultations/Meetings", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1164,7 +1164,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("l6m7n8o9-p0q1-r2s3-t4u5-v6w7x8y9z0a1"), Division: "Commercial - Alteration, Extension or Improvement", Service: "Structural Checking", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("m7n8o9p0-q1r2-s3t4-u5v6-w7x8y9z0a1b2"), Division: "Commercial - Alteration, Extension or Improvement", Service: "Subcontractor Site Inspection", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("n8o9p0q1-r2s3-t4u5-v6w7-x8y9z0a1b2c3"), Division: "Commercial - Alteration, Extension or Improvement", Service: "Travel to Site", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Commercial - Fit-Out Division
                     { ServiceID: Text("o9p0q1r2-s3t4-u5v6-w7x8-y9z0a1b2c3d4"), Division: "Commercial - Fit-Out", Service: "Consultations/Meetings", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("p0q1r2s3-t4u5-v6w7-x8y9-z0a1b2c3d4e5"), Division: "Commercial - Fit-Out", Service: "Contingency", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1177,7 +1177,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("w7x8y9z0-a1b2-c3d4-e5f6-g7h8i9j0k1l2"), Division: "Commercial - Fit-Out", Service: "Structural Checking", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("x8y9z0a1-b2c3-d4e5-f6g7-h8i9j0k1l2m3"), Division: "Commercial - Fit-Out", Service: "Subcontractor Site Inspection", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("y9z0a1b2-c3d4-e5f6-g7h8-i9j0k1l2m3n4"), Division: "Commercial - Fit-Out", Service: "Travel to Site", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Commercial - New Build Division
                     { ServiceID: Text("z0a1b2c3-d4e5-f6g7-h8i9-j0k1l2m3n4o5"), Division: "Commercial - New Build", Service: "Commercial - New Build - Bespoke", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6"), Division: "Commercial - New Build", Service: "Consultations/Meetings", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1191,11 +1191,11 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("i9j0k1l2-m3n4-o5p6-q7r8-s9t0u1v2w3x4"), Division: "Commercial - New Build", Service: "Structural Checking", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("j0k1l2m3-n4o5-p6q7-r8s9-t0u1v2w3x4y5"), Division: "Commercial - New Build", Service: "Subcontractor Site Inspection", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("k1l2m3n4-o5p6-q7r8-s9t0-u1v2w3x4y5z6"), Division: "Commercial - New Build", Service: "Travel to Site", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Daylight / Sunlight Assessments Division
                     { ServiceID: Text("l2m3n4o5-p6q7-r8s9-t0u1-v2w3x4y5z6a7"), Division: "Daylight / Sunlight Assessments", Service: "Daylight / Sunlight Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("m3n4o5p6-q7r8-s9t0-u1v2-w3x4y5z6a7b8"), Division: "Daylight / Sunlight Assessments", Service: "Sunlight to Garden / Amenity Spaces", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Domestic - Alteration, Extension or Improvement Division
                     { ServiceID: Text("n4o5p6q7-r8s9-t0u1-v2w3-x4y5z6a7b8c9"), Division: "Domestic - Alteration, Extension or Improvement", Service: "Alts - Chimney breast removals", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("o5p6q7r8-s9t0-u1v2-w3x4-y5z6a7b8c9d0"), Division: "Domestic - Alteration, Extension or Improvement", Service: "Alts - Drainage", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1214,7 +1214,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("b8c9d0e1-f2g3-h4i5-j6k7-l8m9n0o1p2q3"), Division: "Domestic - Alteration, Extension or Improvement", Service: "Loft conversion 0m2 - 50m2", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("c9d0e1f2-g3h4-i5j6-k7l8-m9n0o1p2q3r4"), Division: "Domestic - Alteration, Extension or Improvement", Service: "Loft conversion 50m2 - 100m2", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("d0e1f2g3-h4i5-j6k7-l8m9-n0o1p2q3r4s5"), Division: "Domestic - Alteration, Extension or Improvement", Service: "Loft conversion over 100m2", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Domestic - Bespoke Fee Division
                     { ServiceID: Text("e1f2g3h4-i5j6-k7l8-m9n0-o1p2q3r4s5t6"), Division: "Domestic - Bespoke Fee", Service: "Consultations/Meetings", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("f2g3h4i5-j6k7-l8m9-n0o1-p2q3r4s5t6u7"), Division: "Domestic - Bespoke Fee", Service: "Contingency", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1225,23 +1225,23 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("k7l8m9n0-o1p2-q3r4-s5t6-u7v8w9x0y1z2"), Division: "Domestic - Bespoke Fee", Service: "Project Management", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("l8m9n0o1-p2q3-r4s5-t6u7-v8w9x0y1z2a3"), Division: "Domestic - Bespoke Fee", Service: "Site Inspection", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("m9n0o1p2-q3r4-s5t6-u7v8-w9x0y1z2a3b4"), Division: "Domestic - Bespoke Fee", Service: "Structural Checking", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Energy Monitoring Division
                     { ServiceID: Text("n0o1p2q3-r4s5-t6u7-v8w9-x0y1z2a3b4c5"), Division: "Energy Monitoring", Service: "Energy Monitoring Report", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // EPC (Existing Building) Division
                     { ServiceID: Text("o1p2q3r4-s5t6-u7v8-w9x0-y1z2a3b4c5d6"), Division: "EPC (Existing Building)", Service: "Display Energy Certificate (DEC)", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("p2q3r4s5-t6u7-v8w9-x0y1-z2a3b4c5d6e7"), Division: "EPC (Existing Building)", Service: "Energy Performance Certificate - Existing", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // ESOS & Energy Audits Division
                     { ServiceID: Text("q3r4s5t6-u7v8-w9x0-y1z2-a3b4c5d6e7f8"), Division: "ESOS & Energy Audits", Service: "Display Energy Certificate - ESOS", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Fire Testing Division
                     { ServiceID: Text("r4s5t6u7-v8w9-x0y1-z2a3-b4c5d6e7f8g9"), Division: "Fire Testing", Service: "Large Scale Propagation Tests", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("s5t6u7v8-w9x0-y1z2-a3b4-c5d6e7f8g9h0"), Division: "Fire Testing", Service: "Reaction Tests", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("t6u7v8w9-x0y1-z2a3-b4c5-d6e7f8g9h0i1"), Division: "Fire Testing", Service: "Resistance Tests", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("u7v8w9x0-y1z2-a3b4-c5d6-e7f8g9h0i1j2"), Division: "Fire Testing", Service: "Shipping", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // H&S Construction Division
                     { ServiceID: Text("v8w9x0y1-z2a3-b4c5-d6e7-f8g9h0i1j2k3"), Division: "H&S Construction", Service: "Assessments", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("w9x0y1z2-a3b4-c5d6-e7f8-g9h0i1j2k3l4"), Division: "H&S Construction", Service: "CDM(A)", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1250,7 +1250,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("z2a3b4c5-d6e7-f8g9-h0i1-j2k3l4m5n6o7"), Division: "H&S Construction", Service: "PD(A)", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("a3b4c5d6-e7f8-g9h0-i1j2-k3l4m5n6o7p8"), Division: "H&S Construction", Service: "Support", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("b4c5d6e7-f8g9-h0i1-j2k3-l4m5n6o7p8q9"), Division: "H&S Construction", Service: "Training", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // HQM Division
                     { ServiceID: Text("c5d6e7f8-g9h0-i1j2-k3l4-m5n6o7p8q9r0"), Division: "HQM", Service: "Additional Meetings Fee", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("d6e7f8g9-h0i1-j2k3-l4m5-n6o7p8q9r0s1"), Division: "HQM", Service: "Assessment Certification Fee", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1259,12 +1259,12 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("g9h0i1j2-k3l4-m5n6-o7p8-q9r0s1t2u3v4"), Division: "HQM", Service: "Full Pre-Assessment Report", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("h0i1j2k3-l4m5-n6o7-p8q9-r0s1t2u3v4w5"), Division: "HQM", Service: "Post Construction Stage Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("i1j2k3l4-m5n6-o7p8-q9r0-s1t2u3v4w5x6"), Division: "HQM", Service: "Registration Fee", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Indoor Air Quality Division
                     { ServiceID: Text("j2k3l4m5-n6o7-p8q9-r0s1-t2u3v4w5x6y7"), Division: "Indoor Air Quality", Service: "Indoor Air Quality Plan", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("k3l4m5n6-o7p8-q9r0-s1t2-u3v4w5x6y7z8"), Division: "Indoor Air Quality", Service: "Other", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("l4m5n6o7-p8q9-r0s1-t2u3-v4w5x6y7z8a9"), Division: "Indoor Air Quality", Service: "VOC Testing", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // New build dwellings including conversions Division
                     { ServiceID: Text("m5n6o7p8-q9r0-s1t2-u3v4-w5x6y7z8a9b0"), Division: "New build dwellings including conversions", Service: "1 x New Dwelling (200-300m2)", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("n6o7p8q9-r0s1-t2u3-v4w5-x6y7z8a9b0c1"), Division: "New build dwellings including conversions", Service: "1 x New Dwelling (under 200m2)", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1278,30 +1278,30 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("v4w5x6y7-z8a9-b0c1-d2e3-f4g5h6i7j8k9"), Division: "New build dwellings including conversions", Service: "New Dwelling(s) over 300m2", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("w5x6y7z8-a9b0-c1d2-e3f4-g5h6i7j8k9l0"), Division: "New build dwellings including conversions", Service: "New Flat(s)", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("x6y7z8a9-b0c1-d2e3-f4g5-h6i7j8k9l0m1"), Division: "New build dwellings including conversions", Service: "Res - New Build - Bespoke", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Other Approved Inspector Division
                     { ServiceID: Text("y7z8a9b0-c1d2-e3f4-g5h6-i7j8k9l0m1n2"), Division: "Other Approved Inspector", Service: "Site Visit", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Passivhaus Consulting Division
                     { ServiceID: Text("z8a9b0c1-d2e3-f4g5-h6i7-j8k9l0m1n2o3"), Division: "Passivhaus Consulting", Service: "Desktop Drawing Review", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("a9b0c1d2-e3f4-g5h6-i7j8-k9l0m1n2o3p4"), Division: "Passivhaus Consulting", Service: "PHPP Modelling", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("b0c1d2e3-f4g5-h6i7-j8k9-l0m1n2o3p4q5"), Division: "Passivhaus Consulting", Service: "Post Construction Certification", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // PLANNING Division
                     { ServiceID: Text("c1d2e3f4-g5h6-i7j8-k9l0-m1n2o3p4q5r6"), Division: "PLANNING", Service: "Bespoke Service", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("d2e3f4g5-h6i7-j8k9-l0m1-n2o3p4q5r6s7"), Division: "PLANNING", Service: "Energy Statement", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("e3f4g5h6-i7j8-k9l0-m1n2-o3p4q5r6s7t8"), Division: "PLANNING", Service: "Energy Strategy / LZC Feasibility Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("f4g5h6i7-j8k9-l0m1-n2o3-p4q5r6s7t8u9"), Division: "PLANNING", Service: "Supporting Energy Modelling", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("g5h6i7j8-k9l0-m1n2-o3p4-q5r6s7t8u9v0"), Division: "PLANNING", Service: "Sustainability Statement", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // PPCS Division
                     { ServiceID: Text("h6i7j8k9-l0m1-n2o3-p4q5-r6s7t8u9v0w1"), Division: "PPCS", Service: "Bespoke", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("i7j8k9l0-m1n2-o3p4-q5r6-s7t8u9v0w1x2"), Division: "PPCS", Service: "Transport Assessment / Traffic Plan", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("j8k9l0m1-n2o3-p4q5-r6s7-t8u9v0w1x2y3"), Division: "PPCS", Service: "Travel Plan", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Room Integrity Division
                     { ServiceID: Text("k9l0m1n2-o3p4-q5r6-s7t8-u9v0w1x2y3z4"), Division: "Room Integrity", Service: "Room Integrity Testing", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // SAP Division
                     { ServiceID: Text("l0m1n2o3-p4q5-r6s7-t8u9-v0w1x2y3z4a5"), Division: "SAP", Service: "Bespoke Service", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("m1n2o3p4-q5r6-s7t8-u9v0-w1x2y3z4a5b6"), Division: "SAP", Service: "Completion Stage Photographic Evidence Review", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1311,7 +1311,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("q5r6s7t8-u9v0-w1x2-y3z4-a5b6c7d8e9f0"), Division: "SAP", Service: "SAP Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("r6s7t8u9-v0w1-x2y3-y3z4-a5b6c7d8e9f0g1"), Division: "SAP", Service: "SAP Assessment - Post Construction & EPC", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("s7t8u9v0-w1x2-x2y3-y3z4-a5b6c7d8e9f0g1h2"), Division: "SAP", Service: "SAP Design Advice", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // SBEM / DSM Division
                     { ServiceID: Text("t8u9v0w1-x2y3-y3z4-a5b6-c7d8e9f0g1h2i3"), Division: "SBEM / DSM", Service: "BREEAM Ene 01 - Referb", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("u9v0w1x2-y3z4-a5b6-c7d8-e9f0g1h2i3j4"), Division: "SBEM / DSM", Service: "BREEAM Ene 01 - Site Visit", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1332,7 +1332,7 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("j4k5l6m7-n8o9-p0q1-r2s3-t4u5v6w7x8y9"), Division: "SBEM / DSM", Service: "Shell and Core Design Stage Part L2a Assessment - Level 5", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("k5l6m7n8-o9p0-q1r2-s3t4-u5v6w7x8y9z0"), Division: "SBEM / DSM", Service: "Site Meeting", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("l6m7n8o9-p0q1-r2s3-t4u5-v6w7x8y9z0a1"), Division: "SBEM / DSM", Service: "Specification Changes / Iterations", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // SBEM / DSM - Building Physics Division
                     { ServiceID: Text("m7n8o9p0-q1r2-s3t4-u5v6-w7x8y9z0a1b2"), Division: "SBEM / DSM - Building Physics", Service: "Bespoke Service", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("n8o9p0q1-r2s3-t4u5-v6w7-x8y9z0a1b2c3"), Division: "SBEM / DSM - Building Physics", Service: "CIBSE Steady State Heat Loss Calculations", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1347,13 +1347,13 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("w7x8y9z0-a1b2-c3d4-e5f6-g7h8i9j0k1l2"), Division: "SBEM / DSM - Building Physics", Service: "Overheating Assessment - Planning Residential TM59", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("x8y9z0a1-b2c3-d4e5-f6g7-h8i9j0k1l2m3"), Division: "SBEM / DSM - Building Physics", Service: "Overheating Assessment - Pre Assessment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("y9z0a1b2-c3d4-e5f6-g7h8-i9j0k1l2m3n4"), Division: "SBEM / DSM - Building Physics", Service: "Window and Door U-Value", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Surveying Division
                     { ServiceID: Text("z0a1b2c3-d4e5-f6g7-h8i9-j0k1l2m3n4o5"), Division: "Surveying", Service: "3D Building Modelling", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6"), Division: "Surveying", Service: "Drone Survey", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7"), Division: "Surveying", Service: "Measured Building Survey", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8"), Division: "Surveying", Service: "Topographic Survey", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Thermographic Division
                     { ServiceID: Text("d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9"), Division: "Thermographic", Service: "Continuity of Insulation Survey", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0"), Division: "Thermographic", Service: "Pre-Survey Readiness Visit", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1362,28 +1362,28 @@ Screen_StartUpCollections As screen:
                     { ServiceID: Text("h8i9j0k1-l2m3-n4o5-p6q7-r8s9t0u1v2w3"), Division: "Thermographic", Service: "Thermo - Review / Investigation", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("i9j0k1l2-m3n4-o5p6-q7r8-s9t0u1v2w3x4"), Division: "Thermographic", Service: "Thermographic Survey - HQM", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("j0k1l2m3-n4o5-p6q7-r8s9-t0u1v2w3x4y5"), Division: "Thermographic", Service: "Thermographic Survey BREEAM", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Transport Division
                     { ServiceID: Text("k1l2m3n4-o5p6-q7r8-s9t0-u1v2w3x4y5z6"), Division: "Transport", Service: "Other / Bespoke", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("l2m3n4o5-p6q7-r8s9-t0u1-v2w3x4y5z6a7"), Division: "Transport", Service: "Traffic Counts", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Veritherm Services - Consultancy Division
                     { ServiceID: Text("m3n4o5p6-q7r8-s9t0-u1v2-w3x4y5z6a7b8"), Division: "Veritherm Services - Consultancy", Service: "Veritherm - Consultancy", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("n4o5p6q7-r8s9-t0u1-v2w3-x4y5z6a7b8c9"), Division: "Veritherm Services - Consultancy", Service: "Veritherm Report - Bespoke", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("o5p6q7r8-s9t0-u1v2-w3x4-y5z6a7b8c9d0"), Division: "Veritherm Services - Consultancy", Service: "Veritherm Report - Standard", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("p6q7r8s9-t0u1-v2w3-x4y5-z6a7b8c9d0e1"), Division: "Veritherm Services - Consultancy", Service: "Veritherm Test - Processing Fees", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Veritherm Services - Site Division
                     { ServiceID: Text("q7r8s9t0-u1v2-w3x4-y5z6-a7b8c9d0e1f2"), Division: "Veritherm Services - Site", Service: "Veritherm - Thermography", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("r8s9t0u1-v2w3-x4y5-z6a7-b8c9d0e1f2g3"), Division: "Veritherm Services - Site", Service: "Veritherm Test - Air Test", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("s9t0u1v2-w3x4-y5z6-a7b8-c9d0e1f2g3h4"), Division: "Veritherm Services - Site", Service: "Veritherm Test - New Building", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("t0u1v2w3-x4y5-z6a7-b8c9-d0e1f2g3h4i5"), Division: "Veritherm Services - Site", Service: "Veritherm Test - Post-Refurbishment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("u1v2w3x4-y5z6-a7b8-c9d0-e1f2g3h4i5j6"), Division: "Veritherm Services - Site", Service: "Veritherm Test - Pre-Refurbishment", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Warranty Division
                     { ServiceID: Text("v2w3x4y5-z6a7-b8c9-d0e1-f2g3h4i5j6k7"), Division: "Warranty", Service: "Site Visit", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("w3x4y5z6-a7b8-c9d0-e1f2-g3h4i5j6k7l8"), Division: "Warranty", Service: "Warranty Fee", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
-            
+                    
                     // Water Testing Division
                     { ServiceID: Text("x4y5z6a7-b8c9-d0e1-f2g3-h4i5j6k7l8m9"), Division: "Water Testing", Service: "Bespoke Service - Water Testing", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
                     { ServiceID: Text("y5z6a7b8-c9d0-e1f2-g3h4-i5j6k7l8m9n0"), Division: "Water Testing", Service: "CWCT Water Testing - Lab Testing at Brill", 'Skill Required': "", 'Envelope Required': false, 'Compatible Envelopes': "" },
@@ -1403,7 +1403,7 @@ Screen_StartUpCollections As screen:
         X: =583
         Y: =190
         ZIndex: =6
-
+    
     btnRefreshOrders_39 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -1463,7 +1463,7 @@ Screen_StartUpCollections As screen:
         X: =583
         Y: =238
         ZIndex: =7
-
+    
     btnRefreshOrders_40 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -1579,7 +1579,7 @@ Screen_StartUpCollections As screen:
         X: =583
         Y: =286
         ZIndex: =8
-
+    
     btnRefreshOrders_41 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -1817,7 +1817,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =223
         ZIndex: =9
-
+    
     btnRefreshOrders_42 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -1850,203 +1850,203 @@ Screen_StartUpCollections As screen:
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000001"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000001"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000001"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Adam Day
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000002"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000002"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 28) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000002"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000002"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000002"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 5) },
-            
+                
                 // Brad Bouch
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000003"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000003"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000003"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000003"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000003"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Dan Osborne
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000004"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000004"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000004"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 1) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000004"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000004"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 30) },
-            
+                
                 // Gavin Matthews
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000005"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000005"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000005"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000005"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 25) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000005"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Gerrard Eccles
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000006"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000006"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000006"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000006"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000006"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 5) },
-            
+                
                 // Haruday Atwal
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000007"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000007"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000007"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000007"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 30) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000007"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Jack Kene
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000008"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000008"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 25) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000008"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000008"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000008"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 15) },
-            
+                
                 // Jamie Turner
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000009"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000009"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000009"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000009"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000009"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Jon Robinson
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000010"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 25) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000010"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000010"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000010"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000010"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 30) },
-            
+                
                 // Jon Tinker
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000011"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000011"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000011"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000011"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000011"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Jordan O'Neil
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000012"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000012"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000012"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000012"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000012"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 30) },
-            
+                
                 // Leon Byfield
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000013"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000013"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000013"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000013"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 30) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000013"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Luke Anderson
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000014"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000014"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 25) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000014"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000014"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000014"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 15) },
-            
+                
                 // Mark Collins
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000015"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000015"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000015"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000015"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000015"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 5) },
-            
+                
                 // Matt Harrison
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000016"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000016"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000016"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000016"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 30) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000016"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Michael Evans
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000017"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000017"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000017"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000017"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000017"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Nathan Reed
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000018"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000018"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000018"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000018"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000018"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 30) },
-            
+                
                 // Paul Johnson
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000019"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000019"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000019"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000019"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 30) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000019"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Ryan Thompson
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000020"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000020"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 25) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000020"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000020"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000020"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 15) },
-            
+                
                 // Sam Wilson
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000021"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000021"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000021"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000021"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000021"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 30) },
-            
+                
                 // Scott Miller
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000022"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000022"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000022"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000022"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 30) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000022"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Sean Parker
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000023"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000023"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000023"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000023"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000023"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Stephen Brown
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000024"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000024"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000024"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000024"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000024"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 5) },
-            
+                
                 // Tom Bennett
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000025"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000025"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000025"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000025"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 30) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000025"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Tom Davies
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000026"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000026"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 25) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000026"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000026"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000026"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 15) },
-            
+                
                 // Will Harris
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000027"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000027"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000027"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 7, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000027"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Does not want", 'Colour': Color.Red, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000027"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 30) },
-            
+                
                 // William Scott
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000028"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 20) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000028"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000002"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000028"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000004"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000028"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 30) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000028"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Zac Green
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000029"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000005"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 3, 10) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000029"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000007"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 6, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000029"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "In Progress", 'Colour': Color.Orange, 'Expiry Date': Blank() },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000029"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000003"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 4, 5) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000029"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Wants to Achieve", 'Colour': Color.Blue, 'Expiry Date': Blank() },
-            
+                
                 // Zoe Martin
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000030"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000006"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 5, 15) },
                 { 'StaffID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000030"), 'SkillID': GUID("6c8d2f01-9a5b-4c3e-bd3c-001a1b000001"), 'Status': "Completed", 'Colour': Color.Green, 'Expiry Date': Date(2026, 2, 20) },
@@ -2063,7 +2063,7 @@ Screen_StartUpCollections As screen:
         X: =583
         Y: =334
         ZIndex: =10
-
+    
     btnRefreshOrders_30 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -2115,23 +2115,23 @@ Screen_StartUpCollections As screen:
                 // Monday 26th Jan
                 { 'Shift ID': GUID(), 'Technician Name': "Aaron Baxter", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000001"), 'Shift Date': DateValue("2026-01-26"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("09:00"), 'Shift Type': "Training", 'Estimated Duration': 4, Client: "Wayne Worlds", Site: "ABC", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
                 { 'Shift ID': GUID(), 'Technician Name': "Adam Day", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000002"), 'Shift Date': DateValue("2026-01-26"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("09:00"), 'Shift Type': "Holiday", 'Estimated Duration': 8, Client: "", Site: "", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
-            
+                
                 // Tuesday 27th Jan
                 { 'Shift ID': GUID(), 'Technician Name': "Brad Bouch", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000003"), 'Shift Date': DateValue("2026-01-27"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("09:30"), 'Shift Type': "Training", 'Estimated Duration': 3, Client: "Wayne Worlds", Site: "ABC", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
                 { 'Shift ID': GUID(), 'Technician Name': "Dan Osborne", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000004"), 'Shift Date': DateValue("2026-01-27"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("10:00"), 'Shift Type': "Absence", 'Estimated Duration': 8, Client: "", Site: "", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
-            
+                
                 // Wednesday 28th Jan
                 { 'Shift ID': GUID(), 'Technician Name': "Gavin Matthews", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-100000000005"), 'Shift Date': DateValue("2026-01-28"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("08:00"), 'Shift Type': "Training", 'Estimated Duration': 4, Client: "Wayne Worlds", Site: "XYZ", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
                 { 'Shift ID': GUID(), 'Technician Name': "Haruday Atwal", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-000000000007"), 'Shift Date': DateValue("2026-01-28"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("09:00"), 'Shift Type': "Holiday", 'Estimated Duration': 8, Client: "", Site: "", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
-            
+                
                 // Thursday 29th Jan
                 { 'Shift ID': GUID(), 'Technician Name': "Jack Kene", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-000000000008"), 'Shift Date': DateValue("2026-01-29"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("09:00"), 'Shift Type': "Training", 'Estimated Duration': 2, Client: "Wayne Worlds", Site: "ABC", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
                 { 'Shift ID': GUID(), 'Technician Name': "Jamie Turner", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-000000000009"), 'Shift Date': DateValue("2026-01-29"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("10:00"), 'Shift Type': "Absence", 'Estimated Duration': 8, Client: "", Site: "", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
-            
+                
                 // Friday 30th Jan
                 { 'Shift ID': GUID(), 'Technician Name': "Jon Robinson", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-000000000010"), 'Shift Date': DateValue("2026-01-30"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("09:00"), 'Shift Type': "Training", 'Estimated Duration': 4, Client: "Wayne Worlds", Site: "XYZ", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
                 { 'Shift ID': GUID(), 'Technician Name': "Jon Tinker", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-000000000011"), 'Shift Date': DateValue("2026-01-30"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("09:30"), 'Shift Type': "Training", 'Estimated Duration': 3, Client: "Wayne Worlds", Site: "ABC", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
-            
+                
                 // Additional random shifts for coverage (make total 14)
                 { 'Shift ID': GUID(), 'Technician Name': "Jordan O'Neil", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-000000000012"), 'Shift Date': DateValue("2026-01-26"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("11:00"), 'Shift Type': "Training", 'Estimated Duration': 2, Client: "Wayne Worlds", Site: "XYZ", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
                 { 'Shift ID': GUID(), 'Technician Name': "Leon Byfield", 'Technician GUID': GUID("7a9f3a01-4c2b-4a5e-b111-000000000013"), 'Shift Date': DateValue("2026-01-27"), 'Shift Status': "Assigned", 'Shift Start Time': TimeValue("08:30"), 'Shift Type': "Training", 'Estimated Duration': 4, Client: "Wayne Worlds", Site: "ABC", 'Additional Comments':"", 'Booking Elements':"", BookingServiceID:"", BookingID:"", 'Services Booked':"" },
@@ -2147,10 +2147,10 @@ Screen_StartUpCollections As screen:
         X: =1027
         Y: =85
         ZIndex: =11
-
+    
     component_MainMenu_23 As component_MainMenu:
         ZIndex: =12
-
+    
     btnRefreshOrders_47 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -2383,7 +2383,7 @@ Screen_StartUpCollections As screen:
         X: =1027
         Y: =131
         ZIndex: =13
-
+    
     btnRefreshOrders_49 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -2426,7 +2426,7 @@ Screen_StartUpCollections As screen:
         X: =1027
         Y: =177
         ZIndex: =14
-
+    
     btnRefreshOrders_45 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -2665,7 +2665,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =271
         ZIndex: =15
-
+    
     btnRefreshOrders_51 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -2710,7 +2710,7 @@ Screen_StartUpCollections As screen:
         X: =583
         Y: =375
         ZIndex: =16
-
+    
     btnRefreshOrders_53 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -2753,7 +2753,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =315
         ZIndex: =17
-
+    
     btnRefreshOrders_55 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -2831,7 +2831,7 @@ Screen_StartUpCollections As screen:
                     'Price Per Unit': 95,
                     'Order LookUp': LookUp(col_Orders, OrderReference = "ORD-003")
                 },
-            
+                
                 // Services for ORD-004 (On Hold)
                 {
                     OrderServiceID: GUID(),
@@ -2851,7 +2851,7 @@ Screen_StartUpCollections As screen:
                     'Price Per Unit': 80,
                     'Order LookUp': LookUp(col_Orders, OrderReference = "ORD-004")
                 },
-            
+                
                 // Services for ORD-005 (Active)
                 {
                     OrderServiceID: GUID(),
@@ -2872,7 +2872,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =360
         ZIndex: =18
-
+    
     btnRefreshOrders_56 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -3009,7 +3009,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =407
         ZIndex: =19
-
+    
     btnRefreshOrders_57 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -3119,7 +3119,7 @@ Screen_StartUpCollections As screen:
                     hasEscalation: true,
                     'Present During Test': "",
                     'Order LookUp': LookUp(col_Orders, OrderReference = "ORD-005")
-             
+                
                 }, 
                 {
                     BookingReference: "BK-006",
@@ -3137,7 +3137,7 @@ Screen_StartUpCollections As screen:
                     hasEscalation: true,
                     'Present During Test': "",
                     'Order LookUp': LookUp(col_Orders, OrderReference = "ORD-005")
-             
+                
                 }
             );
         TabIndex: =0
@@ -3149,7 +3149,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =455
         ZIndex: =20
-
+    
     btnRefreshOrders_58 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -3335,7 +3335,7 @@ Screen_StartUpCollections As screen:
                     'Present During Test': "",
                     'Order LookUp': LookUp(col_Orders, OrderReference = "ORD-005"), 
                      SiteLookUp: LookUp(col_Sites, 'Client Name' = "Acme Corp")
-             
+                
                 }
             );
         TabIndex: =0
@@ -3347,7 +3347,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =504
         ZIndex: =21
-
+    
     ButtonCanvas3_7 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -3403,7 +3403,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =23
         ZIndex: =22
-
+    
     btnRefreshOrders_67 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -3458,7 +3458,7 @@ Screen_StartUpCollections As screen:
         X: =139
         Y: =565
         ZIndex: =23
-
+    
     btnRefreshOrders_63 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -3492,7 +3492,7 @@ Screen_StartUpCollections As screen:
         X: =1027
         Y: =223
         ZIndex: =24
-
+    
     btnRefreshOrders_44 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -3551,7 +3551,7 @@ Screen_StartUpCollections As screen:
         X: =583
         Y: =432
         ZIndex: =25
-
+    
     ButtonCanvas4 As Button:
         BasePaletteColor: =
         BorderColor: =
@@ -3583,7 +3583,7 @@ Screen_StartUpCollections As screen:
         X: =292
         Y: =688
         ZIndex: =26
-
+    
     btnCanvasRefresh2 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -3622,7 +3622,7 @@ Screen_StartUpCollections As screen:
         X: =511
         Y: =688
         ZIndex: =27
-
+    
     btnCanvasRefresh3 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -3662,7 +3662,7 @@ Screen_StartUpCollections As screen:
         X: =733
         Y: =688
         ZIndex: =28
-
+    
     btnCanvasRefresh4 As Button:
         AcceptsFocus: =true
         AccessibleLabel: =""
@@ -3701,14 +3701,14 @@ Screen_StartUpCollections As screen:
         X: =973
         Y: =688
         ZIndex: =29
-
+    
     Group1 As group:
         Height: =5
         Width: =5
         X: =40
         Y: =40
         ZIndex: =32
-
+        
         rectBackgroundPopUps_9 As rectangle:
             BorderThickness: =1
             Fill: =RGBA(245, 245, 245, 0.51)
@@ -3716,7 +3716,7 @@ Screen_StartUpCollections As screen:
             Visible: =false
             Width: =139
             ZIndex: =30
-
+        
         Container6 As groupContainer.manualLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =729
@@ -3729,7 +3729,7 @@ Screen_StartUpCollections As screen:
             X: =7
             Y: =23
             ZIndex: =31
-
+            
             Spinner1 As Spinner:
                 BasePaletteColor: =
                 DisplayMode: =DisplayMode.Edit
@@ -3743,7 +3743,7 @@ Screen_StartUpCollections As screen:
                 X: =271
                 Y: =173
                 ZIndex: =1
-
+            
             labelPageHeader_23 As label:
                 Align: =Align.Center
                 FontWeight: =FontWeight.Semibold
@@ -3754,7 +3754,7 @@ Screen_StartUpCollections As screen:
                 X: =447
                 Y: =44
                 ZIndex: =2
-
+            
             labelPageHeader_24 As label:
                 Align: =Align.Center
                 FontWeight: =FontWeight.Semibold
@@ -3766,7 +3766,7 @@ Screen_StartUpCollections As screen:
                 X: =447
                 Y: =108
                 ZIndex: =3
-
+            
             ButtonCanvas5 As Button:
                 BasePaletteColor: =RGBA(156, 220, 79, 1)
                 BorderColor: =

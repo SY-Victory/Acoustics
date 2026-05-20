@@ -2,7 +2,7 @@ Screen_EngineerHome As screen:
     ContentLanguage: =""
     Fill: =Color.White
     LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
-
+    
     containerPageHeader_23 As groupContainer.manualLayoutContainer:
         Fill: =RGBA(255, 255, 255, 1)
         Height: =55
@@ -14,7 +14,7 @@ Screen_EngineerHome As screen:
         X: =60
         Y: =12
         ZIndex: =1
-
+        
         iconPageHeaderIcon_24 As icon:
             Color: =RGBA(0, 0, 0, 1)
             DisplayMode: =DisplayMode.View
@@ -26,14 +26,14 @@ Screen_EngineerHome As screen:
             X: =8
             Y: =10
             ZIndex: =1
-
+        
         iconPageHeaderRefresh_23 As icon:
             Color: =RGBA(0, 0, 0, 1)
             Height: =35
             Icon: =Icon.Sync
             OnSelect: |-
                 =// Set(varStaffViewID, LookUp(BESA_EngineerLists, 'Staff Email Address' = "charlie@sylimited.com"));
-                // Set(varStaffViewBESAID, Text(LookUp(BESA_EngineerLists, 'Staff Email Address' = "charlie@sylimited.com", BESA_EngineerList)));
+                // Set(varStaffViewID.BESA_EngineerList, Text(LookUp(BESA_EngineerLists, 'Staff Email Address' = "charlie@sylimited.com", BESA_EngineerList)));
                 ClearCollect(col_StaffBuf, {email: User().Email});
                 Clear(col_StaffResult);
                 ForAll(col_StaffBuf As buf,
@@ -43,32 +43,33 @@ Screen_EngineerHome As screen:
                 );
                 Set(varStaffViewID, First(col_StaffResult));
                 Set(varStaffViewBESAID, Text(varStaffViewID.BESA_EngineerList));
+                Set(varStaffViewName, varStaffViewID.'Staff Name');
                 
                 
-                ClearCollect(col_EngineerActionList, { 'Site LookUp':First(col_Sites), 'Action Type': "", 'Action Name': "", 'Booking LookUp':First(col_Bookings), 'Induction LookUp':First(col_SiteInductions), 'Action Status':"", 'RAMS LookUp':First(col_RiskAssesments), 'Element LookUp':First(col_ElementList), 'Booking Element LookUp':First(col_BookingElement), 'Shift ID': "", ActionID: GUID() });
+                ClearCollect(col_EngineerActionList, { 'Site LookUp': Blank(), 'Action Type': "", 'Action Name': "", 'Booking LookUp': Blank(), 'Induction LookUp': Blank(), 'Action Status': "", 'RAMS LookUp': Blank(), 'Element LookUp': Blank(), 'Booking Element LookUp': Blank(), 'Shift ID': "", ActionID: GUID() });
                 
                 //Generate Collection Holders
                 
                 
-                ClearCollect(col_SiteInductions,  
+                ClearCollect(col_SiteInductions,
                 {
                     'Site Induction ID': GUID(),
-                    'Staff LookUp':First(col_StaffMembers), 
-                    'Site LookUp':First(col_Sites),
-                    'Induction Date': DateValue(Today()), 
-                    'Induction Status': "Pending", 
-                    'Created On': Now(), 
-                    'Expiry Date': DateAdd(Today(), 60, TimeUnit.Days), 
+                    'Staff LookUp': Blank(),
+                    'Site LookUp': Blank(),
+                    'Induction Date': DateValue(Today()),
+                    'Induction Status': "Pending",
+                    'Created On': Now(),
+                    'Expiry Date': DateAdd(Today(), 60, TimeUnit.Days),
                     Comments: ""
                 });
                 
-                ClearCollect(col_RiskAssesments, 
-                { 
-                    'Risk Assessment ID':GUID(),
-                 'Staff LookUp':First(col_StaffMembers), 
-                    'Site LookUp':First(col_Sites),
-                    'Assesment Date': DateValue(Today()), 
-                    'Assesment Status':"Pending", 
+                ClearCollect(col_RiskAssesments,
+                {
+                    'Risk Assessment ID': GUID(),
+                    'Staff LookUp': Blank(),
+                    'Site LookUp': Blank(),
+                    'Assesment Date': DateValue(Today()),
+                    'Assesment Status': "Pending",
                     'Created On': Now()
                 });
                 
@@ -84,7 +85,7 @@ Screen_EngineerHome As screen:
             X: =43
             Y: =10
             ZIndex: =2
-
+        
         labelPageHeader_27 As label:
             FontWeight: =FontWeight.Semibold
             Height: =35
@@ -94,19 +95,19 @@ Screen_EngineerHome As screen:
             X: =78
             Y: =10
             ZIndex: =3
-
+        
         Label3_597 As label:
             Align: =Align.Right
             FontWeight: =FontWeight.Bold
             Height: =35
             Size: =11
             Text: |-
-                ="Logged In: " & varStaffViewID.'Staff Name'
+                ="Logged In: " & varStaffViewName
             Width: =258
             X: =935
             Y: =11
             ZIndex: =4
-
+        
         labelPageHeader_28 As label:
             FontWeight: =FontWeight.Semibold
             Height: =33
@@ -119,7 +120,7 @@ Screen_EngineerHome As screen:
             X: =394
             Y: =12
             ZIndex: =5
-
+        
         btnRefreshActionList_1 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -145,17 +146,17 @@ Screen_EngineerHome As screen:
             OnSelect: |-
                 =If(
                     Connection.Connected,
-                
+                    
                     // ══════════════════════════════════════
                     // ONLINE — existing logic unchanged
                     // ══════════════════════════════════════
-                
+                    
                     // Refresh removed (anti-pattern #8: async race condition)
                     // Background sync keeps SQLite current.
-                
+                    
                     Clear(col_EngineerActionList);
                     Clear(col_ShiftTimeline);
-                
+                    
                     // ── BOOKING SHIFTS ──
                     // Step 1: raw Dataverse filter (OData-safe, no AddColumns)
                     ClearCollect(
@@ -164,8 +165,7 @@ Screen_EngineerHome As screen:
                             Filter(
                                 BESA_Shifts,
                                 'User GUID' = varStaffViewBESAID,
-                                'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
-                                'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
+                                'Shift Date' >= dateEngineerSelectedView_1.SelectedDate, 'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                                 'Shift Type' = "Booking"
                             ),
                             'Shift Type', 'Booking LookUp', 'Shift Date', 'User GUID', 'Shift ID', 'Site LookUp', 'Generate RAMs'
@@ -182,7 +182,7 @@ Screen_EngineerHome As screen:
                             BookingID, BookingTempID, sy_shiftid, 'Shift ID', sy_SiteLookUp, 'Site LookUp', sy_BookingLookUp, 'Booking LookUp', sy_generaterams, 'Generate RAMs'
                         )
                     );
-                
+                    
                     ForAll(
                         col_ShiftListGather As shiftListGathering,
                         With(
@@ -229,7 +229,7 @@ Screen_EngineerHome As screen:
                             )
                         )
                     );
-                
+                    
                     // Step 1: raw Dataverse filter (no AddColumns — anti-pattern #7 fix)
                     ClearCollect(
                         col_BookingElementCheck_Raw,
@@ -244,7 +244,7 @@ Screen_EngineerHome As screen:
                             cachedTestType, Text('Order Service LookUp'.'Service LookUp'.'Test Type')
                         )
                     );
-                
+                    
                     // ── RAMs ──
                     ForAll(
                         col_ShiftListGather As shiftItem,
@@ -277,7 +277,7 @@ Screen_EngineerHome As screen:
                             )
                         )
                     );
-                
+                    
                     // ── Services ──
                     ForAll(
                         col_BookingElementCheck As itemBookingElement,
@@ -312,7 +312,7 @@ Screen_EngineerHome As screen:
                                     ),
                                     'Element LookUp': itemBookingElement.'Element LookUp',
                                     'Booking Element LookUp': itemBookingElement,
-                                    'Shift ID': itemBookingElement.'Shift ID',
+                                    'Shift ID':               itemBookingElement.'Shift ID',
                                     cachedTestType:           itemBookingElement.cachedTestType,
                                     cachedClientName:         Text(wthClientLookUp.'Client Name'),
                                     cachedSiteName:           Text(wthSiteLookUp.'Site Name'),
@@ -326,19 +326,18 @@ Screen_EngineerHome As screen:
                             )
                         )
                     );
-                
+                    
                     // ── NON-BOOKING SHIFTS ──
                     ClearCollect(
                         col_ShiftListNonBookingCheck,
                         Filter(
                             BESA_Shifts,
                             'User GUID' = varStaffViewBESAID,
-                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
-                            'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
+                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate, 'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                             Or(Adhoc = true, 'People HR Shift' = true)
                         )
                     );
-                
+                    
                     ForAll(
                         Filter(col_ShiftListNonBookingCheck, Adhoc = true) As itemNonBookingItem,
                         Collect(
@@ -353,23 +352,22 @@ Screen_EngineerHome As screen:
                             }
                         )
                     );
-                
+                    
                     // ── ACTIVITIES ──
                     ClearCollect(
                         col_ShiftListActivities,
                         Filter(
                             BESA_Shifts,
                             'User GUID' = varStaffViewBESAID,
-                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
-                            'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
+                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate, 'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                             'Shift Type' = "Activity"
                         )
                     );
-                
+                    
                     ForAll(
                         col_ShiftListActivities As activityShift,
                         With(
-                            { wthActivityRecord: First(Filter(BESA_Activities, Text('Shift GUID') = Text(activityShift.'Shift ID'))) },
+                            { wthActivityRecord: First(Filter(BESA_Activities, 'Shift GUID' = activityShift.'Shift ID')) },
                             Collect(
                                 col_EngineerActionList,
                                 {
@@ -385,20 +383,19 @@ Screen_EngineerHome As screen:
                             )
                         )
                     );
-                
+                    
                     // ── BUILD SHIFT TIMELINE ──
                     ClearCollect(
                         col_ShiftsFiltered,
                         Filter(
                             BESA_Shifts,
                             'User GUID' = varStaffViewBESAID,
-                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate,
-                            'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
+                            'Shift Date' >= dateEngineerSelectedView_1.SelectedDate, 'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days),
                             'Shift Type' <> "Activity",
                             Not(Adhoc = true)
                         )
                     );
-                
+                    
                     ClearCollect(
                         col_ShiftsWithIndex,
                         ForAll(
@@ -409,9 +406,9 @@ Screen_EngineerHome As screen:
                             )
                         )
                     );
-                
+                    
                     Clear(col_ShiftTimeline);
-                
+                    
                     ForAll(
                         col_ShiftsWithIndex As shift,
                         Collect(
@@ -429,7 +426,7 @@ Screen_EngineerHome As screen:
                             }
                         );
                         ForAll(
-                            Filter(col_EngineerActionList, 'Shift ID' = Text(shift.'Shift ID')) As act,
+                            Filter(col_EngineerActionList, 'Shift ID' = shift.'Shift ID') As act,
                             Collect(
                                 col_ShiftTimeline,
                                 {
@@ -461,7 +458,7 @@ Screen_EngineerHome As screen:
                             )
                         )
                     );
-                
+                    
                     ForAll(
                         Filter(col_EngineerActionList, 'Action Type' = "Adhoc") As act,
                         Collect(
@@ -478,7 +475,7 @@ Screen_EngineerHome As screen:
                             }
                         )
                     );
-                
+                    
                     ForAll(
                         Filter(col_EngineerActionList, 'Action Type' = "Activity") As act,
                         Collect(
@@ -497,7 +494,7 @@ Screen_EngineerHome As screen:
                             }
                         )
                     );
-                
+                    
                     ForAll(
                         col_ShiftsFiltered As sh,
                         ForAll(
@@ -511,7 +508,7 @@ Screen_EngineerHome As screen:
                                 {
                                     RowType: "Action",
                                     ShiftActionID: GUID(),
-                                    'Shift ID': Text(sh.'Shift ID'),
+                                    'Shift ID': sh.'Shift ID',
                                     'Action Type': "Service",
                                     'Action Name': retest.'Booking Element LookUp'.'Order Service LookUp'.Service & " (Re-test " & Text(retest.'Test Number') & ")",
                                     'Action Status': retest.'Test Status',
@@ -533,11 +530,11 @@ Screen_EngineerHome As screen:
                             )
                         )
                     );
-                
+                    
                     // ══════════════════════════════════════
                     // CACHE for offline — flatten lookup objects
                     // ══════════════════════════════════════
-                
+                    
                     ClearCollect(
                         col_ShiftTimeline_Flat,
                         ForAll(
@@ -545,7 +542,7 @@ Screen_EngineerHome As screen:
                             {
                                 RowType: row.RowType,
                                 ShiftActionID: Text(row.ShiftActionID),
-                                ShiftID: Text(row.'Shift ID'),
+                                ShiftID: row.'Shift ID',
                                 ShiftType: row.'Shift Type',
                                 EstimatedDuration: row.'Estimated Duration',
                                 ShiftDate: row.'Shift Date',
@@ -613,17 +610,17 @@ Screen_EngineerHome As screen:
                             }
                         )
                     ),
-                
+                    
                     // ══════════════════════════════════════
                     // OFFLINE — load cached flat timeline
                     // ══════════════════════════════════════
-                
+                    
                     IfError(LoadData(col_ShiftTimeline_Flat, "col_ShiftTimeline_Flat_offline", true), Blank());
-                
+                    
                     If(
                         IsEmpty(col_ShiftTimeline_Flat),
                         Notify("No cached data available offline", NotificationType.Error),
-                
+                        
                         // Rebuild col_ShiftTimeline from flat cache
                         ClearCollect(
                             col_ShiftTimeline,
@@ -673,7 +670,7 @@ Screen_EngineerHome As screen:
             X: =932
             Y: =14
             ZIndex: =7
-
+        
         ButtonCanvas15 As Button:
             BasePaletteColor: =
             BorderColor: =
@@ -1660,7 +1657,7 @@ Screen_EngineerHome As screen:
             X: =478
             Y: =14
             ZIndex: =8
-
+        
         ButtonCanvas13 As Button:
             BasePaletteColor: =
             BorderColor: =
@@ -1995,7 +1992,7 @@ Screen_EngineerHome As screen:
             X: =323
             Y: =10
             ZIndex: =9
-
+        
         "'Offline sync Icon1_1' As Button":
             AcceptsFocus: =true
             AccessibleLabel: ="Offline sync status icon"
@@ -2037,14 +2034,14 @@ Screen_EngineerHome As screen:
             X: =1220
             Y: =10
             ZIndex: =10
-
+    
     component_MainMenu_25 As component_MainMenu:
         ChildTabPriority: =true
         ContentLanguage: =""
         EnableChildFocus: =true
         Visible: =true
         ZIndex: =2
-
+    
     Label3_598 As label:
         FontWeight: =FontWeight.Semibold
         Height: =32
@@ -2054,7 +2051,7 @@ Screen_EngineerHome As screen:
         X: =60
         Y: =73
         ZIndex: =3
-
+    
     dateEngineerSelectedView_1 As datepicker:
         BorderThickness: =0
         CalendarHeaderFill: =App.Theme.Colors.Primary
@@ -2076,7 +2073,7 @@ Screen_EngineerHome As screen:
         X: =174
         Y: =73
         ZIndex: =4
-
+    
     containerMainEngineerContainer_1 As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.None
         Height: =645
@@ -2088,13 +2085,13 @@ Screen_EngineerHome As screen:
         X: =60
         Y: =110
         ZIndex: =5
-
+        
         galleryMainEngineerStaffView_1 As gallery.galleryVertical:
             '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =App.Theme.Colors.Darker40
             DelayItemLoading: =true
             Height: =645
-            Items: =If(!IsBlank(varStaffViewBESAID), LookUp(BESA_EngineerLists, BESA_EngineerList = GUID(varStaffViewBESAID)))
+            Items: =If(!IsBlank(varStaffViewBESAID), [1])
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
             OnSelect: =
@@ -2102,7 +2099,7 @@ Screen_EngineerHome As screen:
             TemplateSize: =645
             Width: =1295
             ZIndex: =1
-
+            
             Container2_20 As groupContainer.manualLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =645
@@ -2112,25 +2109,25 @@ Screen_EngineerHome As screen:
                 LayoutGridRows: =6
                 Width: =1295
                 ZIndex: =2
-
+                
                 Rectangle2_135 As rectangle:
                     Fill: =RGBA(7, 110, 108, 1)
                     Height: =35
                     Width: =Parent.Width
                     ZIndex: =1
-
+                
                 Label3_610 As label:
                     Color: =RGBA(255, 255, 255, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =35
                     Size: =11
                     Text: |-
-                        ="(" & CountRows(Filter(BESA_Shifts, 'Shift Date' >= dateEngineerSelectedView_1.SelectedDate, 'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days), 'User GUID' = Text(ThisItem.BESA_EngineerList))) & ") Shifts " &
+                        ="(" & CountRows(Filter(col_ShiftTimeline, RowType = "Shift")) & ") Shifts " &
                         "(" & CountRows(col_EngineerActionList) & ") Actions for : " & Text(dateEngineerSelectedView_1.SelectedDate, "dd dddd mmm, yyyy")
                     Width: =500
                     X: =5
                     ZIndex: =2
-
+                
                 Label3_611 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =32
@@ -2140,7 +2137,7 @@ Screen_EngineerHome As screen:
                     X: =5
                     Y: =36
                     ZIndex: =4
-
+                
                 Label3_612 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =32
@@ -2150,7 +2147,7 @@ Screen_EngineerHome As screen:
                     X: =190
                     Y: =36
                     ZIndex: =5
-
+                
                 galleryMainEngineerShiftDayView_3 As gallery.variableTemplateHeightGallery:
                     '#CopilotOverlayLabel': ="Filtered"
                     DelayItemLoading: =true
@@ -2162,7 +2159,7 @@ Screen_EngineerHome As screen:
                     Width: =1295
                     Y: =69
                     ZIndex: =6
-
+                    
                     containerShiftListView_4 As groupContainer.manualLayoutContainer:
                         DropShadow: |-
                             =If(
@@ -2208,7 +2205,7 @@ Screen_EngineerHome As screen:
                         LayoutGridRows: =6
                         Width: =Parent.Width - 10
                         ZIndex: =1
-
+                        
                         labelActionName As label:
                             FontWeight: |-
                                 =If(
@@ -2247,7 +2244,7 @@ Screen_EngineerHome As screen:
                                     ThisItem.'RowType' = "Shift", 300, 175)
                             Wrap: =false
                             ZIndex: =1
-
+                        
                         Label3_111 As label:
                             Height: =32
                             Size: =11
@@ -2256,7 +2253,7 @@ Screen_EngineerHome As screen:
                             Width: =175
                             X: =185
                             ZIndex: =2
-
+                        
                         "InfoButtonCanvas9_1 As 'Information button'":
                             AcceptsFocus: =true
                             AccessibleLabel: =""
@@ -2264,7 +2261,7 @@ Screen_EngineerHome As screen:
                             Content: |-
                                 =Switch(
                                     ThisItem.'Action Type',
-                                
+                                    
                                     "Site Induction",
                                     With(
                                         {
@@ -2280,10 +2277,10 @@ Screen_EngineerHome As screen:
                                             " | Expires On: " & Text(wthInductionRecord.'Expiry Date', DateTimeFormat.ShortDate)
                                         )
                                     ),
-                                
+                                    
                                     "Service",
                                     "Element: " & ThisItem.'Booking Element LookUp'.'Element LookUp'.'Element Name',
-                                
+                                    
                                     ""
                                 )
                             ContentLanguage: =""
@@ -2312,13 +2309,20 @@ Screen_EngineerHome As screen:
                             X: =330
                             Y: =0
                             ZIndex: =3
-
+                        
                         iconViewSiteDetails_6 As icon:
                             Height: =32
                             Icon: =Icon.OfficeBuilding
                             OnSelect: |-
                                 =Set(varEngineerViewSite, true);
-                                Set(varSelectedSite, LookUp(BESA_Sites, BESA_Site = ThisItem.'Site LookUp'.BESA_Site));
+                                ClearCollect(_siteBuf, {pk: Text(ThisItem.'Site LookUp'.BESA_Site)});
+                                Clear(_siteResult);
+                                ForAll(_siteBuf As g,
+                                    With({rec: First(Filter(BESA_Sites, Text(BESA_Site) = g.pk))},
+                                        If(!IsBlank(rec), Collect(_siteResult, rec))
+                                    )
+                                );
+                                Set(varSelectedSite, First(_siteResult));
                             PaddingBottom: =5
                             PaddingTop: =5
                             Tooltip: ="View Site Details"
@@ -2328,7 +2332,7 @@ Screen_EngineerHome As screen:
                             Width: =32
                             X: =580
                             ZIndex: =4
-
+                        
                         labelBookingSiteInductionTime_2 As label:
                             Align: =Align.Right
                             Height: =30
@@ -2356,7 +2360,7 @@ Screen_EngineerHome As screen:
                             X: =354
                             Y: =2
                             ZIndex: =5
-
+                        
                         iconFlagSiteInduction_2 As icon:
                             Color: =RGBA(184, 0, 0, 1)
                             Height: =30
@@ -2369,7 +2373,7 @@ Screen_EngineerHome As screen:
                             Visible: |-
                                 =Switch(
                                     ThisItem.'Shift Type',
-                                
+                                    
                                     "Booking",
                                     IsBlank(
                                         LookUp(
@@ -2380,14 +2384,14 @@ Screen_EngineerHome As screen:
                                             'Expiry Date' >= Today()
                                         )
                                     ),
-                                
+                                    
                                     false
                                 )
                             Width: =30
                             X: =550
                             Y: =2
                             ZIndex: =6
-
+                        
                         btnEngineerAction As Button:
                             AcceptsFocus: =true
                             AccessibleLabel: =""
@@ -2637,71 +2641,50 @@ Screen_EngineerHome As screen:
                                                 }
                                             )
                                         );
-                                        // 4️⃣ Check if a test already exists for this booking + shift
-                                        Set(
-                                            varExistingTest,
-                                            LookUp(
-                                                BESA_Tests,
-                                                'Booking Element LookUp'.BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement && 'Shift LookUp'.'Shift ID' = varCurrentShiftID && 'Test Status' = "Pending"
+                                        // 4️⃣ Check if a test already exists for this booking + shift (SQLite-safe)
+                                        ClearCollect(_existTestBuf, {bePK: Text(ThisItem.'Booking Element LookUp'.BESA_BookingElement), shiftID: varCurrentShiftID});
+                                        Clear(_existTestResult);
+                                        ForAll(_existTestBuf As g,
+                                            With({rec: First(Filter(BESA_Tests,
+                                                Text('Booking Element LookUp'.BESA_BookingElement) = g.bePK &&
+                                                'Shift LookUp'.'Shift ID' = g.shiftID &&
+                                                'Test Status' = "Pending"
+                                            ))},
+                                                If(!IsBlank(rec), Collect(_existTestResult, rec))
                                             )
                                         );
-                                        // 5️⃣ Create new BESA_Test or use existing
+                                        Set(varExistingTest, First(_existTestResult));
+                                        // 5️⃣ Create new BESA_Test or use existing (SQLite-safe: ForAll buffer for Patch)
                                         If(
                                             IsBlank(varExistingTest),
-                                            Set(
-                                                varNewTestID,
-                                                Text(GUID())
-                                            );
-                                            Set(
-                                                varActionRecord,
-                                                Patch(
-                                                    BESA_Tests,
-                                                    Defaults(BESA_Tests),
-                                                    {
-                                                        'Booking Element LookUp': ThisItem.'Booking Element LookUp',
-                                                        'Envelope LookUp': LookUp(
-                                                            BESA_Envelopes,
-                                                            'Booking Element LookUp'.BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement
-                                                        ),
-                                                        'Shift LookUp': LookUp(
-                                                            BESA_Shifts,
-                                                            'Shift ID' = varCurrentShiftID
-                                                        ),
-                                                        'Client LookUp': ThisItem.'Client LookUp',
-                                                        'Booking LookUp': ThisItem.'Booking LookUp',
-                                                        'Site LookUp': ThisItem.'Site LookUp',
-                                                        'Test Status': "Pending",
-                                                        'Test Number': 1,
-                                                        //TempSealingData:    JSON({TempSealingStatus: "", Questions: []}),
-                                                        'Section Status': JSON(
-                                                            {
-                                                                TestDetails: "Pending",
-                                                                Envelope: "Pending",
-                                                                ReportExport: "Pending"
-                                                            }
-                                                        ),
-                                                        'Test Info': JSON(
-                                                            {
-                                                                TypeAB: "",
-                                                                TestType: "",
-                                                                YearBuilt: 0
-                                                            }
-                                                        )
-                                                    }
+                                            Set(varNewTestID, Text(GUID()));
+                                            ClearCollect(_newTestBuf, {bePK: Text(ThisItem.'Booking Element LookUp'.BESA_BookingElement), shiftID: varCurrentShiftID});
+                                            Clear(_newTestResult);
+                                            ForAll(_newTestBuf As buf,
+                                                With({
+                                                    envRec: First(Filter(BESA_Envelopes, Text('Booking Element LookUp'.BESA_BookingElement) = buf.bePK)),
+                                                    shiftRec: First(Filter(BESA_Shifts, 'Shift ID' = buf.shiftID))
+                                                },
+                                                    Collect(_newTestResult,
+                                                        Patch(BESA_Tests, Defaults(BESA_Tests), {
+                                                            'Booking Element LookUp': ThisItem.'Booking Element LookUp',
+                                                            'Envelope LookUp': envRec,
+                                                            'Shift LookUp': shiftRec,
+                                                            'Client LookUp': ThisItem.'Client LookUp',
+                                                            'Booking LookUp': ThisItem.'Booking LookUp',
+                                                            'Site LookUp': ThisItem.'Site LookUp',
+                                                            'Test Status': "Pending",
+                                                            'Test Number': 1,
+                                                            'Section Status': JSON({TestDetails: "Pending", Envelope: "Pending", ReportExport: "Pending"}),
+                                                            'Test Info': JSON({TypeAB: "", TestType: "", YearBuilt: 0})
+                                                        })
+                                                    )
                                                 )
                                             );
-                                            Set(
-                                                varCurrentActionID,
-                                                ThisItem.ShiftActionID
-                                            );
-                                            Set(
-                                                varTestViewMode,
-                                                false
-                                            ),
-                                            Set(
-                                                varActionRecord,
-                                                varExistingTest
-                                            )
+                                            Set(varActionRecord, First(_newTestResult));
+                                            Set(varCurrentActionID, ThisItem.ShiftActionID);
+                                            Set(varTestViewMode, false),
+                                            Set(varActionRecord, varExistingTest)
                                         );
                                         // ── Run 1 — always created ──
                                         Set(
@@ -2719,10 +2702,7 @@ Screen_EngineerHome As screen:
                                                     BESA_TestRuns,
                                                     Defaults(BESA_TestRuns),
                                                     {
-                                                        'Test LookUp': LookUp(
-                                                            BESA_Tests,
-                                                            BESA_Test = varActionRecord.BESA_Test
-                                                        ),
+                                                        'Test LookUp': varActionRecord,
                                                         'Test No': 1,
                                                         RunSelected: true,
                                                         'Test Name': "Run 1",
@@ -2759,22 +2739,22 @@ Screen_EngineerHome As screen:
                                             ),
                                              // Auto-repair: if TestType was wiped to "" by a stale save, restore it now
                                             If(
-                                                IsBlank(Text(ParseJSON(varExistingTestRun.TestMetaData).TestType)) || Text(ParseJSON(varExistingTestRun.TestMetaData).TestType) = "",
+                                                IsBlank(Text(ParseJSON(Coalesce(varExistingTestRun.TestMetaData, "{}")).TestType)) || Text(ParseJSON(Coalesce(varExistingTestRun.TestMetaData, "{}")).TestType) = "",
                                                 Patch(
                                                     BESA_TestRuns,
                                                     varExistingTestRun,
                                                     {
                                                         TestMetaData: JSON(
                                                             {
-                                                                DateTimeTest: Text(ParseJSON(varExistingTestRun.TestMetaData).DateTimeTest),
-                                                                Engineer: Text(ParseJSON(varExistingTestRun.TestMetaData).Engineer),
+                                                                DateTimeTest: Text(ParseJSON(Coalesce(varExistingTestRun.TestMetaData, "{}")).DateTimeTest),
+                                                                Engineer: Text(ParseJSON(Coalesce(varExistingTestRun.TestMetaData, "{}")).Engineer),
                                                                 TestType: "Depressurisation",
                                                                 //If(varServiceTestType = "Air Test", "Depressurisation", "Pressurisation"),
-                                EngineerLocation: Text(ParseJSON(varExistingTestRun.TestMetaData).EngineerLocation),
-                                                                OpeningTargetPA: Value(Text(ParseJSON(varExistingTestRun.TestMetaData).OpeningTargetPA)),
-                                                                ClosingTargetPA: Value(Text(ParseJSON(varExistingTestRun.TestMetaData).ClosingTargetPA)),
-                                                                PressureStep: Value(Text(ParseJSON(varExistingTestRun.TestMetaData).PressureStep)),
-                                                                TargetPoints: Value(Text(ParseJSON(varExistingTestRun.TestMetaData).TargetPoints))
+                                EngineerLocation: Text(ParseJSON(Coalesce(varExistingTestRun.TestMetaData, "{}")).EngineerLocation),
+                                                                OpeningTargetPA: Value(Text(ParseJSON(Coalesce(varExistingTestRun.TestMetaData, "{}")).OpeningTargetPA)),
+                                                                ClosingTargetPA: Value(Text(ParseJSON(Coalesce(varExistingTestRun.TestMetaData, "{}")).ClosingTargetPA)),
+                                                                PressureStep: Value(Text(ParseJSON(Coalesce(varExistingTestRun.TestMetaData, "{}")).PressureStep)),
+                                                                TargetPoints: Value(Text(ParseJSON(Coalesce(varExistingTestRun.TestMetaData, "{}")).TargetPoints))
                                                             }
                                                         )
                                                     }
@@ -2808,10 +2788,7 @@ Screen_EngineerHome As screen:
                                                         BESA_TestRuns,
                                                         Defaults(BESA_TestRuns),
                                                         {
-                                                            'Test LookUp': LookUp(
-                                                                BESA_Tests,
-                                                                BESA_Test = varActionRecord.BESA_Test
-                                                            ),
+                                                            'Test LookUp': varActionRecord,
                                                             'Test No': 2,
                                                             RunSelected: true,
                                                             'Test Name': "Run 2",
@@ -2844,21 +2821,21 @@ Screen_EngineerHome As screen:
                                                 ),
                                                 // Auto-repair: if TestType was wiped to "" restore it as Pressurisation (Run 2 is always Pressurisation)
                                                 If(
-                                                    IsBlank(Text(ParseJSON(varExistingTestRun2.TestMetaData).TestType)) || Text(ParseJSON(varExistingTestRun2.TestMetaData).TestType) = "",
+                                                    IsBlank(Text(ParseJSON(Coalesce(varExistingTestRun2.TestMetaData, "{}")).TestType)) || Text(ParseJSON(Coalesce(varExistingTestRun2.TestMetaData, "{}")).TestType) = "",
                                                     Patch(
                                                         BESA_TestRuns,
                                                         varExistingTestRun2,
                                                         {
                                                             TestMetaData: JSON(
                                                                 {
-                                                                    DateTimeTest: Text(ParseJSON(varExistingTestRun2.TestMetaData).DateTimeTest),
-                                                                    Engineer: Text(ParseJSON(varExistingTestRun2.TestMetaData).Engineer),
+                                                                    DateTimeTest: Text(ParseJSON(Coalesce(varExistingTestRun2.TestMetaData, "{}")).DateTimeTest),
+                                                                    Engineer: Text(ParseJSON(Coalesce(varExistingTestRun2.TestMetaData, "{}")).Engineer),
                                                                     TestType: "Pressurisation",
-                                                                    EngineerLocation: Text(ParseJSON(varExistingTestRun2.TestMetaData).EngineerLocation),
-                                                                    OpeningTargetPA: Value(Text(ParseJSON(varExistingTestRun2.TestMetaData).OpeningTargetPA)),
-                                                                    ClosingTargetPA: Value(Text(ParseJSON(varExistingTestRun2.TestMetaData).ClosingTargetPA)),
-                                                                    PressureStep: Value(Text(ParseJSON(varExistingTestRun2.TestMetaData).PressureStep)),
-                                                                    TargetPoints: Value(Text(ParseJSON(varExistingTestRun2.TestMetaData).TargetPoints))
+                                                                    EngineerLocation: Text(ParseJSON(Coalesce(varExistingTestRun2.TestMetaData, "{}")).EngineerLocation),
+                                                                    OpeningTargetPA: Value(Text(ParseJSON(Coalesce(varExistingTestRun2.TestMetaData, "{}")).OpeningTargetPA)),
+                                                                    ClosingTargetPA: Value(Text(ParseJSON(Coalesce(varExistingTestRun2.TestMetaData, "{}")).ClosingTargetPA)),
+                                                                    PressureStep: Value(Text(ParseJSON(Coalesce(varExistingTestRun2.TestMetaData, "{}")).PressureStep)),
+                                                                    TargetPoints: Value(Text(ParseJSON(Coalesce(varExistingTestRun2.TestMetaData, "{}")).TargetPoints))
                                                                 }
                                                             )
                                                         }
@@ -2884,9 +2861,9 @@ Screen_EngineerHome As screen:
                                                     RunSelected: run.RunSelected,
                                                     TestNo: run.'Test No',
                                                     TestStatus: run.'Test Status',
-                                                    TestMetaData: ParseJSON(run.TestMetaData),
-                                                    PreTestData: ParseJSON(run.PreTestData),
-                                                    PostTestData: ParseJSON(run.PostTestData),
+                                                    TestMetaData: ParseJSON(Coalesce(run.TestMetaData, "{}")),
+                                                    PreTestData: ParseJSON(Coalesce(run.PreTestData, "{}")),
+                                                    PostTestData: ParseJSON(Coalesce(run.PostTestData, "{}")),
                                                     //TempSealingData: ParseJSON(run.TempSealingData),
                                                     EquipmentLocations: If(
                                                         IsBlank(run.EquipmentLocations) || run.EquipmentLocations = "[]",
@@ -2900,7 +2877,7 @@ Screen_EngineerHome As screen:
                                                             }
                                                         ),
                                                         ForAll(
-                                                            ParseJSON(run.EquipmentLocations) As equipLoc,
+                                                            ParseJSON(Coalesce(run.EquipmentLocations, "[]")) As equipLoc,
                                                             {
                                                                 Location: Text(equipLoc.Location),
                                                                 SetNumber: Text(equipLoc.SetNumber),
@@ -2926,7 +2903,7 @@ Screen_EngineerHome As screen:
                                                             }
                                                         ),
                                                         ForAll(
-                                                            ParseJSON(run.EquipmentItems) As equipItem,
+                                                            ParseJSON(Coalesce(run.EquipmentItems, "[]")) As equipItem,
                                                             {
                                                                 SetNumber: Text(equipItem.SetNumber),
                                                                 SetLocationRef: Value(equipItem.SetLocationRef),
@@ -2940,18 +2917,18 @@ Screen_EngineerHome As screen:
                                                             }
                                                         )
                                                     ),
-                                                    SummaryResults: ParseJSON(run.SummaryResults)
+                                                    SummaryResults: ParseJSON(Coalesce(run.SummaryResults, "{}"))
                                                 }
                                             )
                                         );
                                         // 7️⃣ Parse Section Status and Test Info for UI
                                         Set(
                                             varSectionStatus,
-                                            ParseJSON(varActionRecord.'Section Status')
+                                            ParseJSON(Coalesce(varActionRecord.'Section Status', "{}"))
                                         );
                                         Set(
                                             varTestInfo,
-                                            ParseJSON(varActionRecord.'Test Info')
+                                            ParseJSON(Coalesce(varActionRecord.'Test Info', "{}"))
                                         );
                                         // 8️⃣ Build col_PermTestMenu
                                         ClearCollect(
@@ -2984,7 +2961,7 @@ Screen_EngineerHome As screen:
                                                 Sort: 3,
                                                 Status: "Pending",
                                                 DisplayLabel: "Temp Sealing " & If(
-                                                    Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus) = "Complete",
+                                                    Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus) = "Complete",
                                                     "✓",
                                                     "⚠️"
                                                 ),
@@ -3126,7 +3103,7 @@ Screen_EngineerHome As screen:
                             X: =1050
                             Y: =0
                             ZIndex: =7
-
+                        
                         Label3_117 As label:
                             FontWeight: |-
                                 =If(
@@ -3168,7 +3145,7 @@ Screen_EngineerHome As screen:
                             Wrap: =false
                             X: =377
                             ZIndex: =8
-
+                        
                         toolbarTestActions As Toolbar.pcfdataset:
                             AccessibleLabel: =""
                             Alignment: ='Toolbar.Alignment'.Vertical
@@ -3197,62 +3174,75 @@ Screen_EngineerHome As screen:
                             OnSelect: |
                                 =Switch(
                                     Self.Selected.ItemKey,
-                                
+                                    
                                     "View",
                                     If(
                                         IsBlank(ThisItem.'Booking Element LookUp'.'Order Service LookUp'.'Service LookUp'.'Test Type'),
-                                
+                                        
                                         Set(varTestViewMode, true);
                                         Set(varCurrentShiftID, Text(ThisItem.'Shift ID'));
                                         Set(varActionRecord, LookUp(col_EngineerActionList, ActionGUID = ThisItem.ShiftActionID));
-                                        Set(varServiceRecord, LookUp(BESA_BookingElements, BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement));
+                                        ClearCollect(_svcBuf, {bePK: Text(ThisItem.'Booking Element LookUp'.BESA_BookingElement)});
+                                        Clear(_svcResult);
+                                        ForAll(_svcBuf As g,
+                                            With({rec: First(Filter(BESA_BookingElements, Text(BESA_BookingElement) = g.bePK))},
+                                                If(!IsBlank(rec), Collect(_svcResult, rec))
+                                            )
+                                        );
+                                        Set(varServiceRecord, First(_svcResult));
                                         Set(varServiceAction, true),
-                                
+                                        
                                         Set(varTestViewMode, true);
                                         Set(varCurrentShiftID, Text(ThisItem.'Shift ID'));
                                         Set(varServiceTestType, Text(ThisItem.'Booking Element LookUp'.'Order Service LookUp'.'Service LookUp'.'Test Type'));
-                                        Set(
-                                            varActionRecord,
-                                            First(Sort(
-                                                Filter(BESA_Tests,
-                                                    'Booking Element LookUp'.BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement &&
-                                                    'Shift LookUp'.'Shift ID' = varCurrentShiftID &&
-                                                    'Test Status' <> "Pending"
-                                                ),
-                                                'Test Number', SortOrder.Descending
-                                            ))
+                                        // SQLite-safe: two-step ForAll to find latest non-pending test
+                                        Clear(_viewTestKeys);
+                                        ForAll(Filter(BESA_Tests,
+                                            Text('Booking Element LookUp'.BESA_BookingElement) = Text(ThisItem.'Booking Element LookUp'.BESA_BookingElement) &&
+                                            'Shift LookUp'.'Shift ID' = varCurrentShiftID &&
+                                            'Test Status' <> "Pending"
+                                        ) As t,
+                                            Collect(_viewTestKeys, {testGUID: Text(t.BESA_Test), testNum: t.'Test Number'})
                                         );
+                                        ClearCollect(_viewTestBuf, {pk: First(Sort(_viewTestKeys, testNum, SortOrder.Descending)).testGUID});
+                                        Clear(_viewTestResult);
+                                        ForAll(_viewTestBuf As g,
+                                            With({rec: First(Filter(BESA_Tests, Text(BESA_Test) = g.pk))},
+                                                If(!IsBlank(rec), Collect(_viewTestResult, rec))
+                                            )
+                                        );
+                                        Set(varActionRecord, First(_viewTestResult));
                                         ClearCollect(col_TestRun,
                                             ForAll(Filter(BESA_TestRuns, 'Test LookUp'.BESA_Test = varActionRecord.BESA_Test) As run, {
                                                 TestID: run.BESA_TestRun, TestName: run.'Test Name', RunSelected: run.RunSelected,
                                                 TestNo: run.'Test No', TestStatus: run.'Test Status',
-                                                TestMetaData: ParseJSON(run.TestMetaData), PreTestData: ParseJSON(run.PreTestData),
-                                                PostTestData: ParseJSON(run.PostTestData),// TempSealingData: ParseJSON(run.TempSealingData),
+                                                TestMetaData: ParseJSON(Coalesce(run.TestMetaData, "{}")), PreTestData: ParseJSON(Coalesce(run.PreTestData, "{}")),
+                                                PostTestData: ParseJSON(Coalesce(run.PostTestData, "{}")),// TempSealingData: ParseJSON(run.TempSealingData),
                                                 EquipmentLocations: If(IsBlank(run.EquipmentLocations) || run.EquipmentLocations = "[]",
                                                     Table({Location:"",SetNumber:"",TubeIdentifier:0,Engineer:Blank(),RowNumber:1}),
-                                                    ForAll(ParseJSON(run.EquipmentLocations) As equipLoc, {
+                                                    ForAll(ParseJSON(Coalesce(run.EquipmentLocations, "[]")) As equipLoc, {
                                                         Location: Text(equipLoc.Location), SetNumber: Text(equipLoc.SetNumber),
                                                         TubeIdentifier: Value(equipLoc.TubeIdentifier), Engineer: equipLoc.Engineer, RowNumber: Value(equipLoc.RowNumber)
                                                     })
                                                 ),
                                                 EquipmentItems: If(IsBlank(run.EquipmentItems) || run.EquipmentItems = "[]",
                                                     Table({SetNumber:"",SetLocationRef:0,EquipmentType:"",SerialNumber:"",Selected:false,ManometerType:"",FloorNo:0,LinkedFan:Blank(),LinkedFan_Range:Blank()}),
-                                                    ForAll(ParseJSON(run.EquipmentItems) As equipItem, {
+                                                    ForAll(ParseJSON(Coalesce(run.EquipmentItems, "[]")) As equipItem, {
                                                         SetNumber: Text(equipItem.SetNumber), SetLocationRef: Value(equipItem.SetLocationRef),
                                                         EquipmentType: Text(equipItem.EquipmentType), SerialNumber: Text(equipItem.SerialNumber),
                                                         Selected: Boolean(equipItem.Selected), ManometerType: Text(equipItem.ManometerType),
                                                         FloorNo: Value(equipItem.FloorNo), LinkedFan: equipItem.LinkedFan, LinkedFan_Range: equipItem.LinkedFan_Range
                                                     })
                                                 ),
-                                                SummaryResults: ParseJSON(run.SummaryResults)
+                                                SummaryResults: ParseJSON(Coalesce(run.SummaryResults, "{}"))
                                             })
                                         );
-                                        Set(varSectionStatus, ParseJSON(varActionRecord.'Section Status'));
-                                        Set(varTestInfo, ParseJSON(varActionRecord.'Test Info'));
+                                        Set(varSectionStatus, ParseJSON(Coalesce(varActionRecord.'Section Status', "{}")));
+                                        Set(varTestInfo, ParseJSON(Coalesce(varActionRecord.'Test Info', "{}")));
                                         ClearCollect(col_PermTestMenu,
                                             {MenuLabel:"Test Details", MenuCategory:"Test Details", Status:Text(varSectionStatus.TestDetails), Sort:1, DisplayLabel:"Test Details " & If(Text(varSectionStatus.TestDetails)="Complete","✓","⚠️")},
                                             {MenuLabel:"Envelope", MenuCategory:"Envelope", Status:Text(varSectionStatus.Envelope), Sort:2, DisplayLabel:"Envelope " & If(Text(varSectionStatus.Envelope)="Complete","✓","⚠️")},
-                                            {MenuLabel:"Temp Sealing", MenuCategory:"Temp Sealing", Status:If(Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus)="Complete","Complete","Pending"), Sort:3, DisplayLabel:"Temp Sealing " & If(Text(ParseJSON(varActionRecord.TempSealingData).TempSealingStatus)="Complete","✓","⚠️")}
+                                            {MenuLabel:"Temp Sealing", MenuCategory:"Temp Sealing", Status:If(Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus)="Complete","Complete","Pending"), Sort:3, DisplayLabel:"Temp Sealing " & If(Text(ParseJSON(Coalesce(varActionRecord.TempSealingData, "{}")).TempSealingStatus)="Complete","✓","⚠️")}
                                         );
                                         ForAll(Filter(col_TestRun, !IsBlank(TestNo) && TestNo > 0) As run,
                                             Collect(col_PermTestMenu, {
@@ -3267,71 +3257,89 @@ Screen_EngineerHome As screen:
                                         Set(varTestMenu, First(col_PermTestMenu));
                                         Navigate(Screen_EngineerPermTest_V2_1)
                                     ),
-                                
+                                    
                                     "Redo",
                                     Set(varTestViewMode, false);
                                     Set(varCurrentShiftID, Text(ThisItem.'Shift ID'));
                                     Set(varServiceTestType, Text(ThisItem.'Booking Element LookUp'.'Order Service LookUp'.'Service LookUp'.'Test Type'));
                                     Set(varLatestTestNumber, Max(Filter(BESA_Tests, 'Booking Element LookUp'.BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement), 'Test Number'));
-                                    //Set(varPreviousTestRecord, LookUp(BESA_Tests, 'Booking Element LookUp'.BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement && 'Test Number' = varLatestTestNumber));
-                                    Set(varPreviousTestRecord, LookUp(BESA_Tests, 'Booking Element LookUp'.BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement && 'Test Number' = varLatestTestNumber));
-                                If(
-                                    Text(ParseJSON(varPreviousTestRecord.TempSealingData).TempSealingStatus) <> "Complete",
-                                    ClearCollect(col_PrevTestsForRedo,
-                                        Filter(BESA_Tests,
-                                            'Booking Element LookUp'.BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement
+                                    // SQLite-safe: collect all test keys for this BE
+                                    Clear(_redoTestKeys);
+                                    ForAll(Filter(BESA_Tests,
+                                        Text('Booking Element LookUp'.BESA_BookingElement) = Text(ThisItem.'Booking Element LookUp'.BESA_BookingElement)
+                                    ) As t,
+                                        Collect(_redoTestKeys, {testGUID: Text(t.BESA_Test), testNum: t.'Test Number', tempSealing: t.TempSealingData})
+                                    );
+                                    // Find best previous test: prefer complete TempSealing, fallback to latest
+                                    Set(varPrevTestKey,
+                                        Coalesce(
+                                            First(Sort(Filter(_redoTestKeys, testNum = varLatestTestNumber && Text(ParseJSON(Coalesce(tempSealing, "{}")).TempSealingStatus) = "Complete"), testNum, SortOrder.Descending)),
+                                            First(Sort(Filter(_redoTestKeys, Text(ParseJSON(Coalesce(tempSealing, "{}")).TempSealingStatus) = "Complete"), testNum, SortOrder.Descending)),
+                                            First(Sort(Filter(_redoTestKeys, testNum = varLatestTestNumber), testNum, SortOrder.Descending))
                                         )
                                     );
-                                    Set(varPreviousTestRecord,
-                                        First(Sort(
-                                            Filter(col_PrevTestsForRedo,
-                                                Text(ParseJSON(TempSealingData).TempSealingStatus) = "Complete"
-                                            ),
-                                            'Test Number', SortOrder.Descending
-                                        ))
+                                    // Fetch full previous test record
+                                    ClearCollect(_prevTestBuf, {pk: varPrevTestKey.testGUID});
+                                    Clear(_prevTestResult);
+                                    ForAll(_prevTestBuf As g,
+                                        With({rec: First(Filter(BESA_Tests, Text(BESA_Test) = g.pk))},
+                                            If(!IsBlank(rec), Collect(_prevTestResult, rec))
+                                        )
                                     );
-                                    If(
-                                        IsBlank(varPreviousTestRecord),
-                                        Set(varPreviousTestRecord, LookUp(BESA_Tests,
-                                            'Booking Element LookUp'.BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement &&
-                                            'Test Number' = varLatestTestNumber
-                                        ))
-                                    )
-                                );
+                                    Set(varPreviousTestRecord, First(_prevTestResult));
+                                    // Get TempSealingData from Test #1 for this BE
+                                    Set(varTest1TempSealing, LookUp(_redoTestKeys, testNum = 1).tempSealing);
                                     Set(varDefaultTestData, JSON({ExternalTemperature:0,CorrectedExternalTemperature:0,BarometricPressure:0,CorrectedBarometricPressure:0,Windspeed:0,CorrectedWindspeed:0,AvgPositiveDp:0,AvgNegativeDp:0,AvgTotalDp:0,InternalTemperatures:[{RowNumber:1,Location:"",Temperature:0,CorrectedTemperature:0,Complete:false}],FanOffPressures:[]}));
-                                    
                                     Set(varPreviousRun1, LookUp(BESA_TestRuns, 'Test LookUp'.BESA_Test = varPreviousTestRecord.BESA_Test && 'Test No' = 1));
-                                
-                                    Set(varActionRecord, Patch(BESA_Tests, Defaults(BESA_Tests), {
-                                        'Booking Element LookUp': ThisItem.'Booking Element LookUp',
-                                        'Envelope LookUp': LookUp(BESA_Envelopes, 'Booking Element LookUp'.BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement),
-                                        'Shift LookUp': LookUp(BESA_Shifts, 'Shift ID' = varCurrentShiftID),
-                                        'Client LookUp': ThisItem.'Client LookUp', 'Booking LookUp': ThisItem.'Booking LookUp', 'Site LookUp': ThisItem.'Site LookUp',
-                                        'Test Status': "Pending", 'Test Number': varLatestTestNumber + 1,
-                                        'Section Status': JSON({TestDetails:"Pending",Envelope:"Pending",ReportExport:"Pending"}),
-                                        'Test Info': varPreviousTestRecord.'Test Info',
-                                        TempSealingData: LookUp(BESA_Tests, 'Booking Element LookUp'.BESA_BookingElement = ThisItem.'Booking Element LookUp'.BESA_BookingElement && 'Test Number' = 1).TempSealingData
-                                        //TempSealingData: If(!IsBlank(varPreviousRun1.TempSealingData), varPreviousRun1.TempSealingData, varPreviousTestRecord.TempSealingData)
-                                    }));
-                                     // Refresh so lookup chains (Service, Company, Plot) are populated
-                                    Set(varActionRecord, LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test));
+                                    // SQLite-safe Redo Patch: ForAll buffer for Envelope/Shift lookups
+                                    ClearCollect(_redoPatchBuf, {bePK: Text(ThisItem.'Booking Element LookUp'.BESA_BookingElement), shiftID: varCurrentShiftID});
+                                    Clear(_redoPatchResult);
+                                    ForAll(_redoPatchBuf As buf,
+                                        With({
+                                            envRec: First(Filter(BESA_Envelopes, Text('Booking Element LookUp'.BESA_BookingElement) = buf.bePK)),
+                                            shiftRec: First(Filter(BESA_Shifts, 'Shift ID' = buf.shiftID))
+                                        },
+                                            Collect(_redoPatchResult,
+                                                Patch(BESA_Tests, Defaults(BESA_Tests), {
+                                                    'Booking Element LookUp': ThisItem.'Booking Element LookUp',
+                                                    'Envelope LookUp': envRec,
+                                                    'Shift LookUp': shiftRec,
+                                                    'Client LookUp': ThisItem.'Client LookUp', 'Booking LookUp': ThisItem.'Booking LookUp', 'Site LookUp': ThisItem.'Site LookUp',
+                                                    'Test Status': "Pending", 'Test Number': varLatestTestNumber + 1,
+                                                    'Section Status': JSON({TestDetails:"Pending",Envelope:"Pending",ReportExport:"Pending"}),
+                                                    'Test Info': varPreviousTestRecord.'Test Info',
+                                                    TempSealingData: Coalesce(varTest1TempSealing, varPreviousTestRecord.TempSealingData)
+                                                })
+                                            )
+                                        )
+                                    );
+                                    Set(varActionRecord, First(_redoPatchResult));
+                                     // Refresh so lookup chains (Service, Company, Plot) are populated (SQLite-safe)
+                                    ClearCollect(_arBuf, {pk: Text(varActionRecord.BESA_Test)});
+                                    Clear(_arResult);
+                                    ForAll(_arBuf As g,
+                                        With({rec: First(Filter(BESA_Tests, Text(BESA_Test) = g.pk))},
+                                            If(!IsBlank(rec), Collect(_arResult, rec))
+                                        )
+                                    );
+                                    Set(varActionRecord, Coalesce(First(_arResult), varActionRecord));
                                     Set(varRedoRun1, Patch(BESA_TestRuns, Defaults(BESA_TestRuns), {
-                                        'Test LookUp': LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test), 'Test No': 1,
+                                        'Test LookUp': varActionRecord, 'Test No': 1,
                                         RunSelected: true, 'Test Name': "Run 1", 'Test Status': "Pending",
                                         PreTestData: varDefaultTestData, PostTestData: varDefaultTestData,
-                                        TestMetaData:       If(IsBlank(Text(ParseJSON(varPreviousRun1.TestMetaData).TestType)) || Text(ParseJSON(varPreviousRun1.TestMetaData).TestType) = "", JSON({DateTimeTest:"",Engineer:"",TestType:"Depressurisation",EngineerLocation:"",OpeningTargetPA:0,ClosingTargetPA:0,PressureStep:0,TargetPoints:0}), varPreviousRun1.TestMetaData), 
+                                        TestMetaData:       If(IsBlank(Text(ParseJSON(Coalesce(varPreviousRun1.TestMetaData, "{}")).TestType)) || Text(ParseJSON(Coalesce(varPreviousRun1.TestMetaData, "{}")).TestType) = "", JSON({DateTimeTest:"",Engineer:"",TestType:"Depressurisation",EngineerLocation:"",OpeningTargetPA:0,ClosingTargetPA:0,PressureStep:0,TargetPoints:0}), varPreviousRun1.TestMetaData), 
                                         EquipmentLocations: varPreviousRun1.EquipmentLocations, EquipmentItems: varPreviousRun1.EquipmentItems,
                                         SummaryResults: JSON({})
                                     }));
                                     If(varServiceTestType = "Plenum Test" || varServiceTestType = "Isolation Room Air Test" || varServiceTestType = "PassivHaus Test",
                                         Set(varPreviousRun2, LookUp(BESA_TestRuns, 'Test LookUp'.BESA_Test = varPreviousTestRecord.BESA_Test && 'Test No' = 2));
                                         Set(varRedoRun2, Patch(BESA_TestRuns, Defaults(BESA_TestRuns), {
-                                            'Test LookUp': LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test), 'Test No': 2,
+                                            'Test LookUp': varActionRecord, 'Test No': 2,
                                             RunSelected: true, 'Test Name': "Run 2", 'Test Status': "Pending",
                                             PreTestData: varDefaultTestData, PostTestData: varDefaultTestData,
-                                         
-                                            TestMetaData:       If(IsBlank(Text(ParseJSON(varPreviousRun2.TestMetaData).TestType)) || Text(ParseJSON(varPreviousRun2.TestMetaData).TestType) = "", JSON({DateTimeTest:"",Engineer:"",TestType:"Pressurisation",EngineerLocation:"",OpeningTargetPA:0,ClosingTargetPA:0,PressureStep:0,TargetPoints:0}), varPreviousRun2.TestMetaData),
-                                
+                                            
+                                            TestMetaData:       If(IsBlank(Text(ParseJSON(Coalesce(varPreviousRun2.TestMetaData, "{}")).TestType)) || Text(ParseJSON(Coalesce(varPreviousRun2.TestMetaData, "{}")).TestType) = "", JSON({DateTimeTest:"",Engineer:"",TestType:"Pressurisation",EngineerLocation:"",OpeningTargetPA:0,ClosingTargetPA:0,PressureStep:0,TargetPoints:0}), varPreviousRun2.TestMetaData),
+                                            
                                             EquipmentLocations: varPreviousRun2.EquipmentLocations, EquipmentItems: varPreviousRun2.EquipmentItems,
                                             SummaryResults: JSON({})
                                         }))
@@ -3340,31 +3348,31 @@ Screen_EngineerHome As screen:
                                         ForAll(Filter(BESA_TestRuns, 'Test LookUp'.BESA_Test = varActionRecord.BESA_Test) As run, {
                                             TestID: run.BESA_TestRun, TestName: run.'Test Name', RunSelected: run.RunSelected,
                                             TestNo: run.'Test No', TestStatus: run.'Test Status',
-                                            TestMetaData: ParseJSON(run.TestMetaData), PreTestData: ParseJSON(run.PreTestData),
-                                            PostTestData: ParseJSON(run.PostTestData),
+                                            TestMetaData: ParseJSON(Coalesce(run.TestMetaData, "{}")), PreTestData: ParseJSON(Coalesce(run.PreTestData, "{}")),
+                                            PostTestData: ParseJSON(Coalesce(run.PostTestData, "{}")),
                                             EquipmentLocations: If(IsBlank(run.EquipmentLocations) || run.EquipmentLocations = "[]",
                                                 Table({Location:"",SetNumber:"",TubeIdentifier:0,Engineer:Blank(),RowNumber:1}),
-                                                ForAll(ParseJSON(run.EquipmentLocations) As equipLoc, {
+                                                ForAll(ParseJSON(Coalesce(run.EquipmentLocations, "[]")) As equipLoc, {
                                                     Location: Text(equipLoc.Location), SetNumber: Text(equipLoc.SetNumber),
                                                     TubeIdentifier: Value(equipLoc.TubeIdentifier), Engineer: equipLoc.Engineer, RowNumber: Value(equipLoc.RowNumber)
                                                 })
                                             ),
                                             EquipmentItems: If(IsBlank(run.EquipmentItems) || run.EquipmentItems = "[]",
                                                 Table({SetNumber:"",SetLocationRef:0,EquipmentType:"",SerialNumber:"",Selected:false,ManometerType:"",FloorNo:0,LinkedFan:Blank(),LinkedFan_Range:Blank()}),
-                                                ForAll(ParseJSON(run.EquipmentItems) As equipItem, {
+                                                ForAll(ParseJSON(Coalesce(run.EquipmentItems, "[]")) As equipItem, {
                                                     SetNumber: Text(equipItem.SetNumber), SetLocationRef: Value(equipItem.SetLocationRef),
                                                     EquipmentType: Text(equipItem.EquipmentType), SerialNumber: Text(equipItem.SerialNumber),
                                                     Selected: Boolean(equipItem.Selected), ManometerType: Text(equipItem.ManometerType),
                                                     FloorNo: Value(equipItem.FloorNo), LinkedFan: equipItem.LinkedFan, LinkedFan_Range: equipItem.LinkedFan_Range
                                                 })
                                             ),
-                                            SummaryResults: ParseJSON(run.SummaryResults)
+                                            SummaryResults: ParseJSON(Coalesce(run.SummaryResults, "{}"))
                                         })
                                     );
                                     Set(varSelectedRunCount,        Sum(col_TestRun, If(RunSelected, 1, 0)));
                                     //Set(varPressurisationSelected,  Sum(col_TestRun, If(RunSelected && Text(TestMetaData.TestType) = "Pressurisation",  1, 0)) >= 1);
                                     //Set(varDepressurisationSelected,Sum(col_TestRun, If(RunSelected && Text(TestMetaData.TestType) = "Depressurisation", 1, 0)) >= 1);
-                                
+                                    
                                     Collect(col_ShiftTimeline, {
                                         RowType: "Action", ShiftActionID: GUID(), 'Shift ID': ThisItem.'Shift ID',
                                         'Action Type': "Service",
@@ -3377,8 +3385,8 @@ Screen_EngineerHome As screen:
                                         TestNumber: varLatestTestNumber + 1,
                                         SortOrder: ThisItem.SortOrder + 1
                                     });
-                                    Set(varSectionStatus, ParseJSON(varActionRecord.'Section Status'));
-                                    Set(varTestInfo, ParseJSON(varActionRecord.'Test Info'));
+                                    Set(varSectionStatus, ParseJSON(Coalesce(varActionRecord.'Section Status', "{}")));
+                                    Set(varTestInfo, ParseJSON(Coalesce(varActionRecord.'Test Info', "{}")));
                                     ClearCollect(
                                     col_PermTestMenu,
                                     {MenuLabel:"Test Details",   MenuCategory:"Test Details",  Status:"Pending", Sort:1, DisplayLabel:"Test Details ⚠️"},
@@ -3386,7 +3394,7 @@ Screen_EngineerHome As screen:
                                     {MenuLabel:"Temp Sealing",   MenuCategory:"Temp Sealing",   Status:"Pending", Sort:3, DisplayLabel:"Temp Sealing ⚠️"},
                                     {MenuLabel:"Test Data - Run 1", MenuCategory:"Test Data",   Status:"Pending", Sort:4, DisplayLabel:"Test Data - Run 1 ⚠️"}
                                     );
-                                
+                                    
                                     If(varServiceTestType = "Plenum Test" || varServiceTestType = "Isolation Room Air Test" || varServiceTestType = "PassivHaus Test",
                                         Collect(col_PermTestMenu, {MenuLabel:"Test Data - Run 2",MenuCategory:"Test Data",Status:"Pending",Sort:5,DisplayLabel:"Test Data - Run 2 ⚠️"})
                                     );
@@ -3405,7 +3413,7 @@ Screen_EngineerHome As screen:
                             X: =Parent.Width - 56
                             Y: =-5
                             ZIndex: =9
-
+                        
                         toolbarTestDelete As Toolbar.pcfdataset:
                             AccessibleLabel: =""
                             Alignment: ='Toolbar.Alignment'.Vertical
@@ -3449,12 +3457,12 @@ Screen_EngineerHome As screen:
                             X: =Parent.Width - 56
                             Y: =-5
                             ZIndex: =10
-
+                        
                         lblTestNumber As label:
                             BorderColor: =App.Theme.Colors.Darker40
                             Height: =32
                             Size: =11
-                            Text: |+
+                            Text: |
                                 =
                                 With(
                                     {
@@ -3467,19 +3475,18 @@ Screen_EngineerHome As screen:
                                         If( ThisItem.'Action Status' = "Pending",
                                                 "Test not completed yet",
                                                 "Test " & Text(testRec.'Test Number')) )
-                                
                             Visible: |
                                 =ThisItem.'Action Type' = "Service" && !IsBlank(ThisItem.'Booking Element LookUp'.'Order Service LookUp'.'Service LookUp'.'Test Type')
                             Width: =170
                             Wrap: =false
                             X: =861
                             ZIndex: =11
-
+                        
                         Text1 As modernText:
                             Text: =ThisItem.'Action Type'
                             X: =631
                             ZIndex: =12
-
+                        
                         btnEngineerAction_1 As Button:
                             AcceptsFocus: =true
                             AccessibleLabel: =""
@@ -3534,19 +3541,19 @@ Screen_EngineerHome As screen:
                                         "Airborne & Impact Test",
                                         "General Acoustic Testing"
                                     ],
-                                
+                                    
                                     // ═══════════════════════════════════════
                                     //  ACOUSTIC — completely separate path
                                     // ═══════════════════════════════════════
-                                
+                                    
                                     If(
                                         Connection.Connected,
                                         Notify("Online",NotificationType.Success);
-                                
+                                        
                                         // ══════════════════════════════════════
                                         // ONLINE PATH
                                         // ══════════════════════════════════════
-                                
+                                        
                                         Set(
                                             varExistingTest,
                                             LookUp(
@@ -3556,10 +3563,10 @@ Screen_EngineerHome As screen:
                                                     && 'Test Status' = "Pending"
                                             )
                                         );
-                                
+                                        
                                         If(
                                             IsBlank(varExistingTest),
-                                
+                                            
                                             // ── Create new test ──
                                             Set(
                                                 varActionRecord,
@@ -3615,7 +3622,7 @@ Screen_EngineerHome As screen:
                                             );
                                             Set(varCurrentActionID, ThisItem.ShiftActionID);
                                             Set(varTestViewMode, false),
-                                
+                                            
                                             // ── Use existing test ──
                                             // Set(varActionRecord, varExistingTest)
                                             // Set(varActionRecord, Patch(BESA_Tests, varExistingTest, {}))
@@ -3623,12 +3630,16 @@ Screen_EngineerHome As screen:
                                                 "GUID: " & Text(varExistingTest.BESA_Test),
                                                 NotificationType.Information
                                             );
-                                            IfError(
-                                                Set(
-                                                    varActionRecord,
-                                                    LookUp(BESA_Tests, BESA_Test = varExistingTest.BESA_Test)
-                                                ),
-                                                Notify("Error: " & FirstError.Message, NotificationType.Error)
+                                            ClearCollect(_arBuf, {pk: Text(varExistingTest.BESA_Test)});
+                                            Clear(_arResult);
+                                            ForAll(_arBuf As g,
+                                                With({rec: First(Filter(BESA_Tests, Text(BESA_Test) = g.pk))},
+                                                    If(!IsBlank(rec), Collect(_arResult, rec))
+                                                )
+                                            );
+                                            If(!IsEmpty(_arResult),
+                                                Set(varActionRecord, First(_arResult)),
+                                                Notify("Error: Test not found", NotificationType.Error)
                                             );
                                         );
                                         ClearCollect(
@@ -3636,14 +3647,14 @@ Screen_EngineerHome As screen:
                                             {
                                                 // ── Primary key ──
                                                 TestGUID: Text(varActionRecord.BESA_Test),
-                                
+                                                
                                                 // ── Flattened lookups (store GUIDs only) ──
                                                 BookingElementGUID: Text(varActionRecord.'Booking Element LookUp'.BESA_BookingElement),
-                                                ShiftGUID: Text(varActionRecord.'Shift LookUp'.'Shift ID'),
+                                                ShiftGUID: varActionRecord.'Shift LookUp'.'Shift ID',
                                                 ClientGUID: Text(varActionRecord.'Client LookUp'.BESA_Client),
                                                 BookingGUID: Text(varActionRecord.'Booking LookUp'.'Booking ID'),
                                                 SiteGUID: Text(varActionRecord.'Site LookUp'.'Site ID'),
-                                
+                                                
                                                 // ── Scalar fields (already flat) ──
                                                 TestStatus: varActionRecord.'Test Status',
                                                 TestNumber: varActionRecord.'Test Number',
@@ -3652,7 +3663,7 @@ Screen_EngineerHome As screen:
                                             }
                                         );
                                         IfError(SaveData(col_ActionRecordCache, "col_ActionRecordCache_offline"), Blank());
-                                
+                                        
                                         // Client info (both online and offline paths)
                                         Set(
                                             varClientInfo,
@@ -3678,20 +3689,20 @@ Screen_EngineerHome As screen:
                                             }
                                         );
                                         IfError(SaveData(col_ClientInfoCache, "col_ClientInfoCache_offline"), Blank());
-                                
+                                        
                                         // ── Create default Run 1 + Partition A if no runs ──
                                         If(
                                             CountRows(
                                                 Filter(BESA_TestRuns, 'Test LookUp'.BESA_Test = varActionRecord.BESA_Test)
                                             ) = 0,
-                                
+                                            
                                             UpdateContext(
                                                 {
                                                     varDefaultRun: Patch(
                                                         BESA_TestRuns,
                                                         Defaults(BESA_TestRuns),
                                                         {
-                                                            'Test LookUp': LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test),
+                                                            'Test LookUp': varActionRecord,
                                                             'Test Name': "Run 1",
                                                             'Run Date': Today(),
                                                             Engineer: "",
@@ -3706,7 +3717,7 @@ Screen_EngineerHome As screen:
                                                 BESA_TestRuns,
                                                 Defaults(BESA_TestRuns),
                                                 {
-                                                    'Test LookUp': LookUp(BESA_Tests, BESA_Test = varActionRecord.BESA_Test),
+                                                    'Test LookUp': varActionRecord,
                                                     'Parent Run GUID': Text(varDefaultRun.BESA_TestRun),
                                                     'Run Type': "Partition",
                                                     'Test No': 1,
@@ -3749,7 +3760,7 @@ Screen_EngineerHome As screen:
                                                 }
                                             )
                                         );
-                                
+                                        
                                         // ── Cache test record locally for offline fallback ──
                                         Collect(
                                             col_OfflineTests,
@@ -3771,11 +3782,11 @@ Screen_EngineerHome As screen:
                                                 Blank()
                                             )
                                         ),
-                                
+                                        
                                         // ══════════════════════════════════════
                                         // OFFLINE PATH
                                         // ══════════════════════════════════════
-                                
+                                        
                                         // ── Check local cache for existing test ──
                                         Set(
                                             varExistingOfflineTest,
@@ -3786,14 +3797,14 @@ Screen_EngineerHome As screen:
                                                     && TestStatus = "Pending"
                                             )
                                         );
-                                
+                                        
                                         If(
                                             IsBlank(varExistingOfflineTest),
-                                
+                                            
                                             // ── Create locally + queue for sync ──
                                             With(
                                                 { _localTestID: Text(GUID()) },
-                                
+                                                
                                                 Set(
                                                     varOfflineTestRecord,
                                                     {
@@ -3865,13 +3876,13 @@ Screen_EngineerHome As screen:
                                                         }
                                                     );
                                                 );
-                                
+                                                
                                                 Collect(col_OfflineTests, varOfflineTestRecord);
-                                
+                                                
                                                 // ── Queue default Run 1 ──
                                                 With(
                                                     { _localRunID: Text(GUID()) },
-                                
+                                                    
                                                     Collect(
                                                         col_OfflineTestRuns,
                                                         {
@@ -3891,7 +3902,7 @@ Screen_EngineerHome As screen:
                                                             Synced: false
                                                         }
                                                     );
-                                
+                                                    
                                                     // ── Queue default Partition A ──
                                                     Collect(
                                                         col_OfflineTestRuns,
@@ -3945,35 +3956,35 @@ Screen_EngineerHome As screen:
                                                     )
                                                 )
                                             );
-                                
+                                            
                                             Set(varCurrentActionID, ThisItem.ShiftActionID);
                                             Set(varTestViewMode, false),
-                                
+                                            
                                             // ── Use existing offline test ──
                                             Set(varOfflineTestRecord, varExistingOfflineTest)
                                         );
-                                
+                                        
                                         // ── Persist offline queues ──
                                         SaveData(col_OfflineTests, "col_OfflineTests_offline");
                                         SaveData(col_OfflineTestRuns, "col_OfflineTestRuns_offline");
-                                
+                                        
                                         // ── Build varSectionStatus / varTestInfo from offline record ──
-                                        Set(varSectionStatus, ParseJSON(varOfflineTestRecord.SectionStatus));
-                                        Set(varTestInfo, ParseJSON(varOfflineTestRecord.TestInfo))
+                                        Set(varSectionStatus, ParseJSON(Coalesce(varOfflineTestRecord.SectionStatus, "{}")));
+                                        Set(varTestInfo, ParseJSON(Coalesce(varOfflineTestRecord.TestInfo, "{}")))
                                     );
-                                
+                                    
                                     // ══════════════════════════════════════════════
                                     // SHARED — runs for both online and offline
                                     // Parse section status + collect runs/partitions
                                     // ══════════════════════════════════════════════
-                                
+                                    
                                     If(
                                         Connection.Connected,
-                                
+                                        
                                         // ── Online: parse from Dataverse record ──
-                                        Set(varSectionStatus, ParseJSON(varActionRecord.'Section Status'));
-                                        Set(varTestInfo, ParseJSON(varActionRecord.'Test Info'));
-                                
+                                        Set(varSectionStatus, ParseJSON(Coalesce(varActionRecord.'Section Status', "{}")));
+                                        Set(varTestInfo, ParseJSON(Coalesce(varActionRecord.'Test Info', "{}")));
+                                        
                                         // ── Collect runs from Dataverse ──
                                         ClearCollect(
                                             col_AcousticTestRuns,
@@ -3994,7 +4005,7 @@ Screen_EngineerHome As screen:
                                                 }
                                             )
                                         );
-                                
+                                        
                                         // ── Collect partitions from Dataverse ──
                                         ClearCollect(
                                             col_AcousticPartitions,
@@ -4065,18 +4076,18 @@ Screen_EngineerHome As screen:
                                                 )
                                             )
                                         );
-                                
+                                        
                                         // ── Cache runs + partitions for offline ──
                                         IfError(SaveData(col_AcousticTestRuns, "col_AcousticTestRuns_offline"),Blank());
                                         IfError(SaveData(col_AcousticPartitions, "col_AcousticPartitions_offline"),Blank()),
-                                
+                                        
                                         // ══════════════════════════════════════
                                         // OFFLINE: Build collections from local queue
                                         // ══════════════════════════════════════
-                                
+                                        
                                         With(
                                             { _testID: varOfflineTestRecord.LocalID },
-                                
+                                            
                                             ClearCollect(
                                                 col_AcousticTestRuns,
                                                 ForAll(
@@ -4093,7 +4104,7 @@ Screen_EngineerHome As screen:
                                                     }
                                                 )
                                             );
-                                
+                                            
                                             ClearCollect(
                                                 col_AcousticPartitions,
                                                 ForAll(
@@ -4157,7 +4168,7 @@ Screen_EngineerHome As screen:
                                             )
                                         )
                                     );
-                                
+                                    
                                     // ── Build menu (same for both paths) ──
                                     ClearCollect(
                                         col_AcousticTestMenu,
@@ -4186,14 +4197,14 @@ Screen_EngineerHome As screen:
                                             DisplayLabel: "Report & Export " & If(Text(varSectionStatus.ReportExport) = "Complete", "✓", "⚠️")
                                         }*/
                                     );
-                                
+                                    
                                     Set(
                                         varSelectedTestRunID,
                                         First(SortByColumns(col_AcousticTestRuns, "RunLabel", SortOrder.Ascending)).TestRunID
                                     );
-                                
+                                    
                                     Navigate(Screen_EngineerAcoustic_1),
-                                
+                                    
                                     // ═══════════════════════════════════════
                                     //  PERM TEST — only runs if NOT acoustic
                                     // ═══════════════════════════════════════
@@ -4250,7 +4261,7 @@ Screen_EngineerHome As screen:
                             X: =1050
                             Y: =0
                             ZIndex: =13
-
+                
                 Label3_613 As label:
                     Height: =35
                     Italic: =true
@@ -4261,7 +4272,7 @@ Screen_EngineerHome As screen:
                     X: =5
                     Y: =76
                     ZIndex: =7
-
+                
                 Label3_607 As label:
                     Align: =Align.Right
                     Color: =RGBA(255, 255, 255, 1)
@@ -4269,12 +4280,11 @@ Screen_EngineerHome As screen:
                     Height: =33
                     Size: =11
                     Text: |
-                        =
-                        "Est. Total Hours: " & Coalesce(Sum(Filter(BESA_Shifts, 'User GUID' = varStaffViewBESAID && 'Shift Date' >= dateEngineerSelectedView_1.SelectedDate && 'Shift Date' < DateAdd(dateEngineerSelectedView_1.SelectedDate, 1, TimeUnit.Days)), 'Estimated Duration'), 0)
+                        ="Est. Total Hours: " & Coalesce(Sum(Filter(col_ShiftTimeline, RowType = "Shift"), 'Estimated Duration'), 0)
                     Width: =249
                     X: =380
                     ZIndex: =21
-
+                
                 Label3_652 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =32
@@ -4284,14 +4294,14 @@ Screen_EngineerHome As screen:
                     X: =380
                     Y: =36
                     ZIndex: =80
-
+    
     rectBackgroundPopUps_12 As rectangle:
         Fill: =RGBA(245, 245, 245, 0.51)
         Height: =768
         Visible: =varEngineerViewSite || varRAMS || varInductionForm || varMiscAction || varServiceAction
         Width: =1366
         ZIndex: =6
-
+    
     containerShiftMiscAction As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(106, 122, 127, 1)
         BorderThickness: =1
@@ -4306,13 +4316,13 @@ Screen_EngineerHome As screen:
         X: =461
         Y: =280
         ZIndex: =7
-
+        
         Rectangle2_136 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =445
             ZIndex: =1
-
+        
         TextCanvas3_47 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -4339,7 +4349,7 @@ Screen_EngineerHome As screen:
             X: =31
             Y: =0
             ZIndex: =2
-
+        
         Icon17_35 As icon:
             Color: =RGBA(255, 138, 140, 1)
             Height: =32
@@ -4351,7 +4361,7 @@ Screen_EngineerHome As screen:
             Width: =22
             X: =410
             ZIndex: =3
-
+        
         iconViewSiteDetails_5 As icon:
             Color: =RGBA(255, 255, 255, 1)
             Height: =35
@@ -4362,7 +4372,7 @@ Screen_EngineerHome As screen:
             Width: =32
             Y: =1
             ZIndex: =4
-
+        
         Label3_614 As label:
             Italic: =true
             Size: =11
@@ -4373,7 +4383,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =40
             ZIndex: =5
-
+        
         checkSiteInductionConfirmation_3 As Checkbox:
             AccessibleLabel: =""
             BasePaletteColor: =
@@ -4400,7 +4410,7 @@ Screen_EngineerHome As screen:
             X: =11
             Y: =87
             ZIndex: =6
-
+        
         ButtonCanvas8_17 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -4416,7 +4426,7 @@ Screen_EngineerHome As screen:
                     DisplayMode.Disabled,
                     
                     DisplayMode.Edit
-                      
+                    
                     )
             Font: =""
             FontColor: =
@@ -4454,7 +4464,7 @@ Screen_EngineerHome As screen:
             X: =118
             Y: =138
             ZIndex: =7
-
+    
     containerSiteInductionForm_2 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(106, 122, 127, 1)
         BorderThickness: =1
@@ -4469,13 +4479,13 @@ Screen_EngineerHome As screen:
         X: =461
         Y: =92
         ZIndex: =8
-
+        
         Rectangle2_133 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =445
             ZIndex: =1
-
+        
         TextCanvas3_46 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -4502,7 +4512,7 @@ Screen_EngineerHome As screen:
             X: =31
             Y: =0
             ZIndex: =2
-
+        
         Icon17_34 As icon:
             Color: =RGBA(255, 138, 140, 1)
             Height: =32
@@ -4521,7 +4531,7 @@ Screen_EngineerHome As screen:
             Width: =22
             X: =410
             ZIndex: =3
-
+        
         iconViewSiteDetails_3 As icon:
             Color: =RGBA(255, 255, 255, 1)
             Height: =35
@@ -4532,7 +4542,7 @@ Screen_EngineerHome As screen:
             Width: =32
             Y: =1
             ZIndex: =4
-
+        
         Label3_599 As label:
             Height: =30
             Italic: =true
@@ -4542,7 +4552,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =40
             ZIndex: =5
-
+        
         Label3_600 As label:
             FontWeight: =FontWeight.Semibold
             Height: =35
@@ -4553,7 +4563,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =75
             ZIndex: =6
-
+        
         inputSiteInductionSiteName_1 As text:
             BorderColor: =RGBA(139, 154, 159, 1)
             BorderThickness: =0
@@ -4580,7 +4590,7 @@ Screen_EngineerHome As screen:
             X: =125
             Y: =75
             ZIndex: =7
-
+        
         Label3_601 As label:
             FontWeight: =FontWeight.Semibold
             Height: =35
@@ -4591,7 +4601,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =110
             ZIndex: =8
-
+        
         inputSiteInductionClientName_1 As text:
             BorderColor: =RGBA(139, 154, 159, 1)
             BorderThickness: =0
@@ -4618,7 +4628,7 @@ Screen_EngineerHome As screen:
             X: =125
             Y: =110
             ZIndex: =9
-
+        
         Label3_602 As label:
             FontWeight: =FontWeight.Semibold
             Height: =35
@@ -4629,7 +4639,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =145
             ZIndex: =10
-
+        
         inputSiteInductionCurrentDate_1 As text:
             BorderColor: =RGBA(139, 154, 159, 1)
             BorderThickness: =0
@@ -4656,7 +4666,7 @@ Screen_EngineerHome As screen:
             X: =125
             Y: =145
             ZIndex: =11
-
+        
         Label3_603 As label:
             FontWeight: =FontWeight.Semibold
             Height: =35
@@ -4666,7 +4676,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =180
             ZIndex: =12
-
+        
         inputSiteInductionExpiration_1 As datepicker:
             BorderThickness: =0
             CalendarHeaderFill: =App.Theme.Colors.Primary
@@ -4687,7 +4697,7 @@ Screen_EngineerHome As screen:
             X: =125
             Y: =180
             ZIndex: =13
-
+        
         "InfoButtonCanvas8_1 As 'Information button'":
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -4716,7 +4726,7 @@ Screen_EngineerHome As screen:
             X: =93
             Y: =184
             ZIndex: =14
-
+        
         Label3_604 As label:
             FontWeight: =FontWeight.Semibold
             Height: =35
@@ -4726,7 +4736,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =227
             ZIndex: =15
-
+        
         inputSiteInductionComments_1 As text:
             BorderColor: =RGBA(139, 154, 159, 1)
             BorderThickness: =0
@@ -4752,7 +4762,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =262
             ZIndex: =16
-
+        
         Label3_605 As label:
             FontWeight: =FontWeight.Semibold
             Height: =35
@@ -4762,7 +4772,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =306
             ZIndex: =17
-
+        
         attachmentSiteInductionForm_1 As attachments:
             AddAttachmentText: ="Upload file"
             AttachedFileListLabel: ="Attached files"
@@ -4789,7 +4799,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =341
             ZIndex: =18
-
+        
         checkSiteInductionConfirmation_2 As Checkbox:
             AccessibleLabel: =""
             BasePaletteColor: =
@@ -4816,7 +4826,7 @@ Screen_EngineerHome As screen:
             X: =11
             Y: =448
             ZIndex: =19
-
+        
         ButtonCanvas8_16 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -4832,7 +4842,7 @@ Screen_EngineerHome As screen:
                     DisplayMode.Disabled,
                     
                     DisplayMode.Edit
-                      
+                    
                     )
             Font: =""
             FontColor: =
@@ -4895,13 +4905,13 @@ Screen_EngineerHome As screen:
                     CountRows(
                         Filter(col_ShiftTimeline, 'Shift ID' = varActionRecord.'Shift ID' && RowType = "Action" && ('Action Status' = "Completed" || 'Action Status' = "Aborted"))
                     ),
-                
+                    
                     Patch(
                         col_ShiftTimeline,
                         LookUp(col_ShiftTimeline, 'Shift ID' = varActionRecord.'Shift ID' && RowType = "Shift"),
                         { 'Action Status': "Complete" }
                     );
-                
+                    
                     Patch(
                         BESA_Shifts,
                         LookUp(BESA_Shifts, 'Shift ID' = varActionRecord.'Shift ID'),
@@ -4929,7 +4939,7 @@ Screen_EngineerHome As screen:
             X: =119
             Y: =533
             ZIndex: =20
-
+    
     containerEngineerViewSite As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(106, 122, 127, 1)
         BorderThickness: =1
@@ -4944,7 +4954,7 @@ Screen_EngineerHome As screen:
         X: =272
         Y: =99
         ZIndex: =9
-
+        
         conSiteSite_3 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Semilight
             Fill: =RGBA(255, 255, 255, 1)
@@ -4957,7 +4967,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =45
             ZIndex: =2
-
+            
             Toggle2_7 As Toggle:
                 AccessibleLabel: =""
                 BasePaletteColor: =
@@ -4985,7 +4995,7 @@ Screen_EngineerHome As screen:
                 X: =555
                 Y: =210
                 ZIndex: =1
-
+            
             "DatePickerCanvas1_12 As 'Date picker'":
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -5020,7 +5030,7 @@ Screen_EngineerHome As screen:
                 X: =130
                 Y: =135
                 ZIndex: =2
-
+            
             ButtonCanvas1_23 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -5056,7 +5066,7 @@ Screen_EngineerHome As screen:
                 X: =inputAccessIn_5.X + inputAccessIn_5.Width + 5
                 Y: =58
                 ZIndex: =3
-
+            
             ButtonCanvas1_24 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -5092,7 +5102,7 @@ Screen_EngineerHome As screen:
                 X: =inputAddShiftType_47.X + inputAddShiftType_47.Width + 5
                 Y: =98
                 ZIndex: =4
-
+            
             ButtonCanvas1_25 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -5128,7 +5138,7 @@ Screen_EngineerHome As screen:
                 X: =inputAddShiftType_48.X + inputAddShiftType_48.Width + 5
                 Y: =138
                 ZIndex: =5
-
+            
             inputSiteName_13 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -5154,7 +5164,7 @@ Screen_EngineerHome As screen:
                 X: =135
                 Y: =90
                 ZIndex: =6
-
+            
             Label3_615 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5165,7 +5175,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =95
                 ZIndex: =7
-
+            
             Label3_616 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5176,7 +5186,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =135
                 ZIndex: =8
-
+            
             Label3_617 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5187,7 +5197,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =175
                 ZIndex: =9
-
+            
             Label3_618 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5198,7 +5208,7 @@ Screen_EngineerHome As screen:
                 X: =620
                 Y: =175
                 ZIndex: =10
-
+            
             Label3_619 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5209,7 +5219,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =210
                 ZIndex: =11
-
+            
             Label3_620 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5221,7 +5231,7 @@ Screen_EngineerHome As screen:
                 X: =435
                 Y: =138
                 ZIndex: =12
-
+            
             Label3_621 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5232,7 +5242,7 @@ Screen_EngineerHome As screen:
                 X: =435
                 Y: =98
                 ZIndex: =13
-
+            
             Label3_622 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5243,7 +5253,7 @@ Screen_EngineerHome As screen:
                 X: =435
                 Y: =58
                 ZIndex: =14
-
+            
             Label3_623 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5254,7 +5264,7 @@ Screen_EngineerHome As screen:
                 X: =435
                 Y: =210
                 ZIndex: =15
-
+            
             Label3_624 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5265,7 +5275,7 @@ Screen_EngineerHome As screen:
                 X: =435
                 Y: =175
                 ZIndex: =16
-
+            
             DropdownCanvas1_51 As Dropdown.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -5288,7 +5298,7 @@ Screen_EngineerHome As screen:
                 X: =285
                 Y: =210
                 ZIndex: =17
-
+            
             ComboboxCanvas3_3 As Combobox.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -5318,7 +5328,7 @@ Screen_EngineerHome As screen:
                 X: =130
                 Y: =175
                 ZIndex: =18
-
+                
                 "'Equipment Name1_3' As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn":
                     FieldDisplayName: ="Equipment Name"
                     FieldName: ="Equipment Name"
@@ -5326,7 +5336,7 @@ Screen_EngineerHome As screen:
                     Order: =1
                     Type: ="s"
                     ZIndex: =1
-
+            
             DropdownCanvas1_52 As Dropdown.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -5349,7 +5359,7 @@ Screen_EngineerHome As screen:
                 X: =285
                 Y: =135
                 ZIndex: =19
-
+            
             DropdownCanvas1_53 As Dropdown.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -5372,7 +5382,7 @@ Screen_EngineerHome As screen:
                 X: =130
                 Y: =210
                 ZIndex: =20
-
+            
             inputAccessIn_5 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -5398,7 +5408,7 @@ Screen_EngineerHome As screen:
                 X: =555
                 Y: =58
                 ZIndex: =21
-
+            
             inputAddShiftType_47 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -5424,7 +5434,7 @@ Screen_EngineerHome As screen:
                 X: =555
                 Y: =98
                 ZIndex: =22
-
+            
             inputAddShiftType_48 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -5450,7 +5460,7 @@ Screen_EngineerHome As screen:
                 X: =555
                 Y: =138
                 ZIndex: =23
-
+            
             Label3_625 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5461,7 +5471,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =55
                 ZIndex: =24
-
+            
             ComboboxCanvas1_5 As Combobox.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -5492,7 +5502,7 @@ Screen_EngineerHome As screen:
                 X: =130
                 Y: =55
                 ZIndex: =25
-
+                
                 ClientName2_4 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
                     FieldDisplayName: ="ClientName"
                     FieldName: ="ClientName"
@@ -5500,13 +5510,13 @@ Screen_EngineerHome As screen:
                     Order: =1
                     Type: ="s"
                     ZIndex: =1
-
+            
             Rectangle2_138 As rectangle:
                 Fill: =RGBA(7, 110, 108, 1)
                 Height: =35
                 Width: =Parent.Width
                 ZIndex: =26
-
+            
             TextCanvas19_391 As Text:
                 Align: ='TextCanvas.Align'.Start
                 AutoHeight: =false
@@ -5535,7 +5545,7 @@ Screen_EngineerHome As screen:
                 X: =5
                 Y: =0
                 ZIndex: =27
-
+            
             CheckboxCanvas2_5 As Checkbox:
                 AccessibleLabel: =""
                 BasePaletteColor: =
@@ -5562,7 +5572,7 @@ Screen_EngineerHome As screen:
                 X: =555
                 Y: =175
                 ZIndex: =28
-
+            
             CheckboxCanvas2_6 As Checkbox:
                 AccessibleLabel: =""
                 BasePaletteColor: =
@@ -5589,7 +5599,7 @@ Screen_EngineerHome As screen:
                 X: =755
                 Y: =175
                 ZIndex: =29
-
+            
             inputAddShiftType_49 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -5616,7 +5626,7 @@ Screen_EngineerHome As screen:
                 X: =130
                 Y: =250
                 ZIndex: =30
-
+            
             Label3_626 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5627,7 +5637,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =250
                 ZIndex: =31
-
+            
             inputAddShiftType_50 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -5653,7 +5663,7 @@ Screen_EngineerHome As screen:
                 X: =555
                 Y: =250
                 ZIndex: =32
-
+            
             Label3_627 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5664,7 +5674,7 @@ Screen_EngineerHome As screen:
                 X: =435
                 Y: =250
                 ZIndex: =33
-
+            
             inputAddShiftType_52 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -5690,7 +5700,7 @@ Screen_EngineerHome As screen:
                 X: =555
                 Y: =290
                 ZIndex: =34
-
+            
             Label3_628 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5701,7 +5711,7 @@ Screen_EngineerHome As screen:
                 X: =435
                 Y: =290
                 ZIndex: =35
-
+            
             Label3_629 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5712,7 +5722,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =330
                 ZIndex: =36
-
+            
             DropdownCanvas2_5 As Dropdown.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -5734,7 +5744,7 @@ Screen_EngineerHome As screen:
                 X: =130
                 Y: =330
                 ZIndex: =37
-
+            
             inputAddShiftType_53 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -5761,7 +5771,7 @@ Screen_EngineerHome As screen:
                 X: =130
                 Y: =290
                 ZIndex: =38
-
+            
             Label3_630 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5772,7 +5782,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =290
                 ZIndex: =39
-
+            
             inputAddShiftType_54 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -5798,7 +5808,7 @@ Screen_EngineerHome As screen:
                 X: =555
                 Y: =330
                 ZIndex: =40
-
+            
             Label3_631 As label:
                 Align: =Align.Right
                 FontWeight: =FontWeight.Semibold
@@ -5809,13 +5819,13 @@ Screen_EngineerHome As screen:
                 X: =430
                 Y: =330
                 ZIndex: =41
-
+        
         Rectangle2_139 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =Parent.Width
             ZIndex: =3
-
+        
         TextCanvas3_48 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -5842,7 +5852,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =0
             ZIndex: =4
-
+        
         Icon17_36 As icon:
             Color: =RGBA(255, 138, 140, 1)
             Height: =32
@@ -5882,7 +5892,7 @@ Screen_EngineerHome As screen:
             Width: =22
             X: =788
             ZIndex: =5
-
+        
         ButtonCanvas12_33 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -5926,7 +5936,7 @@ Screen_EngineerHome As screen:
                         'Access Instructions':inputAccessIn_5.Text,
                         'Parking Infomraiton':inputAddShiftType_47.Text,
                         'Security Clearance':inputAddShiftType_48.Text,
-                        Heating:CheckboxCanvas2_5.Checked,'Address Line 1':inputAddShiftType_49,'Address Line 2':inputAddShiftType_53.Text,Postcode:inputAddShiftType_50.Text,Town:inputAddShiftType_52.Text,'Site Status':DropdownCanvas2_5.Selected.Value,SiteID:varTempSiteId,County:inputAddShiftType_54.Text,'Client Name':ComboboxCanvas1_5.Selected.ClientName
+                        Heating:CheckboxCanvas2_5.Checked,'Address Line 1':inputAddShiftType_49.Text,'Address Line 2':inputAddShiftType_53.Text,Postcode:inputAddShiftType_50.Text,Town:inputAddShiftType_52.Text,'Site Status':DropdownCanvas2_5.Selected.Value,SiteID:varTempSiteId,County:inputAddShiftType_54.Text,'Client Name':ComboboxCanvas1_5.Selected.ClientName
                     }
                 );
                 
@@ -5940,7 +5950,7 @@ Screen_EngineerHome As screen:
             X: =445
             Y: =515
             ZIndex: =6
-
+        
         ButtonCanvas12_34 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -5982,7 +5992,7 @@ Screen_EngineerHome As screen:
             X: =175
             Y: =515
             ZIndex: =7
-
+        
         Container3_8 As groupContainer.manualLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =260
@@ -5995,7 +6005,7 @@ Screen_EngineerHome As screen:
             X: =210
             Y: =100
             ZIndex: =9
-
+            
             inputAddShiftType_55 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6022,7 +6032,7 @@ Screen_EngineerHome As screen:
                 X: =150
                 Y: =42
                 ZIndex: =1
-
+            
             Label3_632 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6030,13 +6040,13 @@ Screen_EngineerHome As screen:
                 Text: =varNewSiteTextAreaPopupTitle
                 Y: =42
                 ZIndex: =2
-
+            
             Rectangle2_140 As rectangle:
                 Fill: =RGBA(7, 110, 108, 1)
                 Height: =35
                 Width: =Parent.Width
                 ZIndex: =3
-
+            
             TextCanvas3_49 As Text:
                 Align: ='TextCanvas.Align'.Start
                 AutoHeight: =false
@@ -6064,7 +6074,7 @@ Screen_EngineerHome As screen:
                 X: =0
                 Y: =0
                 ZIndex: =4
-
+            
             Icon17_37 As icon:
                 Color: =RGBA(255, 138, 140, 1)
                 Height: =32
@@ -6075,7 +6085,7 @@ Screen_EngineerHome As screen:
                 Width: =22
                 X: =Parent.Width - Self.Width - 5
                 ZIndex: =5
-
+            
             ButtonCanvas12_40 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -6117,7 +6127,7 @@ Screen_EngineerHome As screen:
                 X: =160
                 Y: =225
                 ZIndex: =6
-
+        
         Container3_9 As groupContainer.manualLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =330
@@ -6130,7 +6140,7 @@ Screen_EngineerHome As screen:
             X: =200
             Y: =50
             ZIndex: =10
-
+            
             inputAddShiftType_56 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6157,7 +6167,7 @@ Screen_EngineerHome As screen:
                 X: =150
                 Y: =41
                 ZIndex: =1
-
+            
             Label3_633 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6165,13 +6175,13 @@ Screen_EngineerHome As screen:
                 Text: ="Site Name"
                 Y: =41
                 ZIndex: =2
-
+            
             Rectangle2_141 As rectangle:
                 Fill: =RGBA(7, 110, 108, 1)
                 Height: =35
                 Width: =Parent.Width
                 ZIndex: =3
-
+            
             TextCanvas3_50 As Text:
                 Align: ='TextCanvas.Align'.Start
                 AutoHeight: =false
@@ -6199,7 +6209,7 @@ Screen_EngineerHome As screen:
                 X: =0
                 Y: =0
                 ZIndex: =4
-
+            
             Icon17_38 As icon:
                 Color: =RGBA(255, 138, 140, 1)
                 Height: =32
@@ -6210,7 +6220,7 @@ Screen_EngineerHome As screen:
                 Width: =22
                 X: =Parent.Width - Self.Width - 5
                 ZIndex: =5
-
+            
             ButtonCanvas12_41 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -6249,7 +6259,7 @@ Screen_EngineerHome As screen:
                 X: =160
                 Y: =295
                 ZIndex: =6
-
+            
             inputAddShiftType_57 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6276,7 +6286,7 @@ Screen_EngineerHome As screen:
                 X: =150
                 Y: =81
                 ZIndex: =7
-
+            
             Label3_634 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6284,7 +6294,7 @@ Screen_EngineerHome As screen:
                 Text: ="Site Address"
                 Y: =81
                 ZIndex: =8
-
+            
             inputAddShiftType_58 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6311,7 +6321,7 @@ Screen_EngineerHome As screen:
                 X: =150
                 Y: =121
                 ZIndex: =9
-
+            
             Label3_635 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6319,7 +6329,7 @@ Screen_EngineerHome As screen:
                 Text: ="Site Postcode"
                 Y: =121
                 ZIndex: =10
-
+            
             inputAddShiftType_59 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6346,7 +6356,7 @@ Screen_EngineerHome As screen:
                 X: =150
                 Y: =161
                 ZIndex: =11
-
+            
             Label3_636 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6354,7 +6364,7 @@ Screen_EngineerHome As screen:
                 Text: ="Site Town"
                 Y: =161
                 ZIndex: =12
-
+            
             Label3_637 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6362,7 +6372,7 @@ Screen_EngineerHome As screen:
                 Text: ="Site Status"
                 Y: =200
                 ZIndex: =13
-
+            
             DropdownCanvas2_6 As Dropdown.pcfdataset:
                 AccessibleLabel: =""
                 Appearance: ="FilledDarker"
@@ -6384,7 +6394,7 @@ Screen_EngineerHome As screen:
                 X: =150
                 Y: =200
                 ZIndex: =14
-
+    
     containerEngineerServiceAction As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(106, 122, 127, 1)
         Fill: =RGBA(255, 255, 255, 1)
@@ -6398,7 +6408,7 @@ Screen_EngineerHome As screen:
         X: =309
         Y: =36
         ZIndex: =10
-
+        
         Container5_1 As groupContainer.manualLayoutContainer:
             Height: =295
             LayoutGridColumnMinWidth: =0
@@ -6409,7 +6419,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =388
             ZIndex: =1
-
+            
             checkSiteInductionConfirmation_4 As Checkbox:
                 AccessibleLabel: =""
                 BasePaletteColor: =
@@ -6436,7 +6446,7 @@ Screen_EngineerHome As screen:
                 X: =22
                 Y: =250
                 ZIndex: =5
-
+            
             inputCommentsEngineerInput As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6462,7 +6472,7 @@ Screen_EngineerHome As screen:
                 X: =400
                 Y: =42
                 ZIndex: =61
-
+            
             Label3_644 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6472,7 +6482,7 @@ Screen_EngineerHome As screen:
                 X: =400
                 Y: =80
                 ZIndex: =62
-
+            
             Label3_643 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6482,7 +6492,7 @@ Screen_EngineerHome As screen:
                 X: =400
                 Y: =10
                 ZIndex: =63
-
+            
             attachmentSiteInductionForm_2 As attachments:
                 AddAttachmentText: ="Upload file"
                 AttachedFileListLabel: ="Attached files"
@@ -6509,7 +6519,7 @@ Screen_EngineerHome As screen:
                 X: =400
                 Y: =115
                 ZIndex: =64
-
+            
             Label3_649 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6519,7 +6529,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =10
                 ZIndex: =66
-
+            
             inputSiteInductionComments_3 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6546,7 +6556,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =42
                 ZIndex: =67
-
+            
             Label3_650 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6556,7 +6566,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =80
                 ZIndex: =68
-
+            
             inputEngineerResults As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6582,7 +6592,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =112
                 ZIndex: =69
-
+            
             ButtonCanvas8_18 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -6598,7 +6608,7 @@ Screen_EngineerHome As screen:
                         DisplayMode.Disabled,
                         
                         DisplayMode.Edit
-                          
+                        
                         )
                 Font: =""
                 FontColor: =
@@ -6614,9 +6624,10 @@ Screen_EngineerHome As screen:
                 Layout: ="Icon before"
                 OnSelect: |-
                     =
+                    // SQLite-safe: use varServiceRecord directly as Patch target
                     Patch(
                         BESA_BookingElements,
-                        LookUp(BESA_BookingElements, BESA_BookingElement = varServiceRecord.BESA_BookingElement),
+                        varServiceRecord,
                         {
                             'Booking Element Status':"Pending Completion",
                             'Engineer Results':    inputEngineerResults.Text,
@@ -6661,15 +6672,15 @@ Screen_EngineerHome As screen:
                         CountRows(
                             Filter(col_ShiftTimeline, 'Shift ID' = varActionRecord.'Shift ID' && RowType = "Action" && ('Action Status' = "Completed" || 'Action Status' = "Aborted"))
                         ),
-                    
+                        
                         
                         Patch(
                             col_ShiftTimeline,
                             LookUp(col_ShiftTimeline, 'Shift ID' = varActionRecord.'Shift ID' && RowType = "Shift"),
                             { 'Action Status': "Complete" }
                         );
-                    
-                       
+                        
+                        
                         Patch(
                             BESA_Shifts,
                             LookUp(BESA_Shifts, 'Shift ID' = varActionRecord.'Shift ID'),
@@ -6692,7 +6703,7 @@ Screen_EngineerHome As screen:
                 X: =235
                 Y: =250
                 ZIndex: =70
-
+            
             ButtonCanvas8_19 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -6725,7 +6736,7 @@ Screen_EngineerHome As screen:
                 X: =448
                 Y: =250
                 ZIndex: =71
-
+        
         Container5 As groupContainer.manualLayoutContainer:
             Height: =258
             LayoutGridColumnMinWidth: =0
@@ -6736,7 +6747,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =70
             ZIndex: =2
-
+            
             Label3_639 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6747,7 +6758,7 @@ Screen_EngineerHome As screen:
                 X: =394
                 Y: =11
                 ZIndex: =43
-
+            
             inputSiteInductionSiteName_2 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6774,7 +6785,7 @@ Screen_EngineerHome As screen:
                 X: =509
                 Y: =11
                 ZIndex: =44
-
+            
             Label3_640 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6785,7 +6796,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =11
                 ZIndex: =45
-
+            
             inputSiteInductionClientName_2 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6812,7 +6823,7 @@ Screen_EngineerHome As screen:
                 X: =125
                 Y: =11
                 ZIndex: =46
-
+            
             Label3_641 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6823,7 +6834,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =46
                 ZIndex: =47
-
+            
             inputSiteInductionCurrentDate_2 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6850,7 +6861,7 @@ Screen_EngineerHome As screen:
                 X: =124
                 Y: =46
                 ZIndex: =48
-
+            
             Label3_642 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -6861,7 +6872,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =81
                 ZIndex: =49
-
+            
             inputSiteInductionCurrentDate_3 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6888,7 +6899,7 @@ Screen_EngineerHome As screen:
                 X: =124
                 Y: =81
                 ZIndex: =50
-
+            
             inputSiteInductionCurrentDate_4 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6915,7 +6926,7 @@ Screen_EngineerHome As screen:
                 X: =124
                 Y: =116
                 ZIndex: =51
-
+            
             inputSiteInductionCurrentDate_5 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6942,7 +6953,7 @@ Screen_EngineerHome As screen:
                 X: =124
                 Y: =150
                 ZIndex: =52
-
+            
             inputSiteInductionCurrentDate_6 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6970,7 +6981,7 @@ Screen_EngineerHome As screen:
                 X: =124
                 Y: =185
                 ZIndex: =53
-
+            
             inputSiteInductionCurrentDate_7 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -6998,7 +7009,7 @@ Screen_EngineerHome As screen:
                 X: =124
                 Y: =219
                 ZIndex: =54
-
+            
             Label3_645 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -7009,7 +7020,7 @@ Screen_EngineerHome As screen:
                 X: =394
                 Y: =46
                 ZIndex: =55
-
+            
             inputSiteInductionCurrentDate_8 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -7036,7 +7047,7 @@ Screen_EngineerHome As screen:
                 X: =509
                 Y: =46
                 ZIndex: =56
-
+            
             Label3_646 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -7047,7 +7058,7 @@ Screen_EngineerHome As screen:
                 X: =394
                 Y: =81
                 ZIndex: =57
-
+            
             inputSiteInductionCurrentDate_9 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -7073,7 +7084,7 @@ Screen_EngineerHome As screen:
                 X: =509
                 Y: =81
                 ZIndex: =58
-
+            
             Label3_647 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -7084,7 +7095,7 @@ Screen_EngineerHome As screen:
                 X: =394
                 Y: =116
                 ZIndex: =59
-
+            
             inputSiteInductionCurrentDate_10 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -7110,20 +7121,20 @@ Screen_EngineerHome As screen:
                 X: =509
                 Y: =116
                 ZIndex: =60
-
+        
         Rectangle2_142 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =Parent.Width
             Y: =340
             ZIndex: =3
-
+        
         Rectangle2_137 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =Parent.Width
             ZIndex: =4
-
+        
         TextCanvas3_51 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -7150,7 +7161,7 @@ Screen_EngineerHome As screen:
             X: =31
             Y: =0
             ZIndex: =5
-
+        
         Icon17_39 As icon:
             Color: =RGBA(255, 138, 140, 1)
             Height: =32
@@ -7168,7 +7179,7 @@ Screen_EngineerHome As screen:
             Width: =22
             X: =710
             ZIndex: =6
-
+        
         iconViewSiteDetails_7 As icon:
             Color: =RGBA(255, 255, 255, 1)
             Height: =35
@@ -7179,7 +7190,7 @@ Screen_EngineerHome As screen:
             Width: =32
             Y: =1
             ZIndex: =7
-
+        
         Label3_638 As label:
             Height: =30
             Italic: =true
@@ -7189,7 +7200,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =40
             ZIndex: =8
-
+        
         TextCanvas3_52 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -7216,7 +7227,7 @@ Screen_EngineerHome As screen:
             X: =31
             Y: =340
             ZIndex: =14
-
+        
         iconViewSiteDetails_8 As icon:
             Color: =RGBA(255, 255, 255, 1)
             Height: =35
@@ -7227,14 +7238,14 @@ Screen_EngineerHome As screen:
             Width: =32
             Y: =340
             ZIndex: =70
-
+        
         rectBackgroundPopUps_13 As rectangle:
             Fill: =RGBA(245, 245, 245, 0.51)
             Height: =697
             Visible: =varAbortService
             Width: =748
             ZIndex: =77
-
+        
         ButtonCanvas9 As Button:
             Appearance: ='ButtonCanvas.Appearance'.Transparent
             BasePaletteColor: =
@@ -7247,7 +7258,7 @@ Screen_EngineerHome As screen:
             X: =598
             Y: =341
             ZIndex: =78
-
+    
     rectViewOverlay_ServiceAction As rectangle:
         BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(255, 255, 255, 0.28)
@@ -7257,7 +7268,7 @@ Screen_EngineerHome As screen:
         X: =309
         Y: =73
         ZIndex: =11
-
+    
     containerSiteRAMS As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(106, 122, 127, 1)
         BorderThickness: =1
@@ -7272,13 +7283,13 @@ Screen_EngineerHome As screen:
         X: =481
         Y: =300
         ZIndex: =12
-
+        
         Rectangle2_143 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =445
             ZIndex: =1
-
+        
         TextCanvas3_54 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -7305,7 +7316,7 @@ Screen_EngineerHome As screen:
             X: =31
             Y: =0
             ZIndex: =2
-
+        
         Icon17_41 As icon:
             Color: =RGBA(255, 138, 140, 1)
             Height: =32
@@ -7317,7 +7328,7 @@ Screen_EngineerHome As screen:
             Width: =22
             X: =410
             ZIndex: =3
-
+        
         iconViewSiteDetails_10 As icon:
             Color: =RGBA(255, 255, 255, 1)
             Height: =35
@@ -7328,7 +7339,7 @@ Screen_EngineerHome As screen:
             Width: =32
             Y: =1
             ZIndex: =4
-
+        
         Label3_648 As label:
             Italic: =true
             Size: =11
@@ -7339,7 +7350,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =40
             ZIndex: =5
-
+        
         checkSiteInductionConfirmation_5 As Checkbox:
             AccessibleLabel: =""
             BasePaletteColor: =
@@ -7366,7 +7377,7 @@ Screen_EngineerHome As screen:
             X: =11
             Y: =87
             ZIndex: =6
-
+        
         ButtonCanvas8_20 As Button:
             AcceptsFocus: =true
             AccessibleLabel: =""
@@ -7382,7 +7393,7 @@ Screen_EngineerHome As screen:
                     DisplayMode.Disabled,
                     
                     DisplayMode.Edit
-                      
+                    
                     )
             Font: =""
             FontColor: =
@@ -7429,7 +7440,7 @@ Screen_EngineerHome As screen:
             X: =118
             Y: =138
             ZIndex: =7
-
+    
     containerEngineerServiceAction_1 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(106, 122, 127, 1)
         Fill: =RGBA(255, 255, 255, 1)
@@ -7443,7 +7454,7 @@ Screen_EngineerHome As screen:
         X: =329
         Y: =188
         ZIndex: =13
-
+        
         Container5_2 As groupContainer.manualLayoutContainer:
             Height: =295
             LayoutGridColumnMinWidth: =0
@@ -7454,7 +7465,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =118
             ZIndex: =1
-
+            
             checkSiteInductionConfirmation_6 As Checkbox:
                 AccessibleLabel: =""
                 BasePaletteColor: =
@@ -7481,7 +7492,7 @@ Screen_EngineerHome As screen:
                 X: =22
                 Y: =250
                 ZIndex: =1
-
+            
             Label3_653 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -7491,7 +7502,7 @@ Screen_EngineerHome As screen:
                 X: =400
                 Y: =80
                 ZIndex: =3
-
+            
             attachmentSiteInductionForm_3 As attachments:
                 AddAttachmentText: ="Upload file"
                 AttachedFileListLabel: ="Attached files"
@@ -7518,7 +7529,7 @@ Screen_EngineerHome As screen:
                 X: =400
                 Y: =115
                 ZIndex: =5
-
+            
             Label3_666 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -7528,7 +7539,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =10
                 ZIndex: =6
-
+            
             inputSiteInductionComments_6 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -7555,7 +7566,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =42
                 ZIndex: =7
-
+            
             Label3_667 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -7565,7 +7576,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =80
                 ZIndex: =8
-
+            
             inputActivityCompletionComments As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -7592,7 +7603,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =112
                 ZIndex: =9
-
+            
             ButtonCanvas8_21 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -7608,7 +7619,7 @@ Screen_EngineerHome As screen:
                         DisplayMode.Disabled,
                         
                         DisplayMode.Edit
-                          
+                        
                         )
                 Font: =""
                 FontColor: =
@@ -7683,7 +7694,7 @@ Screen_EngineerHome As screen:
                 X: =235
                 Y: =250
                 ZIndex: =10
-
+            
             ButtonCanvas8_22 As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -7762,7 +7773,7 @@ Screen_EngineerHome As screen:
                 X: =448
                 Y: =250
                 ZIndex: =11
-
+            
             Label3_668 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =33
@@ -7772,7 +7783,7 @@ Screen_EngineerHome As screen:
                 X: =400
                 Y: =12
                 ZIndex: =81
-
+            
             inputSiteInductionComments_8 As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -7799,20 +7810,20 @@ Screen_EngineerHome As screen:
                 X: =400
                 Y: =45
                 ZIndex: =82
-
+        
         Rectangle2_145 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =748
             Y: =70
             ZIndex: =2
-
+        
         Rectangle2_146 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =Parent.Width
             ZIndex: =3
-
+        
         TextCanvas3_72 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -7839,7 +7850,7 @@ Screen_EngineerHome As screen:
             X: =32
             Y: =0
             ZIndex: =4
-
+        
         Icon17_42 As icon:
             Color: =RGBA(255, 138, 140, 1)
             Height: =32
@@ -7854,7 +7865,7 @@ Screen_EngineerHome As screen:
             Width: =22
             X: =710
             ZIndex: =5
-
+        
         iconViewSiteDetails_11 As icon:
             Color: =RGBA(255, 255, 255, 1)
             Height: =35
@@ -7865,7 +7876,7 @@ Screen_EngineerHome As screen:
             Width: =32
             Y: =1
             ZIndex: =6
-
+        
         Label3_676 As label:
             Height: =30
             Italic: =true
@@ -7875,7 +7886,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =40
             ZIndex: =7
-
+        
         TextCanvas3_73 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -7902,7 +7913,7 @@ Screen_EngineerHome As screen:
             X: =32
             Y: =70
             ZIndex: =8
-
+        
         iconViewSiteDetails_12 As icon:
             Color: =RGBA(255, 255, 255, 1)
             Height: =35
@@ -7915,14 +7926,14 @@ Screen_EngineerHome As screen:
             Width: =32
             Y: =70
             ZIndex: =9
-
+        
         rectBackgroundPopUps_14 As rectangle:
             Fill: =RGBA(245, 245, 245, 0.51)
             Height: =697
             Visible: =varAbortService
             Width: =748
             ZIndex: =10
-
+    
     containerEngineerAbortService As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(106, 122, 127, 1)
         Fill: =RGBA(255, 255, 255, 1)
@@ -7936,7 +7947,7 @@ Screen_EngineerHome As screen:
         X: =309
         Y: =376
         ZIndex: =14
-
+        
         Container5_3 As groupContainer.manualLayoutContainer:
             Height: =252
             LayoutGridColumnMinWidth: =0
@@ -7947,7 +7958,7 @@ Screen_EngineerHome As screen:
             X: =10
             Y: =73
             ZIndex: =2
-
+            
             Label3_662 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -7967,7 +7978,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =4
                 ZIndex: =72
-
+            
             checkEngineerAbortService As Checkbox:
                 BasePaletteColor: =
                 DisplayMode: =DisplayMode.Edit
@@ -7989,7 +8000,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =50
                 ZIndex: =73
-
+            
             btnEngineerAbortService As Button:
                 AcceptsFocus: =true
                 AccessibleLabel: =""
@@ -8014,13 +8025,17 @@ Screen_EngineerHome As screen:
                 Layout: ="Icon before"
                 OnSelect: |-
                     =
-                    Patch(
-                        BESA_BookingElements,
-                        LookUp(BESA_BookingElements, BESA_BookingElement = varActionRecord.'Booking Element LookUp'.BESA_BookingElement),
-                        {
-                            'Booking Element Status':    "Aborted",
-                            'Engineer Comments': inputAbortServiceReason.Text
-                        }
+                    // SQLite-safe: ForAll buffer for BESA_BookingElements Patch
+                    ClearCollect(_abortBEBuf, {pk: Text(varActionRecord.'Booking Element LookUp'.BESA_BookingElement)});
+                    ForAll(_abortBEBuf As g,
+                        With({rec: First(Filter(BESA_BookingElements, Text(BESA_BookingElement) = g.pk))},
+                            If(!IsBlank(rec),
+                                Patch(BESA_BookingElements, rec, {
+                                    'Booking Element Status': "Aborted",
+                                    'Engineer Comments': inputAbortServiceReason.Text
+                                })
+                            )
+                        )
                     );
                     
                     
@@ -8054,8 +8069,8 @@ Screen_EngineerHome As screen:
                     
                     If(
                         checkEngineerAbortService.Checked,
-                    
-                    
+                        
+                        
                         ForAll(
                             Filter(
                                 col_EngineerActionList,
@@ -8069,8 +8084,8 @@ Screen_EngineerHome As screen:
                                 { 'Action Status': "Aborted" }
                             )
                         );
-                    
-                    
+                        
+                        
                         ForAll(
                             Filter(
                                 col_ShiftTimeline,
@@ -8087,8 +8102,8 @@ Screen_EngineerHome As screen:
                                 { 'Action Status': "Aborted" }
                             )
                         );
-                    
-                    
+                        
+                        
                         ForAll(
                             Filter(
                                 col_EngineerActionList,
@@ -8096,13 +8111,14 @@ Screen_EngineerHome As screen:
                                 'Action Type' = "Service" &&
                                 ActionGUID <> varActionRecord.ActionGUID
                             ) As itemOtherService,
-                            Patch(
-                                BESA_BookingElements,
-                                LookUp(BESA_BookingElements, BESA_BookingElement = itemOtherService.'Booking Element LookUp'.BESA_BookingElement),
-                                {
-                                    'Booking Element Status':    "Aborted",
-                                    'Engineer Comments': inputAbortServiceReason.Text
-                                }
+                            // SQLite-safe: First(Filter) inside ForAll body
+                            With({beRec: First(Filter(BESA_BookingElements, Text(BESA_BookingElement) = Text(itemOtherService.'Booking Element LookUp'.BESA_BookingElement)))},
+                                If(!IsBlank(beRec),
+                                    Patch(BESA_BookingElements, beRec, {
+                                        'Booking Element Status': "Aborted",
+                                        'Engineer Comments': inputAbortServiceReason.Text
+                                    })
+                                )
                             )
                         )
                     );
@@ -8115,15 +8131,15 @@ Screen_EngineerHome As screen:
                         CountRows(
                             Filter(col_ShiftTimeline, 'Shift ID' = varActionRecord.'Shift ID' && RowType = "Action" && ('Action Status' = "Completed" || 'Action Status' = "Aborted"))
                         ),
-                    
-                    
+                        
+                        
                         Patch(
                             col_ShiftTimeline,
                             LookUp(col_ShiftTimeline, 'Shift ID' = varActionRecord.'Shift ID' && RowType = "Shift"),
                             { 'Action Status': "Completed" }
                         );
-                    
-                      
+                        
+                        
                         Patch(
                             BESA_Shifts,
                             LookUp(BESA_Shifts, 'Shift ID' = varActionRecord.'Shift ID'),
@@ -8147,7 +8163,7 @@ Screen_EngineerHome As screen:
                 X: =256
                 Y: =198
                 ZIndex: =74
-
+            
             Label3_663 As label:
                 FontWeight: =FontWeight.Semibold
                 Height: =35
@@ -8157,7 +8173,7 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =89
                 ZIndex: =75
-
+            
             inputAbortServiceReason As text:
                 BorderColor: =RGBA(139, 154, 159, 1)
                 BorderThickness: =0
@@ -8184,13 +8200,13 @@ Screen_EngineerHome As screen:
                 X: =10
                 Y: =124
                 ZIndex: =76
-
+        
         Rectangle2_144 As rectangle:
             Fill: =RGBA(7, 110, 108, 1)
             Height: =35
             Width: =Parent.Width
             ZIndex: =4
-
+        
         TextCanvas3_53 As Text:
             Align: ='TextCanvas.Align'.Start
             AutoHeight: =false
@@ -8217,7 +8233,7 @@ Screen_EngineerHome As screen:
             X: =32
             Y: =0
             ZIndex: =5
-
+        
         Icon17_40 As icon:
             Color: =RGBA(255, 138, 140, 1)
             Height: =32
@@ -8231,7 +8247,7 @@ Screen_EngineerHome As screen:
             Width: =22
             X: =710
             ZIndex: =6
-
+        
         iconViewSiteDetails_9 As icon:
             Color: =RGBA(255, 255, 255, 1)
             Height: =35
@@ -8242,7 +8258,7 @@ Screen_EngineerHome As screen:
             Width: =32
             Y: =1
             ZIndex: =7
-
+        
         Label3_661 As label:
             Height: =30
             Italic: =true

@@ -23,13 +23,14 @@ This is an unpacked Power Apps Canvas App source (**BESA_OS Engineer V01 - Victo
 | Screen | Purpose |
 |--------|---------|
 | `Screen_EngineerHome` | Main screen — shift timeline, action list, navigation to all workflows |
-| `Screen_EngineerAcoustic` / `_1` | Acoustic testing data entry (two related screens) |
+| `Screen_EngineerAcoustic` | Acoustic testing data entry OLD - **IGNORE, do not read or modify**|
+| `Screen_EngineerAcoustic_1` | Acoustic testing data entry |
 | `Screen_EngineerHome_Zzz` | Legacy/dev screen — **IGNORE, do not read or modify** |
 | `Screen_StartUpCollections` | Startup collection builder (unused) — **IGNORE, do not read or modify** |
-| `Screen_EngineerRiskAssessment` | Risk assessment form |
-| `scrRAMSSignOff` | RAMs sign-off workflow |
-| `Screen_EngineerPermTest_V2_1` | Permeability test screen (air tightness testing) |
-| `Screen2` | Dev/scratch screen |
+| `Screen_EngineerRiskAssessment` | Risk assessment form - **IGNORE, do not read or modify**|
+| `scrRAMSSignOff` | RAMs sign-off workflow - **IGNORE, do not read or modify**|
+| `Screen_EngineerPermTest_V2_1` | Permeability test screen (air tightness testing) - **IGNORE, do not read or modify**|
+| `Screen2` | Dev/scratch screen - **IGNORE, do not read or modify**|
 
 ## Dataverse Tables (all prefixed `BESA_`)
 
@@ -359,3 +360,61 @@ Multiple `Set(varActionRecord, LookUp(BESA_Tests, BESA_Test = varActionRecord.BE
 | `IsBlank()` not `Not()` for nullable booleans in SQLite | `NOT null = null` silently excludes rows |
 | Remove `Refresh(Table)` before any ClearCollect on same table | Async race → 0 rows |
 | Nav col comparison in Filter: `Text('LookUp'.PK_Col) = textVar` | Not `'LookUp' = record`; record comparison is a compile error |
+
+## Offline Diagnostics Tool
+
+**Script:** `offline_diagnostics.py` — automated scanner for Dataverse SQLite anti-patterns in `.fx.yaml` files.
+
+### Usage
+
+```bash
+python offline_diagnostics.py              # active screens + components only
+python offline_diagnostics.py --all        # ALL .fx.yaml files (including IGNORE screens)
+python offline_diagnostics.py --json       # JSON output for programmatic use
+python offline_diagnostics.py file.fx.yaml # specific file(s)
+```
+
+### What it checks
+
+| Rule | Severity | Description |
+|------|----------|-------------|
+| AP2 | HIGH | `Set()`/`IfError()` inside ForAll body |
+| AP4 | HIGH/MED | Standalone `LookUp` on restricted (HIGH) or flaky (MED) tables |
+| AP5 | HIGH | `ParseJSON` without `Coalesce` guard |
+| AP6 | MEDIUM | `Not()` on nullable boolean (SQLite null semantics) |
+| AP7 | MEDIUM | `AddColumns` wrapping Dataverse Filter |
+| AP8 | MED/LOW | `Refresh()` before ClearCollect (MED) or standalone (LOW) |
+| AP9 | HIGH | `ClearCollect` on restricted tables |
+| AP10 | HIGH | `Text()` wrapping date comparison |
+| AP11 | MEDIUM | Direct Dataverse query in auto-evaluating display property |
+| INFO | LOW | `LookUp` as Patch target (OK for BESA_TestRuns) |
+| AP5-guarded | INFO | `ParseJSON` with `IsBlank()` guard — safe but noted |
+
+### Latest scan (2026-05-20, active screens only)
+
+```
+Files: App.fx.yaml, Screen_EngineerAcoustic_1.fx.yaml, Screen_EngineerHome.fx.yaml + 4 components
+TOTAL: 71 findings -- 11 HIGH, 15 MEDIUM, 22 LOW, 23 INFO
+```
+
+**HIGH (11):**
+- AP4: 5x `LookUp(BESA_BookingElements)` in Screen_EngineerHome (lines 2498, 3065, 3440, 3469, 3559)
+- AP5: 6x `ParseJSON` without Coalesce in Screen_EngineerAcoustic_1 (lines 669, 707, 2231, 2282, 9182, 9307)
+
+**MEDIUM (15):**
+- AP11: 6x Dataverse query in display property (Text/Items/Visible/Default) across both screens
+- AP4: 9x `LookUp(BESA_Shifts)` in Screen_EngineerHome (OnSelect handlers + 1 Default property)
+
+**LOW (22):**
+- AP8: 2x `Refresh(BESA_ReferencePoints)` in Screen_EngineerAcoustic_1
+- INFO: 20x `LookUp(BESA_TestRuns)` as Patch target — BESA_TestRuns OData is reliable, acceptable
+
+**INFO (23):**
+- AP5-guarded: 23x `ParseJSON(part.*)` and `ParseJSON('Settings Json')` with `IsBlank()` guards — safe
+
+### Fix priority for next session
+
+1. **AP4 HIGH** — 5x `LookUp(BESA_BookingElements)` in Screen_EngineerHome: Replace with ForAll buffer + `First(Filter())`
+2. **AP5 HIGH** — 6x unguarded `ParseJSON` in Screen_EngineerAcoustic_1: Wrap in `Coalesce(..., "{}")`
+3. **AP4 MEDIUM** — 9x `LookUp(BESA_Shifts)` in Screen_EngineerHome: Replace with ForAll buffer (flaky OData)
+4. **AP11 MEDIUM** — 6x display property Dataverse queries: Migrate to local collection references

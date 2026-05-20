@@ -21,7 +21,7 @@ ComponentDefinitions:
           Properties:
             BorderColor: =RGBA(0, 18, 107, 1)
             Items: =col_Menu
-            TemplateSize: |+
+            TemplateSize: |
               =40
             Width: =Parent.Width
             Y: =135

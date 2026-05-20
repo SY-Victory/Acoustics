@@ -18,7 +18,7 @@
         PaddingTop: =16
         Width: =Parent.Width
         ZIndex: =1
-
+        
         HeaderContainer1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =App.Theme.Colors.Primary
@@ -42,7 +42,7 @@
             RadiusTopLeft: =8
             RadiusTopRight: =8
             ZIndex: =2
-
+            
             AppName1 As Text:
                 Align: ='TextCanvas.Align'.Start
                 AlignInContainer: =AlignInContainer.Stretch
@@ -69,7 +69,7 @@
                 X: =0
                 Y: =0
                 ZIndex: =3
-
+            
             "'Offline sync Icon1' As Button":
                 AccessibleLabel: ="Offline sync status icon"
                 Align: =Align.Left
@@ -105,7 +105,7 @@
                 X: =0
                 Y: =0
                 ZIndex: =4
-
+        
         MainSectionContainer1 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
